@@ -1,3 +1,14 @@
+piwik (1.12-2) stable; urgency=high
+
+  * reverted the removal of licenses files so piwik if full vanilla. this was
+    necessary (sort of) because piwik checks the md5 of these license files
+    and complains if missing during the installation, the system check or
+    upgrade
+  * updated lintian rules file even if it doesn't find all license files
+  * updated Makefile accordingly
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Mon, 29 Jul 2013 11:54:47 +1000
+
 piwik (1.12-1) stable; urgency=high
 
   * added dep on php5-cli for cron archiving

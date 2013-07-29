@@ -1,5 +1,3 @@
-#piwik: maintainer-script-ignores-errors postinst
-#piwik: maintainer-script-ignores-errors postrm
 piwik: embedded-php-library usr/share/piwik/core/HTMLPurifier.php
 piwik: embedded-php-library usr/share/piwik/core/ViewDataTable/Sparkline.php
 piwik: embedded-php-library usr/share/piwik/core/Visualization/Sparkline.php
@@ -10,3 +8,18 @@ piwik: embedded-php-library usr/share/piwik/libs/sparkline/lib/Sparkline.php
 piwik: embedded-javascript-library usr/share/piwik/libs/jquery/jquery.history.js
 piwik: embedded-javascript-library usr/share/piwik/libs/jquery/jquery.js
 piwik: embedded-javascript-library usr/share/piwik/plugins/SegmentEditor/templates/jquery.mousewheel.js
+piwik: extra-license-file usr/share/piwik/js/LICENSE.txt
+piwik: extra-license-file usr/share/piwik/libs/PEAR/LICENSE
+piwik: extra-license-file usr/share/piwik/libs/PiwikTracker/LICENSE.txt
+piwik: extra-license-file usr/share/piwik/libs/Zend/LICENSE.txt
+piwik: extra-license-file usr/share/piwik/libs/cssmin/MIT-LICENSE.txt
+piwik: extra-license-file usr/share/piwik/libs/jqplot/MIT-LICENSE.txt
+piwik: extra-license-file usr/share/piwik/plugins/ExampleUI/images/icons-planet/LICENSE
+piwik: extra-license-file usr/share/piwik/plugins/SecurityInfo/LICENSE
+piwik: extra-license-file /usr/share/piwik/libs/jquery/MIT-LICENSE-history.txt
+piwik: extra-license-file /usr/share/piwik/libs/jquery/MIT-LICENSE-jqueryui.txt
+piwik: extra-license-file /usr/share/piwik/libs/jquery/MIT-LICENSE-placeholder.txt
+piwik: extra-license-file /usr/share/piwik/libs/jquery/MIT-LICENSE-jquery.txt
+piwik: extra-license-file /usr/share/piwik/libs/jquery/MIT-LICENSE-scrollto.txt
+piwik: extra-license-file /usr/share/piwik/libs/jquery/LICENSE-sizzle.txt
+piwik: extra-license-file /usr/share/piwik/libs/sparkline/LICENSE-BSD.txt

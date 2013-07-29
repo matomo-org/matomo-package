@@ -26,23 +26,6 @@ fixperms:
 		find $(DESTDIR) -type f -exec chmod 0644 {} \;
 		chmod 0755 $(DESTDIR)/usr/share/piwik/misc/cron/archive.sh
 
-removelicences:
-		rm $(DESTDIR)/usr/share/piwik/js/LICENSE.txt
-		rm $(DESTDIR)/usr/share/piwik/plugins/SecurityInfo/LICENSE
-		rm $(DESTDIR)/usr/share/piwik/plugins/ExampleUI/images/icons-planet/LICENSE
-		rm $(DESTDIR)/usr/share/piwik/libs/PiwikTracker/LICENSE.txt
-		rm $(DESTDIR)/usr/share/piwik/libs/jquery/MIT-LICENSE-history.txt
-		rm $(DESTDIR)/usr/share/piwik/libs/jquery/MIT-LICENSE-jqueryui.txt
-		rm $(DESTDIR)/usr/share/piwik/libs/jquery/MIT-LICENSE-placeholder.txt
-		rm $(DESTDIR)/usr/share/piwik/libs/jquery/MIT-LICENSE-jquery.txt
-		rm $(DESTDIR)/usr/share/piwik/libs/jquery/MIT-LICENSE-scrollto.txt
-		rm $(DESTDIR)/usr/share/piwik/libs/jquery/LICENSE-sizzle.txt
-		rm $(DESTDIR)/usr/share/piwik/libs/jqplot/MIT-LICENSE.txt
-		rm $(DESTDIR)/usr/share/piwik/libs/cssmin/MIT-LICENSE.txt
-		rm $(DESTDIR)/usr/share/piwik/libs/Zend/LICENSE.txt
-		rm $(DESTDIR)/usr/share/piwik/libs/PEAR/LICENSE
-		rm $(DESTDIR)/usr/share/piwik/libs/sparkline/LICENSE-BSD.txt
-
 builddeb:
 		dpkg-buildpackage -i -I -rfakeroot -ai386
 

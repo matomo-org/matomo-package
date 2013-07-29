@@ -1,0 +1,5 @@
+debian/piwik
+debian/piwik.debhelper.log
+debian/piwik.substvars
+debian/files
+piwik

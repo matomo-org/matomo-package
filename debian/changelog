@@ -1,0 +1,39 @@
+piwik (1.12-1) stable; urgency=high
+
+  * added dep on php5-cli for cron archiving
+  * added 'clean' to Makefile
+  * bumped to version 1.12
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Sat, 27 Jul 2013 17:50:16 +1000
+
+piwik (1.11-3) stable; urgency=high
+
+  * removed apache/lighttp reload when piwik is removed
+  * installed cron.d file with including extra comments and output redirection
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Sat, 27 Jul 2013 15:57:13 +1000
+
+piwik (1.11-2) stable; urgency=high
+
+  * added php5-geoip module for proper user geolocation
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Sat, 27 Jul 2013 15:30:52 +1000
+
+piwik (1.11-1) stable; urgency=high
+
+  * added tmp/tcpdf directory
+  * when removed, web server is restarted
+  * fixed permissions on /etc/piwik
+  * fixed permissions on /var/lib/piwik
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Sat, 27 Jul 2013 14:58:51 +1000
+
+piwik (1.11) stable; urgency=high
+
+  * Initial release.
+  * Starting with piwik 1.11
+  * adapted work done from debian.org
+  * symlink for config/ to /etc/piwik
+  * lots of other fixes
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Sat, 27 Jul 2013 09:34:42 +1000

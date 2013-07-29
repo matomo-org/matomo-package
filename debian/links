@@ -1,0 +1,6 @@
+#
+# config file
+etc/piwik							usr/share/piwik/config
+#
+# Symlink tmp
+var/lib/piwik/data/tmp						usr/share/piwik/tmp

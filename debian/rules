@@ -1,0 +1,56 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+
+d = debian/piwik
+
+%:
+	dh $@
+
+build: build-stamp
+build-stamp:
+	rm -f debian/files
+	dh_testdir
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_prep 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+	$(MAKE) checkfetch DESTDIR=$(CURDIR)/$d
+	dh_install
+	mkdir -p ${d}/usr/share/lintian/overrides
+	cp -a debian/lintian.rules ${d}/usr/share/lintian/overrides/piwik
+	dh_link
+
+
+# build architecture-independent files
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_installdirs -i
+	dh_install -i
+	dh_installcron
+	dh_installchangelogs
+	dh_installdocs
+	dh_installdebconf
+	dh_compress
+	dh_link
+	dh_fixperms
+	$(MAKE) fixperms DESTDIR=$(CURDIR)/$d
+	$(MAKE) removelicences DESTDIR=$(CURDIR)/$d
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+# build architecture-dependent files
+binary-arch: build install
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

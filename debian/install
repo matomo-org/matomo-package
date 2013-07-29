@@ -5,14 +5,13 @@ piwik/core					usr/share/piwik/
 piwik/index.php					usr/share/piwik/
 piwik/js					usr/share/piwik/
 piwik/lang					usr/share/piwik/
-piwik/LEGALNOTICE				usr/share/doc/piwik
 piwik/libs					usr/share/piwik/
 piwik/misc					usr/share/piwik/
 piwik/piwik.js					usr/share/piwik/
 piwik/piwik.php					usr/share/piwik/
 piwik/plugins					usr/share/piwik/
 piwik/composer.json				usr/share/doc/piwik/
-piwik/LEGALNOTICE				usr/share/doc/piwik/
+piwik/LEGALNOTICE				usr/share/piwik/
 piwik/README.md					usr/share/doc/piwik/
 piwik/tests					usr/share/piwik/
 piwik/themes					usr/share/piwik/

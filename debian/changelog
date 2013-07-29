@@ -1,3 +1,9 @@
+piwik (1.12-4) stable; urgency=low
+
+  * minor adjustments for the missing files
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Mon, 29 Jul 2013 19:22:52 +1000
+
 piwik (1.12-3) stable; urgency=high
 
   * added links to usr/share/piwik so the system is 100% clean

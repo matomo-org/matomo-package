@@ -7,5 +7,4 @@ var/lib/piwik/data/tmp						usr/share/piwik/tmp
 #
 # Other files
 usr/share/doc/piwik/composer.json				usr/share/piwik/composer.json
-usr/share/doc/piwik/LEGALNOTICE					usr/share/piwik/LEGALNOTICE
 usr/share/doc/piwik/README.md					usr/share/piwik/README.md

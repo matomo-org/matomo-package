@@ -1,3 +1,9 @@
+piwik (1.12-3) stable; urgency=high
+
+  * added links to usr/share/piwik so the system is 100% clean
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Mon, 29 Jul 2013 19:12:20 +1000
+
 piwik (1.12-2) stable; urgency=high
 
   * reverted the removal of licenses files so piwik if full vanilla. this was

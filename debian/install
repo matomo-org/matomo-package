@@ -11,6 +11,8 @@ piwik/misc					usr/share/piwik/
 piwik/piwik.js					usr/share/piwik/
 piwik/piwik.php					usr/share/piwik/
 piwik/plugins					usr/share/piwik/
+piwik/composer.json				usr/share/doc/piwik/
+piwik/LEGALNOTICE				usr/share/doc/piwik/
 piwik/README.md					usr/share/doc/piwik/
 piwik/tests					usr/share/piwik/
 piwik/themes					usr/share/piwik/

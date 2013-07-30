@@ -1,8 +1,15 @@
-piwik (1.12-4) stable; urgency=low
+piwik (1.12-5) stable; urgency=low
+
+  * added a proper README.Debian to detail installation process when it comes
+    to database privileges and apache configuration
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Wed, 31 Jul 2013 09:38:38 +1000
+
+piwik (1.12-4) stable; urgency=high
 
   * minor adjustments for the missing files
 
- -- Aurelien Requiem <aurelien@requiem.fr>  Mon, 29 Jul 2013 19:22:52 +1000
+ -- Aurelien Requiem <aurelien@requiem.fr>  Wed, 31 Jul 2013 09:37:56 +1000
 
 piwik (1.12-3) stable; urgency=high
 

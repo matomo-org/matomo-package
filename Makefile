@@ -39,6 +39,9 @@ changelog:
 		debchange --changelog debian/changelog --force-distribution $(DIST) --urgency $(URGENCY) -r
 		debchange --changelog debian/changelog -a 
 
+history:
+		bash debian/scripts/history.sh $(PW_VERSION)
+
 clean:
 		rm -rf $(ARCHIVE)
 		rm -rf piwik

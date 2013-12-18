@@ -1,7 +1,7 @@
 # Very basic Makefile
 
 URL		= http://builds.piwik.org/
-PW_VERSION	= 1.12
+PW_VERSION	= 2.0
 ARCHIVE		= piwik-$(PW_VERSION).tar.gz
 
 DESTDIR		= /
@@ -19,12 +19,20 @@ ETC_OBJ		=
 checkfetch:
 		if [ ! -f "$(ARCHIVE)" ]; then wget $(URL)/$(ARCHIVE); fi
 		if [ ! -d "piwik" ]; then tar -zxf $(ARCHIVE); fi
-		rm -f "How to install Piwik.html"
+		rm -f 'How to install Piwik.html'
+		sed -i '/\.gitignore/d' piwik/config/manifest.inc.php
+		find piwik/ -type f -name .gitignore -exec rm -f {} \;
+
 
 fixperms:
 		find $(DESTDIR) -type d -exec chmod 0755 {} \;
 		find $(DESTDIR) -type f -exec chmod 0644 {} \;
 		chmod 0755 $(DESTDIR)/usr/share/piwik/misc/cron/archive.sh
+		chmod 0755 $(DESTDIR)/usr/share/piwik/console
+		chmod 0755 $(DESTDIR)/usr/share/piwik/misc/translationTool.sh
+		chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/lessify
+		chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/package.sh
+		chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/plessc
 
 builddeb:
 		dpkg-buildpackage -i -I -rfakeroot -ai386

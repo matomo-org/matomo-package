@@ -6,5 +6,6 @@ etc/piwik							usr/share/piwik/config
 var/lib/piwik/data/tmp						usr/share/piwik/tmp
 #
 # Other files
-usr/share/doc/piwik/composer.json				usr/share/piwik/composer.json
+#usr/share/doc/piwik/composer.json				usr/share/piwik/composer.json
+#usr/share/doc/piwik/composer.lock				usr/share/piwik/composer.lock
 usr/share/doc/piwik/README.md					usr/share/piwik/README.md

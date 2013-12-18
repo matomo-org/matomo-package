@@ -6,32 +6,40 @@ set -e
 chown -R www-data:www-data /var/lib/piwik/data/tmp
 chmod -R 0755 /var/lib/piwik/data/tmp
 
-chgrp www-data /etc/piwik 
-chmod 0775 /etc/piwik 
+chgrp www-data /etc/piwik
+chmod 0775 /etc/piwik
 
-chmod 0644 /etc/piwik/*.conf 
-chmod 0664 /etc/piwik/*.php 
-chgrp www-data /etc/piwik/*.php 
-chmod g+w /etc/piwik 
+chmod 0644 /etc/piwik/*.conf
+chmod 0664 /etc/piwik/*.php
+chgrp www-data /etc/piwik/*.php
+chmod g+w /etc/piwik
 
-if [ ! -f /etc/lighttpd/conf-available/50-piwik.conf ]; 
+if which lighty-enable-mod >/dev/null 2>&1 ;
 then
-	if which lighty-enable-mod >/dev/null 2>&1 ;
+	if [ ! -f /etc/lighttpd/conf-available/50-piwik.conf ];
 	then
 		ln -s /etc/piwik/lighttpd.conf /etc/lighttpd/conf-available/50-piwik.conf
 		invoke-rc.d lighttpd reload 3>/dev/null || true
-	else
-		echo "Lighttpd not installed, skipping"
 	fi
+	echo "  * Check Piwik web configuration in /etc/lighttpd/conf-available/50-piwik.conf"
+else
+	echo "Lighttpd not installed, skipping"
 fi
 
-echo "Trying apache2 configuration"
-if [ -d /etc/apache2/conf.d ] && [ ! -e /etc/apache2/conf.d/piwik.conf ];
+
+if [ -d "/etc/apache2/conf.d" ]
 then
-	ln -s /etc/piwik/apache.conf /etc/apache2/conf.d/piwik.conf
-	invoke-rc.d apache2 reload 3>/dev/null || true
+	if [ ! -e /etc/apache2/conf.d/piwik.conf ];
+	then
+		ln -s /etc/piwik/apache.conf /etc/apache2/conf.d/piwik.conf
+		invoke-rc.d apache2 reload 3>/dev/null || true
+	fi
+	echo "  * Check Piwik web configuration in /etc/apache2/conf.d/piwik.conf"
+else
+	echo "Apache2 not installed, skipping"
 fi
 
+echo "  * Piwik main configuration files are stored in /etc/piwik/"
 
 #DEBHELPER#
 

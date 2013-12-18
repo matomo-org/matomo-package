@@ -1,3 +1,279 @@
+piwik (2.0-1) stable; urgency=high
+
+  * changelog retrived from http://piwik.org/changelog/piwik-2-0/
+  * Theming: Let Artists change the Look and Feel of Piwik! (Closes:
+    #3942)
+  * New Default Theme design for Piwik 2: Morpheus (Closes: #4127)
+  * Add a new column in all reports for % percentage of visits (Closes:
+    #1816)
+  * New "Visitor Profile" report showing all info about a specific
+    Visitor (Closes: #3089)
+  * Anonymize IP should anonymize IPv6 addresses (Closes: #3710)
+  * Make "All Websites Dashboard" usable with 20,000+ websites (Closes:
+    #3124)
+  * Option to use raw IP for more accurate Geo location instead of the
+    anonymized IP (Closes: #4273)
+  * Full support of segmentation for Ecommerce including Goals.getItems*
+    APIs (Closes: #2781)
+  * Make sure Piwik works on IE8+ (Closes: #4300)
+  * Plugins Marketplace project, available at plugins.piwik.org (Closes:
+    #4119)
+  * Piwik Plugins Marketplace in Core: list, install and manage new
+    Third Party Plugins (Closes: #4053)
+  * Make Plugins and Themes listings clear and beautiful (Closes: #4367)
+  * Create Github webhook for Piwik Plugins to release new versions
+    (Closes: #4342)
+  * Move some core plugins to the Marketplace (Closes: #4120)
+  * New Treemap Visualization plugin (Closes: #4077)
+  * New LeftMenu plugin which move the horizontal menu to a vertical one
+    (Closes: #4081)
+  * Upgrade Piwik 2.0 codebase to PHP 5.3 (Closes: #3741)
+  * Convert Piwik classes (core + plugins) to use PHP Namespaces
+    (Closes: #4059)
+  * Migrate our templating engine from Smarty to Twig (Closes: #4019)
+  * Migrate CSS to LESS for easier Theming (eg. Color customization
+    refactored) (Closes: #4052)
+  * Review list of Event names, Piwik 2 plugin hooks (Closes: #4134)
+  * Convert Translations files of core and plugin to use simple json
+    format (Closes: #4086)
+  * Update jQuery / jQueryUI & jqPlot (Closes: #3960)
+  * Check Piwik 2.0 runs well on WAMP (Closes: #4131)
+  * Remove all files called functions.php and use static helpers instead
+    (Closes: #4202)
+  * Use Singleton parent class app-wide (Closes: #4208)
+  * Increase minimum PHP version required to 5.3.2 (Closes: #4265)
+  * refactor ArchiveProcessor & Plugins Archiver mechanism (Closes:
+    #4278)
+  * Update TCPDF to latest version (Closes: #4288)
+  * Make it easier to profile via XHProf (Closes: #4310)
+  * Remove Zend_Registry from Core/Plugins (Closes: #4188)
+  * Remove compat code for PHP older than 5.3 (Closes: #4113)
+  * New Screenshot tests for Continuous User Interface Testing (Closes:
+    #4087)
+  * Run Piwik.js javascript tests on continuous integration (Closes:
+    #4225)
+  * Enable Continuous Integration on MYSQLI (Closes: #4233)
+  * New site developer.piwik.org for listing Piwik Platform Developer
+    docs (Closes: #4266)
+  * Migrate dev docs from piwik.org to developer.piwik.org (Closes:
+    #4279)
+  * Provide useful Plugin Developer Documentation (Closes: #4122)
+  * Create Framework Documentation for developers (php source code doc)
+    (Closes: #4200)
+  * Document Hook Events for plugin developers (Closes: #4199)
+  * Automatically generate PHP Source code documentation for developers
+    (classes, methods) (Closes: #4194)
+  * Update ExampleUI plugin with latest widget APIs (Closes: #3994)
+  * Separate Active plugins from Inactive plugins in the Plugins page
+    (Closes: #4223)
+  * Plugin metadata in piwik.json file (Closes: #4128)
+  * Piwik Plugin files generator to easily create your first plugin!
+    (Closes: #4121)
+  * Allow plugins to define new Visualizations and custom ViewDataTable
+    (Closes: #4041)
+  * Allow plugins to bundle unit tests files (Closes: #1673)
+  * Plugins API: let plugins customize datatable footer icons (Closes:
+    #3317)
+  * Let Plugin developers easily store Settings and customize them via
+    UI (Closes: #4126)
+  * New Notification service: Let Plugin developers easily output info,
+    notice, warning, error messages on screen (Closes: #4179)
+  * Plugins define translations they need as a hook: Remove _js hack!
+    (Closes: #4151)
+  * Let Plugins define Schema changes (Closes: #4204)
+  * Let Plugins add new Console Tasks (Closes: #4241)
+  * Add link to install a plugin by uploading the .zip file (Closes:
+    #607)
+  * Add link to uninstall a plugin (Closes: #546)
+  * Publish plugin "TreemapVisualization" on the plugin marketplace
+    (Closes: #4226)
+  * Publish plugin "SecurityInfo" on the plugin marketplace (Closes:
+    #4222)
+  * Publish plugin "VisitorGenerator" on the plugin marketplace (Closes:
+    #4227)
+  * Move PleineLune to Marketplace (Closes: #4285)
+  * Allow ViewDataTables to be rendered via metadata alone (Closes:
+    #4040)
+  * Fix all Phpstorm php warnings in Inspection tool (Closes: #4123)
+  * Detect clicks from Adwords as Referrer = Campaign and set the
+    keyword to the host website that sent the visitor (Closes: #4261)
+  * NON BREAKING API CHANGE: Plugin Referers now called Referrers
+    (Closes: #4125)
+  * NON BREAKING API CHANGE: Plugin PDFReports now called
+    ScheduledReports (Closes: #4219)
+  * Faster Date Ranges: should use Year archives when period contains a
+    full year (Closes: #2270)
+  * New config setting: disable Marketplace feature (Closes: #4229)
+  * [Marketplace] Add API to return developer information (Closes:
+    #4254)
+  * Enable Plugins Marketplace menu in Piwik (Closes: #4338)
+  * DevicesDetection breaks Seamonkey browser recognition (Closes:
+    #3974)
+  * Fix segmentation using 'deviceType' segment (Closes: #3989)
+  * Missing Device Brand icons (Closes: #3991)
+  * desktop vs mobile report user gets notice "No data for this graph"
+    (Closes: #4132)
+  * Bug: When adding urls to a site the german umlauts are not handled
+    correctly (Closes: #4149)
+  * Evolution of date range fails to export data (Closes: #4187)
+  * remove outdated code from Example* plugins (Closes: #4209)
+  * OPcache breaks update (Closes: #4220)
+  * Move Plugin getInformation() function call to piwik.plugin.json file
+    (Closes: #4054)
+  * Zambian kwacha ISO code was changed (Closes: #4195)
+  * MultiSites.getAll: Add option to not remove sites that have no
+    visits (Closes: #3786)
+  * when archive.php is run multiple times, each concurrent run should
+    archive different websites (Closes: #3405)
+  * Error: Class 'Piwik_UserCountry_LocationProvider' not found (Closes:
+    #3452)
+  * Disable all third party plugins after update to 2.0 (Closes: #4143)
+  * UserAgentParser.php: use actual IE version instead IE7 when in
+    compatibility mode (Closes: #2621)
+  * Set User-Agent for import_logs.py (Closes: #4072)
+  * show city instead of GPS (lat/long) in visitor log (Closes: #4094)
+  * Plugin documentation generator - add support for inline tag link
+    (Closes: #4242)
+  * Hook documentation generator - add links to classes and methods in
+    the developer guides and auto generated docs (Closes: #4244)
+  * Customize the javascript tracking tag via getJavascriptTag API call
+    parameters (Closes: #4247)
+  * Improve accuracy of visit count attribute and segment (Closes:
+    #4248)
+  * Replace existing feedback messages with Notifications (Closes:
+    #4256)
+  * developer.piwik.org improvements (Closes: #4292)
+  * archive.php new parameter -force-idsites=1,2,n to process archiving
+    only on the specified idsites (Closes: #4309)
+  * archive.php new parameter -skip-idsites=1,2,n to skip archiving for
+    specified idsites (Closes: #4316)
+  * New hook to let plugins change the attributes for a website (Closes:
+    #4325)
+  * Add new 'type' column to piwik_site table, defaults to 'website'
+    (Closes: #4326)
+  * Console command to generate unit tests or integration tests for a
+    Plugin (Closes: #4341)
+  * Make Visitor log look good when viewed a s widget in the dashboard
+    (Closes: #4343)
+  * New segment filter type: custom events name, category, action
+    (Closes: #4349)
+  * Support transparent background custom logos (Closes: #4368)
+  * Metadata filter_truncate slightly buggy: "Others" shows as "Othersh"
+    in the VisitTime output (Closes: #2335)
+  * New search engines (Closes: #2885)
+  * Date Range is not correctly recognized in Metadata API (Closes:
+    #3074)
+  * "&" characters are transformed to "&" in pagetitles of tracked goals
+    when editing them (Closes: #3549)
+  * getUserPreference bug: "defaultReport" preference is "false" by
+    default (Closes: #3781)
+  * Report Visits Summary, Weekly report shows last Day's summary
+    (Closes: #3884)
+  * Evolution graph fails to load and returns stack trace for
+    Actions.getPageUrls (Closes: #3943)
+  * Piwik detects Opera 15 as Chrome 28 (Closes: #3964)
+  * false province name on the austria map (Closes: #3967)
+  * API method API.getBulkRequest converts whitespace to HTML entities
+    (Closes: #3970)
+  * Wrong message text when deleting a widget (sometimes) (Closes:
+    #3973)
+  * Incorrect define() signature (Closes: #3975)
+  * iPod Touch - DeviceType (Closes: #3988)
+  * check website name is url decoded (Closes: #3995)
+  * FAQ: Bad default value for proxy_host_headers[] (Closes: #4000)
+  * archive.php outputs messages when pre-processing segments (Closes:
+    #4005)
+  * Dashboard Suggestions (Closes: #4007)
+  * Make PDF Reports Truncation limit configurable in config file
+    (Closes: #4009)
+  * Creating a segment using the visitor IP "visitIp" should work for
+    users with 'view' access (Closes: #4011)
+  * no data with selected "date range" and flat table (Closes: #4028)
+  * Bug when exporting report (Closes: #4035)
+  * Problem with API method Live.getLastVisitDetails and filter_offset
+    (Closes: #4044)
+  * import_logs.py autodetection hangs (Closes: #4045)
+  * Remove the /.git test in the System Check file integrity (Closes:
+    #4047)
+  * Do not report visits from Google PageSpeed-Insights (Closes: #4049)
+  * Segment editor visitor IP range as filter (Closes: #4076)
+  * Wrong argument substitution in spanish translation (Closes: #4079)
+  * Tracking code has double slashes (Closes: #4082)
+  * Add Vimeo and YouTube to SocialNetworks (Closes: #4097)
+  * Add video.search.yahoo.co.jp to Search Engines (Closes: #4098)
+  * missing info popup at visitor log (Closes: #4099)
+  * Installation is broken when trying to re-use tables (Closes: #4107)
+  * Properly handle bulk tracking (Closes: #4135)
+  * PiwikTracker should load the visitor ID from the first party cookie
+    if available (Closes: #4217)
+  * Make campaign name and campaign keyword lowercase when tracking
+    (Closes: #4260)
+  * Set first party client cookies from PiwikTracker.php to improve dual
+    JS-PHP tracking and data accuracy (Closes: #4239)
+  * Notice on bulk import when authenticateSuperUserOrAdmin is called
+    (Closes: #4140)
+  * Bulk import API (Closes: #4141)
+  * Actions > Downloads exports only combined statistics per site, it
+    should be possible to export statistics per file (Closes: #4148)
+  * Actions > Downloads flattening or aggregating reports with lots of
+    date results in: There is no data for this report. (Closes: #4150)
+  * MySQL Warning: Statement may not be safe to log in statement form
+    (Closes: #4156)
+  * error when creating an email-report with a Custom Segment as a
+    normal user (works for admin) (Closes: #4163)
+  * Archive.php triggered multiple times simultaneously can result in
+    mysql deadlock situation (Closes: #4186)
+  * UpgradePHP json_decode doesn't work for assoc = TRUE (Closes: #4191)
+  * fields config_os_version and config_device_type are not large enough
+    (Closes: #4203)
+  * GD with JIS-mapped Japanese Font Support (Closes: #4206)
+  * Detect windows 8.1 (Closes: #4235)
+  * Segment attribute not kept during live widget updates (Closes:
+    #4237)
+  * Visit summary graph is cached in mail client (Closes: #4250)
+  * geoip DB automatic update doesn't respect update period (Closes:
+    #4263)
+  * When embedding the custom dashboard and using &token_auth the
+    sparklines should also work (Closes: #4264)
+  * import_logs.py: ValueError: invalid literal for int() with base 10:
+    '-' (Closes: #4267)
+  * Problem in archive script (Closes: #4272)
+  * visitor-Profile: "location" bug + enhancement (Closes: #4274)
+  * Campaign Reports don't work with IE8 (Closes: #4276)
+  * User profile slowness in getAdjacentVisitorId() (Closes: #4296)
+  * archive.php should only process websites which exist (Closes: #4332)
+  * "wait" meesage sometimes partically hide (Closes: #4334)
+  * Integrity constraint violation: 1062 Duplicate entry 'XYZ' for key
+    unique_idsite_idorder In query: UPDATE piwik_log_conversion (Closes:
+    #4340)
+  * import_logs.py crashes on invalid requests (Closes: #4352)
+  * visitor log: not enough room, icons overlap when ecommerce
+    conversions (Closes: #4317)
+  * "Notice: Array to string conversion" when downloading CSV or TSV
+    files from Visitor Log in 1.12 (Closes: #4063)
+  * Message for THEME activation talks about PLUGIN (Closes: #4366)
+  * Allow bar graph as well as line graph (Closes: #2608)
+  * API request Referers.getUrlsForSocial fails with idSubtable (Closes:
+    #3917)
+  * Visits over time Graph fails to load with 3 metrics (Closes: #3965)
+  * SecurityInfo Plugin: Cannot get rid of warning (Closes: #4006)
+  * Generating scheduled reports fail for date ranges (Closes: #4014)
+  * Opt-out/in iframe code is not following HTML standard (Closes:
+    #4022)
+  * API Bulk Requests: invalid output when multiple dates and format is
+    xml (Closes: #4313)
+  * Segment Editor should work to list segments in IE8 (Closes: #4012)
+  * bumped Makefile to fetch version 2.0
+  * Makefile removes .gitignore in config/manifest.inc.php
+  * Makefile removes .gitignore from the filesystem
+  * Makefile fixes permissions on shell scripts
+  * updated apache.conf to prevent access to specific top level folders
+  * adapted debian/scripts/history.sh to work with the new website
+  * fixed lintian rules (obsolete and new ones)
+  * minor improvement in postinst script
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Wed, 18 Dec 2013 12:43:13 +1100
+
 piwik (1.12-5) stable; urgency=low
 
   * added a proper README.Debian to detail installation process when it comes

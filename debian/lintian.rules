@@ -24,3 +24,4 @@ piwik: extra-license-file usr/share/piwik/vendor/symfony/console/Symfony/Compone
 piwik: extra-license-file usr/share/piwik/vendor/twig/twig/LICENSE
 piwik: extra-license-file usr/share/piwik/vendor/twig/twig/ext/twig/LICENSE
 piwik: extra-license-file usr/share/piwik/vendor/leafo/lessphp/LICENSE
+piwik: extra-license-file usr/share/piwik/vendor/tedivm/jshrink/LICENSE

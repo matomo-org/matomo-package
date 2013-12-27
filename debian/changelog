@@ -1,3 +1,35 @@
+piwik (2.0.2-1) stable; urgency=high
+
+  * Timezone bug: Report data missing in some hours of the day based on
+    timezone setting (Closes: #4380)
+  * purgeOutdatedArchives may purge too frequently (Closes: #4382)
+  * revert: do not call libxml_disable_entity_loader() as it breaks
+    other software on same server (not thread safe) (Closes: #4409)
+  * updated Makefile to fetch 2.0.2
+  * updated debian/scripts/history.sh to fetch the changelog
+  * debian/scripts/history.sh supports --test option
+  * updated debian/lintian.rules for vendor/tedivm/jshrink/LICENSE
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Fri, 27 Dec 2013 14:36:17 +1100
+
+piwik (2.0.1-1) stable; urgency=high
+
+  * Make Activate/Deactivate plugins and themes super fast! (Closes:
+    #4373)
+  * Class 'PiwikLog' not found in .... [php 5.3.2] (Closes: #4398)
+  * IE8 clicking on sub tables results in JS error (Closes: #4399)
+  * Retina Support on jqPlot (Closes: #4389)
+  * trusted_hosts error message not displayed (Closes: #4394)
+  * Date picker hidden behind box (Closes: #4386)
+  * Editing a Scheduled report in Morpheus (Closes: #4393)
+  * Let plugins developers run their plugins tests continuously in
+    Travis CI (Closes: #4280)
+  * Enable new Morpheus theme by default for new users... feel the love
+    (Closes: #4127)
+  * jsmin - preserve licence and copyright (Closes: #1640)
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Fri, 27 Dec 2013 14:24:09 +1100
+
 piwik (2.0-1) stable; urgency=high
 
   * changelog retrived from http://piwik.org/changelog/piwik-2-0/

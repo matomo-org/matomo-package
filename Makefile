@@ -1,7 +1,7 @@
 # Very basic Makefile
 
 URL		= http://builds.piwik.org/
-PW_VERSION	= 2.0
+PW_VERSION	= 2.0.2
 ARCHIVE		= piwik-$(PW_VERSION).tar.gz
 
 DESTDIR		= /

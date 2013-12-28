@@ -1,3 +1,10 @@
+piwik (2.0.2-2) stable; urgency=high
+
+  * fixed postinst when calling invoke-rc.d
+  * postinst now mention the cron in /etc/cron.d/piwik
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Sat, 28 Dec 2013 12:24:43 +1100
+
 piwik (2.0.2-1) stable; urgency=high
 
   * Timezone bug: Report data missing in some hours of the day based on

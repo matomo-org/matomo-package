@@ -22,6 +22,7 @@ checkfetch:
 		rm -f 'How to install Piwik.html'
 		sed -i '/\.gitignore/d' piwik/config/manifest.inc.php
 		find piwik/ -type f -name .gitignore -exec rm -f {} \;
+		rm -f piwik/misc/translationTool.sh
 
 
 fixperms:

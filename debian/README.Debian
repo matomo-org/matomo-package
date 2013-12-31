@@ -1,14 +1,14 @@
 Install
 =======
 
-1 - Create a database named "piwiki"
+1 - Create a database named "piwik"
 	CREATE DATABASE `piwik` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-2 - Create a user/password for access to database previously created
+2 - Create a user/password with access to the database previously created
 	CREATE USER piwik@localhost IDENTIFIED BY '4/V3ryStron6!*passW0rd';
 	GRANT ALL PRIVILEGES ON piwik.* to piwik@localhost;
 	-- the FILE privileges is optional, but piwik can leverage that feature
-	-- to improve performances
+	-- to improve performance
 	GRANT FILE ON *.* TO piwik@localhost;
 
 3a- If you don't have any virtualhost, uncomment the Alias line in /etc/apache2/conf.d/piwik.conf
@@ -38,11 +38,12 @@ Install
 
 6 - Add the given javascript code to your pages, ideally at the bottom of the html just before </body>
 
+See http://piwik.org/docs/installation/
+
 Cron job
 ========
 
-The Debian piwik package provide a crontab file /etc/cron.d/piwik also.
-It's released commented out because not all people wish use it.
-You can modify it as you want.
+The Debian piwik package also provides a crontab file /etc/cron.d/piwik
+It's released commented out, but we highly recommend to uncomment it to make sure Piwik loads very fast.
 
-See http://piwik.org/docs/installation/
+See http://piwik.org/docs/setup-auto-archiving/

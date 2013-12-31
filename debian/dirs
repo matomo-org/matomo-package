@@ -1,6 +1,5 @@
 etc/piwik
 usr/share/piwik
-usr/share/piwik/libs/Zend/Feed/Pubsubhubbub/Http
 var/lib/piwik/data/tmp/assets
 var/lib/piwik/data/tmp/cache
 var/lib/piwik/data/tmp/latest

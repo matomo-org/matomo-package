@@ -29,7 +29,6 @@ fixperms:
 		find $(DESTDIR) -type f -exec chmod 0644 {} \;
 		chmod 0755 $(DESTDIR)/usr/share/piwik/misc/cron/archive.sh
 		chmod 0755 $(DESTDIR)/usr/share/piwik/console
-		chmod 0755 $(DESTDIR)/usr/share/piwik/misc/translationTool.sh
 		chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/lessify
 		chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/package.sh
 		chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/plessc

@@ -1,7 +1,10 @@
 etc/piwik
 usr/share/piwik
 usr/share/piwik/libs/Zend/Feed/Pubsubhubbub/Http
-var/lib/piwik/data/tmp/templates_c
-var/lib/piwik/data/tmp/cache
 var/lib/piwik/data/tmp/assets
+var/lib/piwik/data/tmp/cache
+var/lib/piwik/data/tmp/latest
+var/lib/piwik/data/tmp/logs
+var/lib/piwik/data/tmp/sessions
 var/lib/piwik/data/tmp/tcpdf
+var/lib/piwik/data/tmp/templates_c

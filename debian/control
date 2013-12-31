@@ -8,7 +8,7 @@ Standards-Version: 3.8.0
 Package: piwik
 Architecture: all
 Homepage: http://piwik.org
-Depends: libapache2-mod-php5|php5-cgi (>= 5.3.2), php5-mysql
+Depends: libapache2-mod-php5|php5-cgi (>= 5.3.2), php5-mysql, php5-curl
 Recommends: php5-geoip, php5-cli (>= 5.3.2)
 Suggests: mysql-server
 Description: leading Free/Libre open source Web Analytics software

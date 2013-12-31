@@ -18,3 +18,4 @@ piwik/tests					usr/share/piwik/
 piwik/vendor					usr/share/piwik/
 debian/conf/apache.conf				etc/piwik
 debian/conf/lighttpd.conf			etc/piwik
+debian/conf/piwik-archive			etc/cron.d

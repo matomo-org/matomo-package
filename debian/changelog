@@ -1,3 +1,13 @@
+piwik (2.0.2-3) stable; urgency=high
+
+  * entirely removed misc/translationTool.sh script from the package
+  * cron is now installed in /etc/cron.d/piwik-archive as per documentation
+  * now call archive.php to run the cron instead of archive.sh
+  * added dependency on php5-curl
+  * removed a directory from package that isn't necessary
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Sun, 05 Jan 2014 10:45:21 +1100
+
 piwik (2.0.2-2) stable; urgency=high
 
   * fixed postinst when calling invoke-rc.d

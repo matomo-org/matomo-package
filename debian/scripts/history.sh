@@ -15,13 +15,13 @@ fi
 
 CHANGELOG_URL=$(wget -O - -q 'http://piwik.org/changelog/' | grep "Piwik $1" | sed 's/.*<a href=\([^>]*\).*/\1/' | sed -e 's/"//g' -e "s/'//g")
 
-echo "changelog url at $CHANGELOG_URL"
-
 if [ -z "$(echo $CHANGELOG_URL | grep -i http)" ]
 then
-	echo "not a valid url"
+	echo "Cannot find changelog url"
 	exit 2
 fi
+
+echo "Changelog url found at $CHANGELOG_URL"
 
 wget -O - -q "$CHANGELOG_URL" | \
 	sed -n "/List of.*in Piwik $1.*>$/,/<\/div>/p;" | \

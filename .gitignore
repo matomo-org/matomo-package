@@ -2,5 +2,6 @@ debian/piwik
 debian/piwik.debhelper.log
 debian/piwik.substvars
 debian/files
+tmp/*
 piwik
 piwik-*.tar.gz

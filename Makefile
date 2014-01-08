@@ -4,6 +4,8 @@
 # If you need to build a specific version use "PW_VERSION=x.y.z make builddeb"
 
 CURRENT_VERSION	= $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;s/-.*//')
+CURRENT_FULLV = $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;')
+
 
 ifndef PW_VERSION
 PW_VERSION	= $(shell wget -qO - http://builds.piwik.org/LATEST)
@@ -23,7 +25,7 @@ MAKE_OPTS	= -s -w
 
 INSTALL		= /usr/bin/install
 
-.PHONY		: checkfetch fixperms checkversions release checkenv builddeb checkdeb newrelease newversion changelog history clean
+.PHONY		: checkfetch fixperms checkversions release checkenv builddeb checkdeb newrelease newversion changelog history clean prepupload upload
 
 # check and optionally fetch the corresponding piwik archive
 # from the official server. Uncompress the archive and
@@ -110,3 +112,10 @@ history:
 clean:
 		rm -rf piwik
 		rm -f piwik-*.tar.gz
+
+upload:
+		mv ../piwik_$(CURRENT_FULLV)_all.deb $(CURDIR)/tmp
+		mv ../piwik_$(CURRENT_FULLV).dsc $(CURDIR)/tmp
+		mv ../piwik_$(CURRENT_FULLV)_i386.changes $(CURDIR)/tmp
+		mv ../piwik_$(CURRENT_FULLV).tar.gz $(CURDIR)/tmp
+		dupload --to piwik $(CURDIR)/tmp/piwik_$(CURRENT_FULLV)_i386.changes

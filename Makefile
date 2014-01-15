@@ -32,7 +32,8 @@ INSTALL		= /usr/bin/install
 # perform additional minor cleanups
 checkfetch:
 		if [ ! -f "$(ARCHIVE)" ]; then wget $(URL)/$(ARCHIVE); fi
-		if [ ! -d "piwik" ]; then tar -zxf $(ARCHIVE); fi
+		if [ -d "piwik" ]; then rm -rf "piwik"; fi
+		tar -zxf $(ARCHIVE)
 		rm -f 'How to install Piwik.html'
 		sed -i '/\.gitignore/d' piwik/config/manifest.inc.php
 		find piwik/ -type f -name .gitignore -exec rm -f {} \;

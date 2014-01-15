@@ -16,6 +16,8 @@ clean:
 	dh_testdir
 	dh_testroot
 	dh_prep 
+	$(MAKE) clean
+	$(MAKE) checkfetch DESTDIR=$(CURDIR)/$d
 
 install: build
 	dh_testdir

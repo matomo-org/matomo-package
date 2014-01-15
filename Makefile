@@ -85,7 +85,7 @@ endif
 # creates the .deb package and other related files
 # all files are placed in ../
 builddeb:	checkenv checkversions
-		dpkg-buildpackage -i -I -rfakeroot -ai386
+		dpkg-buildpackage -i '-Itmp' -I.git -I$(ARCHIVE) -rfakeroot -ai386
 
 # check the generated .deb for consistency
 # the filename is determines by the 1st line of debian/changelog
@@ -113,6 +113,7 @@ history:
 clean:
 		rm -rf piwik
 		rm -f piwik-*.tar.gz
+		rm -rf debian/piwik
 
 upload:
 		mv ../piwik_$(CURRENT_FULLV)_all.deb $(CURDIR)/tmp

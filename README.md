@@ -152,7 +152,7 @@ Some Debian purist may scream at me for all the lintian rules, licenses files an
 
 # Credits
 
-  * Aur&eacute;lien Requiem (aurelien AT requiem DOT fr) for packaging Piwiki, automatic some of the tasks and the related documentation
+  * Aur&eacute;lien Requiem (aurelien AT requiem DOT fr) for packaging Piwik, automatic some of the tasks and the related documentation
   * Matthieu Aubry (matt AT piwik DOT org) for his advices, additional checks and fixes
   * Main credit goes to the Piwik team for their fantastic work
   * All people contributing to the Piwik project and the funders

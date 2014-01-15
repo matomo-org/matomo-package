@@ -1,3 +1,68 @@
+piwik (2.0.3-1) stable; urgency=high
+
+  * Releasing Piwik 2.0.3
+  * Plugins: support "require" particular Piwik version and/or a minimum
+    PHP version (Closes: #4183)
+  * Prevent Random error "This report has been reprocessed since your
+    last click. " (Closes: #4491)
+  * Tracking API reference missing parameters for Ecommerce analytics
+    (Closes: #4180)
+  * Add geolocation check to system check report (Closes: #4484)
+  * Users report for All websites in scheduled report (Closes: #4471)
+  * Remove DoNotTrack and Anonymize plugins and move them to
+    PrivacyManager (Closes: #4493)
+  * Can't open Plugins/Themes because my server and client are off the
+    internet (Closes: #4431)
+  * Exclude from traffic Baidu bot and Yandex bot (Closes: #4504)
+  * Allow to define the time to look back to define a returning visitor
+    (Closes: #3695)
+  * Visitor Log: returning visitors: show number of visits (Closes:
+    #4319)
+  * Add setting to disable LOAD DATA INFILE, for easy Mysql replication
+    in AWS (Closes: #4358)
+  * Can't get goals by custom variable values (Closes: #4490)
+  * Replace jsmin (Closes: #3874)
+  * Broken sorting in Goals.getItems (Closes: #3944)
+  * geoip DB automatic update doesn't respect update period (Closes:
+    #4263)
+  * Error in visitor Map for region Vaud, Switzerland (Closes: #4402)
+  * Brazil SVG Map region fix (Closes: #4407)
+  * Morpheus theme shouldn't force aspect ratio on custom branding logo
+    (Closes: #4408)
+  * Browser Detection Internet Explorer 11.0 (IE11) (Closes: #4414)
+  * setting sites are very wide (Closes: #4423)
+  * file .git/HEAD doesn't exist (Closes: #4425)
+  * Log.php: Assigning the return value of new by reference is
+    deprecated (Closes: #4427)
+  * Bounce rate column sorts is not working (Closes: #4429)
+  * Real time visitor count does not refresh automatically (Closes:
+    #4435)
+  * In Theme.php, file_exists() triggers open_basedir restrictions in
+    Windows PHP if containing querystring (Closes: #4438)
+  * "Ranking Query" for better archiving memory consumption (Closes:
+    #3330)
+  * visits from Google adwords bot should be excluded (Closes: #4441)
+  * LOAD DATA INFILE in chroot environment (Closes: #4442)
+  * Theming: some images not overridden by theme images (Closes: #4443)
+  * Repeated visits reported in Visitor profile (Closes: #4448)
+  * String data, right truncated: 1406 Data too long for column
+    'location_browser_lang' at row 1 (Closes: #4450)
+  * PHP Fatal error: Call to a member function
+    rewriteAssetsPathToTheme() (Closes: #4453)
+  * Wrong label for returning visitor in Visitors in Real-time. (Closes:
+    #4479)
+  * Ignore Do Not Track setting for IE 11 browsers (Closes: #4482)
+  * Presence of "http://" in the parameters of the archive cron script
+    may cause incompatibility with cPanel (Closes: #4483)
+  * Goals> Ecommerce log listing, not listing all ecommerce orders and
+    abandoned carts (Closes: #4505)
+  * Error when downloading pdf-report (Closes: #4404)
+  * Module ImageGraph.get API 'graphType=3dPie' error. (Closes: #4420)
+  * Weird spacing in "Visits in Real-time" plugin (Closes: #4417)
+  * Big extra spacing in annotations (Closes: #4419)
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Wed, 15 Jan 2014 12:59:25 +1100
+
 piwik (2.0.2-3) stable; urgency=high
 
   * entirely removed misc/translationTool.sh script from the package

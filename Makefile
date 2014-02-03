@@ -85,7 +85,7 @@ endif
 # creates the .deb package and other related files
 # all files are placed in ../
 builddeb:	checkenv checkversions
-		dpkg-buildpackage -i '-Itmp' -I.git -I$(ARCHIVE) -rfakeroot -ai386
+		dpkg-buildpackage -i '-Itmp' -I.git -I$(ARCHIVE) -rfakeroot
 
 # check the generated .deb for consistency
 # the filename is determines by the 1st line of debian/changelog

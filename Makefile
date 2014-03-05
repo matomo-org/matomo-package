@@ -3,12 +3,12 @@
 # If you wish to build the latest stable package, simply type "make builddeb"
 # If you need to build a specific version use "PW_VERSION=x.y.z make builddeb"
 
-CURRENT_VERSION	= $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;s/-.*//')
-CURRENT_FULLV = $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;')
+CURRENT_VERSION	:= $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;s/-.*//')
+CURRENT_FULLV := $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;')
 
 
 ifndef PW_VERSION
-PW_VERSION	= $(shell wget -qO - http://builds.piwik.org/LATEST)
+PW_VERSION	:= $(shell wget -qO - http://builds.piwik.org/LATEST)
 endif
 
 PW_VERSION_GREATER = $(shell expr $(PW_VERSION) \> $(CURRENT_VERSION))

@@ -5,6 +5,7 @@
 
 CURRENT_VERSION	:= $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;s/-.*//')
 CURRENT_FULLV := $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;')
+DEB_ARCH := $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
 
 ifndef PW_VERSION
@@ -118,6 +119,6 @@ clean:
 upload:
 		mv ../piwik_$(CURRENT_FULLV)_all.deb $(CURDIR)/tmp
 		mv ../piwik_$(CURRENT_FULLV).dsc $(CURDIR)/tmp
-		mv ../piwik_$(CURRENT_FULLV)_i386.changes $(CURDIR)/tmp
+		mv ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes $(CURDIR)/tmp
 		mv ../piwik_$(CURRENT_FULLV).tar.gz $(CURDIR)/tmp
-		dupload --to piwik $(CURDIR)/tmp/piwik_$(CURRENT_FULLV)_i386.changes
+		dupload --to piwik $(CURDIR)/tmp/piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes

@@ -1,3 +1,135 @@
+piwik (2.1.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.1.0
+  * Archive.php memory improvements (up to 10 times less memory
+    required!) (Closes: #4604)
+  * Make Innodb the new default type for all new Piwik installations (VS
+    Myisam) (Closes: #4611)
+  * New Plugin: Provide HTTP_AUTH Authentication for Piwik - Release in
+    Marketplace (Closes: #514)
+  * Add Support for Multiple Superusers (Closes: #2589)
+  * Introduce new User permission: Super User Access (Closes: #4564)
+  * Make Archive.php use PHP CLI instead of Web, more reliable and
+    faster (Closes: #4610)
+  * Various improvements to Devices Detection algorithm (Closes: #4617)
+  * Implement a Smart App Banner to promote iPhone / iPad App (Closes:
+    #3433)
+  * Add Segment Editor to the Iframed embed dashboard (Closes: #4502)
+  * Implement Smart App banner for Android devices (Closes: #4520)
+  * Allow Super Users to change their alias (Closes: #4582)
+  * Piwik will now use Semantic Versioning for Piwik core releases and
+    all plugins (Closes: #4796)
+  * New config setting to disable Creation of real time segments by non
+    Super Users (Closes: #4675)
+  * CSV format for Scheduled Email Reports (Closes: #4701)
+  * Tracking API speed improvement: cache parsed yaml in tracker cache
+    (DevicesDetection) (Closes: #4683)
+  * Remove force_ssl_login setting -> only support force_ssl for
+    security (Closes: #4001)
+  * Automatically activate/deactivate the 'Login' plugin when activating
+    another Login plugin (eg. LdapLogin) (Closes: #4529)
+  * Custom date range not working if archiving triggered by report view
+    from browser is disabled (Closes: #4532)
+  * no option to "Reuse the tables" when reinstalling Piwik (Closes:
+    #4562)
+  * Users should not be able to delete custom segments created by Super
+    User (Closes: #4580)
+  * Different visitors with the same configuration visiting the site at
+    same second, could be recorded as one visitor (Closes: #4598)
+  * Regressed: Scheduled reports should be sent automatically by
+    webcron, when cron is not setup (Closes: #4612)
+  * If server is not using at least PHP 5.3, make sure Piwik displays a
+    useful error message (Closes: #4653)
+  * PrivacyManager settings + Custom logo should be stored using
+    Option:: rather than in config file (Closes: #4563)
+  * Overriding location, city, region, latitude, longitude should be
+    work for all actions (Closes: #4565)
+  * Kindly Ask plugins developers of plugins for Piwik 1.x to convert to
+    Piwik 2 platform (Closes: #4607)
+  * Remove comments still referencing old Piwik_ (before using PHP 5.3
+    namespaces) (Closes: #4609)
+  * Search Engine Detection: plugin hook (Closes: #1877)
+  * Live: Returning visitor to open last visits for this visitor, in
+    Visitor Log & Last visits widget (Closes: #3343)
+  * Detect Firefox OS (Closes: #3865)
+  * Show "Help us translate Piwik" after Installation (Closes: #4084)
+  * New segment: support for 'visitConvertedGoalId' in all reports
+    (visitors who converted a particular Goal) (Closes: #4503)
+  * Create plugin to list all scheduled tasks (Closes: #4517)
+  * Taks Timetable Plugin: Show actual Piwik ServerTime (Closes: #4539)
+  * Add feedback message when a segment is used, and
+    browser_archiving_disabled_enforce = 1 (Closes: #4569)
+  * New console command to update core and/or plugins (Closes: #4711)
+  * Misplaced icons when report spans on multiple pages (Closes: #3789)
+  * Piwik detects Opera 15 as Chrome 28 (Closes: #3964)
+  * Samsung Tab should be qualified as tablet (Closes: #3990)
+  * Make campaign name and campaign keyword lowercase when tracking
+    (Closes: #4260)
+  * Metrics picker on Referrers: add "Total" record (Closes: #4375)
+  * Notice:Array to string conversion in tmp/templates_c/42/f7/ (Closes:
+    #4432)
+  * Clockwork API returned the following error message : Error 7:
+    'Content' Parameter Not Specified' (Closes: #4436)
+  * invalid shutdown callback when eAccelerator is enabled (Closes:
+    #4439)
+  * Theming: some images not overridden by theme images (Closes: #4443)
+  * "Load more visits" with "Visitor Profile" loads the same visits
+    (Closes: #4451)
+  * Annotations, unserialize() [function.unserialize]: Error at offset
+    (Closes: #4496)
+  * Incorrect url redirection from transitions modal window (Closes:
+    #4525)
+  * Auto Geoip Db update may fail, Tar library not loading in some
+    server configs (Closes: #4533)
+  * tasks timetable plugin: take year into account (Closes: #4540)
+  * Visits per server time wrong sort key... (Closes: #4541)
+  * Piwik detects Midori 0.5 as Chrome 18 (Closes: #4557)
+  * GeoIPCity.dat error in UIAssetCacheBuster.php (Closes: #4559)
+  * Fix Piwik API to be used with AngularJS JSONP callback (Closes:
+    #4560)
+  * typo in plugins/Login/templates/login.twig (Closes: #4561)
+  * Invalidating reports may fail because of log delete settings
+    (Closes: #4568)
+  * Show author of plugin (Closes: #4578)
+  * Untranslated text in referrers template (Closes: #4600)
+  * Ensure Database is set in Tracker (Closes: #4603)
+  * DisplayTopKeywords only shows a single character (Closes: #4618)
+  * Log Analytics -enable-bots does not enable bots tracking (Closes:
+    #4628)
+  * Installation: when upgrading from 2.0.3 and reusing existing tables
+    during install, sql error (Closes: #4631)
+  * Update currencies (Closes: #4654)
+  * Call to undefined method Twig_TokenStream::nextIf in
+    core/View/RenderTokenParser.php line 43 (Closes: #4669)
+  * Fatal error in VisitsSummaryController::getEvolutionGraph() (Closes:
+    #4678)
+  * SegmentEditor API throws NoAccessException (Closes: #4679)
+  * The Tracker.getDatabaseConfig event is fired before the loading of
+    the plugins (Closes: #4681)
+  * Morpheus theme makes tables in security settings partly unreadable
+    (Closes: #4682)
+  * do not track pingdom bot (Closes: #4516)
+  * Remove visualphpunit (Closes: #4614)
+  * German Translation for Scheduled Task/ Task Timetable Plugin
+    attached (Closes: #4538)
+  * Styling: Missing indentions for level5 and deeper (Closes: #3800)
+  * Wrong device detection (Closes: #3971)
+  * UserSettings.getMobileVsDesktop error with period=month,
+    date=previous1, idSite=all (Closes: #3972)
+  * geoip DB automatic update doesn't respect update period (Closes:
+    #4263)
+  * UI bugs connected to subdatatables (Closes: #4536)
+  * Social Network icon for Youtu.be is missing (Closes: #4545)
+  * Small UI error in "Real time visitor count"... (Closes: #4556)
+  * CacheBuster is suboptimal (Closes: #4567)
+  * Useless code spotted. (Closes: #4572)
+  * Warning: preg_match(): Unknown modifier '/' in Url.php (Closes:
+    #4626)
+  * Invalidate merged Noncore JS / CSS in case of any plugin
+    update/downgrade/uninstall (Closes: #4655)
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Thu, 06 Mar 2014 09:57:54 +1100
+
 piwik (2.0.3-1) stable; urgency=high
 
   * Releasing Piwik 2.0.3

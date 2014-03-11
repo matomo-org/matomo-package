@@ -41,6 +41,7 @@ fi
 
 echo "  * Piwik main configuration files are stored in /etc/piwik/"
 echo "  * Piwik crontab file is stored in /etc/cron.d/piwik"
+echo "  * When isntalling/using piwik, make sure you disable any ads blocker"
 
 #DEBHELPER#
 

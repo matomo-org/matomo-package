@@ -50,6 +50,10 @@ fixperms:
 		chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/package.sh
 		chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/plessc
 
+# check lintian licenses so we can remove obsolete ones
+checklintianlic:
+	cat debian/lintian.rules | grep extra-license-file | awk '{print $$3}' | while read F; do echo -n "  * checking: $$F"; test -f "$(DESTDIR)/$$F" || exit 1; echo " ok."; done
+
 # raise an error if the building version is lower that the head of debian/changelog
 checkversions:
 ifeq "$(PW_VERSION_LOWER)" "1"

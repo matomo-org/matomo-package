@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# warning: this script tries to deal with UTF-8 aliens (not gremlins)
+# this means somt UTF-8 entities are replaced on the fly so recode doesn't
+# complain during the intermediate conversion steps.
+# note: I'm quite unsure as to why some characters aren't converted nicely
+# compared to others as FF seems to display them correctly. Feedback and help
+# welcome.
+
+# this is a regexp for sed.
+UTF8_ALIENS='s/#8243/#8221/g;'
+
 if [ -z "$1" ] || [ ! -f "debian/changelog" ]
 then
 	exit 1
@@ -27,14 +37,14 @@ wget -O - -q "$CHANGELOG_URL" | \
 	sed -n "/List of.*in Piwik $1.*>$/,/<\/div>/p;" | \
 	grep 'dev.piwik.org/trac/ticket' | \
 	sed -e :a -e 's/<[^>]*>//g;/</N;//ba' | \
-	recode HTML..UTF-8 | recode UTF-8..ascii | \
+	recode UTF-8..ascii | recode UTF-8..HTML | sed -e "${UTF8_ALIENS}" | \
+	recode HTML..UTF-8 | recode HTML..UTF-8 | recode UTF-8..ascii | \
 	sed 's/\^A//g' | \
 	sed -r 's/^(#[0-9]+)([ ]+)(.*)/\3 (Closes: \1)/g' | while read LINE
 do
-	if [ "$TEST_MODE" -eq "1" ]
+	echo "  * ${LINE}"
+	if [ "$TEST_MODE" -eq "0" ]
 	then
-		echo "  * ${LINE}"
-	else
 		debchange --changelog debian/changelog -a -- ${LINE}
 	fi
 done

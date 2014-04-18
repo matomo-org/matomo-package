@@ -1,3 +1,148 @@
+piwik (2.2.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.2.0
+  * Make Dashboard widgets more readable and less busy-looking (Closes:
+    #3093)
+  * Use new device-detector library in Piwik to detect browsers,
+    systems, devices, brands and model (Closes: #4965)
+  * All reports: display as much text as possible before the label is
+    truncated (Closes: #2834)
+  * Create unlimited number of custom variables slots! (we often need
+    more than five) (Closes: #3810)
+  * Send Super Users an email when a new Piwik version is available
+    (Closes: #4843)
+  * Show Site Search reports in Scheduled email reports and Piwik Mobile
+    (Closes: #4869)
+  * Replace "Give us feedback" top menu link with "Help" (Closes: #4898)
+  * Add possibility to run multiple archiver in parallel (Closes: #4903)
+  * Make Datatables more readable and flatter, to let you focus on the
+    data (Closes: #4985)
+  * Plugin can hook on events 'before' and 'after' other plugins
+    (Closes: #1169)
+  * Write Installer/Updater screenshot tests (Closes: #2935)
+  * Introduce AngularJS to Piwik, first step: Website Selector rewrite
+    (Closes: #4690)
+  * Introduce AngularJS to Piwik Platform: rewrite All Websites selector
+    to use AngularJS (Closes: #4692)
+  * move UI unit tests away from PHP code and run directly in phantomjs
+    w/ jasmine testing framework (Closes: #4739)
+  * Piwik will now use Semantic Versioning 2.0.0 (Closes: #4796)
+  * VisitFrequency API: read pre 2.0 data (Closes: #4878)
+  * Developer doc: script to auto generate list of available hooks in
+    piwik (Closes: #264)
+  * Loading Goal reports calls the API with segmentation which can be
+    slow and should be pre-processed (Closes: #2981)
+  * UI unit tests (Closes: #4189)
+  * Add possibility to send feedback to the Piwik team in-context
+    (Closes: #4877)
+  * Move language selector for logged in users to user settings (Closes:
+    #4899)
+  * Date range show too many visitors when you include today (Closes:
+    #4720)
+  * Continuous Integration server improvements (Closes: #3606)
+  * create & use API for coding UI controls that spans PHP/JavaScript
+    (Closes: #4116)
+  * Post Event only to activated plugins (Closes: #4357)
+  * linking to #hash tag does not work after merging AngularJS (Closes:
+    #4795)
+  * Allow Plugin Settings to be loaded within Tracker flow (Closes:
+    #4924)
+  * Remove deprecated methods from code base (Closes: #4942)
+  * Deprecate API CoreAdminHome.getKnownSegmentsToArchive (Closes:
+    #4958)
+  * Piwik Debian Package blog post (Closes: #4959)
+  * New template hooks to inject content from themes:
+    Template.beforeTopBar, Template.beforeContent, Template.footer
+    (Closes: #4986)
+  * API BREAKING: Deprecated the function Schema::dropTables() and
+    DbHelper::dropTables, for the new Db::dropTables() (Closes: #4991)
+  * Show Websites by Group in 'All websites' dashboard (Closes: #2174)
+  * Calculate number of returning unique visitors (Closes: #3870)
+  * When period=range, exporting data below an evolution graph should
+    export data per day (Closes: #4777)
+  * When API_datatable_default_limit=-1 in the config, 'Export as'
+    should export all rows (Closes: #4966)
+  * When a plugin requires a max Piwik core version, disable the plugin
+    on update (Closes: #4967)
+  * Custom Events should not trigger a conversion for Goal defined as
+    matching an "Outlink" (Closes: #4659)
+  * Notice: Undefined offset: Y in core/DataArray.php on line 109
+    (Closes: #4687)
+  * problem with puppet in vagrant (Closes: #4773)
+  * Scheduled Tasks/Cron stopped working (Closes: #4780)
+  * import_logs.py doesn't acknowledge azw3 as download (Closes: #4786)
+  * Importing logs with -login and -password option doesn't work in
+    2.1.0 (Closes: #4817)
+  * Detect when shell_exec() has been disabled and use HTTP API instead
+    (Closes: #4824)
+  * Column not found: 1054 Unknown column 'log_conversion_item' in
+    'field list' (Closes: #4828)
+  * Class 'PiwikDbSchema' not found (Closes: #4830)
+  * Add new segment button not working in FF-27.x (Closes: #4833)
+  * Overlay: overwriting the API endpoint with setAPIUrl does not work
+    in JS (Closes: #4856)
+  * when browser_archiving_disabled_enforce=1 the Auto archiver will not
+    process the VisitFrequency reports (Closes: #4857)
+  * when Live plugin is disabled, do not show error in Segment value
+    auto-suggest (Closes: #4873)
+  * When Provider plugin not installed yet: Mysqli error: Unknown column
+    'log_visit.location_provider' in 'field list (Closes: #4886)
+  * Edge case: page view and ecommerce conversion tracked in the same
+    second create wrong visitEcommerceStatus (Closes: #4909)
+  * When Real time map is loaded over https, it does not always load the
+    SVG files over ssl (Closes: #4926)
+  * Notice: Trying to get property of non-object in
+    ExampleRssWidget/RssRenderer.php (Closes: #4928)
+  * Log Analytics: import_logs does not work on windows (updatetoken.php
+    fail) (Closes: #4934)
+  * piwik.js: setCustomVariable should not throw error when value is
+    undefined (Closes: #4938)
+  * Warning: substr_compare(): The start position cannot exceed initial
+    string length (Closes: #4948)
+  * Installation requirements incomplete (Closes: #4951)
+  * Undefined index: argv in ..../core/CronArchive.php on line 894
+    (Closes: #4955)
+  * Archiving should work on Synology NAS devices (Closes: #4957)
+  * not checked type of return value in
+    PiwikPluginManager::deactivateThemeIfTheme (Closes: #4961)
+  * Installer fails when php5-json isn't installed. (Closes: #4962)
+  * Actions -> Pages export fail (Closes: #4963)
+  * htmlspecialchars(): Invalid multibyte sequence in argument
+    vendor/twig/twig/lib/Twig/Extension/Core.php on line 968 (Closes:
+    #4974)
+  * Call to undefined function twig_lower_filter() (Closes: #4999)
+  * setSuperUserAccess overwrites login with any super user login
+    (Closes: #5004)
+  * Update JQuery & JQueryUI (Closes: #4723)
+  * Piwik on Windows: SQL Server, Azure, Wincache (Closes: #1902)
+  * Changing super username (Closes: #2747)
+  * E-Commerce Reports should not aggregate data to -1 (Closes: #3116)
+  * PHP API has an effect on Piwik option piwikUrl (Closes: #3220)
+  * Actions plugin has to be enabled for Visitor overview to work
+    (Closes: #3749)
+  * Cannot create user with apostrophe in email address (Closes: #3873)
+  * htaccess rule causing geoip file to be 403 unloadable (Closes:
+    #4508)
+  * Real time map animation for new visitors is not displayed anymore
+    (Closes: #4513)
+  * Same chart on reports for multiple domains (Closes: #4747)
+  * Bad link for Segment Editor API (Closes: #4781)
+  * Not using $PHP_BIN for running php Scripts inside archive.sh
+    (Closes: #4820)
+  * No "Add" button initially in Trusted Piwik Hostname settings
+    (Closes: #4854)
+  * added missing dep on php5-gd, closing issue #8, thanks to g-k-r for the
+    report
+  * added 3 new lintian rules
+  * added 'checklintianlic' Makefile rule to check for any missing license
+    file
+  * call 'make checklintianlic' during package build
+  * better handling of utf-8 alien characters when populating
+    debian/changelog.
+  * added php5-cli as a mandatory dep due to /usr/share/piwik/console
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Fri, 18 Apr 2014 13:27:34 +1000
+
 piwik (2.1.0-2) stable; urgency=high
 
   * updated dependencies for those who have php5-fpm installed

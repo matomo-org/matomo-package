@@ -1,3 +1,58 @@
+piwik (2.2.1-1) stable; urgency=high
+
+  * Releasing Piwik 2.2.1
+  * Persist & Restore all settings from reports, like it is done for
+    Dashboard widgets (Closes: #1915)
+  * Bundle AngularJS with Piwik (Closes: #4691)
+  * Tracking API: allow bulk tracking without token_auth (Closes: #5030)
+  * Customise periods enabled in the API and in calendar, new config
+    setting (Closes: #5037)
+  * Archiving should trigger limited number of concurrent requests
+    (Closes: #5035)
+  * Adding widgets to the dashboard not possible on mobile devices
+    (Closes: #3763)
+  * import_logs.py fail to populate actions/page tables (Closes: #4946)
+  * Database is sometimes not initialised correctly after a fresh
+    install (Closes: #4989)
+  * Error: it seems you tried to skip a step of the Installation process
+    (Closes: #4990)
+  * Install with errors, not tracking (Closes: #5005)
+  * Installation: when there is already a Super User, skip the
+    installation step (Closes: #5080)
+  * core:archive doesn't produce hourly archives (Closes: #5043)
+  * Implement a default Referrer spam blacklist (Closes: #2268)
+  * Use autoloader in piwik.php requests (Closes: #4599)
+  * Use Composer to require PHPUnit (Closes: #5031)
+  * Deprecate archive.sh script -> use `./console core:archive` instead
+    (Closes: #5039)
+  * Deprecate Period::factory() -> use PeriodFactory::build() instead
+    (Closes: #5065)
+  * API: Column sort does not always work for processed metrics (Closes:
+    #2838)
+  * support for filter_sort_order in Live.getLastVisitsDetails API
+    (Closes: #4992)
+  * IE10/11: calendar date range shows days in white on white (Closes:
+    #4972)
+  * In UI "Metrics to plot" minor formatting errors (Closes: #4555)
+  * Bug: Annotations API, "date=today" is not resolved to actual date
+    (Closes: #4741)
+  * Disable Insights plug-in on Database Usage Graph (Closes: #4884)
+  * When new annotation created in PIWIK, it proposes wrong date
+    (Closes: #4888)
+  * All Websites dashboard page title (Closes: #4982)
+  * API getLastVisitsDetails - sorting a range of data (Closes: #4992)
+  * VisitorGenerator plugin: Token auth is required for bulk tracking
+    (Closes: #5010)
+  * All Websites Dashboard doesn't list websites if one has the group
+    field filled (Piwik 2.2.0) (Closes: #5038)
+  * procfs needed by process component as of Piwik 2.2 (Closes: #5041)
+  * Incompatibility with PHP 5.5.11 due to bug in this php version
+    (Closes: #5060)
+  * Invalid FastCGI Check in ProxyHttp.php (Closes: #5064)
+  * updated lintian rules for an extra licence file.
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Thu, 08 May 2014 02:43:22 +1000
+
 piwik (2.2.0-1) stable; urgency=high
 
   * Releasing Piwik 2.2.0

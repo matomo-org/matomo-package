@@ -1,3 +1,38 @@
+piwik (2.2.2-1) stable; urgency=high
+
+  * Releasing Piwik 2.2.2
+  * Improve error logging of core:archive cron script (Closes: #5111)
+  * When adding new annotation calendar not visible .... (Closes: #4510)
+  * in Visitors - Overview, Action metrics not displayed when report
+    purge is enabled (Closes: #5054)
+  * sum_daily_nb_uniq_visitors calculations incorrect for some ranges in
+    many API methods (Closes: #4377)
+  * Piwik will chmod files created in tmp/piwik_2.0.2-3_all.deb
+    tmp/piwik_2.0.2-3.dsc tmp/piwik_2.0.2-3_i386.changes
+    tmp/piwik_2.0.2-3_i386.upload tmp/piwik_2.0.2-3.tar.gz
+    tmp/piwik_2.0.3-1_all.deb tmp/piwik_2.0.3-1.dsc tmp/piwik_2.0.3-
+    1_i386.changes tmp/piwik_2.0.3-1_i386.upload tmp/piwik_2.0.3-
+    1.tar.gz tmp/piwik_2.1.0-1_all.deb tmp/piwik_2.1.0-1_amd64.changes
+    tmp/piwik_2.1.0-1_amd64.upload tmp/piwik_2.1.0-1.dsc
+    tmp/piwik_2.1.0-1.tar.gz tmp/piwik_2.1.0-2_all.deb tmp/piwik_2.1.0-
+    2_amd64.changes tmp/piwik_2.1.0-2_amd64.upload tmp/piwik_2.1.0-2.dsc
+    tmp/piwik_2.1.0-2.tar.gz tmp/piwik_2.2.0-1_all.deb tmp/piwik_2.2.0-
+    1_amd64.changes tmp/piwik_2.2.0-1_amd64.upload tmp/piwik_2.2.0-1.dsc
+    tmp/piwik_2.2.0-1.tar.gz tmp/piwik_2.2.1-1_all.deb tmp/piwik_2.2.1-
+    1_amd64.changes tmp/piwik_2.2.1-1_amd64.upload tmp/piwik_2.2.1-1.dsc
+    tmp/piwik_2.2.1-1.tar.gz 750 instead of 755 (Closes: #5034)
+  * Notify Microsoft App Gallery team when there is a new Piwik version
+    (Closes: #5104)
+  * Real time map: west coast visitors are not clickable (Closes: #4613)
+  * Website List - Please Populate FIRST on Load (Closes: #5097)
+  * Tooltip is unreadable (Closes: #5000)
+  * MultiSites: On first login,the currencies of the websites aren't
+    recognized correctly (Closes: #5006)
+  * "Custom segment" instead of real name (Closes: #5053)
+  * Logo appears stretched and pixelated on IE10+ (Closes: #5100)
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Fri, 09 May 2014 10:26:17 +1000
+
 piwik (2.2.1-1) stable; urgency=high
 
   * Releasing Piwik 2.2.1

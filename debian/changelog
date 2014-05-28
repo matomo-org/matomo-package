@@ -1,3 +1,102 @@
+piwik (2.3.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.3.0
+  * #4987 Introducing Zen Mode: Simplifying the Piwik user interface to
+    let you focus
+  * Custom Events analytics, event tracking (Closes: #472)
+  * New plugin in Marketplace: Define Custom Alerts, and receive an
+    email or SMS when they are triggered (Closes: #1486)
+  * Tracking servers CPU saturation after upgrade from 2.1.0 to 2.2.0
+    (Closes: #5019)
+  * Let Piwik user upload custom Favicon (Closes: #5167)
+  * Error 'Trying to add two strings values' in
+    DataTableRow::sumRowArray (Closes: #4706)
+  * 'Page Name not defined' in page title reports - Outlinks being
+    tracked as pages (Closes: #5113)
+  * New search field to find a Custom Segment (Closes: #5221)
+  * branding: Logo breaks layout (size handling generally inconsistent)
+    (Closes: #5051)
+  * Pie chart should not be cropped on retina display (Closes: #4594)
+  * Cleanup Morpheus + Zeitgeist stylesheets, generalize the use of
+    "theme" variables (Closes: #5175)
+  * Let Themes overwrite templates to allow customisation within Themes
+    (Closes: #5122)
+  * Improve error logging of core:archive cron script (Closes: #5111)
+  * Let plugin developers customise the list of "Report date to load by
+    default" (Closes: #5153)
+  * Developers: SettingsPiwik::rewriteTmpPathWithHostname() is
+    deprecated, use SettingsPiwik::rewriteTmpPathWithInstanceId()
+    instead (Closes: #5181)
+  * Add new system check whether the Piwik server supports managing
+    processes in CLI (Closes: #5204)
+  * Website List now populated early after loading (Closes: #5097)
+  * Piwik.js: new getRequest() method returns the query string of
+    Tracking API HTTP request (Closes: #5118)
+  * Segment selector: display longer segment names (Closes: #5217)
+  * As a user I want to allow only "admin" users or "superuser" to
+    create new segment (default "view") (Closes: #5172)
+  * New config setting to disable segment auto complete (Closes: #5121)
+  * Segment Editor: request should timeout when it takes too long to
+    generate auto suggested values (Closes: #4253)
+  * "Custom segment" is displayed instead of real name (Closes: #5053)
+  * PHP Tracker: new method setForceNewVisit() to force creation of a
+    new visit (Closes: #5123)
+  * Remember detailed visitor log 'Rows to display' (Closes: #5162)
+  * Configurable "Rows to display" limit. (Closes: #5188)
+  * Use consistent fonts and colors in new Morpheus theme CSS/less
+    (Closes: #4457)
+  * Widget selector sometimes not displayed in dashboard (firefox)
+    (Closes: #5227)
+  * Improvements for custom events in tables like visitor log (Closes:
+    #5189)
+  * Custom logo: transparency channel replaced with black color (Closes:
+    #5207)
+  * sum_daily_nb_uniq_visitors calculations incorrect for some ranges in
+    many API methods (Closes: #4377)
+  * Generated .htaccess in plugins folder breaks all plugins (Closes:
+    #4499)
+  * When adding new annotation calendar not visible (Closes: #4510)
+  * Real time map: west coast visitors are not clickable (Closes: #4613)
+  * Apostrophes (and maybe other special characters) are shown encoded
+    in page tooltip (Closes: #4749)
+  * Changes to Sessions to improve compatibility, Browser Session was
+    lost on PHP 5.5 (Closes: #4806)
+  * Tooltip is unreadable (Closes: #5000)
+  * MultiSites: On first login,the currencies of the websites aren't
+    recognized correctly (Closes: #5006)
+  * showing ' HTML code of single quote character instead of ' symbol in
+    page titles (Closes: #5026)
+  * procfs needed by process component (Closes: #5041)
+  * datatable footer of the map widget is displayed only when the widget
+    is maximized (Closes: #5047)
+  * Make tracking several site IDs easier to users implementing Piwik
+    using Asynchronous javascript (Closes: #5049)
+  * in Visitors - Overview, Action metrics not displayed when report
+    purge is enabled (Closes: #5054)
+  * Logo appears stretched and pixelated on IE10+ (Closes: #5100)
+  * All Websites is a blank page (Closes: #5102)
+  * Plugins may not be installed correctly in some cases (Closes: #5115)
+  * Dashboard "Length of Visits" widget, Pie Chart incorrect %
+    calculation (Closes: #5116)
+  * Set Base URL used in the AJAX request to ? instead of index.php?
+    (Closes: #5127)
+  * Image tracker displays wrong code: idSite= instead but idsite=
+    should be used (Closes: #5131)
+  * Calling API with serialize=0, get: Array to string conversion in
+    core/dispatch.php on line 37 (Closes: #5144)
+  * Width of VisitorLog gets truncated once moving the cursor over any
+    entry in IE10+ (Closes: #5152)
+  * Websites drop-down list and All Websites Dashboard view not working
+    (Closes: #5170)
+  * huge whitespace in visitor profile (Closes: #5191)
+  * Page snapshot in Bing Windows 8 app counted as visitor, not as bot
+    (Closes: #5128)
+  * Document how to log errors from archive.php cron, into a file
+    (Closes: #4907)
+  * Japanese Search Engine (Closes: #5114)
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Wed, 28 May 2014 14:03:00 +1000
+
 piwik (2.2.2-1) stable; urgency=high
 
   * Releasing Piwik 2.2.2

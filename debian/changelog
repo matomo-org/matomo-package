@@ -1,3 +1,108 @@
+piwik (2.4.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.4.0
+  * Better Data Insights. Show me what's increased and decreased, movers
+    and shakers (beta) (Closes: #57)
+  * Remove Zeitgeist theme from Piwik and support only Morpheus (Closes:
+    #5222)
+  * Tracking API: major performance improvements with Transactions, when
+    using Bulk Tracking (Closes: #5275)
+  * Referrers overview: report labels should show more characters before
+    truncation (Closes: #5394)
+  * Log Analytics: several performance improvements (Closes: #5314)
+  * New setting: enable Left Menu mode (Closes: #5212)
+  * LibreJS compatibility for piwik.js: free/libre license notice
+    (Closes: #3770)
+  * Simplify / improve top menu (Closes: #5192)
+  * Enable DevicesDetection plugin by default (Closes: #5329)
+  * Developers: provide a simpler ScheduledTasks API (Closes: #5301)
+  * Developers: new hooks in Login: 'Login.authenticate',
+    'Login.authenticate.successful' (Closes: #5331)
+  * Developers: new hook Live.makeNewVisitorObject for plugins to
+    customise Visitor object (Closes: #5360)
+  * Switching metrics in row evolution view doesn't work after changing
+    report timespan (Closes: #5303)
+  * New parameters for the core:archive console command for power users
+    (Closes: #5396)
+  * Change piwik URL to builds.piwik.org/piwik-latest.zip (Closes:
+    #4455)
+  * Row Evolution shows wrong data when directory and file with
+    identical names exist at same level (Closes: #4363)
+  * PiwikTracker PHP client: when bulk tracking, Custom variables are
+    now reset after each request (Closes: #5291)
+  * php console core:update -> issue using Piwik 2.3.0 (Closes: #5306)
+  * Calculation All Websites dashboard wrong (Closes: #5320)
+  * DataTable footer drawer does not expand when clicked (Closes: #5332)
+  * When a custom date range is requested, the timezone of the requested
+    website may be ignored (Closes: #5356)
+  * When running piwik proxy php to hide footprint, IP address is not
+    set correctly when the website being tracked is behind proxy
+    (Closes: #2900)
+  * When 10 widgets request the same site + date + segment at once,
+    check it is archived only once (Closes: #4918)
+  * make core:archive command compatibile with HHVM (Closes: #5263)
+  * htaccess should help apache serve HTML files properly with:
+    AddHandler text/html .html (Closes: #5266)
+  * Include Meta tag IE=edge for best security practises (Closes: #5282)
+  * Ensure all directories in plugins/ (Closes: #5311)
+  * New system check to alert user when session.auto_start = 1 (Closes:
+    #5344)
+  * Limits ability of different Piwik instances to cross-match users
+    (privacy) (Closes: #5366)
+  * Detect requests from iTunes (Closes: #4017)
+  * Support for user-agent string from AFNetworking library (iOS)
+    (Closes: #5025)
+  * Cron core:archive: make sure the PHP cli binary is at least 5.3.2
+    (Closes: #5343)
+  * Piwik should work as expected when PHP setting session.hash_function
+    has non default value (Closes: #5371)
+  * Make "Site Search" on "All Websites Dashboard" case-insensitive
+    (Closes: #5382)
+  * piwik.js: new function setCustomRequestProcessing() to let you edit
+    the tracking request before it is sent (Closes: #5384)
+  * Piwik.js: ability to register plugins to execute logic when a
+    request is sent (Closes: #5393)
+  * New config setting: set the Scheduled report emails Reply-to field
+    to Email and Alias name of report creator (Closes: #5387)
+  * Nightingale Media Player not detected correctly (Closes: #4870)
+  * API: get PageUrl returns same results for several day (Closes:
+    #4872)
+  * Error when running cron:archive: Response was 'Console ToolUsage:
+    [options] command.... (Closes: #5007)
+  * Website dropdown no longer appears (Closes: #5213)
+  * German translation incomplete in version 2.3.0 (Closes: #5240)
+  * Visitor/locations: Map region selector to narrow (Closes: #5243)
+  * Long Segment names break segment listing layout (Closes: #5247)
+  * Error in "Database Usage" usage ... (Closes: #5253)
+  * import_logs give a IOError: [Errno 29] Illegal seek when receiving
+    log from pipe (Closes: #5254)
+  * IIS: web.config should allow to server HTM, HTML and SVG files.
+    (Closes: #5255)
+  * Visitor Generator not working from console (Closes: #5256)
+  * Not well testable php class method URL::redirectToUrl($url) (Closes:
+    #5262)
+  * 2.3.0: Visitors in Real-time widget, incorrect page title display
+    (Closes: #5268)
+  * invalidateArchivedReports $dates issue (Closes: #5281)
+  * Remove plugins/Zeitgeist/ (Closes: #5297)
+  * Incorrect domain age reported (Closes: #5322)
+  * Warning: syntax error, unexpected $end, expecting '}' in
+    config.ini.php in libs/upgradephp/upgrade.php (Closes: #5349)
+  * Dropping outdated archives can timeout on huge Piwik instances
+    (Closes: #5354)
+  * Auto archiving: all websites should be archived at least once per
+    day (Closes: #5358)
+  * DBStats: Call to a member function getColumn() on a non-object in
+    core/DataTable/Filter/ColumnCallbackAddColumnQuotient (Closes:
+    #5370)
+  * getVisitorProfilePopup: error on empty data (Closes: #5383)
+  * FatalError - subDay() in API.php (Closes: #5388)
+  * Support user agents of PIM clients (calendar, email) and feed
+    readers (RSS, Atom) (Closes: #3651)
+  * hardcoded user in permission error (Closes: #5339)
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Fri, 04 Jul 2014 12:08:23 +1000
+
 piwik (2.3.0-1) stable; urgency=high
 
   * Releasing Piwik 2.3.0

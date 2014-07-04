@@ -1,3 +1,4 @@
+piwik: improbable-bug-number-in-closes 57
 piwik: embedded-php-library usr/share/piwik/core/Visualization/Sparkline.php
 piwik: embedded-php-library usr/share/piwik/libs/PclZip/pclzip.lib.php
 piwik: embedded-php-library usr/share/piwik/libs/sparkline/lib/Sparkline.php

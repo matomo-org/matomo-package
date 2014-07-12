@@ -1,3 +1,45 @@
+piwik (2.4.1-1) stable; urgency=high
+
+  * Releasing Piwik 2.4.1
+  * SitesManager fully migrated to AngularJS [by @JulienMoumne, @mattab]
+    (Closes: #324)
+  * Row evolution data export fails when filter_limit is supplied [by
+    @diosmosis] (Closes: #5397)
+  * [automatic translation update] Updated 1133 strings in 9 languages
+    (cs, da, el, fr, it, nb, nl, ro, tr) [by @sgiehl] (Closes: #340)
+  * Update from 2.3 to 2.4 breaks db password [by @tsteur] (Closes:
+    #341)
+  * provide a more useful error message on exception [by @craue,
+    @mattab] (Closes: #345)
+  * included default value for concurent threads number [by @mgazdzik,
+    @mattab] (Closes: #347)
+  * remove defaults from PHPUnit configuration [by @craue] (Closes:
+    #348)
+  * Row Evolution shows wrong data when directory and file with
+    identical names exist at same level [by @diosmosis] (Closes: #4363)
+  * Change piwik URL to builds.piwik.org/piwik.zip [by @mattab] (Closes:
+    #4455)
+  * Migrate Piwik issues from Trac to Github issues! [by @mattab]
+    (Closes: #5273)
+  * Warning: syntax error, unexpected $end, expecting '}' in
+    config.ini.php in libs/upgradephp/upgrade.php [by @tsteur] (Closes:
+    #5349)
+  * When database connection fails, display a useful page to user [by
+    @diosmosis] (Closes: #5400)
+  * When file uploads is disabled, display a meaningful error message
+    [by @mattab] (Closes: #5403)
+  * Bar graph loses correct yaxis in when report state is persisted
+    (Closes: #5405)
+  * Transitions on Page Titles regressed in 2.4.0 [by @diosmosis]
+    (Closes: #5411)
+  * SQL queries in upgrade files should always work when upgrade is
+    executed several times [by @diosmosis] (Closes: #5809)
+  * add XSD to PHPUnit configuration [by @craue, @mattab] (Closes: #346)
+  * Decouple UI tests from fixtures by using SQL dump of OmniFixture [by
+    @diosmosis] (Closes: #349)
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Sat, 12 Jul 2014 10:51:53 +1000
+
 piwik (2.4.0-1) stable; urgency=high
 
   * Releasing Piwik 2.4.0

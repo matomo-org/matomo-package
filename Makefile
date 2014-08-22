@@ -9,13 +9,13 @@ DEB_ARCH := $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
 
 ifndef PW_VERSION
-PW_VERSION	:= $(shell wget -qO - http://builds.piwik.org/LATEST)
+PW_VERSION	:= $(shell wget -qO - https://builds.piwik.org/LATEST)
 endif
 
 PW_VERSION_GREATER = $(shell expr $(PW_VERSION) \> $(CURRENT_VERSION))
 PW_VERSION_LOWER = $(shell expr $(PW_VERSION) \< $(CURRENT_VERSION))
 
-URL		= http://builds.piwik.org/
+URL		= https://builds.piwik.org/
 ARCHIVE		= piwik-$(PW_VERSION).tar.gz
 
 DESTDIR		= /

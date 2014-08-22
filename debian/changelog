@@ -1,3 +1,165 @@
+piwik (2.5.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.5.0
+  * [New open source project] Github issues mirror for Data ownership
+    and better searchability, on issues.piwik.org (Closes: #5299)
+  * Create a CHANGELOG.md file that lists all changes and improvements
+    to the core platform (Closes: #5953)
+  * Create a CONTRIBUTING.md file to let users know how to contribute to
+    Piwik [by @tsteur] (Closes: #5381)
+  * Refactor reports and dimensions [by @tsteur] (Closes: #5820)
+  * When there is an error in Piwik throw a http error code 500 [by
+    @mattab] (Closes: #5958)
+  * Don't store custom variables in cookies (better privacy) [by
+    @mattab] (Closes: #5415)
+  * When upgrading Piwik, -dry-run should show all SQL queries including
+    Plugins install queries (Closes: #5806)
+  * Cross-origin resource sharing [by @czolnowski, @halfdan, @mattab]
+    (Closes: #5912)
+  * Issues with changing segment name. [by @tsteur] (Closes: #5816)
+  * "report to load by default" does not change to "All Websites" [by
+    @tsteur] (Closes: #5817)
+  * Fix HHVM support for CLI [by @Diftraku, @tsteur] (Closes: #5818)
+  * New Search engines [by @sgiehl] (Closes: #5819)
+  * In piwik.js when 'disableCookies' is pushed to the _paq array, apply
+    it first [by @mattab] (Closes: #5957)
+  * Show footer icons in the Ecommerce reports [by @tsteur] (Closes:
+    #5385)
+  * Notice: Undefined index: 2011-08-18 in plugins/API/API.php on line
+    493 [by @mattab] (Closes: #5168)
+  * Refactor core:archive command to use symfony console $input rather
+    than getParameterFromCli() method [by @diosmosis] (Closes: #5807)
+  * In processed report a segment parameter is not added to ImageGraph
+    URL [by @tsteur, @mattab] (Closes: #5895)
+  * filter, showColumns, hideColumns should work if API returns arrays
+    [by @tsteur] (Closes: #5896)
+  * Created unified system for running tests in travis for Piwik Core
+    and any Piwik plugin. [by @diosmosis, @mattab] (Closes: #5962)
+  * Movers and Shakers not compairing correctly when using Segmentation
+    [by @tsteur] (Closes: #5964)
+  * make the opt-out form work even if JavaScript is disabled [by
+    @craue, @tsteur] (Closes: #5849)
+  * refs #5950 add possibility to sort Live.getLastVisitsDetails [by
+    @tsteur] (Closes: #5981)
+  * refs #5936 remove gone files during update [by @tsteur] (Closes:
+    #5984)
+  * MultiSites.getAll returns wrong format under circumstances [by
+    @tsteur] (Closes: #5987)
+  * Add 'Marketplace' link to the top menu [by @tsteur] (Closes: #5994)
+  * When Ajax request ends with error (5xx or 4xx), Piwik should display
+    a friendly message notification [by @tsteur] (Closes: #5406)
+  * Create FAQ to help troubleshoot the error "Failed to load HTML file"
+    (Closes: #5404)
+  * Widget error message "The report 'nb_pageviews' was requested but it
+    is not available at this stage..." [by @diosmosis] (Closes: #4392)
+  * Encountered unsupported archive type 'dat.gz.'. [by @mattab]
+    (Closes: #4629)
+  * Add icon for browser "Mobile Safari" [by @sgiehl] (Closes: #5151)
+  * PHP Warning: parse_url(http://): Unable to parse URL in
+    core/UrlHelper.php on line 494 [by @fhemberger, @tsteur] (Closes:
+    #5180)
+  * show visit time in visitor profile [by @mattab] (Closes: #5190)
+  * huge whitespace in visitor profile [by @fhemberger] (Closes: #5191)
+  * Visitor engagement: too wide [by @fhemberger] (Closes: #5242)
+  * Change Visitor Profile log tooltip [by @tsteur] (Closes: #5313)
+  * Piwik auf IIS im shared hosting erzeugt fehlerhafte CSS-Datei [by
+    @tsteur] (Closes: #5399)
+  * "zlib i missing" on 64bit Ubuntu systems [by @mattab] (Closes:
+    #5407)
+  * Real Time Visitor Count - wrong actions counter [by @tsteur]
+    (Closes: #5416)
+  * code cleanup [by @craue, @mattab] (Closes: #5813)
+  * Fix parameter in deprecation message in /misc/cron/archive.php [by
+    @fhemberger, @mattab] (Closes: #5825)
+  * Adding the new variables to "UsersManager.addUser.end" and
+    "UsersManager.updateUser.end" triggers [by @burakcakirel, @mattab]
+    (Closes: #5833)
+  * Uninitialized string offset: 1 in /srv/piwik/core/Piwik.php on line
+    158 [by @tsteur] (Closes: #5841)
+  * Piwik's asynchronous command line execution module does not properly
+    detect currently running processes on some systems [by @diosmosis]
+    (Closes: #5842)
+  * code cleanup [by @craue, @tsteur] (Closes: #5847)
+  * Search engine "Yandex" is defined as a website [by @sgiehl] (Closes:
+    #5851)
+  * [2.4.1] VisitorMap wrong visit summary? [by @tsteur] (Closes: #5854)
+  * Add name parameter to MenuTop. [by @czolnowski, @tsteur] (Closes:
+    #5858)
+  * Treat response with any 2xx status code as successful POST track
+    request [by @sslavic, @mattab] (Closes: #5859)
+  * Show the image description also as title [by @ThaDafinser, @tsteur]
+    (Closes: #5861)
+  * PHP Documentation shows 404 Error [by @tsteur] (Closes: #5864)
+  * added missing variable to postEvent [by @mgazdzik, @tsteur] (Closes:
+    #5866)
+  * Unable to use new domain extensions as an email address [by @tsteur]
+    (Closes: #5867)
+  * remove dead code [by @craue, @tsteur] (Closes: #5871)
+  * code cleanup [by @craue, @tsteur] (Closes: #5872)
+  * On update, automatically delete from filesystem all Piwik files that
+    are not in the latest release [by @tsteur] (Closes: #5936)
+  * In the Visitor Profile, show also the time of the visit [by
+    @ThaDafinser, @mattab] (Closes: #5883)
+  * Integration Tests refactor (move API testing logic to separate
+    classes) [by @diosmosis, @mattab] (Closes: #5884)
+  * Calling MultiSites.getAll results in "Invalid parameter number" (in
+    Piwik 2.5.0-b1) [by @tsteur] (Closes: #5887)
+  * refs #5820 Report and dimension refactoring [by @tsteur] (Closes:
+    #5821)
+  * Plugin: Howto skip/adjust config filter? [by @tsteur] (Closes:
+    #5890)
+  * Visitors in real-time widget "Page views" metric should not counts
+    other action types [by @mattab, @piwik-auto-commit-bot] (Closes:
+    #5891)
+  * fixed broken EventDispatcher mechanism for sorting callbacks order
+    [by @mgazdzik, @halfdan] (Closes: #5893)
+  * Missing word in FAQ (Closes: #5899)
+  * r.search.yahoo.com tracked as external referrer [by @sgiehl]
+    (Closes: #5910)
+  * Display more useful message when error `Abort pclzip.lib.php :
+    Missing zlib extensions` [by @mattab] (Closes: #5925)
+  * Add example Dimensions and example Reports to the `ExamplePlugin`
+    [by @tsteur] (Closes: #5926)
+  * Delete unused column `log_conversion.referer_visit_server_date` [by
+    @mattab] (Closes: #5927)
+  * CORS refactoring [by @czolnowski, @mattab] (Closes: #5929)
+  * Visitor profile image width to max-width [by @ThaDafinser, @mattab]
+    (Closes: #5931)
+  * Unit test fixes [by @mnapoli, @mattab] (Closes: #5934)
+  * Run marketplace plugin tests with the defined PHP version in
+    plugin.json [by @tsteur] (Closes: #5937)
+  * Fixed a test to use the configured root URL [by @mnapoli, @mattab]
+    (Closes: #5939)
+  * When an admin removes a user's access to a website, sending
+    scheduled reports may fail [by @tsteur] (Closes: #5943)
+  * 5896 add showColumns/hideColumns filters to arrays [by @tsteur]
+    (Closes: #5944)
+  * Run tests on older version PHP 5.3.3 [by @mattab] (Closes: #5945)
+  * Searching in datatable for `?param` results in error message [by
+    @tsteur] (Closes: #5949)
+  * Sorting Live.getLastVisitsDetails visits by a custom column [by
+    @tsteur] (Closes: #5950)
+  * Add search engine sputnik.ru [by @sgiehl] (Closes: #5969)
+  * Notice: Undefined index: dimension in plugins/API/RowEvolution.php
+    on line 334 [by @tsteur] (Closes: #5951)
+  * When editing an existing goal, radio buttons are not checked [by
+    @tsteur] (Closes: #5961)
+  * shell_exec(): Cannot execute using backquotes in Safe Mode [by
+    @mattab] (Closes: #5988)
+  * Prevent ArchiveWeb test from failing [by @tsteur] (Closes: #6003)
+  * [automatic translation update] Updated 90 strings in 8 languages
+    (da, de, el, fr, it, ru, sv, tr) [by @sgiehl] (Closes: #5909)
+  * [automatic translation update] Updated 65 strings in 2 languages
+    (de, pl) [by @sgiehl] (Closes: #5857)
+  * [automatic translation update] Updated 68 strings in 5 languages
+    (da, de, el, sl, tr) [by @sgiehl] (Closes: #6004)
+  * [automatic translation update] Updated 84 strings in 7 languages
+    (el, it, ja, nb, nl, sv, tr) [by @sgiehl] (Closes: #5824)
+  * [automatic translation update] Updated 131 strings in 8 languages
+    (ru, fr, sv, cs, da, de, el, it) [by @sgiehl] (Closes: #5967)
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Fri, 22 Aug 2014 13:54:41 +1000
+
 piwik (2.4.1-1) stable; urgency=high
 
   * Releasing Piwik 2.4.1

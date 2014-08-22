@@ -121,8 +121,8 @@ clean:
 		rm -rf debian/piwik
 
 upload:
-		mv ../piwik_$(CURRENT_FULLV)_all.deb $(CURDIR)/tmp
-		mv ../piwik_$(CURRENT_FULLV).dsc $(CURDIR)/tmp
-		mv ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes $(CURDIR)/tmp
-		mv ../piwik_$(CURRENT_FULLV).tar.gz $(CURDIR)/tmp
+		test ! -f ../piwik_$(CURRENT_FULLV)_all.deb || mv ../piwik_$(CURRENT_FULLV)_all.deb $(CURDIR)/tmp
+		test ! -f ../piwik_$(CURRENT_FULLV).dsc || mv ../piwik_$(CURRENT_FULLV).dsc $(CURDIR)/tmp
+		test ! -f ../piwik_$(CURRENT_FULLV).dsc || mv ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes $(CURDIR)/tmp
+		test ! -f ../piwik_$(CURRENT_FULLV).dsc || mv ../piwik_$(CURRENT_FULLV).tar.gz $(CURDIR)/tmp
 		dupload --to piwik $(CURDIR)/tmp/piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes

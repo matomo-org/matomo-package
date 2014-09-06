@@ -1,3 +1,105 @@
+piwik (2.6.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.6.0
+  * Reports for today will be processed every 150 seconds instead of
+    previous default 10s (real time reports) (Closes: #6089)
+  * When there are many goals, show them grouped in a selector [by
+    @tsteur] (Closes: #5977)
+  * PiwikDebugger: a new plugin to debug a Piwik instance without FTP
+    access (troubleshooting toolkit). (Closes: #5982)
+  * Let users define a Goal as "Goal is triggered when visitor send an
+    Event" [by @tsteur] (Closes: #5989)
+  * Add hooks to Live plugin and let other plugins extend it [by
+    @tsteur] (Closes: #6045)
+  * Use an event to collect visitor information and made sure UI works
+    even when minimum plugins are enabled [by @tsteur] (Closes: #6071)
+  * Entering Settings doesn't work after update to 2.4.0 [by @tsteur]
+    (Closes: #5414)
+  * Piwik.js JS tracker: allow developer to pass a 'callback' argument
+    [by @Sija, @mattab] (Closes: #5850)
+  * Split core language files into plugins where possible [by @tsteur]
+    (Closes: #5863)
+  * Fix xhprof integration, install xhprof through composer and build
+    xhprof through composer. [by @diosmosis] (Closes: #6035)
+  * Enables code coverage reports using coveralls.io [by @sgiehl]
+    (Closes: #6036)
+  * Let Piwik admins run the `core:archive` through the browser (Closes:
+    #5924)
+  * Error when switching 'report tables' view of DBStats plugin to pie
+    chart [by @tsteur] (Closes: #5952)
+  * Unexpected hijacking user after clicking on sparkline and chart [by
+    @tsteur] (Closes: #5970)
+  * Unclear indication of current state of Real-time widget [by @tsteur]
+    (Closes: #5971)
+  * Lack of "Cancel" option when editing users [by @tsteur] (Closes:
+    #5973)
+  * Add FAQ to explain how to configure CORS Cross-origin resource
+    sharing hosts (Closes: #5993)
+  * Duplicated "create new goal" text (Closes: #5990)
+  * Fix XHProf implementation [by @diosmosis, @tsteur, @mattab] (Closes:
+    #5995)
+  * Lacking label in "Create new Goal" view [by @tsteur] (Closes: #5997)
+  * Find only components and settings of activated plugins [by @tsteur]
+    (Closes: #6011)
+  * Make ./console core:archive work on CGI (use case 1&1
+    hosting/managed server) [by @tsteur] (Closes: #6012)
+  * /misc/cron/archive.php mistake web execution for command line [by
+    @tsteur] (Closes: #6013)
+  * "The string Goals_Ecommerce was not loaded in javascript" ...
+    Massive Error message on "Websites Management" [by @tsteur] (Closes:
+    #6014)
+  * Switch to composer for autoloading. [by @diosmosis, @tsteur]
+    (Closes: #6024)
+  * On version 2.5.0 under the "Event Actions" report, the second-level
+    aggregate table is now showing "Unique Visitors", it used to be
+    "Total Events" [by @tsteur] (Closes: #6025)
+  * Goals condition and examples do not update when creating/editing a
+    goal [by @tsteur] (Closes: #6026)
+  * Field 'location_browser_lang' doesn't have a default value In query
+    [by @tsteur, @mattab] (Closes: #6028)
+  * Object of class PiwikPluginsProxyController could not be converted
+    to string in core/FrontController.php on line 173 [by @mattab]
+    (Closes: #6030)
+  * Theming - changing font variable does not work [by @tsteur] (Closes:
+    #6038)
+  * fixed composer.json to download the same set of vendors as with use
+    of c... [by @mgazdzik, @mattab] (Closes: #6043)
+  * Refactor piwikApi angularjs object to allow aborting individual
+    requests and all requests. [by @diosmosis] (Closes: #6048)
+  * 2.5.0 Upgrade - Breaks Visitor Log [by @tsteur] (Closes: #6049)
+  * Bug in JSON renderer renders simple associative array as indexed
+    array containing object. [by @diosmosis] (Closes: #6057)
+  * Move translations from core to plugins and cache all plugin
+    translations for better performance [by @tsteur] (Closes: #6059)
+  * Cache list of Tracker plugins in tracker than config file [by
+    @tsteur] (Closes: #6065)
+  * Move JSON format bug fixes to new JSON2 format so existing clients
+    will not fail. [by @diosmosis] (Closes: #6066)
+  * at installation step 2, warning message: "GET request to piwik.php
+    failed." [by @mattab] (Closes: #6067)
+  * When a Goal is matching a pattern containing <, >, ', " goal will
+    not match [by @mattab] (Closes: #6070)
+  * dynamically detect tracker plugins and cache them instead of using
+    config [by @tsteur, @mattab] (Closes: #6072)
+  * Removing pre PHP 5.3 checks (SPL ArrayObject) [by @ThaDafinser,
+    @mattab] (Closes: #6084)
+  * 2.6b1: API returned an error: Date format.. [by @diosmosis] (Closes:
+    #6086)
+  * After updating to 2.5.0 the plugin page don't work [by @diosmosis]
+    (Closes: #6092)
+  * Processed report does not add all metrics to columns [by @tsteur]
+    (Closes: #6102)
+  * xhprof removed their composer.json file, adding it to our
+    composer.json file so we can still use composer to manage xhprof [by
+    @diosmosis] (Closes: #6107)
+  * Fix getProcessedReport does not include all metrics in columns [by
+    @tsteur] (Closes: #6112)
+  * Norwegian Bokmal name is written wrong [by @sgiehl] (Closes: #6114)
+  * [automatic translation update] Updated 129 strings in 6 languages
+    (fa, tr, ru, cs, ja, nl) [by @sgiehl] (Closes: #6117)
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Sat, 06 Sep 2014 13:19:25 +1000
+
 piwik (2.5.0-1) stable; urgency=high
 
   * Releasing Piwik 2.5.0

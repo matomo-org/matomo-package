@@ -28,4 +28,3 @@ piwik: extra-license-file usr/share/piwik/vendor/tedivm/jshrink/LICENSE
 piwik: extra-license-file usr/share/piwik/libs/angularjs/LICENSE
 piwik: extra-license-file usr/share/piwik/plugins/Feedback/angularjs/ratefeature/icon_license
 piwik: extra-license-file usr/share/piwik/vendor/mustangostang/spyc/COPYING
-piwik: extra-license-file usr/share/piwik/vendor/symfony/yaml/Symfony/Component/Yaml/LICENSE

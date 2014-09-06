@@ -1,3 +1,10 @@
+piwik (2.6.1-1) stable; urgency=high
+
+  * Releasing Piwik 2.6.1
+  * xhprof is needed in production after update to 2.6 (Closes: #6127)
+
+ -- Aurelien Requiem <aurelien@requiem.fr>  Sat, 06 Sep 2014 13:36:16 +1000
+
 piwik (2.6.0-1) stable; urgency=high
 
   * Releasing Piwik 2.6.0

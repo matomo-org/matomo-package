@@ -49,6 +49,8 @@ fixperms:
 		chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/lessify
 		chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/package.sh
 		chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/plessc
+		chmod 0755 $(DESTDIR)/usr/share/piwik/misc/composer/build-xhprof.sh
+		chmod 0755 $(DESTDIR)/usr/share/piwik/misc/composer/clean-xhprof.sh
 
 # check lintian licenses so we can remove obsolete ones
 checklintianlic:

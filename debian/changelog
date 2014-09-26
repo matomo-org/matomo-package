@@ -1,3 +1,127 @@
+piwik (2.7.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.7.0
+  * User ID feature: Accurate User detection across devices [by @mattab,
+    @tsteur] (Closes: #3490)
+  * New metric 'nb_users' counting the number of Active Unique Users
+    (the count of distinct User IDs set) [by @mattab] (Closes: #6162)
+  * Cross websites reporting: Let me see the number of users who browsed
+    two websites (new InterSites Piwik plugin!) (Closes: #6082)
+  * Make it easier to discover and access reports footer options and
+    icons [by @diosmosis] (Closes: #5976)
+  * Content Tracking [by @tsteur] (Closes: #6201)
+  * Show [+] icon in the reports rows when the row can be expanded [by
+    @diosmosis] (Closes: #5355)
+  * Event reporting: new report to view the second dimension as columns
+    (Pivot by second dimension) [by @diosmosis, @mattab] (Closes: #6078)
+  * Browser language reporting: Let me see the different language codes
+    [by @vox3r, @mattab] (Closes: #6097)
+  * Allow opt-out to be shown within an iframe on other domains [by
+    @Guite, @mattab] (Closes: #6132)
+  * As a Piwik admin, I want to disable ability for users to create
+    segments for "All Websites" [by @diosmosis] (Closes: #5923)
+  * invalidateArchivedReports should not delete the data but invalidate
+    it until re-processed [by @mattab] (Closes: #5932)
+  * New $period parameter to the API call
+    CoreAdminHome.invalidateArchivedReports [by @mattab] (Closes: #5933)
+  * Log Analytics: new parameter -download-extensions to override list
+    of files tracked as downloads [by @postalservice14, @mattab]
+    (Closes: #6231)
+  * Wrong default date when adding annotations [by @tsteur] (Closes:
+    #5972)
+  * Setup Coveralls for Piwik Code coverage report [by @sgiehl] (Closes:
+    #4302)
+  * Display a warning in admin to super users in case PHP 5.3 is used
+    [by @tsteur, @mattab] (Closes: #6275)
+  * Changed JavaScript Tracking Code generation to use "//" [by
+    @Irrational86, @mattab] (Closes: #344)
+  * Add 'Disable all cookies' checkbox in the JavaScript Tracking code
+    generator [by @sgiehl] (Closes: #6174)
+  * Add an icon next to "Segments" box [by @diosmosis] (Closes: #6034)
+  * display permanent notification to Super Users in admin screen for
+    PHP 5.3 warning about EOL [by @tsteur, @mattab] (Closes: #6056)
+  * Adding new PivotByDimension DataTable filter that can pivot a report
+    by (almost) any dimension. [by @diosmosis, @mattab] (Closes: #6243)
+  * Archiver: allow to process unique visitors across multiple websites
+    [by @diosmosis] (Closes: #6079)
+  * Tracker API: cid parameter no longer requires token_auth [by
+    @mattab] (Closes: #6109)
+  * Allow invalidated archive data to be used until they are re-
+    processed [by @mkurzeja, @mattab] (Closes: #6116)
+  * Log analytics : import_logs.py doesn't work any more (Closes: #6120)
+  * insight select options: all option not working after you switch to
+    another option [by @tsteur] (Closes: #6124)
+  * problem with opt-out-iframe: when calling forwarded to log-in-screen
+    with "idSite= is missing" [by @diosmosis] (Closes: #6128)
+  * Log Analytics Update README add regex example for syslog format [by
+    @ahattouti-canaltp, @halfdan] (Closes: #6131)
+  * Upgrade from 2.5.0 to 2.6.1. breaks [by @diosmosis] (Closes: #6134)
+  * PHP Arrays not Serialized by Default [by @claytondaley,
+    @MichielDeMey, @mattab] (Closes: #6137)
+  * Make it easier to define URLs for Menu and remove an unnessary
+    parameter [by @tsteur] (Closes: #6140)
+  * Menu Plugin API improvements [by @tsteur] (Closes: #6141)
+  * Generate plugin should no longer ask whether it should also create
+    an API and a controller [by @tsteur] (Closes: #6145)
+  * When generating a plugin we should require at least the developer's
+    Piwik version [by @tsteur] (Closes: #6149)
+  * Menu: If development mode is enabled we should check whether action
+    exists [by @tsteur] (Closes: #6153)
+  * Php serializer was not serializing arrays by default. [by
+    @claytondaley, @mattab] (Closes: #6155)
+  * User ID implementation [by @mattab] (Closes: #6169)
+  * Deprecate new_visit_api_requires_admin config setting [by @mattab]
+    (Closes: #6175)
+  * Bug: on hover of table rows incorrect jquery selector will result in
+    size of value spans being same as largest label [by @diosmosis]
+    (Closes: #6178)
+  * Clean up arobases [by @kylekatarnls] (Closes: #6185)
+  * fixes #6174 - added possibility to add 'disableCookies' option in
+    trackinking code generator [by @sgiehl] (Closes: #6190)
+  * Let Segments define a callback to use for suggested values in
+    segment editor [by @czolnowski, @mattab] (Closes: #6192)
+  * Add angularjs code to open and close dialogs. [by @diosmosis]
+    (Closes: #6193)
+  * Implementation of new Browser Reports by Language and Language code
+    [by @vox3r, @mattab] (Closes: #6199)
+  * Replace header() with Common::sendHeader() when possible [by
+    @kylekatarnls, @mattab] (Closes: #6211)
+  * Add option to disable menu title change after click position in top
+    menu. [by @czolnowski, @mattab] (Closes: #6213)
+  * Refs #6078, extract factory logic from Report::factory and move to
+    ComponentFactory utility class. [by @diosmosis] (Closes: #6221)
+  * #6232 getExpiresHeaderForFutureDay should be static [by
+    @kylekatarnls, @mattab] (Closes: #6233)
+  * Fix one unit test in PHP 5.6 allow charset complement in content-
+    type [by @kylekatarnls, @mattab] (Closes: #6235)
+  * use php_uname() instead of shell_exec('uname') [by @hdi-kw, @mattab]
+    (Closes: #6237)
+  * HTML scheduled report does not render in browser [by @mattab]
+    (Closes: #6245)
+  * german i18n mixed up after Update to 2.6(.1) (Closes: #6246)
+  * More tests for content tracking [by @tsteur] (Closes: #6249)
+  * User ID should be defined as dimension [by @tsteur] (Closes: #6273)
+  * The import_logs.py script does not treat ".apk" files as downloads
+    [by @andrejb, @mattab] (Closes: #6276)
+  * Fix import_logs.py apk downloads (#6276). [by @andrejb, @mattab]
+    (Closes: #6277)
+  * Use PSR-4 for autoloader (Closes: #4074)
+  * Argument 1 passed to
+    PiwikAPIDataTableManipulatorReportTotalsCalculator::hasDataTableMetr
+    ic() must be an instance of PiwikDataTable, instance of
+    PiwikDataTableMap given [by @tsteur] (Closes: #5373)
+  * Fixed typo in README [by @MichielDeMey, @halfdan] (Closes: #6136)
+  * Improve detection of proc filesystem that works despite potential
+    open_b... [by @snout1979, @mattab] (Closes: #5965)
+  * [automatic translation update] Updated 62 strings in 1 languages
+    (cs) [by @sgiehl] (Closes: #6143)
+  * [automatic translation update] Updated 510 strings in 9 languages
+    (pl, fr, de, it, ja, nb, tr, da, el) [by @sgiehl] (Closes: #6208)
+  * [automatic translation update] Updated 131 strings in 6 languages
+    (cs, da, de, el, pl, sv) [by @sgiehl] (Closes: #6240)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Fri, 26 Sep 2014 18:34:30 +1000
+
 piwik (2.6.1-1) stable; urgency=high
 
   * Releasing Piwik 2.6.1

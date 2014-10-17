@@ -1,3 +1,118 @@
+piwik (2.8.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.8.0
+  * Piwik support for PHP 5.6 (Closes: #5062)
+  * Display + and - icons in Campaign report (Closes: #5209)
+  * Email Reports being sent out twice [by @mnapoli, @mattab] (Closes:
+    #5300)
+  * Piwik users do not need cookie consent in France: make Piwik privacy
+    enabled.
+  * Error in Archivejob: Adding a subtable to the row, but it already
+    has a subtable associated [by @mattab] (Closes: #4528)
+  * Admin UI: mitigate the display of token_auth on screen [by @mnapoli,
+    @mattab] (Closes: #4616)
+  * All links in admin pages should be underlined [by @mnapoli] (Closes:
+    #6138)
+  * Generate Code Coverage of Piwik test suite [by @sgiehl] (Closes:
+    #4224)
+  * Code Coverage for Piwik Plugins using coveralls.io (Closes: #6195)
+  * Rename our test suites so the names make sense [by @tsteur,
+    @mnapoli] (Closes: #5940)
+  * Docs should not state Piwik requires GRANT OPTION (Closes: #335)
+  * Improvements to Tracking API for easier Mobile Apps Tracking
+    (Closes: #4994)
+  * Make it clear how to force sending scheduled tasks for debugging [by
+    @mnapoli, @mattab] (Closes: #6085)
+  * IP in Providers widget is linking to FAQ page. [by @mattab] (Closes:
+    #6101)
+  * Tracker API: cdt parameter should not require token_auth when
+    setting a recent datetime [by @mattab] (Closes: #6110)
+  * Goal matching should match the raw URL including all query
+    parameters [by @mattab] (Closes: #6191)
+  * Remove dependency from Actions plugin to Contents (and maybe Events)
+    [by @tsteur] (Closes: #6204)
+  * 'Others' row in reports: explain to user how to see it less often
+    [by @mnapoli, @mattab] (Closes: #6215)
+  * archive.php compatibility with hhvm, next round [by @mattab]
+    (Closes: #6224)
+  * Make visitorId be equal by default for all Piwik.Trackers [by
+    @a4tunado, @mattab] (Closes: #6257)
+  * Fixed .gitignore [by @mnapoli, @halfdan] (Closes: #6264)
+  * Unknown providers are now shown as "Unknown" instead of "IP" [by
+    @mnapoli, @mattab] (Closes: #6400)
+  * Added a "learn more" link on "Others" row in reports [by @mnapoli,
+    @mattab] (Closes: #6401)
+  * Update some AngularJS modules to match a new style guide [by
+    @tsteur] (Closes: #5983)
+  * AngularJS: Use controllerAs syntax [by @tsteur] (Closes: #6284)
+  * New AngularJS directive for AJAX forms [by @diosmosis] (Closes:
+    #6399)
+  * AngularJS notifications: new directive [by @diosmosis] (Closes:
+    #6366)
+  * Provide a command to generate AngularJS components [by @tsteur]
+    (Closes: #6285)
+  * New component/decompress: extracted PiwikUnzip into a separate
+    package (Closes: #6367)
+  * Visitors having empty visits when using content tracking [by
+    @tsteur, @mattab] (Closes: #6296)
+  * Fix detection of a known visitor when there are multiple requests at
+    same second for same visitor [by @tsteur] (Closes: #6298)
+  * Proxy piwik.php script does not send http headers [by @KoffeinKaio,
+    @mattab] (Closes: #6300)
+  * Ignore any opcache_invalidate errors [by @stackcoder, @mattab]
+    (Closes: #6303)
+  * Remove "Website" word from scheduled email reports [by @mattab]
+    (Closes: #6309)
+  * aclocal and autoconf calls are necessary to build the xhprof php
+    extension [by @sabl0r, @mattab] (Closes: #6311)
+  * When a User Id is set, try to attach User ID to existing visit
+    before user logged in [by @mattab] (Closes: #6313)
+  * Warning: shell_exec() [function.shell-exec]: Unable to execute 'stat
+    -f -c "%T" /proc 2>/dev/null' [by @mattab] (Closes: #6314)
+  * Remove CacheFile cache from APC on write [by @brownoxford, @mattab]
+    (Closes: #6315)
+  * Refactor Auth logic to login's Auth class and new PasswordResetter
+    class from login controller (Closes: #6318)
+  * Move some menu logic from Twig to plugin's Menu [by @mgazdzik,
+    @mattab] (Closes: #6322)
+  * Mysql return rows count found in an UPDATE rather than rows modified
+    [by @mattab] (Closes: #6323)
+  * Optimize DatabaseTestCase so travis build will be faster [by
+    @diosmosis] (Closes: #6331)
+  * When pulling Piwik sourcode via Git we get: git fatal failed to stat
+    File name too long (Closes: #6337)
+  * Deprecate Piwik::setUserHasSuperUserAccess() and switch to using
+    Access::doAsSuperUser() [by @diosmosis, @mattab] (Closes: #6342)
+  * Improve readability of code [by @tsteur] (Closes: #6343)
+  * When real time segments are disabled, still allow 'view' users to
+    create pre-processed [by @mattab] (Closes: #6373)
+  * The parameter 'period' isn't set in the Request, and a default value
+    wasn't provided. [by @mattab] (Closes: #6374)
+  * Only set error 500 headers when there is an internal server error
+    (Database failure) [by @mattab] (Closes: #6375)
+  * Let plugins further extend tracking code via Event
+    'Piwik.getJavascriptCode' [by @czolnowski, @mattab] (Closes: #6380)
+  * Update does not detect the newly available DB schema upgrades [by
+    @mattab] (Closes: #6383)
+  * Increase Piwik PHP requirement to PHP 5.3.3 [by @mattab] (Closes:
+    #6390)
+  * Show only the first characters of tokens in the admin [by @mnapoli,
+    @mattab] (Closes: #6394)
+  * Refactoring in ScheduledReports to remove useless indentation [by
+    @mnapoli, @mattab] (Closes: #6396)
+  * Tracker API: when 'cdt' tracker parameter is set in the recent past
+    (last 4 hours) then do not require token_auth [by @mattab] (Closes:
+    #6407)
+  * Rename our test suites so the names make sense #5940 [by @tsteur]
+    (Closes: #6411)
+  * Moved test files into a subfolder framework [by @tsteur] (Closes:
+    #6431)
+  * [automatic translation update] Updated 278 strings in 10 languages
+    (pt, cs, da, de, el, es, et, it, pl, ja) [by @sgiehl] (Closes:
+    #6391)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Fri, 17 Oct 2014 16:13:08 +1100
+
 piwik (2.7.0-1) stable; urgency=high
 
   * Releasing Piwik 2.7.0

@@ -1,6 +1,6 @@
 piwik: improbable-bug-number-in-closes 57
 piwik: embedded-php-library usr/share/piwik/core/Visualization/Sparkline.php
-piwik: embedded-php-library usr/share/piwik/libs/PclZip/pclzip.lib.php
+piwik: embedded-php-library usr/share/piwik/vendor/piwik/decompress/libs/PclZip/pclzip.lib.php
 piwik: embedded-php-library usr/share/piwik/libs/sparkline/lib/Sparkline.php
 piwik: embedded-php-library usr/share/piwik/plugins/CoreVisualizations/Visualizations/Sparkline.php
 piwik: embedded-javascript-library usr/share/piwik/libs/jquery/jquery.history.js

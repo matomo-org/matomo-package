@@ -1,3 +1,63 @@
+piwik (2.8.1-1) stable; urgency=high
+
+  * Releasing Piwik 2.8.1
+  * Announce that Piwik will stop supporting PHP 5.3 soon [by @mattab]
+    (Closes: #6470)
+  * Content Tracking, Banner tracking: track impressions, Clicks on any
+    piece of content [by @tsteur, @mattab] (Closes: #4996)
+  * Allow admin users to customise the piwik.js code served by Piwik [by
+    @mnapoli, @mattab] (Closes: #6372)
+  * Uncaught TypeError: undefined is not a function [by @tsteur]
+    (Closes: #6432)
+  * Content-type set to text/plain when requesting &idSubtable [by
+    @tsteur] (Closes: #6384)
+  * The initSession method has not been changed [by @burakcakirel,
+    @diosmosis] (Closes: #6455)
+  * Warning: fread(): Length parameter must be greater than 0 in
+    plugins/ScheduledReports/API.php on line 519 [by @diosmosis]
+    (Closes: #6454)
+  * Check if a file was actually copied when copying a file [by @tsteur,
+    @mattab] (Closes: #6445)
+  * Added events for Piwik update, enable/disable plugin and Plugin
+    Settings update [by @mnapoli, @mattab] (Closes: #6440)
+  * Console command generate:report not geting all available dimensions
+    [by @tsteur] (Closes: #6481)
+  * Events Pivot: reads only "from" from date range and fails. [by
+    @diosmosis] (Closes: #6479)
+  * PHP Fatal error: Call to undefined method
+    PiwikDbAdapterMysqli::fetch() in core/Tracker/Model.php on line 353
+    [by @mattab] (Closes: #6475)
+  * Notice: Undefined offset: 39 core/DataArray.php on line 121 [by
+    @mattab] (Closes: #6474)
+  * Document how to enable Content Tracking by default using
+    CustomTrackerJs (Closes: #6466)
+  * redirect /index.php/.whatever?... URLs to /index.php?... to avoid
+    Content-Type browser bugs [by @mnapoli] (Closes: #6156)
+  * xss affecting IE6, IE7 and IE8 (Closes: #6053)
+  * Pages Search Results: Error message + Graph with no Data [by
+    @tsteur] (Closes: #6015)
+  * Php 5.6 "Automatically populating $HTTP_RAW_POST_DATA is deprecated"
+    [by @mattab, @mnapoli] (Closes: #6465)
+  * CI icons: Use svg instead of png to get better image quality [by
+    @PeterDaveHello, @mattab] (Closes: #6461)
+  * Removed tests for PHP 5.4 and 5.5. We only test for 5.3.3 and 5.6.
+    [by @mnapoli] (Closes: #6459)
+  * Issues with Zend Mode message [by @tsteur, @diosmosis] (Closes:
+    #6452)
+  * Extracted `Piwik::getJavascriptCode()` into a separate, non static
+    class [by @mnapoli] (Closes: #6446)
+  * Reduce number of jobs in the Travis CI piwik/piwik build [by
+    @tsteur] (Closes: #6413)
+  * Add missing search engine hosts [by @sgiehl] (Closes: #6281)
+  * Visitors in Real-time ecommerce order tooltip formatting [by
+    @tsteur] (Closes: #6123)
+  * Keep composer.json and composer.lock synchronised at all times [by
+    @mnapoli, @mattab] (Closes: #6058)
+  * [automatic translation update] Updated 209 strings in 3 languages
+    (ja, tr, cs) [by @sgiehl] (Closes: #6482)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Wed, 22 Oct 2014 08:23:35 +1100
+
 piwik (2.8.0-1) stable; urgency=high
 
   * Releasing Piwik 2.8.0

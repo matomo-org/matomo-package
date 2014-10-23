@@ -1,3 +1,19 @@
+piwik (2.8.2-1) stable; urgency=high
+
+  * Releasing Piwik 2.8.2
+  * Composer install does not run on Windows [by @mnapoli] (Closes:
+    #6493)
+  * Redirect error while Upgrading to 2.8.1 [by @mnapoli] (Closes:
+    #6491)
+  * Introducing Bower to manage our JavaScript libraries [by @tsteur]
+    (Closes: #6483)
+  * Suppress cron errors while performing file cleanup [by @mgriego,
+    @mattab] (Closes: #6480)
+  * Use Bower for JS / CSS / other assets [by @tsteur] (Closes: #6469)
+  * hide annotation with tests [by @d-skora, @mattab] (Closes: #6382)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Thu, 23 Oct 2014 18:26:31 +1100
+
 piwik (2.8.1-1) stable; urgency=high
 
   * Releasing Piwik 2.8.1

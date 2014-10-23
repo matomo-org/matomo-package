@@ -54,7 +54,15 @@ fixperms:
 
 # check lintian licenses so we can remove obsolete ones
 checklintianlic:
-	cat debian/lintian.rules | grep extra-license-file | awk '{print $$3}' | while read F; do echo -n "  * checking: $$F"; test -f "$(DESTDIR)/$$F" || exit 1; echo " ok."; done
+	@for F in $(shell cat debian/lintian.rules | grep extra-license-file | awk '{print $$3}') ; do \
+		echo -n "  * checking: $$F"; \
+		if [ ! -f "$(DESTDIR)/$$F" ]; then \
+			echo " missing."; \
+			echo "1" >&2; \
+		else \
+			echo " ok."; \
+		fi; \
+	done 3>&2 2>&1 1>&3 | grep --silent "1" && exit 1
 
 # raise an error if the building version is lower that the head of debian/changelog
 checkversions:

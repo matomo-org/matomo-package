@@ -62,7 +62,7 @@ checklintianlic:
 		else \
 			echo " ok."; \
 		fi; \
-	done 3>&2 2>&1 1>&3 | grep --silent "1" && exit 1
+	done 3>&2 2>&1 1>&3 | grep --silent "1" && exit 1 || echo >/dev/null
 
 # raise an error if the building version is lower that the head of debian/changelog
 checkversions:

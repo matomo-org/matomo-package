@@ -64,6 +64,18 @@ checklintianlic:
 		fi; \
 	done 3>&2 2>&1 1>&3 | grep --silent "1" && exit 1 || echo >/dev/null
 
+# check lintian licenses so we can remove obsolete ones
+checklintianextralibs:
+	@for F in $(shell cat debian/lintian.rules | grep -e embedded-javascript-library -e embedded-php-library | awk '{print $$3}') ; do \
+		echo -n "  * checking: $$F"; \
+		if [ ! -f "$(DESTDIR)/$$F" ]; then \
+			echo " missing."; \
+			echo "1" >&2; \
+		else \
+			echo " ok."; \
+		fi; \
+	done 3>&2 2>&1 1>&3 | grep --silent "1" && exit 1 || echo >/dev/null
+
 # raise an error if the building version is lower that the head of debian/changelog
 checkversions:
 ifeq "$(PW_VERSION_LOWER)" "1"

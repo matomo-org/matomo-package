@@ -46,6 +46,7 @@ binary-indep: build install
 	dh_fixperms
 	$(MAKE) fixperms DESTDIR=$(CURDIR)/$d
 	$(MAKE) checklintianlic DESTDIR=$(CURDIR)/$d
+	$(MAKE) checklintianextralibs DESTDIR=$(CURDIR)/$d
 	dh_installdeb
 	dh_gencontrol
 	dh_md5sums

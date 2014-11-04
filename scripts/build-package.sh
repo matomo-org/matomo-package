@@ -120,8 +120,9 @@ function organizePackage() {
 
 
 	# delete submodules empty dirs
-	for P in $(git submodules status | awk '{print $2}')
+	for P in $(git submodule status | awk '{print $2}')
 	do
+		echo $P
 		rmdir ./$P
 	done
 
@@ -260,7 +261,7 @@ else
 	# $REMOTE_CMD "echo $VERSION > $HTTP_PATH/LATEST_BETA"
 
 	SHA1_WINDOWS="$(sha1sum ../$LOCAL_ARCH/piwik-$VERSION.zip | cut -d' ' -f1)"
-	[ -z "$SHA1_WINDOWS" ] && die "cannot compute sha1 has for ../$LOCAL_ARCH/piwik-$VERSION.zip"
+	[ -z "$SHA1_WINDOWS" ] && die "cannot compute sha1 hash for ../$LOCAL_ARCH/piwik-$VERSION.zip"
 
 	echo -e "Sending email to Microsoft web team \n\n"
 	echo -e "Hello, \n\n\

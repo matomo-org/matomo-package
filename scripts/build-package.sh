@@ -118,7 +118,6 @@ function organizePackage() {
 	# delete submodules empty dirs
 	for P in $(git submodule status | awk '{print $2}')
 	do
-		echo $P
 		rm -Rf ./$P
 	done
 
@@ -183,7 +182,8 @@ git pull
 git fetch --tags
 echo "checkout repository for tag $VERSION..."
 
-git checkout -b "build-$VERSION" "tags/$VERSION"
+git branch -D "build" > /dev/null
+git checkout -b "build" "tags/$VERSION" > /dev/null
 [ "$?" -eq "0" ] || die "tag $VERSION does not exist in repository"
 
 echo "copying files to a new directory..."
@@ -195,7 +195,7 @@ cd piwik
 [ "$(git describe --exact-match --tags HEAD)" = "$VERSION" ] || die "could not checkout to the tag for this version, make sure tag exists"
 
 echo "Preparing release $VERSION"
-echo "Piwik version as in core/Version.php: $(grep "'$VERSION'" core/Version.php)"
+echo "Piwik version in core/Version.php: $(grep "'$VERSION'" core/Version.php)"
 
 [ "$(grep "'$VERSION'" core/Version.php | wc -l)" = "1" ] || die "version $VERSION does not match core/Version.php";
 

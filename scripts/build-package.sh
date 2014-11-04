@@ -34,7 +34,7 @@ WORKDIR=$(echo $0 | sed 's,[^/]*$,,; s,/$,,;')
 [ -z "$WORKDIR" ] && WORKDIR=$PWD
 
 # this is where our piwik is going to be built
-BUILD_DIR=$(mktemp --directory --tmpdir=$WORKDIR)
+BUILD_DIR=$WORKDIR/../archives/
 
 trap "script_cleanup" EXIT
 
@@ -170,11 +170,20 @@ echo "Starting build...."
 [ -d "$LOCAL_ARCH" ] || mkdir "$LOCAL_ARCH"
 
 cd $BUILD_DIR
-git clone "$URL_REPO" "$LOCAL_REPO"
 
-echo "checkout repository for tag $VERSION..."
+
+if ! [ -d $LOCAL_REPO ]
+then
+	git clone "$URL_REPO" "$LOCAL_REPO"
+fi
+
 cd "$LOCAL_REPO"
-git checkout -b build "tags/$VERSION" >/dev/null 2>&1
+git checkout master
+git pull
+git fetch --tags
+echo "checkout repository for tag $VERSION..."
+
+git checkout -b "build-$VERSION" "tags/$VERSION"
 [ "$?" -eq "0" ] || die "tag $VERSION does not exist in repository"
 
 echo "copying files to a new directory..."

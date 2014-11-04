@@ -17,7 +17,7 @@ LOCAL_REPO="piwik_last_version_git"
 LOCAL_ARCH="archives"
 
 REMOTE_SERVER="piwik.org"
-REMOTE_LOGIN="piwik-package"
+REMOTE_LOGIN="piwik-builds"
 REMOTE_HTTP_PATH="/home/piwik-builds/www/builds.piwik.org"
 
 REMOTE="${REMOTE_LOGIN}@${REMOTE_SERVER}"
@@ -248,17 +248,14 @@ else
 
 	$REMOTE_CMD "echo $VERSION > $HTTP_PATH/LATEST" || die "cannot deploy new version file on $REMOTE"
 	$REMOTE_CMD "echo $SIZE > $HTTP_PATH/LATEST_SIZE" || die "cannot deploy new archive size on $REMOTE"
+	$REMOTE_CMD "echo $VERSION > $HTTP_PATH/LATEST_BETA"  || die "cannot deploy new version file on $REMOTE"
 
 	$REMOTE_CMD_WWW "echo $VERSION > $WWW_PATH/LATEST" || die "cannot deploy new version file on piwik@$REMOTE_SERVER"
 	$REMOTE_CMD_WWW "echo $SIZE > $WWW_PATH/LATEST_SIZE" || die "cannot deploy new archive size on piwik@$REMOTE_SERVER"
 
 	$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
 
-	# FIXME: to be reviewed
-	# beta is beta and we should not update with release version
-	# even if the released version is newer. the user should check
-	# both files and take a decision
-	# $REMOTE_CMD "echo $VERSION > $HTTP_PATH/LATEST_BETA"
+
 
 	SHA1_WINDOWS="$(sha1sum ../$LOCAL_ARCH/piwik-$VERSION.zip | cut -d' ' -f1)"
 	[ -z "$SHA1_WINDOWS" ] && die "cannot compute sha1 hash for ../$LOCAL_ARCH/piwik-$VERSION.zip"

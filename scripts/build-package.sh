@@ -134,6 +134,10 @@ function organizePackage() {
 	mkdir tests
 	mv ../README.md tests/
 
+	# Remove and deactivate the TestRunner plugin in production build
+	sed -i '/Plugins\[\] = TestRunner/d' config/global.ini.php
+	rm -rf plugins/TestRunner
+
 	cp misc/How\ to\ install\ Piwik.html ..
 
 	if [ -d "misc/package" ]

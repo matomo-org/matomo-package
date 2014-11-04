@@ -210,16 +210,13 @@ gpg --armor --detach-sign "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip" || die "Failed
 # let's do the remote work #
 # #### #### #### #### #### #
 
-$REMOTE_CMD "test -d $REMOTE_HTTP_PATH/WebAppGallery || mkdir $REMOTE_HTTP_PATH/WebAppGallery" || die "cannot access the remote server $REMOTE"
-
-scp -p "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip" "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip.asc" "${REMOTE}:$REMOTE_HTTP_PATH/WebAppGallery/" || die "failed to copy WebAppGalery files"
-
 FILES=""
 for ext in zip tar.gz
 do
 	FILES="$FILES ../$LOCAL_ARCH/piwik-$VERSION.$ext ../$LOCAL_ARCH/piwik-$VERSION.$ext.asc"
 done
 
+echo ${REMOTE}
 scp -p $FILES "${REMOTE}:$REMOTE_HTTP_PATH/"
 
 if [ "$(echo "$VERSION" | grep -E 'rc|b|a|alpha|beta|dev' -i | wc -l)" -eq 1 ]
@@ -227,35 +224,41 @@ then
 	if [ "$(echo $VERSION | grep -E 'rc|b|beta' -i | wc -l)" -eq 1 ]
 	then
 		echo "Beta or RC release"
-		$REMOTE_CMD "echo $VERSION > $HTTP_PATH/LATEST_BETA" || die "failed to deploy latest beta version file"
+		echo $REMOTE_CMD
+		$REMOTE_CMD "echo $VERSION > $REMOTE_HTTP_PATH/LATEST_BETA" || die "failed to deploy latest beta version file"
 	fi
 	echo "build finished! http://builds.piwik.org/piwik-$VERSION.zip"
 else
 	echo "Stable release";
+
+	# Copy Windows App Gallery release only for stable releases (makes Building betas faster)
+	$REMOTE_CMD "test -d $REMOTE_HTTP_PATH/WebAppGallery || mkdir $REMOTE_HTTP_PATH/WebAppGallery" || die "cannot access the remote server $REMOTE"
+	scp -p "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip" "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip.asc" "${REMOTE}:$REMOTE_HTTP_PATH/WebAppGallery/" || die "failed to copy WebAppGalery files"
 
 	#linking piwik.org/latest.zip to the newly created build
 	echo "Creating symlinks on the remote server"
 	for name in latest piwik piwik-latest
 	do
 		for ext in zip tar.gz; do
-			$REMOTE_CMD "ln -sf $HTTP_PATH/piwik-$VERSION.$ext $HTTP_PATH/$name.$ext" || die "failed to remotely link $HTTP_PATH/piwik-$VERSION.$ext to $HTTP_PATH/$name.$ext"
-			$REMOTE_CMD "ln -sf $HTTP_PATH/piwik-$VERSION.$ext.asc $HTTP_PATH/$name.$ext.asc" || die "failed to remotely link $HTTP_PATH/piwik-$VERSION.$ext/asc to $HTTP_PATH/$name.$ext.asc"
+			$REMOTE_CMD "ln -sf $REMOTE_HTTP_PATH/piwik-$VERSION.$ext $REMOTE_HTTP_PATH/$name.$ext" || die "failed to remotely link $REMOTE_HTTP_PATH/piwik-$VERSION.$ext to $REMOTE_HTTP_PATH/$name.$ext"
+			$REMOTE_CMD "ln -sf $REMOTE_HTTP_PATH/piwik-$VERSION.$ext.asc $REMOTE_HTTP_PATH/$name.$ext.asc" || die "failed to remotely link $REMOTE_HTTP_PATH/piwik-$VERSION.$ext/asc to $REMOTE_HTTP_PATH/$name.$ext.asc"
 		done
 	done
 
 	# record filesize in MB
 	SIZE=$(ls -l "../$LOCAL_ARCH/piwik-$VERSION.zip" | awk '/d|-/{printf("%.3f %s\n",$5/(1024*1024),$9)}')
 
-	$REMOTE_CMD "echo $VERSION > $HTTP_PATH/LATEST" || die "cannot deploy new version file on $REMOTE"
-	$REMOTE_CMD "echo $SIZE > $HTTP_PATH/LATEST_SIZE" || die "cannot deploy new archive size on $REMOTE"
-	$REMOTE_CMD "echo $VERSION > $HTTP_PATH/LATEST_BETA"  || die "cannot deploy new version file on $REMOTE"
+	echo $REMOTE_CMD
+	$REMOTE_CMD "echo $VERSION > $REMOTE_HTTP_PATH/LATEST" || die "cannot deploy new version file on $REMOTE"
+	$REMOTE_CMD "echo $SIZE > $REMOTE_HTTP_PATH/LATEST_SIZE" || die "cannot deploy new archive size on $REMOTE"
+	$REMOTE_CMD "echo $VERSION > $REMOTE_HTTP_PATH/LATEST_BETA"  || die "cannot deploy new version file on $REMOTE"
 
+	echo $REMOTE_CMD_WWW
 	$REMOTE_CMD_WWW "echo $VERSION > $WWW_PATH/LATEST" || die "cannot deploy new version file on piwik@$REMOTE_SERVER"
 	$REMOTE_CMD_WWW "echo $SIZE > $WWW_PATH/LATEST_SIZE" || die "cannot deploy new archive size on piwik@$REMOTE_SERVER"
 
+	echo $REMOTE_CMD_API
 	$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
-
-
 
 	SHA1_WINDOWS="$(sha1sum ../$LOCAL_ARCH/piwik-$VERSION.zip | cut -d' ' -f1)"
 	[ -z "$SHA1_WINDOWS" ] && die "cannot compute sha1 hash for ../$LOCAL_ARCH/piwik-$VERSION.zip"

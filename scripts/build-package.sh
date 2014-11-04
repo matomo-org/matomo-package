@@ -1,10 +1,6 @@
 #!/bin/bash
 # Syntax: build-package.sh version
 
-# Setup environment once:
-# $ curl -sS https://getcomposer.org/installer | php
-# git clone -- https://github.com/piwik/piwik.git /home/piwik-builds/builds/piwik_last_version || die "Problem checking out the last version tag"
-
 # Before running this script, tag a new version:
 # $ git tag 1.11-b3
 # $ git push origin tags/1.11-b3

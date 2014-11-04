@@ -123,7 +123,7 @@ function organizePackage() {
 	for P in $(git submodule status | awk '{print $2}')
 	do
 		echo $P
-		rmdir ./$P
+		rm -Rf ./$P
 	done
 
 	rm -rf .git*

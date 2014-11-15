@@ -23,6 +23,12 @@ else
 	TEST_MODE=0
 fi
 
+if [ ! -x /usr/bin/recode ]
+then
+	echo "You need to install 'recode' (apt-get install recode -V -y)"
+	exit 1
+fi
+
 CHANGELOG_URL=$(wget -O - -q 'http://piwik.org/changelog/' | grep "Piwik $1" | sed 's/.*<a href=\([^>]*\).*/\1/' | sed -e 's/"//g' -e "s/'//g")
 
 if [ -z "$(echo $CHANGELOG_URL | grep -i http)" ]

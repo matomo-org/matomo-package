@@ -28,7 +28,7 @@ MAKE_OPTS	= -s -w
 
 INSTALL		= /usr/bin/install
 
-.PHONY		: checkfetch fixperms checkversions release checkenv builddeb checkdeb newrelease newversion changelog history clean upload
+.PHONY		: checkfetch fixperms checkversions release checkenv builddeb checkdeb newrelease newversion changelog history clean upload fixsettings
 
 # check and optionally fetch the corresponding piwik archive
 # from the official server. Uncompress the archive and
@@ -40,9 +40,12 @@ checkfetch:
 		if [ -d "piwik" ]; then rm -rf "piwik"; fi
 		tar -zxf $(ARCHIVE)
 		rm -f 'How to install Piwik.html'
-		sed -i '/\.gitignore/d' piwik/config/manifest.inc.php
 		find piwik/ -type f -name .gitignore -exec rm -f {} \;
 		rm -f piwik/misc/translationTool.sh
+
+fixsettings:
+		sed -i '/\.gitignore/d' $(DESTDIR)/etc/piwik/manifest.inc.php
+		sed -i 's/^\(enable_auto_update\).*/\1 = 0/g;' $(DESTDIR)/etc/piwik/global.ini.php
 
 # fix various file permissions
 fixperms:

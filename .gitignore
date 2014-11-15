@@ -7,3 +7,4 @@ tmp/*
 tmp.*
 piwik
 piwik-*.tar.gz
+piwik-*.asc

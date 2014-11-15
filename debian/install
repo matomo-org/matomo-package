@@ -1,5 +1,6 @@
 piwik/composer.json				usr/share/piwik/
 piwik/composer.lock				usr/share/piwik/
+piwik/config/global.php				etc/piwik/
 piwik/config/global.ini.php			etc/piwik/
 piwik/config/manifest.inc.php			etc/piwik/
 piwik/console					usr/share/piwik/

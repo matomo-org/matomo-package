@@ -1,3 +1,11 @@
+piwik (2.9.0-2) stable; urgency=high
+
+  * Newer installations of Piwik through the debian package repository will
+    have 'enable_auto_update' disabled by default. We set this to avoid
+    confision and set clean with the level of security we want to achieve.
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 15 Nov 2014 15:06:23 +1100
+
 piwik (2.9.0-1) stable; urgency=high
 
   * Releasing Piwik 2.9.0

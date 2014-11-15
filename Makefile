@@ -28,7 +28,7 @@ MAKE_OPTS	= -s -w
 
 INSTALL		= /usr/bin/install
 
-.PHONY		: checkfetch fixperms checkversions release checkenv builddeb checkdeb newrelease newversion changelog history clean prepupload upload
+.PHONY		: checkfetch fixperms checkversions release checkenv builddeb checkdeb newrelease newversion changelog history clean upload
 
 # check and optionally fetch the corresponding piwik archive
 # from the official server. Uncompress the archive and
@@ -147,8 +147,9 @@ clean:
 		rm -rf debian/piwik
 
 upload:
-		test ! -f ../piwik_$(CURRENT_FULLV)_all.deb || mv ../piwik_$(CURRENT_FULLV)_all.deb $(CURDIR)/tmp
-		test ! -f ../piwik_$(CURRENT_FULLV).dsc || mv ../piwik_$(CURRENT_FULLV).dsc $(CURDIR)/tmp
-		test ! -f ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes || mv ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes $(CURDIR)/tmp
-		test ! -f ../piwik_$(CURRENT_FULLV).tar.gz || mv ../piwik_$(CURRENT_FULLV).tar.gz $(CURDIR)/tmp
+		test -d tmp || mkdir tmp
+		test ! -f ../piwik_$(CURRENT_FULLV)_all.deb || mv ../piwik_$(CURRENT_FULLV)_all.deb $(CURDIR)/tmp/
+		test ! -f ../piwik_$(CURRENT_FULLV).dsc || mv ../piwik_$(CURRENT_FULLV).dsc $(CURDIR)/tmp/
+		test ! -f ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes || mv ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes $(CURDIR)/tmp/
+		test ! -f ../piwik_$(CURRENT_FULLV).tar.gz || mv ../piwik_$(CURRENT_FULLV).tar.gz $(CURDIR)/tmp/
 		dupload --to piwik $(CURDIR)/tmp/piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes

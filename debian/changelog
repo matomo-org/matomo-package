@@ -1,3 +1,9 @@
+piwik (2.9.0-3) stable; urgency=high
+
+  * fix for issue on missing global.php in /etc/piwik/
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 15 Nov 2014 15:26:18 +1100
+
 piwik (2.9.0-2) stable; urgency=high
 
   * Newer installations of Piwik through the debian package repository will

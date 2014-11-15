@@ -1,3 +1,125 @@
+piwik (2.9.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.9.0
+  * ERROR: API returned an error: Trying to add two strings in
+    DataTableRow::sumRowArray: '7.01%' + '7.12%' for row [by @mattab]
+    (Closes: #6485)
+  * Enable IP anonymization by default, let users disable anonymization
+    during Piwik installation [by @mnapoli] (Closes: #5052)
+  * When activating IP anonymization, anonymize two bytes by default [by
+    @mnapoli] (Closes: #6579)
+  * Let user customize privacy options on last step of installation [by
+    @mnapoli, @mattab] (Closes: #6581)
+  * Let users deactivate DoNotTrack feature during installation [by
+    @mnapoli] (Closes: #6566)
+  * New browser engine reports based on new browser engine detection of
+    DeviceDetector [by @sgiehl, @mattab] (Closes: #6420)
+  * allocateNewArchiveId: Cannot get named lock allocateNewArchiveId [by
+    @tsteur] (Closes: #6417)
+  * Transitions & Page Overlays not working on one page, but working on
+    others [by @mattab] (Closes: #4595)
+  * Raise Password length to 80 [by @tsteur] (Closes: #4558)
+  * Import/Export functionnality for Sites and Administrative data
+    (Closes: #1879)
+  * Extracting the IP class into a standalone "network" component
+    (Closes: #6494)
+  * Improving discussions and communication with RFC (Requests for
+    Comments) (Closes: #6484)
+  * Wrong database values when float representation is not set to
+    English standard [by @tsteur] (Closes: #6435)
+  * Do not store Accept-language full string, only store detected
+    language (Closes: #5365)
+  * Scheduled report sends empty file for SiteSearch plugin [by @tsteur]
+    (Closes: #6511)
+  * Slow query from purgeInvalidatedArchiveTable (query is 3-10min long
+    on bigger instances) [by @mattab] (Closes: #6508)
+  * Release WebsiteGroups plugin in the Marketplace [by @tsteur]
+    (Closes: #6502)
+  * Let user specify in config file how many rows will be displayed in
+    Scheduled Reports. [by @czolnowski, @mattab] (Closes: #6607)
+  * Add compatibility for running ./console with php-cgi by setting
+    SERVER args from GET parameters. [by @diosmosis] (Closes: #6570)
+  * Introduced the DI container [by @mnapoli, @mattab] (Closes: #6555)
+  * Increase allowed password length from 26 to 80 [by @tsteur, @mattab]
+    (Closes: #6632)
+  * Change default logger level from WARNING to ERROR [by @mattab,
+    @sgiehl] (Closes: #6612)
+  * Make sure to output float values in row evolution in case a German
+    locale is used [by @tsteur] (Closes: #6631)
+  * When a site ID was invalidated via API
+    CoreAdminHome.invalidateArchivedReports, it should be reprocessed
+    even when archiving fails at first [by @mattab] (Closes: #6598)
+  * Fix 404 errors when opening developer tools (remove all *.js.map
+    source mappings in merged JS) [by @tsteur] (Closes: #6553)
+  * [ScheduledTasks] The SELECT would examine more than MAX_JOIN_SIZE
+    rows [by @tsteur, @mattab] (Closes: #6496)
+  * Extracted the IP class into a standalone Network component [by
+    @mnapoli, @mattab] (Closes: #6517)
+  * Easier configuration to run tests [by @tsteur] (Closes: #6645)
+  * fix list of plugins is not sorted correct [by @tsteur] (Closes:
+    #6626)
+  * Removed group check before running any PHP tests. [by @tsteur,
+    @mattab] (Closes: #6621)
+  * Normalize less decimal fields in System tests [by @tsteur] (Closes:
+    #6611)
+  * API: skip truncation filter if truncate value is negative [by
+    @czolnowski, @mattab] (Closes: #6606)
+  * Piwik 2.8 cannot be installed on PHP 5.3.3 [by @mnapoli] (Closes:
+    #6595)
+  * Added videa.seznam.cz (seznam video) [by @DaSchTour, @mattab]
+    (Closes: #6591)
+  * Remove auto update step "Creating Backup Of Configuration File" [by
+    @mattab] (Closes: #6588)
+  * Refactor out HtmlMessageException [by @tsteur] (Closes: #6587)
+  * Log Import: `php /home/piwik/docroot/misc/cron/updatetoken.php`
+    failed with error: PHP Fatal error: Uncaught exception 'Exception'
+    with message 'General_ExceptionConfigurationFileNotFound' [by
+    @mattab] (Closes: #6584)
+  * Move code coverage from Travis to Scrutinizer [by @mnapoli] (Closes:
+    #6556)
+  * Speed up unit tests [by @mnapoli] (Closes: #6549)
+  * Remove TestRunner plugin in latest.zip [by @tsteur, @mattab]
+    (Closes: #6547)
+  * Use exceptions instead of calls to Piwik_ExitWithMessage [by
+    @diosmosis] (Closes: #6541)
+  * Added a test runner that launches tests on AWS [by @tsteur] (Closes:
+    #6540)
+  * Searching for a number in Website Selector leads to SQL error [by
+    @mattab] (Closes: #6537)
+  * Show development commands only if development mode is enabled [by
+    @tsteur] (Closes: #6533)
+  * generate:travis-yml command sometimes fails to detect tests in
+    plugin [by @mnapoli] (Closes: #6532)
+  * Add example archiver and CoreConsole task to generate Archiver into
+    plugin. [by @mgazdzik, @tsteur] (Closes: #6523)
+  * fix annotations which were broken in case there was no space after
+    anota... [by @mgazdzik, @mattab] (Closes: #6520)
+  * APIs marked as deprecated can't be used anymore [by @tsteur]
+    (Closes: #6519)
+  * Entry pages footer links lead to "Action not found" [by @czolnowski,
+    @mattab] (Closes: #6514)
+  * As a developer I want to have a faster response whether my code
+    breaks any tests [by @tsteur] (Closes: #6429)
+  * Run Screenshot tests on PHP 5.3 (Closes: #6414)
+  * Scrutinizer-CI (Closes: #6353)
+  * Sorting seems to be lexical instead of numerical in Visitors ->
+    Settings -> Plugins [by @tsteur] (Closes: #6334)
+  * core:update displays instructions -after- updating [by @tsteur]
+    (Closes: #6317)
+  * Move 'System check' menu entry to 'Diagnostic' section [by @mattab]
+    (Closes: #6220)
+  * Rename some methods in Plugin Manager [by @tsteur] (Closes: #6009)
+  * German localisation: Avg. generation time shown in full seconds in
+    row evolution graph [by @tsteur] (Closes: #5330)
+  * [automatic translation update] Updated 121 strings in 19 languages
+    (cs, da, de, fa, it, ja, pl, sv, pt, hi, fi, ru, sr, tr, ro, fr, nl,
+    el, es) [by @sgiehl] (Closes: #6596)
+  * [automatic translation update] Updated 427 strings in 24 languages
+    (fi, nl, be, ca, id, ko, lv, pt, sq, vi, ja, da, de, el, fr, it, bg,
+    cs, es, ro, ru, sr, sv, sl) [by @sgiehl] (Closes: #6594)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 15 Nov 2014 13:56:30 +1100
+
 piwik (2.8.3-1) stable; urgency=high
 
   * Releasing Piwik 2.8.3

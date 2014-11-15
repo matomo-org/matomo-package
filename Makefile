@@ -17,6 +17,8 @@ PW_VERSION_LOWER = $(shell expr $(PW_VERSION) \< $(CURRENT_VERSION))
 
 URL		= https://builds.piwik.org/
 ARCHIVE		= piwik-$(PW_VERSION).tar.gz
+SIG		= piwik-$(PW_VERSION).tar.gz.asc
+FINGERPRINT	= 814E346FA01A20DBB04B6807B5DBD5925590A237
 
 DESTDIR		= /
 DIST		= stable
@@ -32,7 +34,9 @@ INSTALL		= /usr/bin/install
 # from the official server. Uncompress the archive and
 # perform additional minor cleanups
 checkfetch:
-		if [ ! -f "$(ARCHIVE)" ]; then wget $(URL)/$(ARCHIVE); fi
+		if [ ! -f "$(ARCHIVE)" ]; then rm -f $(SIG); wget $(URL)/$(ARCHIVE) $(URL)/$(SIG); fi
+		gpg --keyserver keys.gnupg.net --recv-keys $(FINGERPRINT)
+		gpg --verify $(SIG)
 		if [ -d "piwik" ]; then rm -rf "piwik"; fi
 		tar -zxf $(ARCHIVE)
 		rm -f 'How to install Piwik.html'
@@ -139,7 +143,7 @@ history:
 # clean for any previous / unwanted files from previous build
 clean:
 		rm -rf piwik
-		rm -f piwik-*.tar.gz
+		rm -f piwik-*.tar.gz piwik-*.tar.gz.asc
 		rm -rf debian/piwik
 
 upload:

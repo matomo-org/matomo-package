@@ -93,7 +93,10 @@ function die() {
 
 # organize files for packaging
 function organizePackage() {
-	curl -sS https://getcomposer.org/installer | php
+	if [ ! -f "composer.phar" ]
+	then
+		curl -sS https://getcomposer.org/installer | php
+	fi
 	php composer.phar install --no-dev
 	rm -rf composer.phar
 	rm -rf vendor/twig/twig/test/
@@ -104,6 +107,8 @@ function organizePackage() {
 	rm -rf vendor/mnapoli/php-di/.git
 	rm -rf vendor/mnapoli/php-di/tests
 	rm -rf vendor/mnapoli/php-di/website
+	rm -rf vendor/mnapoli/php-di/news
+	rm -rf vendor/mnapoli/php-di/doc
 	rm -rf vendor/doctrine/annotations/tests
 
 	rm -rf libs/PhpDocumentor-1.3.2/
@@ -245,6 +250,7 @@ else
 	echo "Stable release";
 
 	# Copy Windows App Gallery release only for stable releases (makes Building betas faster)
+	echo $REMOTE
 	$REMOTE_CMD "test -d $REMOTE_HTTP_PATH/WebAppGallery || mkdir $REMOTE_HTTP_PATH/WebAppGallery" || die "cannot access the remote server $REMOTE"
 	scp -p "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip" "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip.asc" "${REMOTE}:$REMOTE_HTTP_PATH/WebAppGallery/" || die "failed to copy WebAppGalery files"
 
@@ -285,7 +291,8 @@ Please consult the changelog for list of closed tickets: http://piwik.org/change
 We're looking forward to seeing this Piwik version on Microsoft Web App Gallery. \n\
 If you have any question, feel free to ask at feedback@piwik.org. \n\n\
 Thank you,\n\n\
-Piwik team" | mail -s"New Piwik Version $VERSION" "appgal@microsoft.com,hello@piwik.org"
+Piwik team"
+    echo -e "\n----> Send this email 'New Piwik Version $VERSION' to appgal@microsoft.com,hello@piwik.org"
 
 	echo "build finished! http://builds.piwik.org/piwik.zip"
 fi

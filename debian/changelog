@@ -1,3 +1,64 @@
+piwik (2.9.1-1) stable; urgency=high
+
+  * Releasing Piwik 2.9.1
+  * New Language for Piwik: Tagalog (Closes: #6682)
+  * Code signing for Piwik releases, and explain to users how to verify
+    PGP signatures (Closes: #1757)
+  * Scheduled reports: All websites report should display all websites
+    not just top 100 [by @mattab] (Closes: #6694)
+  * Marketplace menu link should link to Marketplace directly [by
+    @mattab] (Closes: #6692)
+  * Fix installation when privacy form submitted [by @mnapoli, @mattab]
+    (Closes: #6684)
+  * Installation: add new screenshot test for the final step form submit
+    [by @diosmosis] (Closes: #6685)
+  * Tracker throws 500 errors when idsite is invalid causing false
+    alerts [by @tsteur] (Closes: #6661)
+  * Return HTTP 204 instead of GIF for JavaScript tracking. [by @tsteur]
+    (Closes: #6659)
+  * Humongous file in /tmp/climulti [by @tsteur] (Closes: #6617)
+  * Notice: Undefined offset: 2 in piwik/core/DataArray.php on line 102
+    [by @mattab] (Closes: #6599)
+  * Fatal error on installation: Call to private method [by @mattab]
+    (Closes: #6680)
+  * Performance enhancement: Return HTTP 204 instead of GIF for
+    JavaScript tracking [by @tsteur] (Closes: #6577)
+  * Deprecate Google2Piwik (Closes: #6096)
+  * Support Markdown in the Marketplace for plugin descriptions [by
+    @tsteur] (Closes: #6675)
+  * Detect pk_cpn as an alias to pk_campaign and utm_campaign [by
+    @mattab] (Closes: #6674)
+  * Throw HTTP 400 error when idsite is invalid [by @tsteur] (Closes:
+    #6671)
+  * Piwik 2.9.0: Missing language strings on Websites Management page
+    [by @mnapoli] (Closes: #6670)
+  * Upgrading Debian packaged Piwik 2.8.3->2.9 breakage.
+    "config/global.php doesn't exist " (Closes: #6669)
+  * CliMulti: If process or output size is unexpected large, declare it
+    as finished [by @tsteur, @mattab] (Closes: #6667)
+  * Piwik 2.9: untranslated string [by @tsteur, @mnapoli] (Closes:
+    #6665)
+  * when trust_visitors_cookies = 1 is used, replaying logs cause
+    discrepencies [by @diosmosis] (Closes: #6664)
+  * Console command to list activated plugins [by @mattab] (Closes:
+    #6663)
+  * bower install piwik [by @tsteur] (Closes: #6662)
+  * Refactor out HtmlMessageException [by @tsteur] (Closes: #6587)
+  * add namespaces to test files [by @diosmosis] (Closes: #5800)
+  * Error in update script 2.9.0-b7 [by @mattab] (Closes: #6696)
+  * show the console `git:pull` command whenever Piwik is deployed from
+    git [by @mattab] (Closes: #6695)
+  * OneVisitorNoKeywordSpecifiedTest fails since v2.9.0-b1 [by @sgiehl]
+    (Closes: #6686)
+  * [automatic translation update] Updated 35 strings in 4 languages
+    (fr, tl, de, it) [by @sgiehl] (Closes: #6688)
+  * [automatic translation update] Updated 2472 strings in 3 languages
+    (tl, sl, fr) [by @sgiehl] (Closes: #6681)
+  * [automatic translation update] Updated 179 strings in 7 languages
+    (fr, nl, cs, el, da, de, it) [by @sgiehl] (Closes: #6668)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Fri, 21 Nov 2014 15:52:22 +1100
+
 piwik (2.9.0-3) stable; urgency=high
 
   * fix for issue on missing global.php in /etc/piwik/

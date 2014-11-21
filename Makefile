@@ -1,7 +1,11 @@
 # Makefile for Piwik package construction
 #
-# If you wish to build the latest stable package, simply type "make builddeb"
-# If you need to build a specific version use "PW_VERSION=x.y.z make builddeb"
+# This is what you mostly need to know about this Makefile
+# * make release: When a new release has been published
+# * make upload: To upload your debian package
+# * make commitrelease: To commit your debian/changelog
+# * make builddeb: To rebuild your debian package. debian/changelog is not updated
+# * make checkdeb: To check the package compliance using lintian
 
 CURRENT_VERSION	:= $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;s/-.*//')
 CURRENT_FULLV := $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;')

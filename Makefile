@@ -156,3 +156,6 @@ upload:
 		test ! -f ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes || mv ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes $(CURDIR)/tmp/
 		test ! -f ../piwik_$(CURRENT_FULLV).tar.gz || mv ../piwik_$(CURRENT_FULLV).tar.gz $(CURDIR)/tmp/
 		dupload --to piwik $(CURDIR)/tmp/piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes
+
+commitrelease:
+		./debian/scripts/githelp.sh commitrelease

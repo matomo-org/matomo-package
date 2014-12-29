@@ -15,6 +15,7 @@ LOCAL_ARCH="archives"
 REMOTE_SERVER="piwik.org"
 REMOTE_LOGIN="piwik-builds"
 REMOTE_HTTP_PATH="/home/piwik-builds/www/builds.piwik.org"
+SUBMODULES_PACKAGED_WITH_CORE='PiwikTracker|QueuedTracking'
 
 REMOTE="${REMOTE_LOGIN}@${REMOTE_SERVER}"
 REMOTE_CMD="ssh -C ${REMOTE}"
@@ -124,10 +125,17 @@ function organizePackage() {
 	rm -f .travis* .coveralls.yml
 
 
-	# delete submodules empty dirs
-	for P in $(git submodule status | awk '{print $2}')
+	# delete most submodules
+	for P in $(git submodule status | egrep -v $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')
 	do
 		rm -Rf ./$P
+	done
+
+	# clone submodules that should be in the release
+	for P in $(git submodule status | egrep $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')
+	do
+		echo -e "cloning submodule $P"
+		git submodule update --init $P
 	done
 
 	rm -rf .git*

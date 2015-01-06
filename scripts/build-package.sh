@@ -140,7 +140,7 @@ function organizePackage() {
 		git submodule update --init $P
 	done
 
-	rm -rf .git*
+	find . -type d -name .git -exec rm -rf {} \;
 
 	cp tests/README.md ../
 	find ./ -name 'tests' -type d -prune -exec rm -rf {} \;

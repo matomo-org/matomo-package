@@ -1,0 +1,9 @@
+/var/log/piwik/piwik-archive.log
+{
+	rotate 30
+	daily
+	missingok
+	notifempty
+	delaycompress
+	compress
+}

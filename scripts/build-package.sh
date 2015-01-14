@@ -107,6 +107,7 @@ function organizePackage() {
 	rm -rf vendor/symfony/console/Symfony/Component/Console/Tests
 	rm -rf vendor/symfony/console/Symfony/Component/Console/Resources/bin
 	rm -rf vendor/piwik/device-detector/Tests/
+	rm -rf vendor/doctrine/cache/.git
 	rm -rf vendor/mnapoli/php-di/.git
 	rm -rf vendor/mnapoli/php-di/tests
 	rm -rf vendor/mnapoli/php-di/website

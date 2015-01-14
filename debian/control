@@ -9,7 +9,7 @@ Package: piwik
 Architecture: all
 Homepage: http://piwik.org
 Depends: php5-cli (>= 5.3.2), php5-mysql|php5-mysqlnd, php5-curl, php5-gd
-Recommends: libapache2-mod-php5 (>= 5.3.3)|php5-cgi (>= 5.3.2)|php5-fpm (>= 5.3.2), php5-geoip
+Recommends: logrotate, libapache2-mod-php5 (>= 5.3.3)|php5-cgi (>= 5.3.2)|php5-fpm (>= 5.3.2), php5-geoip
 Suggests: mysql-server
 Description: leading Free/Libre open source Web Analytics software
  Piwik is a full featured PHP MySQL software program that you download and

@@ -28,7 +28,7 @@ DESTDIR		= /
 DIST		= stable
 URGENCY		= high
 
-MAKE_OPTS	= -s -w
+MAKE_OPTS	= -s
 
 INSTALL		= /usr/bin/install
 
@@ -38,31 +38,37 @@ INSTALL		= /usr/bin/install
 # from the official server. Uncompress the archive and
 # perform additional minor cleanups
 checkfetch:
-		if [ ! -f "$(ARCHIVE)" ]; then rm -f $(SIG); wget $(URL)/$(ARCHIVE) $(URL)/$(SIG); fi
-		gpg --keyserver keys.gnupg.net --recv-keys $(FINGERPRINT)
-		gpg --verify $(SIG)
-		if [ -d "piwik" ]; then rm -rf "piwik"; fi
-		tar -zxf $(ARCHIVE)
-		rm -f 'How to install Piwik.html'
-		find piwik/ -type f -name .gitignore -exec rm -f {} \;
-		rm -rf piwik/vendor/doctrine/cache/.git
-		rm -f piwik/misc/translationTool.sh
+		@echo -n " [WGET] $(URL)/$(ARCHIVE) $(URL)/$(SIG) ... "
+		@if [ ! -f "$(ARCHIVE)" ]; then echo " [RM] $(SIG)"; rm -f $(SIG); wget -q $(URL)/$(ARCHIVE) $(URL)/$(SIG); fi
+		@echo "done."
+		@gpg --keyserver keys.gnupg.net --recv-keys $(FINGERPRINT)
+		@echo " [GPG] verify $(FINGERPRINT)" && gpg --verify $(SIG)
+		@echo " [RM] piwik/" && if [ -d "piwik" ]; then rm -rf "piwik"; fi
+		@echo " [TAR $(ARCHIVE)" && tar -zxf $(ARCHIVE)
+		@echo " [RM] Cleanup"
+		@rm -f 'How to install Piwik.html'
+		@find piwik/ -type f -name .gitignore -exec rm -f {} \;
+		@rm -rf piwik/vendor/doctrine/cache/.git
+		@rm -f piwik/misc/translationTool.sh
 
 fixsettings:
-		sed -i '/\.gitignore/d' $(DESTDIR)/etc/piwik/manifest.inc.php
-		sed -i 's/^\(enable_auto_update\).*/\1 = 0/g;' $(DESTDIR)/etc/piwik/global.ini.php
+		@echo " [SED] Configuration adjustments"
+		@sed -i '/\.gitignore/d' $(DESTDIR)/etc/piwik/manifest.inc.php
+		@sed -i 's/^\(enable_auto_update\).*/\1 = 0/g;' $(DESTDIR)/etc/piwik/global.ini.php
 
 # fix various file permissions
 fixperms:
-		find $(DESTDIR) -type d -exec chmod 0755 {} \;
-		find $(DESTDIR) -type f -exec chmod 0644 {} \;
-		chmod 0755 $(DESTDIR)/usr/share/piwik/misc/cron/archive.sh
-		chmod 0755 $(DESTDIR)/usr/share/piwik/console
-		chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/lessify
-		chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/package.sh
-		chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/plessc
-		chmod 0755 $(DESTDIR)/usr/share/piwik/misc/composer/build-xhprof.sh
-		chmod 0755 $(DESTDIR)/usr/share/piwik/misc/composer/clean-xhprof.sh
+		@echo -n " [CHMOD] Fixing permissions... "
+		@find $(DESTDIR) -type d -exec chmod 0755 {} \;
+		@find $(DESTDIR) -type f -exec chmod 0644 {} \;
+		@chmod 0755 $(DESTDIR)/usr/share/piwik/misc/cron/archive.sh
+		@chmod 0755 $(DESTDIR)/usr/share/piwik/console
+		@chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/lessify
+		@chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/package.sh
+		@chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/plessc
+		@chmod 0755 $(DESTDIR)/usr/share/piwik/misc/composer/build-xhprof.sh
+		@chmod 0755 $(DESTDIR)/usr/share/piwik/misc/composer/clean-xhprof.sh
+		@echo "done."
 
 # check lintian licenses so we can remove obsolete ones
 checklintianlic:
@@ -98,69 +104,81 @@ endif
 # create a new release either major or minor.
 release:	checkenv checkversions
 ifeq "$(PW_VERSION_GREATER)" "2"
-		$(MAKE) newrelease
-		$(MAKE) history
+		@$(MAKE) newrelease
+		@$(MAKE) history
 else
-		$(MAKE) newversion
+		@$(MAKE) newversion
 endif
-		debchange --changelog debian/changelog --release ''
-		$(MAKE) builddeb
-		$(MAKE) checkdeb
+		@debchange --changelog debian/changelog --release ''
+		@$(MAKE) builddeb
+		@$(MAKE) checkdeb
 
 # check if the local environment is suitable to generate a package
 # we check environment variables and a gpg private key matching
 # these variables. this is necessary as we sign our packages.
 checkenv:
 ifndef DEBEMAIL
-		echo "Missing environment variable DEBEMAIL"
+		@echo " [ENV] Missing environment variable DEBEMAIL"
 		@exit 1
 endif
 ifndef DEBFULLNAME
-		echo "Missing environment variable DEBFULLNAME"
+		@echo " [ENV] Missing environment variable DEBFULLNAME"
 		@exit 1
 endif
-		gpg --list-secret-keys "$(DEBFULLNAME) <$(DEBEMAIL)>" >/dev/null
+		@echo " [GPG] Checking environment"
+		@gpg --list-secret-keys "$(DEBFULLNAME) <$(DEBEMAIL)>" >/dev/null
 
 # creates the .deb package and other related files
 # all files are placed in ../
 builddeb:	checkenv checkversions
-		dpkg-buildpackage -i '-Itmp' -I.git -I$(ARCHIVE) -rfakeroot
+		@echo " [DPKG] Building package..."
+		@dpkg-buildpackage -i '-Itmp' -I.git -I$(ARCHIVE) -rfakeroot
+
 
 # check the generated .deb for consistency
 # the filename is determines by the 1st line of debian/changelog
 checkdeb:
-		lintian --color auto -v -i  ../`parsechangelog | grep ^Source | awk '{print $$2}'`_`parsechangelog | grep ^Version | awk '{print $$2}'`_*.deb
+		@echo " [LINTIAN] Checking package..."
+		@lintian --color auto -v -i  ../`parsechangelog | grep ^Source | awk '{print $$2}'`_`parsechangelog | grep ^Version | awk '{print $$2}'`_*.deb
 
 # create a new release based on PW_VERSION variable
 newrelease:
-		debchange --changelog debian/changelog --urgency high --newversion $(PW_VERSION)-1 "Releasing Piwik $(PW_VERSION)"
+		@debchange --changelog debian/changelog --urgency high --newversion $(PW_VERSION)-1 "Releasing Piwik $(PW_VERSION)"
 
 # creates a new version in debian/changelog
 newversion:
-		debchange --changelog debian/changelog -i --urgency $(URGENCY)
+		@debchange --changelog debian/changelog -i --urgency $(URGENCY)
 
 # allow user to enter one or more changelog comment manually
 changelog:
-		debchange --changelog debian/changelog --force-distribution $(DIST) --urgency $(URGENCY) -r
-		debchange --changelog debian/changelog -a 
+		@debchange --changelog debian/changelog --force-distribution $(DIST) --urgency $(URGENCY) -r
+		@debchange --changelog debian/changelog -a
 
 # fetch the history and add it to the debian/changelog
 history:
-		bash debian/scripts/history.sh $(PW_VERSION)
+		@bash debian/scripts/history.sh $(PW_VERSION)
 
 # clean for any previous / unwanted files from previous build
 clean:
-		rm -rf piwik
-		rm -f piwik-*.tar.gz piwik-*.tar.gz.asc
-		rm -rf debian/piwik
+		@echo " [RM] piwik piwik-*.tar.gz piwik-*.tar.gz.asc debian/piwik"
+		@rm -rf piwik
+		@rm -f piwik-*.tar.gz piwik-*.tar.gz.asc
+		@rm -rf debian/piwik
 
 upload:
-		test -d tmp || mkdir tmp
-		test ! -f ../piwik_$(CURRENT_FULLV)_all.deb || mv ../piwik_$(CURRENT_FULLV)_all.deb $(CURDIR)/tmp/
-		test ! -f ../piwik_$(CURRENT_FULLV).dsc || mv ../piwik_$(CURRENT_FULLV).dsc $(CURDIR)/tmp/
-		test ! -f ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes || mv ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes $(CURDIR)/tmp/
-		test ! -f ../piwik_$(CURRENT_FULLV).tar.gz || mv ../piwik_$(CURRENT_FULLV).tar.gz $(CURDIR)/tmp/
-		dupload --to piwik $(CURDIR)/tmp/piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes
+		@echo " [MKDIR] tmp/"
+		@test -d tmp || mkdir tmp
+		@test ! -f ../piwik_$(CURRENT_FULLV)_all.deb || echo " [MV] ../piwik_$(CURRENT_FULLV)_all.deb => tmp/"
+		@test ! -f ../piwik_$(CURRENT_FULLV)_all.deb || mv ../piwik_$(CURRENT_FULLV)_all.deb $(CURDIR)/tmp/
+		@test ! -f ../piwik_$(CURRENT_FULLV).dsc || echo " [MV] ../piwik_$(CURRENT_FULLV).dsc => tmp/"
+		@test ! -f ../piwik_$(CURRENT_FULLV).dsc || mv ../piwik_$(CURRENT_FULLV).dsc $(CURDIR)/tmp/
+		@test ! -f ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes || echo " [MV] ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes => tmp/"
+		@test ! -f ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes || mv ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes $(CURDIR)/tmp/
+		@test ! -f ../piwik_$(CURRENT_FULLV).tar.gz || echo " [MV] ../piwik_$(CURRENT_FULLV).tar.gz => tmp/"
+		@test ! -f ../piwik_$(CURRENT_FULLV).tar.gz || mv ../piwik_$(CURRENT_FULLV).tar.gz $(CURDIR)/tmp/
+		@echo " [UPLOAD] => to piwik"
+		@dupload --quiet --to piwik $(CURDIR)/tmp/piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes
 
 commitrelease:
-		./debian/scripts/githelp.sh commitrelease
+		@echo " [GIT] Commit release"
+		@./debian/scripts/githelp.sh commitrelease

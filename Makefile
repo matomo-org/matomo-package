@@ -16,8 +16,8 @@ ifndef PW_VERSION
 PW_VERSION	:= $(shell wget -qO - https://builds.piwik.org/LATEST)
 endif
 
-PW_VERSION_GREATER = $(shell expr $(PW_VERSION) \> $(CURRENT_VERSION))
-PW_VERSION_LOWER = $(shell expr $(PW_VERSION) \< $(CURRENT_VERSION))
+PW_VERSION_GREATER = $(shell ./debian/scripts/vercomp.sh $(PW_VERSION) $(CURRENT_VERSION))
+PW_VERSION_LOWER = $(shell ./debian/scripts/vercomp.sh $(PW_VERSION) $(CURRENT_VERSION))
 
 URL		= https://builds.piwik.org/
 ARCHIVE		= piwik-$(PW_VERSION).tar.gz
@@ -97,7 +97,7 @@ endif
 
 # create a new release either major or minor.
 release:	checkenv checkversions
-ifeq "$(PW_VERSION_GREATER)" "1"
+ifeq "$(PW_VERSION_GREATER)" "2"
 		$(MAKE) newrelease
 		$(MAKE) history
 else

@@ -45,6 +45,7 @@ checkfetch:
 		tar -zxf $(ARCHIVE)
 		rm -f 'How to install Piwik.html'
 		find piwik/ -type f -name .gitignore -exec rm -f {} \;
+		rm -rf piwik/vendor/doctrine/cache/.git
 		rm -f piwik/misc/translationTool.sh
 
 fixsettings:

@@ -38,18 +38,28 @@ INSTALL		= /usr/bin/install
 # from the official server. Uncompress the archive and
 # perform additional minor cleanups
 checkfetch:
-		@echo -n " [WGET] $(URL)/$(ARCHIVE) $(URL)/$(SIG) ... "
-		@if [ ! -f "$(ARCHIVE)" ]; then echo " [RM] $(SIG)"; rm -f $(SIG); wget -q $(URL)/$(ARCHIVE) $(URL)/$(SIG); fi
+		@echo -n " [WGET] ... "
+		@if [ ! -f "$(SIG)" ]; then echo -n "$(URL)/$(SIG) "; wget -q $(URL)/$(SIG); fi;
+		@if [ ! -f "$(ARCHIVE)" ]; then echo -n "$(URL)/$(ARCHIVE) "; wget -q $(URL)/$(ARCHIVE); fi;
 		@echo "done."
 		@gpg --keyserver keys.gnupg.net --recv-keys $(FINGERPRINT)
 		@echo " [GPG] verify $(FINGERPRINT)" && gpg --verify $(SIG)
 		@echo " [RM] piwik/" && if [ -d "piwik" ]; then rm -rf "piwik"; fi
-		@echo " [TAR $(ARCHIVE)" && tar -zxf $(ARCHIVE)
+		@echo " [TAR] $(ARCHIVE)" && tar -zxf $(ARCHIVE)
 		@echo " [RM] Cleanup"
 		@rm -f 'How to install Piwik.html'
 		@find piwik/ -type f -name .gitignore -exec rm -f {} \;
 		@rm -rf piwik/vendor/doctrine/cache/.git
 		@rm -f piwik/misc/translationTool.sh
+
+checkconfig:	checkfetch
+		@echo -n " [CONF] Checking configuration files... "
+		@if [ "$(shell cat debian/install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" ]; then \
+			echo "\n [CONF] Configuration files may have been added or removed, please update debian/install"; \
+			echo "$(shell cat debian/install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" "$(shell pwd)"; \
+			exit 1; \
+		fi
+		@echo "done"
 
 fixsettings:
 		@echo " [SED] Configuration adjustments"
@@ -160,10 +170,13 @@ history:
 
 # clean for any previous / unwanted files from previous build
 clean:
-		@echo " [RM] piwik piwik-*.tar.gz piwik-*.tar.gz.asc debian/piwik"
+		@echo " [RM] piwik/ debian/piwik"
 		@rm -rf piwik
-		@rm -f piwik-*.tar.gz piwik-*.tar.gz.asc
 		@rm -rf debian/piwik
+
+distclean:	clean
+		@echo " [RM] piwik piwik-*.tar.gz piwik-*.tar.gz.asc debian/piwik"
+		@rm -f piwik-*.tar.gz piwik-*.tar.gz.asc
 
 upload:
 		@echo " [MKDIR] tmp/"

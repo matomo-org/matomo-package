@@ -23,7 +23,7 @@ install: build
 	dh_testroot
 	dh_prep
 	dh_installdirs
-	$(MAKE) checkfetch DESTDIR=$(CURDIR)/$d
+	$(MAKE) checkconfig DESTDIR=$(CURDIR)/$d
 	dh_install
 	mkdir -p ${d}/usr/share/lintian/overrides
 	cp -a debian/lintian.rules ${d}/usr/share/lintian/overrides/piwik

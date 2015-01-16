@@ -54,6 +54,10 @@ checkfetch:
 		@find piwik/ -type f -name .git -exec rm -f {} \;
 		@find piwik/ -type f -name .gitkeep -exec rm -f {} \;
 		@find piwik/ -type f -name .editorconfig -exec rm -f {} \;
+		@find piwik/ -type f -name .travis.yml -exec rm -f {} \;
+		@find piwik/ -type f -name .coveralls.yml -exec rm -f {} \;
+		@find piwik/ -type f -name .jshintrc -exec rm -f {} \;
+		@find piwik/ -type f -name .scrutinizer.yml -exec rm -f {} \;
 		@find piwik/ -type f -name "*bower.json" -exec rm -f {} \;
 		@rm -rf piwik/vendor/doctrine/cache/.git
 		@rm -f piwik/misc/translationTool.sh

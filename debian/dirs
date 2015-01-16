@@ -1,4 +1,4 @@
-etc/piwik
+etc/piwik/environment
 usr/share/piwik
 var/lib/piwik/data/tmp/assets
 var/lib/piwik/data/tmp/cache

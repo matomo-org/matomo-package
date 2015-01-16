@@ -1,3 +1,232 @@
+piwik (2.10.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.10.0
+  * Cloudfront log importing support and W3CExtendedFormat refactor [by
+    @diosmosis] (Closes: #6851)
+  * IIS advanced log importing, netscaler log importing and cs-username
+    handling [by @diosmosis] (Closes: #6825)
+  * Support for importing AWS CloudFront log files [by @biroca] (Closes:
+    #6554)
+  * Query parameters imported incorrectly from IIS 8.5 logs [by @mattab]
+    (Closes: #4936)
+  * Log Analytics: add support for Netscaler w3c logs [by @diosmosis]
+    (Closes: #4707)
+  * IIS Advanced Logging Module log files support for Log Analytics [by
+    @diosmosis] (Closes: #6795)
+  * Support Page Speed tracking in IIS 8 log files (generation time) [by
+    @diosmosis] (Closes: #6388)
+  * Track the username (cs-username) as User ID in IIS and W3C extended
+    logs [by @diosmosis] (Closes: #5980)
+  * Importing w3c extended logs [by @diosmosis] (Closes: #5418)
+  * PHP caching library based on Doctrine cache: new open source PHP
+    project [by @tsteur] (Closes: #6866)
+  * added support for different caching backends such as redis [by
+    @tsteur] (Closes: #6861)
+  * during core:archive console command, preprocess any custom date
+    ranges that were selected in any User's Preferences [by @mattab]
+    (Closes: #6856)
+  * create new visit on different campaign info or different referrer
+    website [by @diosmosis] (Closes: #6847)
+  * When a campaign changes, creates a new "visit" by default [by
+    @diosmosis] (Closes: #2624)
+  * Aggregate data for multiple (groups) of websites (Closes: #2541)
+  * User fingerprint hash should be different by default on separate
+    websites [by @mattab] (Closes: #6824)
+  * Write tracking requests into a queue and don't process them
+    immediately [by @tsteur] (Closes: #6075)
+  * Geo location support for IPv6 addresses [by @joostdekeijzer,
+    @mattab] (Closes: #6690)
+  * Live API can timeout on very large Piwik servers [by @mattab]
+    (Closes: #6786)
+  * Make Piwik compatible with sql_mode = STRICT_TRANS_TABLES (MySQL 5.6
+    default and best practise) [by @diosmosis] (Closes: #5178)
+  * Pre-process custom date ranges when users have selected them as
+    their default date range [by @mattab] (Closes: #6672)
+  * in multiple frontends setup, the cache file is not up to date on all
+    frontends [by @tsteur] (Closes: #6637)
+  * Do not request live information in case tab is not active [by
+    @tsteur] (Closes: #6625)
+  * Processed metrics metadata [by @mattab, @diosmosis] (Closes: #6589)
+  * Remove duplicate reports from UserSettings plugin [by @sgiehl,
+    @mattab] (Closes: #6565)
+  * How to handle dependency injection? [by @mnapoli] (Closes: #6548)
+  * live widget could benefit from sleep mode / shared hosting scenario
+    [by @tsteur] (Closes: #6545)
+  * New referrer spammer: 7makemoneyonline.com [by @mattab] (Closes:
+    #6872)
+  * New Referrer Spammer: buttons-for-website.com [by @mattab] (Closes:
+    #6858)
+  * Moved resolution reports to a new plugin [by @sgiehl] (Closes:
+    #6827)
+  * Module and action forwarding to prevent BC break does not work for
+    Image Graphs [by @mattab] (Closes: #6865)
+  * Error while trying to invalidate reports with raw data removal
+    enabled [by @mattab] (Closes: #6859)
+  * Plugin for Piwik that modifies the 'API.get' output to also list the
+    website name and main website URL. (Closes: #6828)
+  * Can't add site, The method 'isPluginActivated' does not exist or is
+    not available in the module 'PiwikPluginsCoreAdminHomeAPI'. [by
+    @mattab] (Closes: #6849)
+  * Notice: ob_flush() [ref.outcontrol]: failed to flush buffer. No
+    buffer to flush [by @mattab] (Closes: #6845)
+  * Separated error and exception handling from logging [by @mnapoli]
+    (Closes: #6842)
+  * PHP Tracker client does not persist the time of the last ecommerce
+    order [by @mattab] (Closes: #6835)
+  * API error for web cron archive.php with: f"ur n"ahere
+    Informationen): last-3776 [by @mattab] (Closes: #6830)
+  * Fail when the codebase version is older than the Piwik database
+    schema version [by @mattab] (Closes: #6829)
+  * web cron (misc/cron/archive.php?token_auth=xyz) sometimes does not
+    load [by @mattab] (Closes: #6823)
+  * Live API SQL is refactored into Model, LogQueryBuilder [by @mattab]
+    (Closes: #6817)
+  * Multisites - confusing behaviour [by @tsteur] (Closes: #6807)
+  * Tracker refactoring and added queued tracking plugin [by @tsteur]
+    (Closes: #6802)
+  * Notice: Undefined property: stdClass::$module in
+    plugins/Dashboard/API.php on line 137 [by @mattab] (Closes: #6798)
+  * New plugin to let a Super User create a custom, parameterised page
+    in Piwik (Closes: #6796)
+  * Provide better information regarding memory usage by each plugin [by
+    @czolnowski, @mattab] (Closes: #6794)
+  * json_encode(): Invalid UTF-8 sequence in argument [by @mattab]
+    (Closes: #6792)
+  * bug in ecommerce item reports + row evolution: abandonedCarts
+    parameter which is required for abandoned carts report does not get
+    sent to row evoluton API [by @diosmosis] (Closes: #6789)
+  * Move the `proxy-hide-piwik-url` project into a separate repository
+    [by @mnapoli] (Closes: #6788)
+  * Provide better debug possibility using the Symfony VarDumper library
+    [by @tsteur] (Closes: #6890)
+  * Fix views and events that have the same timestamp get disordered [by
+    @tsteur, @mattab] (Closes: #6889)
+  * Create new DevicePlugins and move there the browser plugin reports
+    [by @sgiehl, @mattab] (Closes: #6887)
+  * Adds Hungarian translation [by @sagikazarmark] (Closes: #6886)
+  * Cannot install, redirected to
+    http://localhost/dev/piwik/&trackerStatus=0 [by @kylekatarnls,
+    @mattab] (Closes: #6884)
+  * Move PiwikTracker.php to own repository [by @tsteur] (Closes: #6870)
+  * Environment and configs (Closes: #6843)
+  * Show Exit Page > Exit Page Titles > Exit Page, then a error occurs.
+    [by @mnapoli] (Closes: #6837)
+  * Refactored the logger to use PSR-3 and Monolog (#6622) [by @mnapoli,
+    @mattab] (Closes: #6813)
+  * Content tracking - replay from logs (Closes: #6630)
+  * Exclude all requests from all existing Google bot IP ranges [by
+    @mattab] (Closes: #6503)
+  * Create a SECURITY.md file to explain responsible disclosure
+    procedure [by @mattab] (Closes: #6779)
+  * Updater dry-run: do not show the SQL query to update core_version or
+    $plugin_version [by @mattab] (Closes: #6760)
+  * Ecommerce reports, row evolution issues [by @diosmosis] (Closes:
+    #6756)
+  * Removed screentype report [by @sgiehl, @mattab] (Closes: #6752)
+  * Ecommerce log: also display non-ecommerce actions in Ecommerce log
+    [by @mattab] (Closes: #6742)
+  * In plugin settings it should be more clear which field caused an
+    error [by @tsteur] (Closes: #6740)
+  * automatically cache settings in tracker cache if used in tracker
+    mode [by @tsteur] (Closes: #6733)
+  * When a site ID was invalidated via API
+    CoreAdminHome.invalidateArchivedReports, it should be reprocessed
+    even when period archiving fails at first [by @mattab] (Closes:
+    #6730)
+  * In tracker mode plugin system settings should be automatically
+    cached [by @tsteur] (Closes: #6728)
+  * error message in form are html encoded [by @mattab] (Closes: #6722)
+  * Do not use default value in case value is an integer or a float and
+    a string is requested [by @tsteur] (Closes: #6720)
+  * For maxthon browsers (Chinese Internet Explorer) then ignore
+    DoNotTrack header as it is always enabled [by @mattab] (Closes:
+    #6719)
+  * Ecommerce Log shows error when there are abandoned carts and no
+    conversion yet [by @mattab] (Closes: #6713)
+  * Proxy script fails after piwik.php returns 204 response [by
+    @mnapoli] (Closes: #6712)
+  * Time bugfix [by @Uby501, @mattab] (Closes: #6689)
+  * Fix for IE9 in compatibility mode [by @Fensterbank, @mnapoli]
+    (Closes: #6687)
+  * Moved the `tmp/` path into the config (was hardcoded everywhere) [by
+    @mnapoli, @mattab] (Closes: #6658)
+  * URLs without scheme eg. //example.com/home should be valid URLs in
+    Piwik [by @av2k, @mattab, @piwik-auto-commit-bot] (Closes: #6652)
+  * Red flag running Core unit tests, either on Jessie and Precise [by
+    @mattab] (Closes: #6651)
+  * Import INI config in DI config [by @mnapoli] (Closes: #6648)
+  * strnatcasecmp() expects parameter 1 to be string, array given in
+    /Piwik/core/DataTable/Filter/Sort.php on line 142 [by @mattab]
+    (Closes: #6562)
+  * Add badges to plugins repositories [by @mnapoli] (Closes: #6560)
+  * Make sure core plugins are always loaded in same order [by @mattab]
+    (Closes: #6529)
+  * do not call exit/die in core/Tracker.php (Closes: #6489)
+  * Add system check to enforce always_populate_raw_post_data is -1 on
+    PHP 5.6 [by @mattab] (Closes: #6468)
+  * Visitor log: overlapping provider name (Closes: #6301)
+  * Processed metrics calculation refactor and removal of as much queued
+    filter use as possible (Closes: #6261)
+  * core:archive errors: shell_exec(): Unable to execute 'which 'ps' 2>
+    /dev/null [by @mattab] (Closes: #6222)
+  * Overriding Compatibility View in IE9 [by @Fensterbank] (Closes:
+    #6163)
+  * Make 'Time on page' column displayed in format MM:SS instead of '1
+    min 46s' (Closes: #6104)
+  * Introduce mechanism to hide API modules and/or actions from the API
+    listing page (Closes: #6042)
+  * No Multi Row Evolution graph data for "Android Browser" row (Closes:
+    #5888)
+  * Error message in server log: plugins/.htaccess: AddHandler not
+    allowed here [by @mattab] (Closes: #5398)
+  * Visitor Log - Modal doesn't always close [by @mattab] (Closes:
+    #5304)
+  * Visitor Log: symbol for abandoned cart is missing if ... [by
+    @mattab] (Closes: #5241)
+  * All websites dashboard: sparklines rendered 'flat' when sorting by
+    website name (Closes: #5129)
+  * Warn in System check that Piwik is not compatible with Apache
+    modspeed and ngx_pagespeed [by @mattab] (Closes: #5081)
+  * Web site selector dialog box too narrow ... [by @mattab] (Closes:
+    #4512)
+  * Visitor log: IPv6 Address, long Provider overlaps other layout
+    elements [by @mattab] (Closes: #4391)
+  * API message: This report has been reprocessed since your last click.
+    [by @mattab] (Closes: #3414)
+  * Obscure or prevent referer for outgoing links in piwik via
+    rel=noreferrer (works in Firefox) [by @mattab] (Closes: #3147)
+  * Faster bootstrap for PHPUnit tests [by @mnapoli, @mattab] (Closes:
+    #6910)
+  * Trivial fixes in tests README [by @FelixSchwarz, @mnapoli] (Closes:
+    #6903)
+  * Image graphs: show days within selected range [by @BeezyT] (Closes:
+    #6895)
+  * Simplified bootstrap files [by @mnapoli, @mattab] (Closes: #6891)
+  * Use Mysql 5.6 on Continuous Integration [by @diosmosis] (Closes:
+    #6882)
+  * When DeviceDetection plugin is disabled, 'Settings' page should
+    render without error [by @diosmosis] (Closes: #6876)
+  * Cache file can be created with incorrect content [by @tsteur]
+    (Closes: #6873)
+  * when importing visits on a day different from the visit's day,
+    invalidate the archived reports [by @tsteur] (Closes: #6850)
+  * Row Evolution Metrics Bug [by @diosmosis] (Closes: #6751)
+  * Move towards DI for the configuration system (Closes: #6656)
+  * Automatically refresh every week the last CI build for each of our
+    repository (Closes: #6542)
+  * Bulk Request: Views and Events that have the same timestamp get
+    disordered [by @tsteur] (Closes: #5808)
+  * All Websites dashboard page title [by @mnapoli] (Closes: #4982)
+  * [automatic translation update] Updated 424 strings in 47 languages
+    (gl, cs, da, de, el, it, ar, be, bg, ca, es, et, eu, fa, fi, fr, he,
+    hi, hu, id, is, ja, ka, ko, lt, lv, nb, nl, nn, pl, pt, ro, ru, sk,
+    sl, sq, sr, sv, ta, th, tl, uk, vi, am, hr, te, tr) [by @sgiehl]
+    (Closes: #6803)
+  * [automatic translation update] Updated 31 strings in 5 languages
+    (ar, da, de, el, es) [by @sgiehl] (Closes: #6914)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Wed, 14 Jan 2015 20:14:08 +1100
+
 piwik (2.9.1-1) stable; urgency=high
 
   * Releasing Piwik 2.9.1

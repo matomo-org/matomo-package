@@ -50,6 +50,10 @@ checkfetch:
 		@rm -f 'How to install Piwik.html'
 		@find piwik/ -type f -name .gitignore -exec rm -f {} \;
 		@find piwik/ -type f -name .gitattributes -exec rm -f {} \;
+		@find piwik/ -type f -name .gitmodules -exec rm -f {} \;
+		@find piwik/ -type f -name .git -exec rm -f {} \;
+		@find piwik/ -type f -name .gitkeep -exec rm -f {} \;
+		@find piwik/ -type f -name .editorconfig -exec rm -f {} \;
 		@find piwik/ -type f -name "*bower.json" -exec rm -f {} \;
 		@rm -rf piwik/vendor/doctrine/cache/.git
 		@rm -f piwik/misc/translationTool.sh

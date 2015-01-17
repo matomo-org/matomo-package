@@ -1,3 +1,10 @@
+piwik (2.10.0-2) stable; urgency=high
+
+  * install correctly /var/log/piwik folder
+  * update /var/log/piwik permissions at the end of the installation
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 17 Jan 2015 11:30:00 +1100
+
 piwik (2.10.0-1) stable; urgency=high
 
   * Releasing Piwik 2.10.0

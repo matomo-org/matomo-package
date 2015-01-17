@@ -1,5 +1,6 @@
 etc/piwik/environment
 usr/share/piwik
+var/log/piwik
 var/lib/piwik/data/tmp/assets
 var/lib/piwik/data/tmp/cache
 var/lib/piwik/data/tmp/latest

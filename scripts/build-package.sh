@@ -290,13 +290,13 @@ else
 	echo $REMOTE_CMD_API
 	$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
 
-	SHA1_WINDOWS="$(sha1sum ../$LOCAL_ARCH/piwik-$VERSION.zip | cut -d' ' -f1)"
-	[ -z "$SHA1_WINDOWS" ] && die "cannot compute sha1 hash for ../$LOCAL_ARCH/piwik-$VERSION.zip"
+	SHA1_WINDOWS="$(sha1sum ../$LOCAL_ARCH/piwik-$VERSION-WAG.zip | cut -d' ' -f1)"
+	[ -z "$SHA1_WINDOWS" ] && die "cannot compute sha1 hash for ../$LOCAL_ARCH/piwik-$VERSION-WAG.zip"
 
 	echo -e "Sending email to Microsoft web team \n\n"
 	echo -e "Hello, \n\n\
 We are proud to announce a new release for Piwik! \n\
-Piwik $VERSION can be downloaded at: http://builds.piwik.org/WebAppGallery/piwik-$VERSION.zip \n\
+Piwik $VERSION can be downloaded at: http://builds.piwik.org/WebAppGallery/piwik-$VERSION-WAG.zip \n\
 SHA1 checksum is: $SHA1_WINDOWS \n\n\
 Please consult the changelog for list of closed tickets: http://piwik.org/changelog/ \n\n\
 We're looking forward to seeing this Piwik version on Microsoft Web App Gallery. \n\

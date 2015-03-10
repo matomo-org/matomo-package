@@ -100,7 +100,7 @@ function organizePackage() {
 	then
 		curl -sS https://getcomposer.org/installer | php
 	fi
-	php composer.phar install --no-dev
+	php composer.phar install --no-dev -o
 	rm -rf composer.phar
 	rm -rf vendor/twig/twig/test/
 	rm -rf vendor/twig/twig/doc/

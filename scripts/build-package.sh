@@ -125,7 +125,7 @@ function organizePackage() {
 	rm -f misc/updateLanguageFiles.sh
 	rm -f misc/others/db-schema*
 	rm -f misc/others/diagram_general_request*
-	rm -f .travis* .coveralls.yml
+	rm -f .travis* .coveralls.yml .scrutinizer.yml
 
 
 	# delete most submodules

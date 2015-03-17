@@ -17,7 +17,7 @@ REMOTE_LOGIN="piwik-builds"
 REMOTE_HTTP_PATH="/home/piwik-builds/www/builds.piwik.org"
 
 # List of Sub-modules that SHOULD be in the packaged release, eg PiwikTracker|CorePluginName
-SUBMODULES_PACKAGED_WITH_CORE='PiwikTracker'
+SUBMODULES_PACKAGED_WITH_CORE='PiwikTracker|log-analytics'
 
 REMOTE="${REMOTE_LOGIN}@${REMOTE_SERVER}"
 REMOTE_CMD="ssh -C ${REMOTE}"

@@ -141,7 +141,10 @@ function organizePackage() {
 		git submodule update --init $P
 	done
 
-	find . -type d -name .git -exec rm -rf {} \;
+	find . -name .git -exec rm -rf {} \;
+	rm .gitmodules
+	rm .gitignore
+	rm .bowerrc
 
 	cp tests/README.md ../
 	find ./ -name 'tests' -type d -prune -exec rm -rf {} \;

@@ -8,9 +8,11 @@
 # * make checkdeb: To check the package compliance using lintian
 
 CURRENT_VERSION	:= $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;s/-.*//')
-CURRENT_FULLV := $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;')
 DEB_ARCH := $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
+ifndef DEB_VERSION
+DEB_VERSION := $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;')
+endif
 
 ifndef PW_VERSION
 PW_VERSION	:= $(shell wget -qO - https://builds.piwik.org/LATEST)
@@ -216,18 +218,18 @@ distclean:	clean
 prepupload:
 		@echo " [MKDIR] tmp/"
 		@test -d tmp || mkdir tmp
-		@test ! -f ../piwik_$(CURRENT_FULLV)_all.deb || echo " [MV] ../piwik_$(CURRENT_FULLV)_all.deb => tmp/"
-		@test ! -f ../piwik_$(CURRENT_FULLV)_all.deb || mv ../piwik_$(CURRENT_FULLV)_all.deb $(CURDIR)/tmp/
-		@test ! -f ../piwik_$(CURRENT_FULLV).dsc || echo " [MV] ../piwik_$(CURRENT_FULLV).dsc => tmp/"
-		@test ! -f ../piwik_$(CURRENT_FULLV).dsc || mv ../piwik_$(CURRENT_FULLV).dsc $(CURDIR)/tmp/
-		@test ! -f ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes || echo " [MV] ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes => tmp/"
-		@test ! -f ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes || mv ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes $(CURDIR)/tmp/
-		@test ! -f ../piwik_$(CURRENT_FULLV).tar.gz || echo " [MV] ../piwik_$(CURRENT_FULLV).tar.gz => tmp/"
-		@test ! -f ../piwik_$(CURRENT_FULLV).tar.gz || mv ../piwik_$(CURRENT_FULLV).tar.gz $(CURDIR)/tmp/
+		@test ! -f ../piwik_$(DEB_VERSION)_all.deb || echo " [MV] ../piwik_$(DEB_VERSION)_all.deb => tmp/"
+		@test ! -f ../piwik_$(DEB_VERSION)_all.deb || mv ../piwik_$(DEB_VERSION)_all.deb $(CURDIR)/tmp/
+		@test ! -f ../piwik_$(DEB_VERSION).dsc || echo " [MV] ../piwik_$(DEB_VERSION).dsc => tmp/"
+		@test ! -f ../piwik_$(DEB_VERSION).dsc || mv ../piwik_$(DEB_VERSION).dsc $(CURDIR)/tmp/
+		@test ! -f ../piwik_$(DEB_VERSION)_$(DEB_ARCH).changes || echo " [MV] ../piwik_$(DEB_VERSION)_$(DEB_ARCH).changes => tmp/"
+		@test ! -f ../piwik_$(DEB_VERSION)_$(DEB_ARCH).changes || mv ../piwik_$(DEB_VERSION)_$(DEB_ARCH).changes $(CURDIR)/tmp/
+		@test ! -f ../piwik_$(DEB_VERSION).tar.gz || echo " [MV] ../piwik_$(DEB_VERSION).tar.gz => tmp/"
+		@test ! -f ../piwik_$(DEB_VERSION).tar.gz || mv ../piwik_$(DEB_VERSION).tar.gz $(CURDIR)/tmp/
 
 upload:		prepupload
 		@echo " [UPLOAD] => to piwik"
-		@dupload --quiet --to piwik $(CURDIR)/tmp/piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes
+		@dupload --quiet --to piwik $(CURDIR)/tmp/piwik_$(DEB_VERSION)_$(DEB_ARCH).changes
 
 commitrelease:
 		@echo " [GIT] Commit release"

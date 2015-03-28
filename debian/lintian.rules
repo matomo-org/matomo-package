@@ -1,5 +1,6 @@
 piwik: improbable-bug-number-in-closes 57
 piwik: spelling-error-in-changelog functionnality functionality
+piwik: spelling-error-in-changelog Splitted Split
 piwik: embedded-php-library usr/share/piwik/core/Visualization/Sparkline.php
 piwik: embedded-php-library usr/share/piwik/vendor/piwik/decompress/libs/PclZip/pclzip.lib.php
 piwik: embedded-php-library usr/share/piwik/libs/sparkline/lib/Sparkline.php
@@ -38,6 +39,7 @@ piwik: extra-license-file usr/share/piwik/plugins/ExampleUI/images/icons-planet/
 piwik: extra-license-file usr/share/piwik/vendor/container-interop/container-interop/LICENSE
 piwik: extra-license-file usr/share/piwik/vendor/doctrine/annotations/LICENSE
 piwik: extra-license-file usr/share/piwik/vendor/doctrine/cache/LICENSE
+piwik: extra-license-file usr/share/piwik/vendor/doctrine/lexer/LICENSE
 piwik: extra-license-file usr/share/piwik/vendor/mnapoli/php-di/LICENSE
 piwik: extra-license-file usr/share/piwik/vendor/mnapoli/phpdocreader/LICENSE
 piwik: extra-license-file usr/share/piwik/vendor/monolog/monolog/LICENSE

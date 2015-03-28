@@ -1,3 +1,41 @@
+piwik (2.11.1-1) stable; urgency=high
+
+  * Releasing Piwik 2.11.1
+  * Mysql process list is clogged with very inefficient updates on the
+    archive blob tables [by @mattab] (Closes: #7195)
+  * error in statistics graph, avg_time = 2 [by @diosmosis] (Closes:
+    #7247)
+  * Adding segment name in Scheduled email report title [by @ArnY,
+    @mattab] (Closes: #7243)
+  * Make widgets load faster on Piwik dashboard, and sparklines load
+    faster on All Websites [by @ThaDafinser, @tsteur, @mattab] (Closes:
+    #7104)
+  * Move language report to location reports [by @sgiehl] (Closes:
+    #7226)
+  * Adding Toppreise.ch as search engine [by @sgiehl, @tsteur] (Closes:
+    #7216)
+  * Allow usernames with 2 letters [by @mattab] (Closes: #7121)
+  * Move phpunit.xml.dist to phpunit.xml in PHPUnit bootstrap or when
+    executing tests [by @tsteur] (Closes: #6635)
+  * JavaScript Tracking Code: when a checkbox is clicked, make it clear
+    the JS code was updated [by @mattab] (Closes: #7251)
+  * Date Range Selector partially hidden in Dashboard (Closes: #7261)
+  * DevicesDetection: Warning - array_key_exists() [by @sgiehl] (Closes:
+    #7258)
+  * The parameter 'period' isn't set in the Request, and a default value
+    wasn't provided. when clicking on API link in menu [by @tsteur]
+    (Closes: #7250)
+  * When loading URL and not logged in, this should load the login form
+    [by @tsteur] (Closes: #7193)
+  * Forced French translation even with English setting [by @tsteur]
+    (Closes: #7187)
+  * System check not verifying permissions for LOAD DATA INFILE [by
+    @mattab] (Closes: #7185)
+  * Correctly process unique visitors across websites in MetaSite [by
+    @mattab] (Closes: #7244)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 28 Mar 2015 20:46:51 +1100
+
 piwik (2.11.0-1) stable; urgency=high
 
   * Releasing Piwik 2.11.0

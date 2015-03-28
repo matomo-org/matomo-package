@@ -1,3 +1,255 @@
+piwik (2.11.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.11.0
+  * Log Analytics: Monitor Bandwidth for each page, download, and
+    measure overall traffic in bytes [by @tsteur, @diosmosis] (Closes:
+    #5248)
+  * Release a Android SDK for Piwik - Mobile App Analytics (Closes:
+    #4733)
+  * New icon in all reports: let me segment by visitors matching this
+    row's criteria [by @tsteur] (Closes: #4633)
+  * Review guides at developer.piwik.org for official launch (Closes:
+    #4456)
+  * Visitor log may be displayed with many columns [by @sgiehl] (Closes:
+    #6928)
+  * duplicate entries in piwik_log_action leading to pages not visible
+    in segments + provide means to fix duplicates [by @diosmosis]
+    (Closes: #6436)
+  * New User menu now similar to admin menu [by @tsteur] (Closes: #6989)
+  * Add new segment Operating System Version (Closes: #7206)
+  * Splitted referrers overview into "Overview" and "All Referrers" [by
+    @tsteur, @mattab] (Closes: #6945)
+  * Split goals and ecommerce in two menus, and Manage Goals via User
+    menu [by @tsteur, @mattab] (Closes: #6944)
+  * When User ID is used, set the first party cookie UUID to this User
+    ID [by @jantlwoomy, @mattab] (Closes: #7167)
+  * Add option to map API tracking parameter to custom variable in log
+    importer script. [by @diosmosis, @mattab] (Closes: #7151)
+  * Provide a way to specify an alternate whois provider - SEO plugin
+    [by @mnapoli] (Closes: #7107)
+  * For new installs, do not use the Anonymized IP addresses when
+    enriching visits [by @mattab] (Closes: #7229)
+  * when main Menu is focused, display submenu [by @TheCrowsJoker,
+    @mattab] (Closes: #7026)
+  * Make email reports more beautiful [by @mattab, @munro98] (Closes:
+    #6988)
+  * Tweaks to improve accessibility (section around graph, better
+    tooltip, set language in html) [by @itscutekk, @mattab] (Closes:
+    #7024)
+  * Improved accessibility by putting offscreen text in the widget title
+    [by @munro98, @mattab] (Closes: #7022)
+  * Added h3 tags to widget headers (accessibility) [by @TheCrowsJoker,
+    @mattab] (Closes: #7015)
+  * Changed colours for better accessibility for people with sight
+    difficulties [by @flodrwho] (Closes: #7011)
+  * Improved accessibility with off-screen text added on the menu [by
+    @munro98, @mattab] (Closes: #7038)
+  * Piwik Installation now fits with the current piwik style [by
+    @TheCrowsJoker, @mattab] (Closes: #7037)
+  * See the focus of menu items when tabbing through the page
+    (accessibility) [by @TheCrowsJoker, @mattab] (Closes: #7035)
+  * Add "Skip to content" feature when user presses tab key
+    (accessibility) [by @flodrwho, @mattab] (Closes: #7025)
+  * Improve Login Screen Layout - input width. [by @patagonic, @mnapoli]
+    (Closes: #7102)
+  * When development mode is enabled, add a new language that shows raw
+    translation id [by @mnapoli] (Closes: #7094)
+  * As a user I want to configure purging of processed custom ranges [by
+    @mgazdzik] (Closes: #7079)
+  * Improve Login Screen Layout [by @patagonic, @tsteur] (Closes: #7074)
+  * Changes for usage of DeviceDetector 3.0 [by @sgiehl, @tsteur]
+    (Closes: #7068)
+  * Refactored Twig templates using a single base layout [by @mnapoli,
+    @tsteur] (Closes: #7040)
+  * Segment dropdown enhancements [by @Irrational86, @mattab] (Closes:
+    #6958)
+  * New Piwik Ini component [by @mnapoli, @mattab] (Closes: #6939)
+  * Add Administrator link to top menu [by @tsteur] (Closes: #6937)
+  * Move "Anonymous user settings" into a separate page and menu item
+    [by @tsteur] (Closes: #6935)
+  * Rename plugin management commands [by @mnapoli] (Closes: #6915)
+  * include server time (as timestamp) in visitor actions (visitor live
+    API) [by @FelixSchwarz, @mattab] (Closes: #6814)
+  * Add a search field in Visitor settings Browsers [by @sgiehl]
+    (Closes: #6490)
+  * Force new visit after midnight [by @tsteur] (Closes: #6217)
+  * Improve performance by caching all translations in a flat array
+    (Closes: #6060)
+  * Introduce Dependency Injection [by @sabl0r] (Closes: #4917)
+  * add a plugin description to all core plugins [by @mattab] (Closes:
+    #7184)
+  * The SEO widget should be displayed even when a http service calls
+    fail [by @mattab, @mnapoli] (Closes: #7153)
+  * Allow Plugins to register parameters to exclude from the tracking
+    URL [by @peterbo, @mattab] (Closes: #7146)
+  * add Asian search engines [by @sgiehl] (Closes: #7111)
+  * New label for issues: 'c: New plugin' (Closes: #7109)
+  * Update FAQ 'how do I enable logging (and / or SQL profiling) in
+    Piwik?' (Closes: #7099)
+  * added possibibility to add more metrics to actions plugin [by
+    @tsteur] (Closes: #7041)
+  * Moved language reports to their own new plugin UserLanguage [by
+    @sgiehl] (Closes: #7021)
+  * import_logs.py and IIS/w3c date format [by @diosmosis, @flodrwho]
+    (Closes: #6968)
+  * Move UI tests into the Piwik repository, the screenshot testing lib
+    into another repository [by @tsteur] (Closes: #6947)
+  * Make Travis CI build status render faster by logging less output
+    during builds [by @mattab] (Closes: #6942)
+  * Allow plugins to test against minimum required Piwik version in
+    travis build. [by @diosmosis] (Closes: #6940)
+  * Document .travis.yml system's available environment variables
+    (Closes: #6938)
+  * Activate all CronArchive system tests [by @tsteur, @mattab] (Closes:
+    #6753)
+  * Scheduled reports: do not show "Users" metric when value is zero [by
+    @tsteur] (Closes: #6705)
+  * Ixquick not listed as search engine [by @sgiehl] (Closes: #6604)
+  * Automatically refresh every week the last CI build for each of our
+    repository (Closes: #6542)
+  * No options for goal management on the Goal page [by @tsteur]
+    (Closes: #6022)
+  * Deprecate UserSettings plugin -> use DeviceDetection instead! [by
+    @fhemberger, @sabl0r, @sgiehl, @mattab] (Closes: #3962)
+  * piwik.js double encodes the url and referrer when they are detected
+    automatically [by @tsteur] (Closes: #7220)
+  * Segmentation for url-encoded page urls does not work [by @tsteur]
+    (Closes: #7218)
+  * Site Searches metric should include duplicate site searches requests
+    [by @mattab] (Closes: #7189)
+  * include_aggregate_rows export issue [by @mnapoli] (Closes: #7168)
+  * Email reports not working when email SMTP server host contains a
+    space [by @mattab] (Closes: #7157)
+  * Date Picker: Year is not fully visible in Chrome [by @tsteur]
+    (Closes: #7129)
+  * Cannot upload BIG Bustom Logo [by @tsteur] (Closes: #7108)
+  * whois.com rate limit [by @tsteur] (Closes: #7103)
+  * Bad transport method used in certain restricted environments. [by
+    @tsteur] (Closes: #7083)
+  * Content type application/json breaks JSONP [by @tsteur] (Closes:
+    #7075)
+  * Problem with password recovery functionality when Piwik has no sites
+    defined [by @tsteur] (Closes: #7073)
+  * email reports: cannot edit anymore if a address-list contains empty
+    line [by @tsteur] (Closes: #7069)
+  * Some Admin/User menu items cannot be clicked when item is active [by
+    @tsteur] (Closes: #7064)
+  * Bug on ranges using "last" and "previous" [by @mnapoli] (Closes:
+    #7057)
+  * E-commerce bug: orders from registered users creates a new visit [by
+    @tsteur] (Closes: #7056)
+  * Issue with setUserId - setting to null creates error in Url building
+    when tracking [by @tsteur] (Closes: #7043)
+  * Login broken if accessing through "untrusted host" [by @mnapoli]
+    (Closes: #7036)
+  * Referrers Overview, distinct metrics sparklines are always set to
+    one [by @diosmosis] (Closes: #7034)
+  * Slow report website and dashboard in Piwik 2.10.0 [by @tsteur]
+    (Closes: #7031)
+  * Browser Widget Title not Found [by @sgiehl] (Closes: #7019)
+  * Infinite loop when using the DatabaseHandler logger with DEBUG level
+    [by @mnapoli] (Closes: #7017)
+  * When the BulkTracking plugin is disabled, bulk imports succeed, but
+    no data is imported [by @diosmosis] (Closes: #6982)
+  * Array to string conversion in
+    /var/www/piwik/libs/Zend/Session/Exception.php on line 58 [by
+    @mnapoli, @flodrwho] (Closes: #6980)
+  * Key "plugins" for array with keys does not exist in
+    "@Live/getLastVisitsStart.twig" at line 12 [by @sgiehl] (Closes:
+    #6979)
+  * Empty output for archiving using the web cron [by @mnapoli] (Closes:
+    #6978)
+  * Date to load by default does not always work (regression) [by
+    @tsteur] (Closes: #6960)
+  * Segmentation by User ID (Closes: #6959)
+  * All Websites Dashboard: Add new website link is broken [by @tsteur]
+    (Closes: #6950)
+  * Clicking on Evolution graph leads to "The parameter 'idGoal' isn't
+    set in the Request," [by @sgiehl] (Closes: #6949)
+  * concurrency problem w/ plugin activation [by @diosmosis, @mnapoli]
+    (Closes: #6927)
+  * Error message: array combine: Both parameters should have at least 1
+    element [by @mnapoli] (Closes: #6926)
+  * SEO Rankings Widget - Bad display format for Domain age [by @sgiehl]
+    (Closes: #6925)
+  * Warning - array_merge(): Argument #2 is not an array [by @mnapoli]
+    (Closes: #6924)
+  * Visits Over Time Graph - Bounce rate percentage mis-calculated [by
+    @diosmosis] (Closes: #6923)
+  * log-analytics & import_logs.py, hosts parameter failing [by
+    @diosmosis] (Closes: #6919)
+  * Click tracker piwik.php?redirect=[params] was not working [by
+    @mnapoli] (Closes: #6918)
+  * Return HTTP Status 500 for PHP errors and fatal errors (Closes:
+    #6852)
+  * Error in widgets when date range before website added. [by @tsteur,
+    @mattab] (Closes: #6811)
+  * Error: specify a value for 'reportUniqueId' when exporting Insights
+    reports [by @tsteur] (Closes: #6790)
+  * Minimization of a "Visitor log" widget will collapse a display. [by
+    @sgiehl] (Closes: #6700)
+  * Wrong dates returned when part of the date parameter is 'today' [by
+    @tsteur, @mattab] (Closes: #6194)
+  * When editing a SMS report, hide the row "(optional) Display options"
+    [by @mattab, @tsteur] (Closes: #5904)
+  * CustomEvent in Visitor Profil: Prevent linebreak after event symbol
+    [by @tsteur] (Closes: #5233)
+  * Display + and - icons in Campaign report [by @diosmosis] (Closes:
+    #5209)
+  * Browser versions in "Visitors in realtime" | Enhancement [by
+    @sgiehl] (Closes: #7197)
+  * Visual: Custom Alert overlap (Closes: #7188)
+  * issues updating from 2.8.3 using Composer (Closes: #7179)
+  * Some performance improvements for the all websites dashboard [by
+    @tsteur, @mattab] (Closes: #7162)
+  * added extensions svgz and otf to the STATIC_EXTENSIONS set [by
+    @ledahulevogyre, @mattab] (Closes: #7141)
+  * Move UI specs into Piwik repository and run UI tests in Piwik repo
+    [by @tsteur] (Closes: #7127)
+  * Removed PiwikRegistry and replaced its usage with the container [by
+    @mnapoli, @mattab] (Closes: #7124)
+  * Various performance improvements, especially for Range period and
+    installations with many sites [by @tsteur, @mattab] (Closes: #7119)
+  * Add parameter -title-category-delimiter to log importer [by @BeezyT]
+    (Closes: #7045)
+  * broken jquery path in geoipUpdateRows.php [by @sgiehl] (Closes:
+    #7028)
+  * Reuse the LESS variable for white color across all stylesheets [by
+    @TheCrowsJoker, @mattab, @sgiehl] (Closes: #7002)
+  * add link to changelog in email notification if update is a stable
+    update [by @tsteur, @mattab] (Closes: #6999)
+  * Moved scheduled tasks classes to Scheduler component [by @mnapoli,
+    @mattab] (Closes: #6981)
+  * Currently selected Segment should be displayed in bold (Closes:
+    #6961)
+  * Change the layout of the engagement page [by @tsteur, @mattab]
+    (Closes: #6957)
+  * .git/ files should not be part of integrity check (Closes: #6955)
+  * Pre-merge Code Reviews [by @mattab] (Closes: #6916)
+  * Data files: removed usage of $GLOBALS and manual inclusions [by
+    @mnapoli, @mattab] (Closes: #6912)
+  * Faster bootstrap for PHPUnit tests [by @mnapoli, @mattab] (Closes:
+    #6910)
+  * Refactoring translation handling into a Translation component [by
+    @mnapoli, @mattab] (Closes: #6909)
+  * Add a class uiTest to the html element in all uiTests. [by @tsteur]
+    (Closes: #7123)
+  * Monolog plugin [by @mnapoli] (Closes: #7118)
+  * Plugins can provide their own config files [by @mnapoli, @mattab]
+    (Closes: #7117)
+  * [automatic translation update] Updated 9314 strings in 50 languages
+    (cs, da, el, am, ar, be, bg, bn, bs, ca, cy, de, es, et, eu, fa, fi,
+    fr, gl, he, hi, hr, hu, id, is, it, ja, ka, ko, lt, lv, nb, nl, nn,
+    pl, pt, ro, ru, sk, sl, sq, sr, sv, ta, te, th, tl, tr, uk, vi) [by
+    @sgiehl] (Closes: #7148)
+  * [automatic translation update] Updated 90 strings in 50 languages
+    (nb, de, it, ar, be, bg, bn, bs, ca, cs, cy, da, el, es, et, eu, fa,
+    fi, fr, gl, he, hi, hr, hu, id, is, ja, ka, ko, lt, lv, nl, nn, pl,
+    pt, ro, ru, sk, sl, sq, sr, sv, ta, te, th, tl, tr, uk, vi, am) [by
+    @sgiehl] (Closes: #6969)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 28 Mar 2015 19:30:16 +1100
+
 piwik (2.10.0-2) stable; urgency=high
 
   * install correctly /var/log/piwik folder

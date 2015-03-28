@@ -211,7 +211,7 @@ distclean:	clean
 		@echo " [RM] piwik piwik-*.tar.gz piwik-*.tar.gz.asc debian/piwik"
 		@rm -f piwik-*.tar.gz piwik-*.tar.gz.asc
 
-upload:
+prepupload:
 		@echo " [MKDIR] tmp/"
 		@test -d tmp || mkdir tmp
 		@test ! -f ../piwik_$(CURRENT_FULLV)_all.deb || echo " [MV] ../piwik_$(CURRENT_FULLV)_all.deb => tmp/"
@@ -222,6 +222,8 @@ upload:
 		@test ! -f ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes || mv ../piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes $(CURDIR)/tmp/
 		@test ! -f ../piwik_$(CURRENT_FULLV).tar.gz || echo " [MV] ../piwik_$(CURRENT_FULLV).tar.gz => tmp/"
 		@test ! -f ../piwik_$(CURRENT_FULLV).tar.gz || mv ../piwik_$(CURRENT_FULLV).tar.gz $(CURDIR)/tmp/
+
+upload:		prepupload
 		@echo " [UPLOAD] => to piwik"
 		@dupload --quiet --to piwik $(CURDIR)/tmp/piwik_$(CURRENT_FULLV)_$(DEB_ARCH).changes
 

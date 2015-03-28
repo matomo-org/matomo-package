@@ -55,6 +55,7 @@ checkfetch:
 		@find piwik/ -type f -name .gitkeep -exec rm -f {} \;
 		@find piwik/ -type f -name .editorconfig -exec rm -f {} \;
 		@find piwik/ -type f -name .travis.yml -exec rm -f {} \;
+		@find piwik/ -type f -name .travis.sh -exec rm -f {} \;
 		@find piwik/ -type f -name .coveralls.yml -exec rm -f {} \;
 		@find piwik/ -type f -name .jshintrc -exec rm -f {} \;
 		@find piwik/ -type f -name .scrutinizer.yml -exec rm -f {} \;
@@ -111,6 +112,7 @@ fixperms:
 		@chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/plessc
 		@chmod 0755 $(DESTDIR)/usr/share/piwik/misc/composer/build-xhprof.sh
 		@chmod 0755 $(DESTDIR)/usr/share/piwik/misc/composer/clean-xhprof.sh
+		@chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/pear/archive_tar/sync-php4
 		@echo "done."
 
 # check lintian licenses so we can remove obsolete ones

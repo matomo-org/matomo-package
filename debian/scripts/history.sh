@@ -8,7 +8,8 @@
 # welcome.
 
 # this is a regexp for sed.
-UTF8_ALIENS='s/#8243/#8221/g;'
+# http://www.ascii.cl/htmlcodes.htm
+UTF8_ALIENS='s/#8243/#8221/g; s/#8211/#45/g;'
 
 if [ -z "$1" ] || [ ! -f "debian/changelog" ]
 then
@@ -43,6 +44,7 @@ wget -O - -q "$CHANGELOG_URL" | \
 	sed -n "/List of.*in Piwik $1.*>$/,/<\/div>/p;" | \
 	grep -e 'dev.piwik.org/trac/ticket' -e 'github.com/piwik' | \
 	sed -e :a -e 's/<[^>]*>//g;/</N;//ba' | \
+	sed '/^$/d' | \
 	recode UTF-8..ascii | recode UTF-8..HTML | sed -e "${UTF8_ALIENS}" | \
 	recode HTML..UTF-8 | recode HTML..UTF-8 | recode UTF-8..ascii | \
 	sed 's/\^A//g' | \

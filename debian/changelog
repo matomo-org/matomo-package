@@ -1,3 +1,15 @@
+piwik (2.11.2-1) stable; urgency=high
+
+  * Releasing Piwik 2.11.2
+  * Unique visitors and Visits since 2.11.0 almost the same [by @mattab]
+    (Closes: #7290)
+  * Logging Errors in notifications can leak the super user token [by
+    @mnapoli] (Closes: #7301)
+  * Goals Overview widget: Zend_Session is currently marked as read-
+    only. [by @tsteur] (Closes: #7274)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 28 Mar 2015 20:51:18 +1100
+
 piwik (2.11.1-1) stable; urgency=high
 
   * Releasing Piwik 2.11.1

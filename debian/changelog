@@ -1,3 +1,31 @@
+piwik (2.12.1-1) stable; urgency=high
+
+  * Releasing Piwik 2.12.1
+  * "Next" link on Visitor log does not load the next results [by
+    @tsteur, @mattab] (Closes: #7529)
+  * Enable tracker debug output only when specific parameter set [by
+    @mnapoli] (Closes: #7413)
+  * Allow more control for travis builds in .travis.yml generation
+    system. [by @diosmosis, @mattab] (Closes: #7530)
+  * Transitions > Exits metric should count Downloads and Outlinks as
+    exit path [by @mattab] (Closes: #7539)
+  * Exception: Trying to log a message that is not a string [by
+    @mnapoli] (Closes: #7535)
+  * Website name is double encoded in page "No data has been recorded
+    yet" [by @mnapoli] (Closes: #7528)
+  * Visitor profile, visits loaded on click are missing the datetime [by
+    @sgiehl, @mattab] (Closes: #7522)
+  * When clicking on Admin => Users it shows login form under
+    circumstances [by @mnapoli] (Closes: #7436)
+  * Delete idsite=1 and try to add a new user - does not work (Closes:
+    #7161)
+  * Smaller website manager table to fit in smaller screens [by
+    @mnapoli, @sgiehl] (Closes: #7510)
+  * Show indicator whether database upgrade is in progress [by @mnapoli]
+    (Closes: #7448)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 28 Mar 2015 21:11:55 +1100
+
 piwik (2.12.0-1) stable; urgency=high
 
   * Releasing Piwik 2.12.0

@@ -1,3 +1,101 @@
+piwik (2.12.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.12.0
+  * Update Piwik over HTTPS [by @mnapoli] (Closes: #7327)
+  * How to make hierarchical tables scale? (flatten, search, sub tables)
+    (Closes: #6763)
+  * Investigate if there are any memory leak in the Archiving process
+    (yearly archives run out of memory) (Closes: #6846)
+  * Custom date range reports are slow: how to make them archive faster?
+    (Closes: #4768)
+  * Keeping CI builds green at all times for all our repositories
+    (Closes: #6544)
+  * % of user with Cookie can be more than 100% [by @mnapoli] (Closes:
+    #7437)
+  * When UserID is set to empty string, actions maybe added to the same
+    UserID visit [by @mattab] (Closes: #7368)
+  * Make UsersManager.getSitesAccessFromUser work for SuperUsers [by
+    @sgiehl] (Closes: #6359)
+  * Remove token_auth from archive.log [by @mnapoli] (Closes: #5277)
+  * Show Tracking Code Generator / Notification as long as no visit for
+    a website is tracked [by @mnapoli] (Closes: #7087)
+  * Geolocating existing log entries attribution task [by @diosmosis]
+    (Closes: #7381)
+  * Duplicate actions are logged for lower/upper case encoded URL
+    (Closes: #7209)
+  * Truncation of labels on datatables leads to labels changed to '...'
+    [by @tsteur] (Closes: #6821)
+  * Do not set user id when it's set to empty string [by @mattab]
+    (Closes: #7402)
+  * Computation load after adding new segments on long existing Piwik
+    instance (Closes: #6638)
+  * New INI setting to define how far back to pre-process segments
+    reports [by @diosmosis, @mattab] (Closes: #7223)
+  * Date range longer than 1 year, should use the yearly reports instead
+    of 12 months reports (Closes: #4757)
+  * Fix Sort filters are sometimes applied multiple times [by @tsteur,
+    @mattab] (Closes: #7452)
+  * Flattening Referrers.getWebsites is very slow and needs lot of
+    memory (Closes: #7120)
+  * Live.getCounters times out on very large instance [by @tsteur]
+    (Closes: #6758)
+  * "Make it flat" actions/pages report eats server resources when
+    there's a large amount of data [by @tsteur] (Closes: #5098)
+  * Faster archiving by calculating the recursive count only if needed
+    [by @tsteur, @mattab] (Closes: #7468)
+  * Various performance improvements and bugfixes. [by @tsteur, @mattab]
+    (Closes: #7465)
+  * Do not rename columns twice when aggregating dataTable records [by
+    @tsteur, @mattab] (Closes: #7435)
+  * Made reports faster when flat=1 is used. [by @tsteur, @mattab]
+    (Closes: #7409)
+  * Run queued filters after generic filters making visualizations much
+    faster [by @tsteur, @mattab] (Closes: #7387)
+  * Faster flatten for some reports [by @tsteur, @mattab] (Closes:
+    #7336)
+  * Make direct links work even if login is required [by @sgiehl]
+    (Closes: #7432)
+  * Dependency injection in widgets, menus, settings and tasks [by
+    @mnapoli, @mattab] (Closes: #7408)
+  * Dependency injection in API classes [by @mnapoli] (Closes: #7407)
+  * Discontinue git.piwik.org service (Closes: #6676)
+  * during core:update display SQL queries as they are executed [by
+    @diosmosis] (Closes: #7276)
+  * extend command 'development:sync-ui-test-screenshots' to sync UI
+    screenshots of Plugins [by @mattab] (Closes: #7393)
+  * Remove coveralls test coverage from plugin travis CI configs [by
+    @mattab, @mnapoli] (Closes: #7391)
+  * refactor archive purging for clarity and resilience. [by @diosmosis,
+    @mattab] (Closes: #7377)
+  * Move Log Analytics import_logs.py in its own repository [by @mattab,
+    @diosmosis] (Closes: #7163)
+  * New FAQ How do I configure Piwik to use Redis for better
+    scalability? (Closes: #6932)
+  * core:archive outputs message 'sh: /bin/uname: Permission denied' [by
+    @mattab] (Closes: #7486)
+  * Popovers should not open on login page [by @sgiehl] (Closes: #7431)
+  * curl_exec: Resolving timed out after 3153 milliseconds. Hostname
+    requested was: plugins.piwik.org [by @mattab] (Closes: #7395)
+  * Cron: [InvalidArgumentException] There are no commands defined in
+    the "core" namespace. [by @mnapoli] (Closes: #7356)
+  * The arrows are displayed incorrectly on Chrome [by @mnapoli]
+    (Closes: #7230)
+  * Extend login nav with custom templates [by @czolnowski, @mattab]
+    (Closes: #7475)
+  * OPTIMIZE TABLES should be run against mariadb instances that support
+    it [by @diosmosis] (Closes: #7462)
+  * Removing misc/log-analytics directory and replace w/ submodule. [by
+    @diosmosis] (Closes: #7461)
+  * [automatic translation update] Updated 40 strings in 5 languages
+    (sv, ca, es, de, da) [by @sgiehl] (Closes: #7425)
+  * Typo in error message: functionnality [by @mattab, @claytondaley]
+    (Closes: #7412)
+  * Load translations in coreConsole.php so translations are accessible
+    to console commands. [by @diosmosis] (Closes: #7403)
+  * Composer install fails for Piwik 2.10.0 (Closes: #7353)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 28 Mar 2015 21:01:21 +1100
+
 piwik (2.11.2-1) stable; urgency=high
 
   * Releasing Piwik 2.11.2

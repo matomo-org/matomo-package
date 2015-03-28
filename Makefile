@@ -66,7 +66,7 @@ checkconfig:	checkfetch
 		@echo -n " [CONF] Checking configuration files... "
 		@if [ "$(shell cat debian/install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" ]; then \
 			echo "\n [CONF] Configuration files may have been added or removed, please update debian/install"; \
-			echo "$(shell cat debian/install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" "$(shell pwd)"; \
+			echo "          $(shell cat debian/install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" "$(shell pwd)"; \
 			exit 1; \
 		fi
 		@echo "done"

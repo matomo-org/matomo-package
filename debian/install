@@ -3,7 +3,6 @@ piwik/composer.lock				usr/share/piwik/
 piwik/config/global.php				etc/piwik/
 piwik/config/global.ini.php			etc/piwik/
 piwik/config/manifest.inc.php			etc/piwik/
-piwik/config/environment/cli.php		etc/piwik/environment/
 piwik/config/environment/dev.php		etc/piwik/environment/
 piwik/config/environment/test.php		etc/piwik/environment/
 piwik/console					usr/share/piwik/

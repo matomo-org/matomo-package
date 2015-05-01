@@ -15,6 +15,14 @@ chgrp www-data /etc/piwik/*.php
 chown www-data /var/log/piwik
 chmod g+w /etc/piwik
 
+if [ -f /etc/logrotate.d/piwik-archive/logrotate ];
+then
+	# fixing problem in piwiki 2.12.1-1
+	mv -f /etc/logrotate.d/piwik-archive/logrotate /etc/logrotate.d/piwik-log
+	echo "  * Moved Piwik logrotate configuration to /etc/logrotate.d/piwik-log"
+	rmdir /etc/logrotate.d/piwik-archive/
+fi
+
 if which lighty-enable-mod >/dev/null 2>&1 ;
 then
 	if [ ! -f /etc/lighttpd/conf-available/50-piwik.conf ];

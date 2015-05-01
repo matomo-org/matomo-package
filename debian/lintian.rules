@@ -1,6 +1,16 @@
+piwik: improbable-bug-number-in-closes 55
+piwik: improbable-bug-number-in-closes 56
 piwik: improbable-bug-number-in-closes 57
+piwik: improbable-bug-number-in-closes 58
+piwik: improbable-bug-number-in-closes 59
+piwik: improbable-bug-number-in-closes 60
+piwik: improbable-bug-number-in-closes 62
+piwik: improbable-bug-number-in-closes 63
+piwik: improbable-bug-number-in-closes 65
+piwik: improbable-bug-number-in-closes 68
 piwik: spelling-error-in-changelog functionnality functionality
 piwik: spelling-error-in-changelog Splitted Split
+piwik: spelling-error-in-changelog Softwares Software
 piwik: embedded-php-library usr/share/piwik/core/Visualization/Sparkline.php
 piwik: embedded-php-library usr/share/piwik/vendor/piwik/decompress/libs/PclZip/pclzip.lib.php
 piwik: embedded-php-library usr/share/piwik/libs/sparkline/lib/Sparkline.php

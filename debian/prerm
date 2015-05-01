@@ -1,12 +1,9 @@
 #!/bin/sh
 set -e
 
-## Delete manually these directories becasue they are not empty and dpkg fails
+## Delete manually these directories because they are not empty and dpkg fails
 
 rm -rf /var/lib/piwik
 rm -rf /usr/share/piwik/config
-
- #find /var/lib/piwik/data -type f -exec rm -f {} \;
- #find /usr/share/piwik -type f -exec rm -f {} \;
 
 #DEBHELPER#

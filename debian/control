@@ -1,6 +1,6 @@
 Source: piwik
 Section: web
-Priority: important
+Priority: optional
 Maintainer: Aurelien Requiem <aurelien@requiem.fr>
 Build-Depends: debhelper (>=7.0.15)
 Standards-Version: 3.8.0

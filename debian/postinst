@@ -1,6 +1,10 @@
 #!/bin/sh
 set -e
 
+# Source debconf library.
+. /usr/share/debconf/confmodule
+db_version 2.0 || { echo "$0: needs DebConf 2.0 or later"; exit 1; }
+
 # fix dir permission
 
 chown -R www-data:www-data /var/lib/piwik/data/tmp
@@ -17,7 +21,7 @@ chmod g+w /etc/piwik
 
 if [ -f /etc/logrotate.d/piwik-archive/logrotate ];
 then
-	# fixing problem in piwiki 2.12.1-1
+	# fixing problem in piwik 2.12.1-1
 	mv -f /etc/logrotate.d/piwik-archive/logrotate /etc/logrotate.d/piwik-log
 	echo "  * Moved Piwik logrotate configuration to /etc/logrotate.d/piwik-log"
 	rmdir /etc/logrotate.d/piwik-archive/
@@ -51,6 +55,14 @@ fi
 echo "  * Piwik main configuration files are stored in /etc/piwik/"
 echo "  * Piwik crontab file is stored in /etc/cron.d/piwik-archive"
 echo "  * When installing/using piwik, make sure you disable any ads blocker"
+
+db_get piwik/automatic-upgrade || true
+if [ "$RET" = "true" ]; then
+	echo "  * Please wait while Piwik is upgrading..."
+	php /usr/share/piwik/console core:update --yes
+else
+	echo "  * To finish Piwik's upgrade, please run: /usr/bin/php /usr/share/piwik/console core:update"
+fi
 
 #DEBHELPER#
 

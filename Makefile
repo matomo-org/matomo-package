@@ -105,8 +105,8 @@ fixsettings:
 # fix various file permissions
 fixperms:
 		@echo -n " [CHMOD] Fixing permissions... "
-		@find $(DESTDIR) -type d -exec chmod 0755 {} \;
-		@find $(DESTDIR) -type f -exec chmod 0644 {} \;
+		@find $(DESTDIR) -type d -not -path "$(DESTDIR)/DEBIAN" -exec chmod 0755 {} \;
+		@find $(DESTDIR) -type f -not -path "$(DESTDIR)/DEBIAN/*" -exec chmod 0644 {} \;
 		@chmod 0755 $(DESTDIR)/usr/share/piwik/misc/cron/archive.sh
 		@chmod 0755 $(DESTDIR)/usr/share/piwik/console
 		@chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/leafo/lessphp/lessify

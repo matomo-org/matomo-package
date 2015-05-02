@@ -1,3 +1,191 @@
+piwik (2.13.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.13.0
+  * New design for Maintenance mode [by @mnapoli] (Closes: #7620)
+  * New design for Updater screen [by @mnapoli, @mattab] (Closes: #7450)
+  * Add Help link to top menu [by @mnapoli, @mattab] (Closes: #7642)
+  * Refreshed the copy of "Help" page [by @mattab] (Closes: #7637)
+  * Make it easier to see how to edit a Goal [by @mnapoli] (Closes:
+    #7345)
+  * "Manage goals" page in the reporting menu [by @mnapoli, @mattab]
+    (Closes: #7704)
+  * very tiny: visitor profile: not enough room for "g" [by @sgiehl]
+    (Closes: #7609)
+  * Responsive reports: 2 columns layouts now use Bootstrap CSS classes
+    [by @mnapoli, @mattab] (Closes: #7504)
+  * Improve device model & brand reports [by @mnapoli] (Closes: #6933)
+  * Visitor Log: hide the plugin icons, and show instead the geo located
+    city and region (Closes: #6176)
+  * Visitor Log - view profile link and number of views overlaps [by
+    @sgiehl, @mattab] (Closes: #7089)
+  * UI/UX issue in narrow screens (Closes: #5878)
+  * UI: improve Calendar interactions [by @diosmosis, @mattab] (Closes:
+    #7728)
+  * Marketplace UI tweaks: "Search 47 plugins..." in search input [by
+    @mattab, @diosmosis] (Closes: #7721)
+  * Show paging in the screen 'Manage websites' to easily manage
+    thousands of websites [by @mattab, @tsteur] (Closes: #3838)
+  * Performance: Monthly archiving should use the smaller amount of
+    weeks and days inside the month [ by @tsteur] (Closes: #3611)
+  * Performance: Faster access, Make dashboard etc faster when having
+    thousands of sites [by @tsteur, @diosmosis] (Closes: #7641)
+  * Performance: Store blob archives more efficient [ by @tsteur]
+    (Closes: #7373)
+  * Do not pre-process custom segments when pre-processing date ranges
+    to load by default [ by @mattab] (Closes: #7611)
+  * Performance: Faster archiving of aggregated reports [by @tsteur,
+    @mattab] (Closes: #7577)
+  * DataTable performance improvements [by @tsteur] (Closes: #7502)
+  * Performance: Sort filters are sometimes applied multiple times [ by
+    @tsteur] (Closes: #7388)
+  * Run archiving through CLI sub-processes on OS X [by @mnapoli,
+    @diosmosis] (Closes: #7681)
+  * Performance: All websites dashboard - improve speed when thousands
+    of websites [by @tsteur] (Closes: #6809)
+  * Performance: Memory error in API Live.getLastVisitsDetails when
+    filter_offset is large [by @tsteur] (Closes: #7458)
+  * -force-all-websites share the list of websites across multiple
+    threads of `core:archive` [by @mnapoli] (Closes: #7614)
+  * Performance: Do not log SQL statements by default [by @diosmosis]
+    (Closes: #7640)
+  * Performance: Cache result of "isIpInRanges" for faster tracking in
+    Bulk / Queue [by @tsteur, @mattab] (Closes: #7757)
+  * Improve performance of BulkTracking and QueuedTracking [by @tsteur,
+    @mattab] (Closes: #7688)
+  * In API requests if the current user is already authenticated, do not
+    authenticate the user again [by @tsteur, @mattab] (Closes: #7643)
+  * Make Piwik opt-out feature work on safari and internet explorer [by
+    @diosmosis] (Closes: #3135)
+  * Reorganize reports in Devices and Softwares [by @sgiehl] (Closes:
+    #7227)
+  * Improve the "Device model" report by prefixing the model with the
+    brand name [by @mnapoli, @mattab] (Closes: #7410)
+  * Add a Search field to the 'Manage websites' tables (use case
+    thousands of websites) [by @tsteur] (Closes: #4476)
+  * JavaScript tracking: automatically consider HTML5 download
+    attributes as file downloads [by @sgiehl, @mattab] (Closes: #7663)
+  * Ability to use Redis to store sessions (Closes: #6800)
+  * Provide extended core:archive logger output messages for easier
+    monitoring (Closes: #6764)
+  * Log which segments are currently being archived [by @mnapoli]
+    (Closes: #7536)
+  * Better logging in archiver and Task scheduler [by @diosmosis,
+    @mnapoli] (Closes: #7602)
+  * Piwik.js Exclude extensions as downloads via new function:
+    `removeDownloadExtensions` [by @sgiehl, @mattab] (Closes: #7444)
+  * Include certificates for update over HTTPS [by @mnapoli] (Closes:
+    #7580)
+  * Update to device detector 3.1.1 [by @sgiehl, @diosmosis] (Closes:
+    #7627)
+  * Developer.piwik.org - New blog post to announce it to the community
+    (Closes: #7154)
+  * Extend list of known Referrer Spammers (Closes: #5099)
+  * Agree on naming for data access objects Dao Vs Models in core
+    platform and plugins (Closes: #7540)
+  * Improve translator experience/efficiency [by @sgiehl] (Closes:
+    #7567)
+  * Check if plugin uses Piwik methods that are Deprecated or not API
+    [by @diosmosis] (Closes: #6539)
+  * Short term backlog is too full -> how to keep number of issues lower
+    eg. 100 issues [by @mattab] (Closes: #6430)
+  * Inclusion of Bootstrap's base and grid system [by @mnapoli, @mattab]
+    (Closes: #7481)
+  * Refactored the system check to allow plugins to add new diagnostics
+    [by @mnapoli, @diosmosis] (Closes: #7646)
+  * -replay-tracking should ignore HTTP status errors/redirects (in case
+    Piwik server was unreachable) [by @diosmosis] (Closes: #68)
+  * Handle tracking request timeouts and specify reasonable default (w/
+    CLI parameter to override) [by @diosmosis] (Closes: #65)
+  * In W3C logs, client IP can be - in some logs, but log importer fails
+    to parse - for IP [by @diosmosis] (Closes: #63)
+  * All fields in W3C log format can be quoted strings, but importer
+    assumes all unknown fields cannot be quoted [by @diosmosis] (Closes:
+    #62)
+  * Add retry mechanism to import_logs.py [by @diosmosis, @mattab]
+    (Closes: #60)
+  * Cloudfront log values need to be urldecoded [by @diosmosis] (Closes:
+    #59)
+  * Handle extra whitespace in W3C extended logs, including in between
+    comment lines and in Fields: line. [by @diosmosis] (Closes: #58)
+  * Log importer should check success from tracking api http status code
+    [by @tsteur, @diosmosis] (Closes: #57)
+  * At end of 'Log Import summary', display the command to force archive
+    all data [by @diosmosis] (Closes: #56)
+  * Problem parsing W3C log files where cs(Cookie) field has spaces [by
+    @diosmosis] (Closes: #55)
+  * Special characters in website name not shown correctly, Fix double
+    escaping [by @mnapoli, @diosmosis] (Closes: #7552)
+  * Archiving of aggregated ecommerce metrics [by @tsteur] (Closes:
+    #6986)
+  * Bad encoding title in the list (Closes: #6325)
+  * piwik.js: If cookies are disabled, no visitorId should be created /
+    set [by @tsteur] (Closes: #7780)
+  * Return a HTTP 400 response code if no tracking parameter is set [by
+    @tsteur, @diosmosis] (Closes: #7668)
+  * add -include-year-archives and -force-optimize-tables options to
+    purge-old-archive-data command. [by @diosmosis] (Closes: #7594)
+  * [RFC] allow plugins to create diagnostic tools that are available
+    via CLI and the web [by @mnapoli] (Closes: #7235)
+  * clicking on site selector below the currently selected site's text
+    does not show the popup [by @mnapoli] (Closes: #6205)
+  * Clicking on 'All Websites' top menu link should keep the same
+    date/period [by @mnapoli] (Closes: #7735)
+  * PHP Notice when running CronArchive in
+    `loadCustomDateRangeToPreProcess` [by @mnapoli, @diosmosis] (Closes:
+    #7647)
+  * Default GeoLocation via language is not working. [by @diosmosis]
+    (Closes: #7632)
+  * No 'Access-Control-Allow-Origin' [by @mattab] (Closes: #7626)
+  * Unable to log into Piwik after disabling ranges as period in UI [by
+    @mnapoli] (Closes: #7615)
+  * missing tmp folder in ZIP [by @mnapoli] (Closes: #7612)
+  * Warning message output in some cases in core:archive [by @mnapoli]
+    (Closes: #7581)
+  * ArchivesToPurgeDistributedList.php(40): Notice - Array to string
+    conversion [by @diosmosis, @mattab] (Closes: #7560)
+  * Goal widget reloads Visits widget on dashboard [by @sgiehl, @tsteur]
+    (Closes: #7495)
+  * After preview of Widget live visitor profile, but not adding it to
+    the dashboard, the calls keep on getting requested [by @sgiehl,
+    @mnapoli] (Closes: #7404)
+  * Plugin Overlay does not support squared brackets [] [by @mattab]
+    (Closes: #3929)
+  * Goals conversion : url encoding problem [by @mattab] (Closes: #3146)
+  * Added possibility to profile any command by setting the option -
+    xhprof [by @tsteur] (Closes: #7675)
+  * Adding logging statements to SegmentArchivingRequestUrlProvider. [by
+    @diosmosis] (Closes: #7485)
+  * The menu shouldn't intercept middle mouse clicks [by @mnapoli]
+    (Closes: #7466)
+  * Extract INI file merging logic in Config class and move to new
+    IniFileChain class. [by @diosmosis] (Closes: #7312)
+  * Piwik.js added ibooks as download [by @RMastop, @mattab] (Closes:
+    #7744)
+  * Config::getFromLocalConfig + tests [by @ThaDafinser, @diosmosis]
+    (Closes: #7639)
+  * Do not allow to widgetize any API call [by @mattab] (Closes: #7638)
+  * Visible subtableId in system tests [by @tsteur, @mattab] (Closes:
+    #7593)
+  * Auto update over HTTPS can fail [by @mnapoli] (Closes: #7576)
+  * Inconsistent use of Taiwan country name [by @sgiehl] (Closes: #7479)
+  * Skip to Content overlaps with top menu [by @mnapoli] (Closes: #7451)
+  * Make titles black instead of brown [by @mnapoli] (Closes: #7449)
+  * Explain that `misc/` folder must be writable for GeoIP geo location
+    to update geoip dbs (Closes: #7421)
+  * Typo: settings should be uppercase [by @sgiehl] (Closes: #7343)
+  * Use the native JSON when available [by @shesek, @mattab] (Closes:
+    #7231)
+  * [automatic translation update] Updated 71 strings in 22 languages
+    (bg, nb, nl, fi, cs, da, de, el, es, et, fa, fr, it, ja, pl, ro, ru,
+    sl, sr, sv, tl, tr) [by @sgiehl] (Closes: #7628)
+  * [automatic translation update] Updated 2312 strings in 50 languages
+    (sq, ta, pt, vi, ar, be, hr, hu, is, ka, lt, lv, nn, sl, tr, uk, bn,
+    bs, cy, hi, am, bg, ca, cs, da, de, el, es, et, eu, fa, fi, fr, gl,
+    he, id, it, ja, ko, nb, nl, pl, ro, sk, sr, sv, te, th, tl, ru) [by
+    @sgiehl] (Closes: #7734)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 02 May 2015 12:31:31 +1000
+
 piwik (2.12.1-1) stable; urgency=high
 
   * Releasing Piwik 2.12.1

@@ -3,7 +3,16 @@ set -e
 
 ## Delete manually these directories because they are not empty and dpkg fails
 
-rm -rf /var/lib/piwik
-rm -rf /usr/share/piwik/config
+if [ "$1" = "remove" ];
+then
+	rm -rf /var/lib/piwik
+	rm -rf /usr/share/piwik/config
+fi
+
+if [ "$1" = "upgrade" ];
+then
+	rm -rf /var/lib/piwik/data/tmp/templates_c/*
+fi
+
 
 #DEBHELPER#

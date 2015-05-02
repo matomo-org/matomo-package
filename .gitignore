@@ -2,6 +2,7 @@ archives/*
 debian/piwik
 debian/piwik.debhelper.log
 debian/piwik.substvars
+debian/piwik.*.debhelper
 debian/files
 tmp/*
 tmp.*

@@ -1,0 +1,12 @@
+
+Template: piwik/automatic-upgrade
+Type: boolean
+Default: false
+_Description: Enable automatic database upgrade for your Piwik installation?
+ Please choose whether you want to enable automatic database upgrade for your Piwik installation.
+ .
+ From time to time, Piwik database schema must be upgraded so Piwik
+ can continue to work correctly. You have the ability to automate the
+ process so the database is upgraded automatically. Though, you
+ should ensure you have proper backup in place.
+

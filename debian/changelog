@@ -1,3 +1,9 @@
+piwik (2.13.0-2) stable; urgency=high
+
+  * added cache/tracker as it's required in piwik 2.13.0
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 02 May 2015 13:13:00 +1000
+
 piwik (2.13.0-1) stable; urgency=high
 
   * Releasing Piwik 2.13.0

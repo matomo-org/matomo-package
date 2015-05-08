@@ -24,8 +24,12 @@ endif
 PW_VERSION_GREATER = $(shell ./debian/scripts/vercomp.sh $(PW_VERSION) $(CURRENT_VERSION))
 PW_VERSION_LOWER = $(shell ./debian/scripts/vercomp.sh $(PW_VERSION) $(CURRENT_VERSION))
 
-ARCHIVE		= piwik-$(PW_VERSION).tar.gz
-SIG		= piwik-$(PW_VERSION).tar.gz.asc
+ifndef PW_ARCHIVE_EXT
+PW_ARCHIVE_EXT	:= $(shell wget -q --spider $(URL)/piwik-$(PW_VERSION).tar.gz && echo 'tar.gz' || echo 'zip' )
+endif
+
+ARCHIVE		= piwik-$(PW_VERSION).$(PW_ARCHIVE_EXT)
+SIG		= piwik-$(PW_VERSION).$(PW_ARCHIVE_EXT).asc
 
 DESTDIR		= /
 DIST		= stable

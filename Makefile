@@ -7,6 +7,9 @@
 # * make builddeb: To rebuild your debian package. debian/changelog is not updated
 # * make checkdeb: To check the package compliance using lintian
 
+URL		= https://builds.piwik.org
+FINGERPRINT	= 814E346FA01A20DBB04B6807B5DBD5925590A237
+
 CURRENT_VERSION	:= $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;s/-.*//')
 DEB_ARCH := $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
@@ -15,16 +18,14 @@ DEB_VERSION := $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;')
 endif
 
 ifndef PW_VERSION
-PW_VERSION	:= $(shell wget -qO - https://builds.piwik.org/LATEST)
+PW_VERSION	:= $(shell wget -qO - $(URL)/LATEST)
 endif
 
 PW_VERSION_GREATER = $(shell ./debian/scripts/vercomp.sh $(PW_VERSION) $(CURRENT_VERSION))
 PW_VERSION_LOWER = $(shell ./debian/scripts/vercomp.sh $(PW_VERSION) $(CURRENT_VERSION))
 
-URL		= https://builds.piwik.org/
 ARCHIVE		= piwik-$(PW_VERSION).tar.gz
 SIG		= piwik-$(PW_VERSION).tar.gz.asc
-FINGERPRINT	= 814E346FA01A20DBB04B6807B5DBD5925590A237
 
 DESTDIR		= /
 DIST		= stable

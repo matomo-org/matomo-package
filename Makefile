@@ -212,8 +212,8 @@ clean:
 		@rm -rf debian/piwik
 
 distclean:	clean
-		@echo " [RM] piwik piwik-*.tar.gz piwik-*.tar.gz.asc debian/piwik"
-		@rm -f piwik-*.tar.gz piwik-*.tar.gz.asc
+		@echo " [RM] piwik piwik-*.tar.gz piwik-*.tar.gz.asc piwik-*.zip piwik-*.zip.asc"
+		@rm -f piwik-*.tar.gz piwik-*.tar.gz.asc piwik-*.zip piwik-*.zip.asc
 
 prepupload:
 		@echo " [MKDIR] tmp/"

@@ -191,7 +191,7 @@ builddeb:	checkenv checkversions
 # the filename is determines by the 1st line of debian/changelog
 checkdeb:
 		@echo " [LINTIAN] Checking package..."
-		@lintian --color auto -v -i  ../`parsechangelog | grep ^Source | awk '{print $$2}'`_`parsechangelog | grep ^Version | awk '{print $$2}'`_*.deb
+		@lintian --color auto -v -i ../`parsechangelog | grep ^Source | awk '{print $$2}'`_`parsechangelog | grep ^Version | awk '{print $$2}'`_*.deb
 
 # create a new release based on PW_VERSION variable
 newrelease:

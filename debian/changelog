@@ -1,3 +1,34 @@
+piwik (2.13.1-1) stable; urgency=high
+
+  * Releasing Piwik 2.13.1
+  * Regression: MultiSites.getAll does not handle showColumns correct
+    [by @diosmosis] (Closes: #7818)
+  * Report date to load by default doesn't work [by @mnapoli] (Closes:
+    #7795)
+  * $userPreferences->getDefaultReport() gives Empty String when not
+    set. [by @tsteur] (Closes: #7839)
+  * Goal url parameter is wrong when generating the image tracking code
+    [by @tsteur] (Closes: #7829)
+  * All websites dashboard lists website names double encoded [by
+    @tsteur, @diosmosis] (Closes: #7806)
+  * Can't add new site after update to 2.13.0 [by @diosmosis, @tsteur]
+    (Closes: #7802)
+  * Tracker performance: Faster visitor recognition [by @tsteur]
+    (Closes: #7779)
+  * When profiling the performance via Xhprof, output whether
+    development mode is enabled [by @diosmosis, @mattab] (Closes: #7708)
+  * Improve look when there is no data for a report [by @saleemkce,
+    @tsteur] (Closes: #7092)
+  * Do not return BulkTracking response in QueuedTracking plugin [by
+    @tsteur] (Closes: #7595)
+  * Wrong tooltip for Live visitors button (Closes: #7474)
+  * Improve ability to debug w/ various added diagnostic & debug
+    messages/improvements. [by @diosmosis] (Closes: #71)
+  * Log Analytics: added ibooks as file downloads [by @RMastop, @mattab]
+    (Closes: #69)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Wed, 13 May 2015 18:52:39 +1000
+
 piwik (2.13.0-2) stable; urgency=high
 
   * added cache/tracker as it's required in piwik 2.13.0

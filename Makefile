@@ -53,8 +53,8 @@ checkfetch:
 		@echo " [GPG] verify $(FINGERPRINT)" && gpg --verify $(SIG)
 		@echo " [RM] piwik/" && if [ -d "piwik" ]; then rm -rf "piwik"; fi
 		@echo " [UNPACK] $(ARCHIVE)"
-		@test "$(PW_ARCHIVE_EXT)" != "zip" || echo unzip -qq $(ARCHIVE)
-		@test "$(PW_ARCHIVE_EXT)" != "tar.gz" || echo tar -zxf $(ARCHIVE)
+		@test "$(PW_ARCHIVE_EXT)" != "zip" || unzip -qq $(ARCHIVE)
+		@test "$(PW_ARCHIVE_EXT)" != "tar.gz" || tar -zxf $(ARCHIVE)
 		@echo " [RM] Cleanup"
 		@rm -f 'How to install Piwik.html'
 		@find piwik/ -type f -name .gitignore -exec rm -f {} \;

@@ -101,19 +101,17 @@ function organizePackage() {
 		curl -sS https://getcomposer.org/installer | php
 	fi
 	php composer.phar install --no-dev -o
+
+	# Note: all `tests/` and `Tests/` folders are deleted below
+
 	rm -rf composer.phar
 	rm -rf vendor/twig/twig/test/
 	rm -rf vendor/twig/twig/doc/
-	rm -rf vendor/symfony/console/Symfony/Component/Console/Tests
 	rm -rf vendor/symfony/console/Symfony/Component/Console/Resources/bin
-	rm -rf vendor/piwik/device-detector/Tests/
-	rm -rf vendor/doctrine/cache/.git
-	rm -rf vendor/mnapoli/php-di/.git
-	rm -rf vendor/mnapoli/php-di/tests
 	rm -rf vendor/mnapoli/php-di/website
 	rm -rf vendor/mnapoli/php-di/news
 	rm -rf vendor/mnapoli/php-di/doc
-	rm -rf vendor/doctrine/annotations/tests
+	rm -rf vendor/tecnick.com/tcpdf/examples
 
 	rm -rf libs/PhpDocumentor-1.3.2/
 	rm -rf libs/FirePHPCore/
@@ -141,13 +139,17 @@ function organizePackage() {
 		git submodule update --init $P
 	done
 
+	# delete all .git folders
 	find . -name .git -exec rm -rf {} \;
 	rm .gitmodules
 	rm .gitignore
 	rm .bowerrc
 
 	cp tests/README.md ../
+
+	# Delete all `tests/` and `Tests/` folders
 	find ./ -name 'tests' -type d -prune -exec rm -rf {} \;
+	find ./ -name 'Tests' -type d -prune -exec rm -rf {} \;
 
 	mkdir tests
 	mv ../README.md tests/

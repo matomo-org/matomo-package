@@ -102,7 +102,11 @@ function organizePackage() {
 	fi
 	php composer.phar install --no-dev -o
 
-	# Note: all `tests/` and `Tests/` folders are deleted below
+	# ------------
+	# WARNING:
+	# if you add files below, also update the Integration test in ReleaseCheckListTest.php
+	# in isFileDeletedFromPackage()
+	# ------------
 
 	rm -rf composer.phar
 	rm -rf vendor/twig/twig/test/
@@ -139,6 +143,10 @@ function organizePackage() {
     rm -rf vendor/tecnick.com/tcpdf/fonts/times*
     rm -rf vendor/tecnick.com/tcpdf/fonts/uni2cid*
 
+	# ------------
+	# WARNING: Did you read the WARNING above?
+	# ------------
+
 	rm -rf libs/PhpDocumentor-1.3.2/
 	rm -rf libs/FirePHPCore/
 	rm -rf libs/open-flash-chart/php-ofc-library/ofc_upload_image.php
@@ -149,7 +157,6 @@ function organizePackage() {
 	rm -f misc/others/db-schema*
 	rm -f misc/others/diagram_general_request*
 	rm -f .travis* .coveralls.yml .scrutinizer.yml
-
 
 	# delete most submodules
 	for P in $(git submodule status | egrep -v $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')

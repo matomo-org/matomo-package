@@ -112,6 +112,8 @@ function organizePackage() {
 	rm -rf vendor/mnapoli/php-di/news
 	rm -rf vendor/mnapoli/php-di/doc
 	rm -rf vendor/tecnick.com/tcpdf/examples
+	rm -rf vendor/tecnick.com/tcpdf/CHANGELOG.txt
+	rm -rf vendor/guzzle/guzzle/docs/
 
 	# Delete un-used fonts
     rm -rf vendor/tecnick.com/tcpdf/fonts/ae_fonts_2.0
@@ -171,9 +173,7 @@ function organizePackage() {
 	cp tests/README.md ../
 
 	# Delete all `tests/` and `Tests/` folders
-	find ./ -name 'tests' -type d -prune -exec rm -rf {} \;
-	find ./ -name 'Tests' -type d -prune -exec rm -rf {} \;
-
+	find ./ -iname 'tests' -type d -prune -exec rm -rf {} \;
 	mkdir tests
 	mv ../README.md tests/
 

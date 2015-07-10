@@ -101,24 +101,55 @@ function organizePackage() {
 		curl -sS https://getcomposer.org/installer | php
 	fi
 	php composer.phar install --no-dev -o
+
+	# ------------
+	# WARNING:
+	# if you add files below, also update the Integration test in ReleaseCheckListTest.php
+	# in isFileDeletedFromPackage()
+	# ------------
+
 	rm -rf composer.phar
 	rm -rf vendor/twig/twig/test/
 	rm -rf vendor/twig/twig/doc/
-	rm -rf vendor/symfony/console/Symfony/Component/Console/Tests
 	rm -rf vendor/symfony/console/Symfony/Component/Console/Resources/bin
-	rm -rf vendor/piwik/device-detector/Tests/
-	rm -rf vendor/doctrine/cache/.git
-	rm -rf vendor/mnapoli/php-di/.git
-	rm -rf vendor/mnapoli/php-di/tests
 	rm -rf vendor/mnapoli/php-di/website
 	rm -rf vendor/mnapoli/php-di/news
 	rm -rf vendor/mnapoli/php-di/doc
-	rm -rf vendor/doctrine/annotations/tests
+	rm -rf vendor/tecnick.com/tcpdf/examples
+	rm -rf vendor/tecnick.com/tcpdf/CHANGELOG.txt
+	rm -rf vendor/guzzle/guzzle/docs/
+
+	# Delete un-used fonts
+    rm -rf vendor/tecnick.com/tcpdf/fonts/ae_fonts_2.0
+    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavu-fonts-ttf-2.33
+    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavu-fonts-ttf-2.34
+    rm -rf vendor/tecnick.com/tcpdf/fonts/freefont-20100919
+    rm -rf vendor/tecnick.com/tcpdf/fonts/freefont-20120503
+    rm -rf vendor/tecnick.com/tcpdf/fonts/freemon*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/cid*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/courier*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/aefurat*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansb*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansi*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansmono*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusanscondensed*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansextralight*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavuserif*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/freesansi*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/freesansb*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/freeserifb*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/freeserifi*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/pdf*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/times*
+    rm -rf vendor/tecnick.com/tcpdf/fonts/uni2cid*
+
+	# ------------
+	# WARNING: Did you read the WARNING above?
+	# ------------
 
 	rm -rf libs/PhpDocumentor-1.3.2/
 	rm -rf libs/FirePHPCore/
 	rm -rf libs/open-flash-chart/php-ofc-library/ofc_upload_image.php
-
 
 	rm -rf tmp/*
 	rm -rf tmp/.gitkeep
@@ -126,7 +157,6 @@ function organizePackage() {
 	rm -f misc/others/db-schema*
 	rm -f misc/others/diagram_general_request*
 	rm -f .travis* .coveralls.yml .scrutinizer.yml
-
 
 	# delete most submodules
 	for P in $(git submodule status | egrep -v $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')
@@ -141,14 +171,16 @@ function organizePackage() {
 		git submodule update --init $P
 	done
 
+	# delete all .git folders
 	find . -name .git -exec rm -rf {} \;
 	rm .gitmodules
 	rm .gitignore
 	rm .bowerrc
 
 	cp tests/README.md ../
-	find ./ -name 'tests' -type d -prune -exec rm -rf {} \;
 
+	# Delete all `tests/` and `Tests/` folders
+	find ./ -iname 'tests' -type d -prune -exec rm -rf {} \;
 	mkdir tests
 	mv ../README.md tests/
 
@@ -263,11 +295,6 @@ then
 else
 	echo "Stable release";
 
-	# Copy Windows App Gallery release only for stable releases (makes Building betas faster)
-	echo $REMOTE
-	$REMOTE_CMD "test -d $REMOTE_HTTP_PATH/WebAppGallery || mkdir $REMOTE_HTTP_PATH/WebAppGallery" || die "cannot access the remote server $REMOTE"
-	scp -p "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip" "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip.asc" "${REMOTE}:$REMOTE_HTTP_PATH/WebAppGallery/" || die "failed to copy WebAppGalery files"
-
 	#linking piwik.org/latest.zip to the newly created build
 	echo "Creating symlinks on the remote server"
 	for name in latest piwik piwik-latest
@@ -292,6 +319,11 @@ else
 
 	echo $REMOTE_CMD_API
 	$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
+
+	# Copy Windows App Gallery release only for stable releases (makes Building betas faster)
+	echo $REMOTE
+	$REMOTE_CMD "test -d $REMOTE_HTTP_PATH/WebAppGallery || mkdir $REMOTE_HTTP_PATH/WebAppGallery" || die "cannot access the remote server $REMOTE"
+	scp -p "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip" "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip.asc" "${REMOTE}:$REMOTE_HTTP_PATH/WebAppGallery/" || die "failed to copy WebAppGalery files"
 
 	SHA1_WINDOWS="$(sha1sum ../$LOCAL_ARCH/piwik-$VERSION-WAG.zip | cut -d' ' -f1)"
 	[ -z "$SHA1_WINDOWS" ] && die "cannot compute sha1 hash for ../$LOCAL_ARCH/piwik-$VERSION-WAG.zip"

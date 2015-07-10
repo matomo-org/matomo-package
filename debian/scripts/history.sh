@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # warning: this script tries to deal with UTF-8 aliens (not gremlins)
-# this means somt UTF-8 entities are replaced on the fly so recode doesn't
+# this means some UTF-8 entities are replaced on the fly so recode doesn't
 # complain during the intermediate conversion steps.
 # note: I'm quite unsure as to why some characters aren't converted nicely
 # compared to others as FF seems to display them correctly. Feedback and help

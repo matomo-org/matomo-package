@@ -9,7 +9,7 @@
 
 # this is a regexp for sed.
 # http://www.ascii.cl/htmlcodes.htm
-UTF8_ALIENS='s/#8243/#8221/g; s/#8211/#45/g;'
+UTF8_ALIENS='s/#8243/#8221/g; s/#8211/#45/g; s/#8216/#39/g; s/#8242/#39/g;'
 
 if [ -z "$1" ] || [ ! -f "debian/changelog" ]
 then

@@ -1,3 +1,257 @@
+piwik (2.14.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.14.0
+  * Implement CLI command to precisely delete raw data by date and
+    idsite [by @mattab] (Closes: #6785)
+  * Track file download and outlinks when user does a right click [by
+    @tsteur, @diosmosis] (Closes: #5287)
+  * Allow CLI archiving for only specific segments [by @tsteur] (Closes:
+    #7912)
+  * Record hash tag for outgoing clicks (eg. mega.co.nz outlinks) [by
+    @mattab] (Closes: #6244)
+  * New segment 'language' [by @sgiehl] (Closes: #3950)
+  * Expand Outlinks / Downloads if only one domain given [by @tsteur]
+    (Closes: #7891)
+  * Auto-update the referrer spammer blacklist [by @mnapoli, @mattab]
+    (Closes: #8186)
+  * Support Ping requests to report a better 'time on page' (Closes:
+    #2041)
+  * Segment userId should allow to use all operators including Contains
+    operator =@ [by @mattab] (Closes: #8062)
+  * Rename Ecommerce & Goals Category Titles [by @spacenate, @tsteur,
+    @mattab] (Closes: #7885)
+  * Make the installation of Piwik work with HHVM. [by @Loscillo,
+    @mattab] (Closes: #8131)
+  * New design for buttons [by @mnapoli, @diosmosis] (Closes: #7896)
+  * New design for default tables [by @mnapoli, @diosmosis] (Closes:
+    #7895)
+  * New design for the installation [by @mnapoli] (Closes: #7875)
+  * New design for alerts and notifications [by @mnapoli] (Closes:
+    #7874)
+  * New design for code blocks [by @mnapoli, @diosmosis] (Closes: #7793)
+  * New design for Marketplace (in Administration) [by @mnapoli]
+    (Closes: #7586)
+  * New design for Installer screens [by @mnapoli] (Closes: #7584)
+  * Improve the look of our data tables and of our report pages in
+    general [by @tsteur] (Closes: #7090)
+  * use consistent colours for fonts and buttons (Closes: #4495)
+  * Make Popovers slightly wider [by @mattab] (Closes: #7517)
+  * Piwik logo on IE9 is misplaced [by @tsteur] (Closes: #8190)
+  * Some widgets have wrong styles in widget preview (headline etc) [by
+    @mnapoli] (Closes: #7879)
+  * Edit personal email report - Report hour is not readable on Firefox
+    [by @tsteur] (Closes: #7827)
+  * Use a card like design in dashboard [by @tsteur, @mattab] (Closes:
+    #8191)
+  * Popover displaying messages should use Piwik design style [by
+    @mattab, @mnapoli] (Closes: #8087)
+  * New design for the site manager [by @mnapoli, @tsteur] (Closes:
+    #8002)
+  * New design for forms [by @mnapoli, @mattab] (Closes: #7960)
+  * Redesign visitor log (Closes: #7909)
+  * CSS and UI components demo [by @mnapoli] (Closes: #7787)
+  * New design for Administration screens [by @mnapoli] (Closes: #7587)
+  * Align numbers to the right of the columns [by @tsteur] (Closes:
+    #4789)
+  * The pragma "disableCookies" does not work in some browsers [by
+    @tsteur] (Closes: #7494)
+  * Very slow SQL queries when archiving a segment for an unknown action
+    (Closes: #8102)
+  * Details cut-off on Visitor Log modal pop-up (screenshot included)
+    [by @mattab] (Closes: #7812)
+  * Make sure to escape error messages [by @tsteur] (Closes: #8197)
+  * While loading Piwik, the top menu displays all language names in a
+    row for 1 second [by @tsteur] (Closes: #7736)
+  * Disallow api content to be loaded within Piwik [by @mattab] (Closes:
+    #8182)
+  * Create a page that lists all available tracker SDKs for "universal"
+    properties (Closes: #8039)
+  * Installation Error Barnes_&_Noble.ico [by @sgiehl] (Closes: #8029)
+  * Moved Intl data translations to a new plugin [by @sgiehl, @mattab]
+    (Closes: #8017)
+  * Document Ecommerce JavaScript Tracking API functions in API
+    reference [by @mattab] (Closes: #7977)
+  * fix core folder with php-cs-fixer for psr-2 [by @fabiocarneiro,
+    @mattab] (Closes: #7956)
+  * link tag (shortcut icon) generated twice in
+    Morpheus/templates/layout.twig [by @sgiehl] (Closes: #7897)
+  * Remove UserSettings Plugin [by @tsteur] (Closes: #7846)
+  * Report classes should not be instantiated directly [by @tsteur]
+    (Closes: #7821)
+  * Tracking code generator: Allow to generate tracking code for mobile
+    apps etc. (Closes: #7803)
+  * Create and maintain up-to-date the Piwik Roadmap (Closes: #7624)
+  * noindex, nofollow option [by @mattab, @mnapoli, @tsteur] (Closes:
+    #6552)
+  * Show Piwik version on demo [by @mattab] (Closes: #5197)
+  * Geo location with GeoIP PECL ISP database: correctly set the
+    provider name [by @splinter89, @mattab] (Closes: #8174)
+  * When searching for websites in the Sites Manger show all fields [by
+    @tsteur, @mattab] (Closes: #8166)
+  * Invalid link after uploading a plugin (Closes: #8136)
+  * Make sure BulkTracking skips requests for non existant sites. [by
+    @diosmosis] (Closes: #8132)
+  * Fix missing variable escaping in the JS tracking code generator [by
+    @mnapoli, @diosmosis] (Closes: #8109)
+  * Added 'mbstring.func_overload = 0' check as installation requirement
+    [by @barbushin, @mnapoli] (Closes: #8104)
+  * NaN in VisitorMap when we have unknown regions (Closes: #8081)
+  * Piwik is overlapping graph labels when viewport is too narrow
+    (Closes: #8075)
+  * API SitesManager.getSitesIdFromSiteUrl should match both HTTP and
+    HTTPS websites [by @mattab] (Closes: #8070)
+  * Popup displayed after changing visualization to cities while using
+    the visitor map (Closes: #8061)
+  * Visitor map visualization issues [by @diosmosis] (Closes: #8060)
+  * Translate of Longitude column dimension is wrong [by @tsteur]
+    (Closes: #7995)
+  * Segmented Visitor Log icon does not show data when Page URL contains
+    HTML entities [by @mattab] (Closes: #7989)
+  * Provider submenu label may appear untranslated
+    (Provider_SubmenuLocationsProvider) (Closes: #7985)
+  * Console init failure when no config exist [by @mnapoli] (Closes:
+    #7968)
+  * Invalid URL fragment encoding (Closes: #7961)
+  * When using old data purger, content tracking names are being
+    deleted. (Closes: #7958)
+  * Incorrect screen resolution detected for devices with device pixel
+    ratio > 1 [by @sgiehl] (Closes: #7941)
+  * Map labels truncated for countries with no visits [by @sgiehl]
+    (Closes: #7940)
+  * Reusing a piwik database created a report that it had been updated
+    to the same version [by @mnapoli] (Closes: #7924)
+  * Visitor Profile Widget should not be visible to anonymous users [by
+    @tsteur] (Closes: #7899)
+  * Getting Piwik to work on IE8 again by fixing a few issues [by
+    @diosmosis] (Closes: #7886)
+  * All Websites dashboard shows only the first 50 websites [by @tsteur,
+    @diosmosis] (Closes: #7854)
+  * Average order value graph [by @tsteur, @diosmosis] (Closes: #7851)
+  * sh: ps: not found in logs [by @mnapoli, @mattab] (Closes: #7815)
+  * Marketplace when closing popover it scrolls to top [by @diosmosis]
+    (Closes: #7798)
+  * No longer possible to change the dashboard layout to multiple
+    columns [by @mnapoli] (Closes: #7796)
+  * Column Headers Missing in TSV / CSV data exports [by @diosmosis]
+    (Closes: #7774)
+  * Delete old visitor logs uses idvisit instead of the date [by
+    @diosmosis, @mattab] (Closes: #7180)
+  * Visit Overview (with graph) widget scroll to wrong position under
+    circumstances (Closes: #7086)
+  * Outlinks not properly encoded [by @mattab] (Closes: #5014)
+  * Remove keywords widget from the default dashboard [by @mattab]
+    (Closes: #8189)
+  * New automated test to detect when the Piwik files become too big [by
+    @mattab] (Closes: #8158)
+  * Move more i18n data translations to Intl plugin [by @sgiehl]
+    (Closes: #8101)
+  * Adding ping=1 tracker query param to allow JS tracker to update the
+    end of visit time for more accurate visit length [by @diosmosis]
+    (Closes: #8069)
+  * Instant log output for failing UI tests and some tweaks on detection
+    of page activity [by @tsteur, @diosmosis] (Closes: #8094)
+  * Migrate all core plugins to use plugin.json instead of
+    getInformation() [by @sgiehl, @mattab] (Closes: #8065)
+  * Warning: imagecopyresampled() expects parameter 2 to be resource,
+    string given (Closes: #8028)
+  * Force html templates to reload when development mode is enabled [by
+    @tsteur, @mnapoli] (Closes: #8019)
+  * Moved i18n data to core/Intl [by @sgiehl] (Closes: #7996)
+  * Implement HTTP-Authentication for transport methods socket & fopen
+    [by @sgiehl, @mattab] (Closes: #7980)
+  * No way to get sites without group using the reporting API [by
+    @alexkuk] (Closes: #7975)
+  * Detect monitor.us as a bot (Closes: #7972)
+  * Add a divider after the Visitors in Real-time header (Closes: #7965)
+  * with success -> successfully [by @dandv, @sgiehl] (Closes: #7936)
+  * List of devices under "visitors" is very near to 10 and does not
+    require a pager (Closes: #7920)
+  * Require TCPDF using composer [by @sgiehl] (Closes: #7908)
+  * Visitorlog: Use a tooltip to display additional information to avoid
+    text truncation [by @sgiehl, @mattab] (Closes: #7907)
+  * Visit Overview (with graph) widget targets correct graph [by
+    @spacenate, @tsteur] (Closes: #7872)
+  * Create UI tests for ImageGraph plugin so testing can be automated
+    (to some level) [by @diosmosis] (Closes: #7859)
+  * update pchart library from 2.1.3 to 2.1.4 and moved them to a new
+    folder [by @tsteur, @diosmosis] (Closes: #7844)
+  * Restore auth when calling API only if needed [by @tsteur, @mnapoli]
+    (Closes: #7804)
+  * Make website manager take 100% of width on a big screen [by @tsteur,
+    @mnapoli] (Closes: #7775)
+  * Refactoring CronArchive setup + use for less technical debt [by
+    @diosmosis, @mnapoli] (Closes: #7707)
+  * Injection Inception, Final cleanup of test environment setup [by
+    @diosmosis] (Closes: #8027)
+  * Injection Inception, Add Access and Auth objects to DI [by
+    @diosmosis, @mnapoli] (Closes: #8026)
+  * Injection Inception, Using DI as primary mechanism in setting up
+    Test environment [by @diosmosis, @mnapoli] (Closes: #8008)
+  * Injection Inception, Allow integration + system tests to override DI
+    [by @diosmosis] (Closes: #7963)
+  * Injection Inception, Adding Config to DI [by @diosmosis] (Closes:
+    #7957)
+  * Moby DIoC: Piwik environment encapsulation [by @diosmosis] (Closes:
+    #7644)
+  * Add date to CronArchive output when printing info about
+    preprocessing what will be archived for. [by @diosmosis] (Closes:
+    #8214)
+  * Test to make sure we do not break the external widget URL API [by
+    @tsteur] (Closes: #8221)
+  * Warning - preg_match(): Unknown modifier 'a' [by @mattab] (Closes:
+    #8290)
+  * Installer should let you bypass the "optional" file integrity check
+    [by @mattab] (Closes: #8264)
+  * Sites Manager doesn't save or show some saved global settings
+    (Closes: #8247)
+  * Show "Keyword" dimension name in All websites > Search Engine [by
+    @sgiehl] (Closes: #8201)
+  * Using setCookiesPath creates 2 cookies [by @parruc] (Closes: #8112)
+  * Email address hel*lo@mail.com should be accepted as valid [by
+    @diosmosis] (Closes: #7298)
+  * Add some SearchEngine Hostnames [by @pebosi, @mattab] (Closes:
+    #8250)
+  * add constant PIWIK_VENDOR_PATH [by @craue, @mattab] (Closes: #8227)
+  * Replaced inline style with stylesheet in add email report form [by
+    @Fensterbank, @mattab] (Closes: #8207)
+  * Speeding up javascript tests 2.5 times [by @barbushin, @tsteur]
+    (Closes: #8206)
+  * [automatic translation update] Updated 215 strings in 13 languages
+    (am, ar, de, el, es, fi, nb, nl, pl, sv, fr, ru, da) [by @sgiehl]
+    (Closes: #7871)
+  * [automatic translation update] Updated 104 strings in 43 languages
+    (bn, sv, ru, bs, ca, cs, cy, el, et, eu, fa, fi, fr, gl, he, hi, hr,
+    hu, id, is, it, ja, ka, ko, lt, lv, nb, nl, nn, pl, pt, ro, sk, sl,
+    sq, sr, ta, te, th, tl, tr, uk, vi) [by @sgiehl] (Closes: #7934)
+  * [automatic translation update] Updated 329 strings in 8 languages
+    (es, fi, nl, sk, sv, de, el, fr) [by @sgiehl] (Closes: #7994)
+  * [automatic translation update] Updated 339 strings in 10 languages
+    (sr, es, ro, bg, hr, tr, ru, nl, ja, nn) [by @sgiehl] (Closes:
+    #8025)
+  * [automatic translation update] Updated 207 strings in 6 languages
+    (bg, es, it, hr, nl, cs) [by @sgiehl] (Closes: #8046)
+  * [automatic translation update] Updated 125 strings in 31 languages
+    (he, sr, el, es, fr, it, nb, cs, da, de, nl, ru, sv, ar, be, bg, ca,
+    et, fa, fi, hi, id, ja, ko, nn, pl, pt, ro, sq, th, vi) [by @sgiehl]
+    (Closes: #8093)
+  * [automatic translation update] Updated 270 strings in 11 languages
+    (de, fr, eu, hi, hu, lt, lv, es, tl, ja, sk) [by @sgiehl] (Closes:
+    #8281)
+  * [automatic translation update] Updated 311 strings in 3 languages
+    (es, ja, it) [by @sgiehl] (Closes: #8269)
+  * [automatic translation update] Updated 396 strings in 7 languages
+    (hi, es, fr, de, fa, it, tl) [by @sgiehl] (Closes: #8204)
+  * Add webp to STATIC_EXTENSIONS. [by @marcenuc, @mattab] (Closes: #78)
+  * import_logs.py should look for https host if no http host is found
+    [by @mattab] (Closes: #77)
+  * Cron reports: Exception in thread Thread-1 (most likely raised
+    during interpreter shutdown) [by @diosmosis] (Closes: #75)
+  * NameError: global name 'config' is not defined [by @diosmosis]
+    (Closes: #74)
+  * Error 400 when receiving an unexpected website (Closes: #73)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Fri, 10 Jul 2015 17:11:48 +1000
+
 piwik (2.13.1-1) stable; urgency=high
 
   * Releasing Piwik 2.13.1

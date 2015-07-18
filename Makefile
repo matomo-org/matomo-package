@@ -79,7 +79,8 @@ cleanup:
 		@rm -f piwik/misc/translationTool.sh
 		@echo " [RM] Cleanup: jScrollPane"
 		@rm -rf piwik/libs/bower_components/jScrollPane/issues
-		@rm -rf piwik/libs/bower_components/jScrollPane/ajax_content.html
+		@rm -f piwik/libs/bower_components/jScrollPane/ajax_content.html
+		@rm -f piwik/libs/bower_components/jScrollPane/script/demo.js
 		@rm -f piwik/libs/bower_components/jScrollPane/themes/lozenge/index.html
 		@grep -li demo piwik/libs/bower_components/jScrollPane/*.html | while read F; do rm -f $$F; done;
 		@echo " [RM] Cleanup: bower_components"
@@ -141,6 +142,7 @@ fixperms:
 
 # check lintian licenses so we can remove obsolete ones
 checklintianlic:
+	@echo " [DEB] Checking extra license files presence"
 	@for F in $(shell cat debian/piwik.lintian-overrides | grep extra-license-file | awk '{print $$3}') ; do \
 		echo -n "  * checking: $$F"; \
 		if [ ! -f "$(DESTDIR)/$$F" ]; then \
@@ -153,6 +155,7 @@ checklintianlic:
 
 # check lintian licenses so we can remove obsolete ones
 checklintianextralibs:
+	@echo " [DEB] Checking for extra libs presence"
 	@for F in $(shell cat debian/piwik.lintian-overrides | grep -e embedded-javascript-library -e embedded-php-library | awk '{print $$3}') ; do \
 		echo -n "  * checking: $$F"; \
 		if [ ! -f "$(DESTDIR)/$$F" ]; then \
@@ -208,7 +211,7 @@ builddeb:	checkenv checkversions
 # the filename is determines by the 1st line of debian/changelog
 checkdeb:
 		@echo " [LINTIAN] Checking package..."
-		@lintian --color auto -v -i ../`parsechangelog | grep ^Source | awk '{print $$2}'`_`parsechangelog | grep ^Version | awk '{print $$2}'`_*.deb
+		@lintian --color auto -L '>=important' -v -i ../`parsechangelog | grep ^Source | awk '{print $$2}'`_`parsechangelog | grep ^Version | awk '{print $$2}'`_*.deb
 
 # create a new release based on PW_VERSION variable
 newrelease:

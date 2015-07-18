@@ -25,8 +25,7 @@ install: build
 	@dh_installdirs
 	@$(MAKE) checkconfig DESTDIR=$(CURDIR)/$d
 	@dh_install
-	@mkdir -p ${d}/usr/share/lintian/overrides
-	@cp -a debian/lintian.rules ${d}/usr/share/lintian/overrides/piwik
+	@dh_lintian
 	@dh_link
 
 

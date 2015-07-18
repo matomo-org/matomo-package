@@ -55,7 +55,13 @@ checkfetch:
 		@echo " [UNPACK] $(ARCHIVE)"
 		@test "$(PW_ARCHIVE_EXT)" != "zip" || unzip -qq $(ARCHIVE)
 		@test "$(PW_ARCHIVE_EXT)" != "tar.gz" || tar -zxf $(ARCHIVE)
-		@echo " [RM] Cleanup"
+
+# perform some cleanup tasks to remove extraneous files
+# from the built package. Some (js)libs are dragged with
+# examples and extra material that aren't required in the
+# final package
+cleanup:
+		@echo " [RM] Cleanup: vcs, ci"
 		@rm -f 'How to install Piwik.html'
 		@find piwik/ -type f -name .gitignore -exec rm -f {} \;
 		@find piwik/ -type f -name .gitattributes -exec rm -f {} \;
@@ -71,8 +77,16 @@ checkfetch:
 		@find piwik/ -type f -name "*bower.json" -exec rm -f {} \;
 		@rm -rf piwik/vendor/doctrine/cache/.git
 		@rm -f piwik/misc/translationTool.sh
+		@echo " [RM] Cleanup: jScrollPane"
+		@rm -rf piwik/libs/bower_components/jScrollPane/issues
+		@rm -rf piwik/libs/bower_components/jScrollPane/ajax_content.html
+		@rm -f piwik/libs/bower_components/jScrollPane/themes/lozenge/index.html
+		@grep -li demo piwik/libs/bower_components/jScrollPane/*.html | while read F; do rm -f $$F; done;
+		@echo " [RM] Cleanup: bower_components"
+		@rm -f piwik/libs/bower_components/jquery-placeholder/demo.html
 
-checkconfig:	checkfetch
+
+checkconfig:
 		@echo -n " [CONF] Checking configuration files... "
 		@if [ "$(shell cat debian/install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" ]; then \
 			echo "\n [CONF] Configuration files may have been added or removed, please update debian/install"; \
@@ -127,7 +141,7 @@ fixperms:
 
 # check lintian licenses so we can remove obsolete ones
 checklintianlic:
-	@for F in $(shell cat debian/lintian.rules | grep extra-license-file | awk '{print $$3}') ; do \
+	@for F in $(shell cat debian/piwik.lintian-overrides | grep extra-license-file | awk '{print $$3}') ; do \
 		echo -n "  * checking: $$F"; \
 		if [ ! -f "$(DESTDIR)/$$F" ]; then \
 			echo " missing."; \
@@ -139,7 +153,7 @@ checklintianlic:
 
 # check lintian licenses so we can remove obsolete ones
 checklintianextralibs:
-	@for F in $(shell cat debian/lintian.rules | grep -e embedded-javascript-library -e embedded-php-library | awk '{print $$3}') ; do \
+	@for F in $(shell cat debian/piwik.lintian-overrides | grep -e embedded-javascript-library -e embedded-php-library | awk '{print $$3}') ; do \
 		echo -n "  * checking: $$F"; \
 		if [ ! -f "$(DESTDIR)/$$F" ]; then \
 			echo " missing."; \

@@ -23,6 +23,8 @@ install: build
 	@dh_testroot
 	@dh_prep
 	@dh_installdirs
+	@$(MAKE) checkfetch DESTDIR=$(CURDIR)/$d
+	@$(MAKE) cleanup DESTDIR=$(CURDIR)/$d
 	@$(MAKE) checkconfig DESTDIR=$(CURDIR)/$d
 	@dh_install
 	@dh_lintian

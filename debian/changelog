@@ -1,3 +1,60 @@
+piwik (2.14.1-1) stable; urgency=high
+
+  * Releasing Piwik 2.14.1
+  * Do not perform an inner join when looking for archives to purge, it
+    does not scale. [by @diosmosis, @mattab] (Closes: #8331)
+  * Report archives have tripled in size since update to 2.10 [by
+    @diosmosis] (Closes: #7181)
+  * Embedding widgets with token_auth does not work anymore [by @sgiehl,
+    @diosmosis, @mattab] (Closes: #8321)
+  * API: make parameter filter_excludelowpop_value work in all cases [by
+    @mattab, @diosmosis] (Closes: #8324)
+  * Web cron archive.php is not working in some cases [by @mattab]
+    (Closes: #8312)
+  * misc/others/api_internal_call.php is broken [by @diosmosis, @mattab]
+    (Closes: #8311)
+  * Apache Error 500 in case of Detected browser engine was not found in
+    $availableEngines [by @sgiehl] (Closes: #8289)
+  * Do not use INI [proxy] settings when connecting to localhost or
+    127.0.0.1 [by @mattab] (Closes: #8272)
+  * Site Search report does not display tooltips with metrics
+    documentation [by @barbushin, @mattab] (Closes: #8257)
+  * Mobile Messaging shows error message when changing setting (Closes:
+    #8245)
+  * Adding/Editing a new goal doesn't update its "state" and some UI
+    issues (Closes: #8244)
+  * Visitor map NaN error in browser console (Closes: #8221)
+  * Quotes in goal names are over-escaped [by @diosmosis, @mattab]
+    (Closes: #7969)
+  * Browser info tooltip doesnt hide [by @barbushin, @mattab] (Closes:
+    #7768)
+  * Cannot click links in visitor-log-lightbox [by @barbushin, @mattab]
+    (Closes: #7382)
+  * Make Auto update buttons bigger (Closes: #8305)
+  * Update to Kartograph 0.8.2 [by @barbushin, @mattab] (Closes: #8350)
+  * Adding PRIVACY.md file to document various ways to improve Privacy
+    for visitors and Piwik admins [by @mattab, @diosmosis] (Closes:
+    #8343)
+  * missing translation General_Next in javascript of SitesManager [by
+    @parruc, @mattab] (Closes: #8303)
+  * Update to Kartograph 0.8.2 [by @barbushin, @mattab] (Closes: #8283)
+  * Fixes duplication `onchange` event for `radio` elements [by
+    @barbushin, @mattab] (Closes: #8248)
+  * Add OptOutManager [by @Zeichen32, @mattab] (Closes: #8229)
+  * Document the possible issue with data not being tracked and SSL
+    certificates / net::ERR_INSECURE_RESPONSE (Closes: #8220)
+  * Use translated plugin description if available [by @sgiehl, @mattab]
+    (Closes: #8208)
+  * Allow to test all API endpoints using SystemTestCase::runApiTests
+    [by @mattab] (Closes: #8188)
+  * Improve logging for "unexpected website" [by @mattab] (Closes:
+    #7698)
+  * [automatic translation update] Updated 306 strings in 16 languages
+    (sk, de, es, nb, sv, sl, el, fr, it, bg, cs, ko, nl, nn, pt, sq) [by
+    @sgiehl] (Closes: #8334)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 18 Jul 2015 15:55:18 +1000
+
 piwik (2.14.0-1) stable; urgency=high
 
   * Releasing Piwik 2.14.0

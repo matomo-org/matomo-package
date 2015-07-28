@@ -1,3 +1,36 @@
+piwik (2.14.2-1) stable; urgency=high
+
+  * Releasing Piwik 2.14.2
+  * Column not found: 1054 Unknown column
+    'log_visit.location_browser_lang' in 'field list'" [by @tsteur]
+    (Closes: #8304)
+  * renderer format is not valid - fatal php error after 2.14.0 (Closes:
+    #8365)
+  * URL parameter for core:archive console command is ignored [by
+    @diosmosis, @mattab] (Closes: #8316)
+  * Limit notifications of not authenticated sessions [by @tsteur]
+    (Closes: #8307)
+  * Can't update GrabGravatar plugin [by @tsteur] (Closes: #8370)
+  * node.className.split is not a function on tracking click on/near SVG
+    element [by @dandv, @tsteur] (Closes: #8346)
+  * CLI plugin generator doesn't intercept plugin description [by
+    @tsteur] (Closes: #8294)
+  * Site Search report does not display tooltips with metrics
+    documentation (Closes: #8257)
+  * Browser info tooltip doesn't hide (Closes: #7768)
+  * Add System check that checks that shell_exec function is enabled [by
+    @mattab] (Closes: #8411)
+  * The string General_Cancel was not loaded in javascript [by @tsteur]
+    (Closes: #8407)
+  * Fix emails validation with unknown TLD [by @barbushin, @mnapoli]
+    (Closes: #8400)
+  * Travis system extraction part 1 [by @diosmosis] (Closes: #8379)
+  * Tweaks to .travis.yml generator [by @diosmosis] (Closes: #8374)
+  * [automatic translation update] Updated 661 strings in 8 languages
+    (nl, sv, de, es, ja, lt, pl, nb) [by @sgiehl] (Closes: #8376)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Tue, 28 Jul 2015 12:16:48 +1000
+
 piwik (2.14.1-1) stable; urgency=high
 
   * Releasing Piwik 2.14.1

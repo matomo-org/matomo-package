@@ -1,3 +1,34 @@
+piwik (2.14.3-1) stable; urgency=high
+
+  * Releasing Piwik 2.14.3
+  * Install of 2.14.2 blocked by permissions check on piwik/config path
+    [by @mnapoli] (Closes: #8439)
+  * Overlay improvements [by @sgiehl, @tsteur] (Closes: #8431)
+  * In Page Overlay sidebar, add icon to let me "Open segmented visitor
+    log" [by @sgiehl] (Closes: #8352)
+  * Improve design of Trusted Piwik Hostname setting [by @barbushin,
+    @tsteur] (Closes: #8403)
+  * Rename "Widgets & Dashboard" selector or change the selector [by
+    @tsteur] (Closes: #7835)
+  * Piwik errors logged in server error log should not have HTML [by
+    @mnapoli] (Closes: #8293)
+  * New config entry to set email name in email FROM field [by @tsteur]
+    (Closes: #8252)
+  * Fix bug in notification angular directive, do not use data-binding
+    for noclear attribute... [by @diosmosis] (Closes: #8472)
+  * UserCountryMap plugin shows wrong options in countries select [by
+    @mnapoli] (Closes: #8285)
+  * [automatic translation update] Updated 195 strings in 32 languages
+    (sk, ar, de, ja, nl, nb, sv, be, bg, ca, cs, da, el, es, fa, fi, fr,
+    hi, hu, id, it, ko, pl, pt, ro, ru, sq, sr, th, tl, uk, vi) [by
+    @sgiehl] (Closes: #8432)
+  * [automatic translation update] Updated 254 strings in 37 languages
+    (gl, nb, cs, it, sk, de, el, fr, lt, ar, bg, ca, da, es, et, fa, fi,
+    he, hi, hr, id, ja, ko, nl, nn, pl, ro, ru, sl, sq, sr, sv, ta, th,
+    tl, tr, vi) [by @sgiehl] (Closes: #8474)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Fri, 07 Aug 2015 15:44:14 +1000
+
 piwik (2.14.2-1) stable; urgency=high
 
   * Releasing Piwik 2.14.2

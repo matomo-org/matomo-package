@@ -156,7 +156,7 @@ function organizePackage() {
 	rm -f misc/updateLanguageFiles.sh
 	rm -f misc/others/db-schema*
 	rm -f misc/others/diagram_general_request*
-	rm -f .travis* .coveralls.yml .scrutinizer.yml
+	rm -f .travis* .coveralls.yml .scrutinizer.yml .phpstorm.meta.php
 
 	# delete most submodules
 	for P in $(git submodule status | egrep -v $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')

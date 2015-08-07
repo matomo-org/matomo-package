@@ -243,6 +243,10 @@ distclean:	clean
 prepupload:
 		@echo " [MKDIR] tmp/"
 		@test -d tmp || mkdir tmp
+		@test ! -f  $(ARCHIVE) || echo " [MV] $(ARCHIVE) => tmp/"
+		@test ! -f  $(ARCHIVE) || mv $(ARCHIVE) tmp/
+		@test ! -f  $(SIG) || echo " [MV] $(SIG) => tmp/"
+		@test ! -f  $(SIG) || mv $(SIG) tmp/
 		@test ! -f ../piwik_$(DEB_VERSION)_all.deb || echo " [MV] ../piwik_$(DEB_VERSION)_all.deb => tmp/"
 		@test ! -f ../piwik_$(DEB_VERSION)_all.deb || mv ../piwik_$(DEB_VERSION)_all.deb $(CURDIR)/tmp/
 		@test ! -f ../piwik_$(DEB_VERSION).dsc || echo " [MV] ../piwik_$(DEB_VERSION).dsc => tmp/"

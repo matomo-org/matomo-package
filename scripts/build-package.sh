@@ -175,6 +175,7 @@ function organizePackage() {
 	find . -name .git -exec rm -rf {} \;
 	rm .gitmodules
 	rm .gitignore
+	rm .gitattributes
 	rm .bowerrc
 
 	cp tests/README.md ../

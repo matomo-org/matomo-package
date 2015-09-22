@@ -291,6 +291,10 @@ then
 		echo "Beta or RC release"
 		echo $REMOTE_CMD
 		$REMOTE_CMD "echo $VERSION > $REMOTE_HTTP_PATH/LATEST_BETA" || die "failed to deploy latest beta version file"
+	
+		echo $REMOTE_CMD_API
+		$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST_BETA" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
+
 	fi
 	echo "build finished! http://builds.piwik.org/piwik-$VERSION.zip"
 else

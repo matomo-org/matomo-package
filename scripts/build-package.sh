@@ -320,6 +320,7 @@ else
 
 	echo $REMOTE_CMD_API
 	$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
+	$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST_BETA" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
 
 	# Copy Windows App Gallery release only for stable releases (makes Building betas faster)
 	echo $REMOTE

@@ -137,7 +137,7 @@ fixperms:
 		@chmod 0755 $(DESTDIR)/usr/share/piwik/misc/composer/build-xhprof.sh
 		@chmod 0755 $(DESTDIR)/usr/share/piwik/misc/composer/clean-xhprof.sh
 		@chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/pear/archive_tar/sync-php4
-		@chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/tecnick.com/tcpdf/tools/tcpdf_addfont.php
+		@chmod 0755 $(DESTDIR)/usr/share/piwik/vendor/tecnickcom/tcpdf/tools/tcpdf_addfont.php
 		@echo "done."
 
 # check lintian licenses so we can remove obsolete ones

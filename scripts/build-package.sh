@@ -115,33 +115,33 @@ function organizePackage() {
 	rm -rf vendor/mnapoli/php-di/website
 	rm -rf vendor/mnapoli/php-di/news
 	rm -rf vendor/mnapoli/php-di/doc
-	rm -rf vendor/tecnick.com/tcpdf/examples
-	rm -rf vendor/tecnick.com/tcpdf/CHANGELOG.txt
+	rm -rf vendor/tecnickcom/tcpdf/examples
+	rm -rf vendor/tecnickcom/tcpdf/CHANGELOG.txt
 	rm -rf vendor/guzzle/guzzle/docs/
 
 	# Delete un-used fonts
-    rm -rf vendor/tecnick.com/tcpdf/fonts/ae_fonts_2.0
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavu-fonts-ttf-2.33
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavu-fonts-ttf-2.34
-    rm -rf vendor/tecnick.com/tcpdf/fonts/freefont-20100919
-    rm -rf vendor/tecnick.com/tcpdf/fonts/freefont-20120503
-    rm -rf vendor/tecnick.com/tcpdf/fonts/freemon*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/cid*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/courier*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/aefurat*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansb*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansi*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansmono*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusanscondensed*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansextralight*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavuserif*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/freesansi*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/freesansb*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/freeserifb*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/freeserifi*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/pdf*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/times*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/uni2cid*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/ae_fonts_2.0
+    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.33
+    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.34
+    rm -rf vendor/tecnickcom/tcpdf/fonts/freefont-20100919
+    rm -rf vendor/tecnickcom/tcpdf/fonts/freefont-20120503
+    rm -rf vendor/tecnickcom/tcpdf/fonts/freemon*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/cid*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/courier*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/aefurat*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusansb*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusansi*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusansmono*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusanscondensed*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusansextralight*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavuserif*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/freesansi*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/freesansb*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/freeserifb*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/freeserifi*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/pdf*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/times*
+    rm -rf vendor/tecnickcom/tcpdf/fonts/uni2cid*
 
 	# ------------
 	# WARNING: Did you read the WARNING above?

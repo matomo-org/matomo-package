@@ -1,3 +1,130 @@
+piwik (2.15.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.15.0
+  * Make theme look great when used in Mobile browser (Closes: #5029)
+  * Implement "Content Security Policy" (CSP) (Closes: #1542)
+  * Format numbers displayed in Piwik reports (eg. 1,000,000 instead of
+    1000000) (Closes: #1254)
+  * Disable 'Provider' plugin by default for new Piwik users (tracker
+    performance) [by @mattab, @diosmosis] (Closes: #8826)
+  * Make Piwik opt-out feature work on internet explorer 11 when third
+    party cookies are disabled (Closes: #8578)
+  * Release AnonymousPiwikUsageMeasurement plugin on the Marketplace
+    (Closes: #9051)
+  * New Piwik design when main menu is on the left [by @mattab] (Closes:
+    #7589)
+  * On databases that have a default charset that is not utf-8, data can
+    get corrupted [by @tsteur] (Closes: #6497)
+  * New Awesome Search bar in Piwik (Closes: #8946)
+  * Major progress in PHP7 Compatibility for Piwik (Closes: #8893)
+  * New Command 'core:invalidate-report-data' to invalidate archive data
+    (w/ period cascading) [by @diosmosis, @mattab] (Closes: #8825)
+  * Display the "Segmented Visitor Log" icon in Custom Variables report
+    (Closes: #8755)
+  * New diagnostic command 'diagnostics:analyze-archive-table' that
+    analyzes archive tables [by @diosmosis, @tsteur] (Closes: #8625)
+  * Allow plugin developers to get their plugins translated by the piwik
+    community [by @sgiehl] (Closes: #7883)
+  * Improved diagnostics: new LogViewer plugin in Marketplace! (Closes:
+    #7239)
+  * Make it easier to create Segments with Custom Variables [by
+    @diosmosis] (Closes: #6031)
+  * New segments: Download file URL 'downloadUrl' and Outlink URL
+    'outlinkUrl' [by @mattab] (Closes: #4103)
+  * New website setting: Only track visits and actions when the action
+    URL starts with one of the above URLs [by @diosmosis] (Closes: #588)
+  * SQL query to find websites with traffic since last successful
+    archiving can take 6+ hours [by @tsteur, @diosmosis] (Closes: #8066)
+  * In SQL queries, print out the name of the plugin in a SQL comment
+    for troubleshooting which plugin triggered query (Closes: #7913)
+  * Use the "Left Menu" as default menu for all Piwik users (Closes:
+    #7169)
+  * Two factor authentication login: new GoogleAuthenticator plugin on
+    Marketplace! (Closes: #2846)
+  * Improve date selector usability [by @tsteur] (Closes: #8864)
+  * New command 'database:optimize-archive-tables' to optimize archive
+    tables (even if on InnoDB). [by @diosmosis] (Closes: #8633)
+  * Archiving performance: cache the slow segment subqueries that are
+    using LIKE constraint [by @mattab] (Closes: #8850)
+  * Update some of UI icons with new set of font icons [by @mnapoli,
+    @diosmosis] (Closes: #7618)
+  * a multilingual Glossary using Piwik translations, available from
+    your "Help" page and glossary.piwik.org [by @mattab] (Closes: #6773)
+  * New design for Administration Left menu (Closes: #7588)
+  * Row Evolution can fail when a segment is used (Closes: #8776)
+  * How do I enable debug logging in Piwik Tracker? (Closes: #8593)
+  * Chrome's "Data Saver" mode prevents tracking of many visitors using
+    Chrome browser (Closes: #7733)
+  * PageURL Segmentation fails on the ecommerce page [by @diosmosis]
+    (Closes: #6593)
+  * When AdBlock Plus is used, suggest user to disable it for Piwik
+    (Closes: #5094)
+  * Use Piwik to measure how Piwik app is used by the community (opt-in)
+    [by @tsteur] (Closes: #4589)
+  * Display 'Report generated Xs ago' in help tooltip [by @mattab]
+    (Closes: #9075)
+  * Tracker configId should be based on original IP, not on anonymised
+    IP? (Closes: #7778)
+  * Do not merge assets when specific URL parameter
+    &disable_merged_assets=1 is set [by @ThaDafinser, @tsteur, @mattab]
+    (Closes: #8529)
+  * Refactor tracker code for clarity, modularity and so plugins can
+    have more granular control over tracking [by @diosmosis, @mattab]
+    (Closes: #8317)
+  * UsersManager add form inputs use placeholders instead of values [by
+    @mnapoli, @diosmosis] (Closes: #8628)
+  * Prevent content spoofing: display error if the URL is not valid
+    (Closes: #8693)
+  * remove extra line break and indentation in Admin UI [by @sgiehl]
+    (Closes: #4615)
+  * invalidateArchivedReports API can invalidate report data for a
+    particular '&segment=' (Closes: #8858)
+  * Mobile Messaging: new SMS provider to help developers debug
+    (available in development mode) [by @sgiehl, @mattab] (Closes:
+    #8773)
+  * In each SQL query, when a segment is used, print the segment string
+    in a SQL comment (Closes: #8752)
+  * New method logAllContenBlocksOnPage to piwik.js that lets you debug
+    which content blocks are on your page [by @diosmosis, @tsteur]
+    (Closes: #8650)
+  * Case-insensitive login [by @mnapoli, @diosmosis] (Closes: #8610)
+  * Add option to set "process_new_segments_from" to
+    "segment_last_edit_time" [by @diosmosis] (Closes: #8607)
+  * Make it possible to donate to plugin creators from within piwik [by
+    @sgiehl, @mattab] (Closes: #8561)
+  * Display total number of actions across all websites [by @mnapoli,
+    @mattab] (Closes: #8550)
+  * in Update settings, let user choose "Use the latest release" or "Use
+    the Long Term Support release" [by @tsteur] (Closes: #8549)
+  * Email reports: print the full URL source / origin of report in the
+    email body (Closes: #8461)
+  * During bulk tracking, return indices of invalid requests [by
+    @diosmosis] (Closes: #8296)
+  * Emoji in titles or URLs cause tracking to fail [by @sgiehl] (Closes:
+    #7766)
+  * Do not use eval function in piwik.js (for CSP) (Closes: #5960)
+  * Does Piwik support IPv6 protocol? (Closes: #8899)
+  * Performance regression: All dimensions are created on each request
+    [by @tsteur, @diosmosis] (Closes: #8399)
+  * New FAQs to document how to use Redis for sessions and cache
+    (Closes: #7767)
+  * Use improved tooltips for all tooltips in the visitor log [by
+    @mnapoli, @tsteur] (Closes: #8545)
+  * Update icons [by @mnapoli, @diosmosis] (Closes: #8488)
+  * Piwik dashboard widgets are not aligned [by @tsteur] (Closes: #7847)
+  * Help text for Content tracking metrics and dimensions [by @mattab]
+    (Closes: #8945)
+  * Improve number formats [by @sgiehl, @mattab] (Closes: #8857)
+  * Improve date & time formats [by @sgiehl, @mattab] (Closes: #8856)
+  * When saving plugin settings, disable the "Save" button to prevent
+    double clicks [by @tsteur] (Closes: #8811)
+  * Set HTML <title> values in all user menu and admin menu pages [by
+    @mattab] (Closes: #8788)
+  * Better logging messages in core:archive output [by @mattab] (Closes:
+    #8777)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Fri, 06 Nov 2015 16:19:20 +1100
+
 piwik (2.14.3-1) stable; urgency=high
 
   * Releasing Piwik 2.14.3

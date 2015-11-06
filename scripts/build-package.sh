@@ -152,11 +152,10 @@ function organizePackage() {
 	rm -rf libs/open-flash-chart/php-ofc-library/ofc_upload_image.php
 
 	rm -rf tmp/*
-	rm -rf tmp/.gitkeep
 	rm -f misc/updateLanguageFiles.sh
 	rm -f misc/others/db-schema*
 	rm -f misc/others/diagram_general_request*
-	rm -f .travis* .coveralls.yml .scrutinizer.yml .phpstorm.meta.php
+	rm -f .coveralls.yml .scrutinizer.yml .phpstorm.meta.php
 
 	# delete most submodules
 	for P in $(git submodule status | egrep -v $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')
@@ -177,7 +176,8 @@ function organizePackage() {
 	done
 
 	# delete unwanted files, recursively
-	for x in .gitignore .gitmodules .gitattributes .bowerrc; do
+	for x in .gitignore .gitmodules .gitattributes .bowerrc .bower.json \
+		.coveralls.yml .editorconfig .gitkeep .jshintrc .php_cs .travis.sh .travis.yml; do
 		find . -name "$x" -exec rm -f {} \;
 	done
 

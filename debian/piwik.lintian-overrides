@@ -36,7 +36,7 @@ piwik: extra-license-file usr/share/piwik/vendor/pear/console_getopt/LICENSE
 piwik: extra-license-file usr/share/piwik/vendor/pear/pear_exception/LICENSE
 piwik: extra-license-file usr/share/piwik/vendor/php-di/invoker/LICENSE
 piwik: extra-license-file usr/share/piwik/vendor/php-di/php-di/LICENSE
-piwik: extra-license-file usr/share/piwik/vendor/piwik/decompress/libs/PclZip/lgpl-2.1.txt
+piwik: extra-license-file usr/share/piwik/vendor/piwik/decompress/libs/PclZip/gnu-lgpl.txt
 piwik: extra-license-file usr/share/piwik/vendor/psr/log/LICENSE
 piwik: extra-license-file usr/share/piwik/vendor/symfony/console/Symfony/Component/Console/LICENSE
 piwik: extra-license-file usr/share/piwik/vendor/symfony/event-dispatcher/Symfony/Component/EventDispatcher/LICENSE

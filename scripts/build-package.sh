@@ -120,28 +120,28 @@ function organizePackage() {
 	rm -rf vendor/guzzle/guzzle/docs/
 
 	# Delete un-used fonts
-    rm -rf vendor/tecnick.com/tcpdf/fonts/ae_fonts_2.0
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavu-fonts-ttf-2.33
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavu-fonts-ttf-2.34
-    rm -rf vendor/tecnick.com/tcpdf/fonts/freefont-20100919
-    rm -rf vendor/tecnick.com/tcpdf/fonts/freefont-20120503
-    rm -rf vendor/tecnick.com/tcpdf/fonts/freemon*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/cid*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/courier*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/aefurat*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansb*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansi*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansmono*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusanscondensed*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansextralight*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/dejavuserif*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/freesansi*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/freesansb*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/freeserifb*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/freeserifi*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/pdf*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/times*
-    rm -rf vendor/tecnick.com/tcpdf/fonts/uni2cid*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/ae_fonts_2.0
+	rm -rf vendor/tecnick.com/tcpdf/fonts/dejavu-fonts-ttf-2.33
+	rm -rf vendor/tecnick.com/tcpdf/fonts/dejavu-fonts-ttf-2.34
+	rm -rf vendor/tecnick.com/tcpdf/fonts/freefont-20100919
+	rm -rf vendor/tecnick.com/tcpdf/fonts/freefont-20120503
+	rm -rf vendor/tecnick.com/tcpdf/fonts/freemon*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/cid*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/courier*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/aefurat*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansb*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansi*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansmono*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusanscondensed*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/dejavusansextralight*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/dejavuserif*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/freesansi*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/freesansb*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/freeserifb*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/freeserifi*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/pdf*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/times*
+	rm -rf vendor/tecnick.com/tcpdf/fonts/uni2cid*
 
 	# ------------
 	# WARNING: Did you read the WARNING above?
@@ -340,7 +340,7 @@ We're looking forward to seeing this Piwik version on Microsoft Web App Gallery.
 If you have any question, feel free to ask at feedback@piwik.org. \n\n\
 Thank you,\n\n\
 Piwik team"
-    echo -e "\n----> Send this email 'New Piwik Version $VERSION' to appgal@microsoft.com,hello@piwik.org"
+	echo -e "\n----> Send this email 'New Piwik Version $VERSION' to appgal@microsoft.com,hello@piwik.org"
 
 	echo "build finished! http://builds.piwik.org/piwik.zip"
 fi

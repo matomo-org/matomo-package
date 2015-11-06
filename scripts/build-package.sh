@@ -120,28 +120,28 @@ function organizePackage() {
 	rm -rf vendor/guzzle/guzzle/docs/
 
 	# Delete un-used fonts
-    rm -rf vendor/tecnickcom/tcpdf/fonts/ae_fonts_2.0
-    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.33
-    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.34
-    rm -rf vendor/tecnickcom/tcpdf/fonts/freefont-20100919
-    rm -rf vendor/tecnickcom/tcpdf/fonts/freefont-20120503
-    rm -rf vendor/tecnickcom/tcpdf/fonts/freemon*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/cid*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/courier*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/aefurat*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusansb*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusansi*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusansmono*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusanscondensed*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusansextralight*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/dejavuserif*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/freesansi*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/freesansb*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/freeserifb*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/freeserifi*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/pdf*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/times*
-    rm -rf vendor/tecnickcom/tcpdf/fonts/uni2cid*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/ae_fonts_2.0
+	rm -rf vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.33
+	rm -rf vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.34
+	rm -rf vendor/tecnickcom/tcpdf/fonts/freefont-20100919
+	rm -rf vendor/tecnickcom/tcpdf/fonts/freefont-20120503
+	rm -rf vendor/tecnickcom/tcpdf/fonts/freemon*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/cid*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/courier*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/aefurat*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusansb*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusansi*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusansmono*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusanscondensed*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/dejavusansextralight*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/dejavuserif*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/freesansi*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/freesansb*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/freeserifb*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/freeserifi*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/pdf*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/times*
+	rm -rf vendor/tecnickcom/tcpdf/fonts/uni2cid*
 
 	# ------------
 	# WARNING: Did you read the WARNING above?
@@ -152,11 +152,10 @@ function organizePackage() {
 	rm -rf libs/open-flash-chart/php-ofc-library/ofc_upload_image.php
 
 	rm -rf tmp/*
-	rm -rf tmp/.gitkeep
 	rm -f misc/updateLanguageFiles.sh
 	rm -f misc/others/db-schema*
 	rm -f misc/others/diagram_general_request*
-	rm -f .travis* .coveralls.yml .scrutinizer.yml .phpstorm.meta.php
+	rm -f .coveralls.yml .scrutinizer.yml .phpstorm.meta.php
 
 	# delete most submodules
 	for P in $(git submodule status | egrep -v $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')
@@ -171,12 +170,16 @@ function organizePackage() {
 		git submodule update --init $P
 	done
 
-	# delete all .git folders
-	find . -name .git -exec rm -rf {} \;
-	rm .gitmodules
-	rm .gitignore
-	rm .gitattributes
-	rm .bowerrc
+	# delete unwanted folders, recursively
+	for x in .git ; do
+		find . -name "$x" -exec rm -rf {} \;
+	done
+
+	# delete unwanted files, recursively
+	for x in .gitignore .gitmodules .gitattributes .bowerrc .bower.json \
+		.coveralls.yml .editorconfig .gitkeep .jshintrc .php_cs .travis.sh .travis.yml; do
+		find . -name "$x" -exec rm -f {} \;
+	done
 
 	cp tests/README.md ../
 
@@ -344,7 +347,7 @@ We're looking forward to seeing this Piwik version on Microsoft Web App Gallery.
 If you have any question, feel free to ask at feedback@piwik.org. \n\n\
 Thank you,\n\n\
 Piwik team"
-    echo -e "\n----> Send this email 'New Piwik Version $VERSION' to appgal@microsoft.com,hello@piwik.org"
+	echo -e "\n----> Send this email 'New Piwik Version $VERSION' to appgal@microsoft.com,hello@piwik.org"
 
 	echo "build finished! http://builds.piwik.org/piwik.zip"
 fi

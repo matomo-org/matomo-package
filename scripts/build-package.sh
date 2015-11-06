@@ -171,12 +171,15 @@ function organizePackage() {
 		git submodule update --init $P
 	done
 
-	# delete all .git folders
-	find . -name .git -exec rm -rf {} \;
-	rm .gitmodules
-	rm .gitignore
-	rm .gitattributes
-	rm .bowerrc
+	# delete unwanted folders, recursively
+	for x in .git ; do
+		find . -name "$x" -exec rm -rf {} \;
+	done
+
+	# delete unwanted files, recursively
+	for x in .gitignore .gitmodules .gitattributes .bowerrc; do
+		find . -name "$x" -exec rm -f {} \;
+	done
 
 	cp tests/README.md ../
 

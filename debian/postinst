@@ -30,6 +30,14 @@ else
 	echo "  * Skipped permission changes in /var/log/piwik according to 'dpkg'"
 fi
 
+if ! dpkg-statoverride --list /usr/share/piwik/misc/user >/dev/null; then
+	chown root:www-data /usr/share/piwik/misc/user
+	chmod 0775 /usr/share/piwik/misc/user
+else
+	echo "  * Skipped permission changes in /usr/share/piwik/misc/user according to 'dpkg'"
+fi
+
+
 if [ -f /etc/logrotate.d/piwik-archive/logrotate ];
 then
 	# fixing problem in piwik 2.12.1-1

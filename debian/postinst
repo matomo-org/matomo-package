@@ -5,19 +5,30 @@ set -e
 . /usr/share/debconf/confmodule
 db_version 2.0 || { echo "$0: needs DebConf 2.0 or later"; exit 1; }
 
-# fix dir permission
+# fix dir permission if needed
+if ! dpkg-statoverride --list /var/lib/piwik/data/tmp >/dev/null; then
+	chown -R www-data:www-data /var/lib/piwik/data/tmp
+	chmod -R 0755 /var/lib/piwik/data/tmp
+else
+	echo "  * Skipped permission changes in /var/lib/piwik/data/tmp according to 'dpkg'"
+fi
 
-chown -R www-data:www-data /var/lib/piwik/data/tmp
-chmod -R 0755 /var/lib/piwik/data/tmp
+if ! dpkg-statoverride --list /etc/piwik >/dev/null; then
+	chgrp www-data /etc/piwik
+	chgrp www-data /etc/piwik/*.php
 
-chgrp www-data /etc/piwik
-chmod 0775 /etc/piwik
+	chmod 0775 /etc/piwik
+	chmod 0644 /etc/piwik/*.conf
+	chmod 0664 /etc/piwik/*.php
+else
+	echo "  * Skipped permission changes in /etc/piwik according to 'dpkg'"
+fi
 
-chmod 0644 /etc/piwik/*.conf
-chmod 0664 /etc/piwik/*.php
-chgrp www-data /etc/piwik/*.php
-chown www-data /var/log/piwik
-chmod g+w /etc/piwik
+if ! dpkg-statoverride --list /var/log/piwik >/dev/null; then
+	chown www-data /var/log/piwik
+else
+	echo "  * Skipped permission changes in /var/log/piwik according to 'dpkg'"
+fi
 
 if [ -f /etc/logrotate.d/piwik-archive/logrotate ];
 then

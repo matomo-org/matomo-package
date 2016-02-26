@@ -9,7 +9,7 @@ Install
 	GRANT ALL PRIVILEGES ON piwik.* to piwik@localhost;
 	-- the FILE privileges is optional, but piwik can leverage that feature
 	-- to improve performance
-	GRANT FILE ON piwik.* TO piwik@localhost;
+	GRANT FILE ON *.* TO piwik@localhost;
 
 3a- If you don't have any virtualhost, uncomment the Alias line in /etc/apache2/conf.d/piwik.conf
 

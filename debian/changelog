@@ -1,3 +1,9 @@
+piwik (2.16.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.16.0
+
+ -- Michael Gebetsroither <mgebetsroither@mgit.at>  Thu, 25 Feb 2016 17:12:48 +0100
+
 piwik (2.15.0-1) stable; urgency=high
 
   * Releasing Piwik 2.15.0

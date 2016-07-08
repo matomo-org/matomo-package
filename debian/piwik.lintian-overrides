@@ -45,3 +45,7 @@ piwik: extra-license-file usr/share/piwik/vendor/tedivm/jshrink/LICENSE
 piwik: extra-license-file usr/share/piwik/vendor/twig/twig/LICENSE
 piwik: privacy-breach-piwik usr/share/piwik/js/piwik.js
 piwik: privacy-breach-piwik usr/share/piwik/piwik.js
+piwik: php-script-but-no-phpX-cli-dep usr/share/piwik/console
+piwik: php-script-but-no-phpX-cli-dep usr/share/piwik/vendor/leafo/lessphp/lessify
+piwik: php-script-but-no-phpX-cli-dep usr/share/piwik/vendor/leafo/lessphp/plessc
+piwik: php-script-but-no-phpX-cli-dep usr/share/piwik/vendor/tecnickcom/tcpdf/tools/tcpdf_addfont.php

@@ -7,6 +7,17 @@
 
 VERSION="$1"
 
+###########################################
+# Current Latest Piwik Major Version
+# -----------------------------------------
+# * We will only update the website piwik.org/download
+#   when building a release for this latest major version.
+# * Update this right before releasing a first "public beta" of a new major version
+###########################################
+CURRENT_LATEST_MAJOR_VERSION="2"
+
+MAJOR_VERSION=`echo $VERSION | cut -d'.' -f1`
+
 URL_REPO=https://github.com/piwik/piwik.git
 
 LOCAL_REPO="piwik_last_version_git"
@@ -222,22 +233,41 @@ checkEnv
 
 [ ! -z "$VERSION" ] || die "Expected a version number as a parameter"
 
+echo -e "Going to build Piwik $VERSION (Major version: $MAJOR_VERSION)"
+
+if [ "$MAJOR_VERSION" == "$CURRENT_LATEST_MAJOR_VERSION" ]
+then
+	echo -e "-> Building a new release for the current latest major version (stable or beta)"
+	BUILDING_LATEST_MAJOR_VERSION_STABLE_OR_BETA=1
+else
+	echo -e "-> Building a new (stable or beta) release for the LONG TERM SUPPORT LTS (not for the current latest major version!) <-"
+	BUILDING_LATEST_MAJOR_VERSION_STABLE_OR_BETA=0
+fi
+
+echo -e "Proceeding..."
+sleep 2
+
 ############################
 echo "Starting build...."
 ############################
 
+
 [ -d "$LOCAL_ARCH" ] || mkdir "$LOCAL_ARCH"
 
 cd $BUILD_DIR
-
 
 if ! [ -d $LOCAL_REPO ]
 then
 	git clone "$URL_REPO" "$LOCAL_REPO"
 fi
 
+# we need to exclude LFS files from the upcoming git clone/git checkout,
+# unfortunately this git config command does not work...
+git config lfs.fetchexclude "tests/"
+# ^^ not working, LFS files are fetched below... why?!
+
 cd "$LOCAL_REPO"
-git checkout master
+git checkout master --force
 git pull
 git fetch --tags
 echo "checkout repository for tag $VERSION..."
@@ -292,12 +322,21 @@ if [ "$(echo "$VERSION" | grep -E 'rc|b|a|alpha|beta|dev' -i | wc -l)" -eq 1 ]
 then
 	if [ "$(echo $VERSION | grep -E 'rc|b|beta' -i | wc -l)" -eq 1 ]
 	then
-		echo "Beta or RC release"
-		echo $REMOTE_CMD
-		$REMOTE_CMD "echo $VERSION > $REMOTE_HTTP_PATH/LATEST_BETA" || die "failed to deploy latest beta version file"
-	
+		echo -e "Beta or RC release"
+
+		if [ "$BUILDING_LATEST_MAJOR_VERSION_STABLE_OR_BETA" -eq "1" ]
+		then
+			echo -e "Beta or RC release of the latest Major Piwik release"
+			echo $REMOTE_CMD
+			$REMOTE_CMD "echo $VERSION > $REMOTE_HTTP_PATH/LATEST_BETA" || die "failed to deploy latest beta version file"
+
+			echo $REMOTE_CMD_API
+			$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST_BETA" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
+		fi
+
+		echo -e "Updating LATEST_${MAJOR_VERSION}X_BETA version on api.piwik.org..."
 		echo $REMOTE_CMD_API
-		$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST_BETA" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
+		$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST_${MAJOR_VERSION}X_BETA" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
 
 	fi
 	echo "build finished! http://builds.piwik.org/piwik-$VERSION.zip"
@@ -305,30 +344,46 @@ else
 	echo "Stable release";
 
 	#linking piwik.org/latest.zip to the newly created build
-	echo "Creating symlinks on the remote server"
-	for name in latest piwik piwik-latest
-	do
-		for ext in zip tar.gz; do
-			$REMOTE_CMD "ln -sf $REMOTE_HTTP_PATH/piwik-$VERSION.$ext $REMOTE_HTTP_PATH/$name.$ext" || die "failed to remotely link $REMOTE_HTTP_PATH/piwik-$VERSION.$ext to $REMOTE_HTTP_PATH/$name.$ext"
-			$REMOTE_CMD "ln -sf $REMOTE_HTTP_PATH/piwik-$VERSION.$ext.asc $REMOTE_HTTP_PATH/$name.$ext.asc" || die "failed to remotely link $REMOTE_HTTP_PATH/piwik-$VERSION.$ext/asc to $REMOTE_HTTP_PATH/$name.$ext.asc"
+
+	if [ "$BUILDING_LATEST_MAJOR_VERSION_STABLE_OR_BETA" -eq "1" ]
+	then
+		echo -e "Built current latest Piwik major version: creating symlinks on the remote server"
+		for name in latest piwik piwik-latest
+		do
+			for ext in zip tar.gz; do
+				$REMOTE_CMD "ln -sf $REMOTE_HTTP_PATH/piwik-$VERSION.$ext $REMOTE_HTTP_PATH/$name.$ext" || die "failed to remotely link $REMOTE_HTTP_PATH/piwik-$VERSION.$ext to $REMOTE_HTTP_PATH/$name.$ext"
+				$REMOTE_CMD "ln -sf $REMOTE_HTTP_PATH/piwik-$VERSION.$ext.asc $REMOTE_HTTP_PATH/$name.$ext.asc" || die "failed to remotely link $REMOTE_HTTP_PATH/piwik-$VERSION.$ext/asc to $REMOTE_HTTP_PATH/$name.$ext.asc"
+			done
 		done
-	done
 
-	# record filesize in MB
-	SIZE=$(ls -l "../$LOCAL_ARCH/piwik-$VERSION.zip" | awk '/d|-/{printf("%.3f %s\n",$5/(1024*1024),$9)}')
+		# record filesize in MB
+		SIZE=$(ls -l "../$LOCAL_ARCH/piwik-$VERSION.zip" | awk '/d|-/{printf("%.3f %s\n",$5/(1024*1024),$9)}')
 
-	echo $REMOTE_CMD
-	$REMOTE_CMD "echo $VERSION > $REMOTE_HTTP_PATH/LATEST" || die "cannot deploy new version file on $REMOTE"
-	$REMOTE_CMD "echo $SIZE > $REMOTE_HTTP_PATH/LATEST_SIZE" || die "cannot deploy new archive size on $REMOTE"
-	$REMOTE_CMD "echo $VERSION > $REMOTE_HTTP_PATH/LATEST_BETA"  || die "cannot deploy new version file on $REMOTE"
+		# upload to builds.piwik.org/LATEST*
+		echo $REMOTE_CMD
+		$REMOTE_CMD "echo $VERSION > $REMOTE_HTTP_PATH/LATEST" || die "cannot deploy new version file on $REMOTE"
+		$REMOTE_CMD "echo $SIZE > $REMOTE_HTTP_PATH/LATEST_SIZE" || die "cannot deploy new archive size on $REMOTE"
+		$REMOTE_CMD "echo $VERSION > $REMOTE_HTTP_PATH/LATEST_BETA"  || die "cannot deploy new version file on $REMOTE"
 
-	echo $REMOTE_CMD_WWW
-	$REMOTE_CMD_WWW "echo $VERSION > $WWW_PATH/LATEST" || die "cannot deploy new version file on piwik@$REMOTE_SERVER"
-	$REMOTE_CMD_WWW "echo $SIZE > $WWW_PATH/LATEST_SIZE" || die "cannot deploy new archive size on piwik@$REMOTE_SERVER"
+		# upload to piwik.org/LATEST* for the website
+		echo $REMOTE_CMD_WWW
+		$REMOTE_CMD_WWW "echo $VERSION > $WWW_PATH/LATEST" || die "cannot deploy new version file on piwik@$REMOTE_SERVER"
+		$REMOTE_CMD_WWW "echo $SIZE > $WWW_PATH/LATEST_SIZE" || die "cannot deploy new archive size on piwik@$REMOTE_SERVER"
 
-	echo $REMOTE_CMD_API
-	$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
-	$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST_BETA" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
+
+		echo -e "Sending email to Microsoft web team \n\n"
+		echo -e "Hello, \n\n\
+We are proud to announce a new release for Piwik! \n\
+Piwik $VERSION can be downloaded at: http://builds.piwik.org/WebAppGallery/piwik-$VERSION-WAG.zip \n\
+SHA1 checksum is: $SHA1_WINDOWS \n\n\
+Please consult the changelog for list of closed tickets: http://piwik.org/changelog/ \n\n\
+We're looking forward to seeing this Piwik version on Microsoft Web App Gallery. \n\
+If you have any question, feel free to ask at feedback@piwik.org. \n\n\
+Thank you,\n\n\
+Piwik team"
+		echo -e "\n----> Send this email 'New Piwik Version $VERSION' to appgal@microsoft.com,hello@piwik.org"
+
+	fi
 
 	# Copy Windows App Gallery release only for stable releases (makes Building betas faster)
 	echo $REMOTE
@@ -338,17 +393,25 @@ else
 	SHA1_WINDOWS="$(sha1sum ../$LOCAL_ARCH/piwik-$VERSION-WAG.zip | cut -d' ' -f1)"
 	[ -z "$SHA1_WINDOWS" ] && die "cannot compute sha1 hash for ../$LOCAL_ARCH/piwik-$VERSION-WAG.zip"
 
-	echo -e "Sending email to Microsoft web team \n\n"
-	echo -e "Hello, \n\n\
-We are proud to announce a new release for Piwik! \n\
-Piwik $VERSION can be downloaded at: http://builds.piwik.org/WebAppGallery/piwik-$VERSION-WAG.zip \n\
-SHA1 checksum is: $SHA1_WINDOWS \n\n\
-Please consult the changelog for list of closed tickets: http://piwik.org/changelog/ \n\n\
-We're looking forward to seeing this Piwik version on Microsoft Web App Gallery. \n\
-If you have any question, feel free to ask at feedback@piwik.org. \n\n\
-Thank you,\n\n\
-Piwik team"
-	echo -e "\n----> Send this email 'New Piwik Version $VERSION' to appgal@microsoft.com,hello@piwik.org"
+	echo -e ""
 
-	echo "build finished! http://builds.piwik.org/piwik.zip"
+	if [ "$BUILDING_LATEST_MAJOR_VERSION_STABLE_OR_BETA" -eq "1" ]
+	then
+		echo -e "Updating LATEST and LATEST_BETA versions on api.piwik.org..."
+		echo $REMOTE_CMD_API
+		$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
+		$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST_BETA" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
+	fi
+
+	echo -e "Updating the LATEST_${MAJOR_VERSION}X and  LATEST_${MAJOR_VERSION}X_BETA version on api.piwik.org"
+	echo $REMOTE_CMD_API
+	$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST_${MAJOR_VERSION}X" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
+	$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST_${MAJOR_VERSION}X_BETA" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
+
+	if [ "$BUILDING_LATEST_MAJOR_VERSION_STABLE_OR_BETA" -eq "1" ]
+	then
+		echo -e "build finished! http://builds.piwik.org/piwik.zip"
+	else
+		echo -e "build for LONG TERM SUPPORT version finished! http://builds.piwik.org/piwik-$VERSION.zip"
+	fi
 fi

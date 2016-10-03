@@ -1,3 +1,170 @@
+piwik (2.16.3-1) stable; urgency=high
+
+  * Releasing Piwik 2.16.3
+  * Mark 2.16.3 DB upgrade as Major as it updates a field on the
+    log_visit table: visit_entry_idaction_url [by @mattab] (Closes:
+    #10631)
+  * Create index.htm files in all tmp/ sub-folder as an additional
+    safety net [by @mattab, @tsteur] (Closes: #10414)
+  * Add support for "issues" link to plugin.json and display in
+    Marketplace / Core (Closes: #4570)
+  * Moved UI screenshots inside the repository using git-lfs [by
+    @mnapoli, @sgiehl] (Closes: #8392)
+  * When updating the config file failed (or when any other file is not
+    writable...), the Updater (for core or plugins) will now
+    automatically throw an error and cancel the update [by @mattab]
+    (Closes: #10423)
+  * Automatically update all marketplace plugins when updating Piwik [by
+    @tsteur, @mattab] (Closes: #10527)
+  * Warn users (in all admin pages) when the PHP version is not recent
+    enough to upgrade Piwik to latest major version [by @mattab]
+    (Closes: #10633)
+  * PHP 7: when there is a fatal error in API request processing,
+    display the original error in the api response [by @mattab, @tsteur]
+    (Closes: #10406)
+  * When the core:update command is executed with a user:group different
+    from the user:group that owns the Piwik files, display a message to
+    indicate how to fix file permissions [by @mattab, @tsteur] (Closes:
+    #10424)
+  * Show a better selection of data, in the default dashboard layout [by
+    @mattab] (Closes: #10598)
+  * Display warning in console command when the DB upgrade is major [by
+    @mattab] (Closes: #10630)
+  * issue tracker: remove the LTS milestone on Github (Closes: #10425)
+  * As a Piwik plugin user, I want to leave a feedback to the plugin
+    developer (Closes: #5395)
+  * Remove tests from plugin when packaging on the Marketplace (Closes:
+    #6386)
+  * Move UI screenshots to git-lfs [by @mnapoli, @sgiehl] (Closes:
+    #7726)
+  * Split piwik.js into multiple files and provide a merged one [by
+    @tsteur, @mattab] (Closes: #10441)
+  * Daily Scheduled Reports sent one hour late, if daylight saving time
+    is active [by @sgiehl] - Sponsored by Piwik PRO] (Closes: #7658)
+  * When opening the visitor profile, the Segment is applied, which can
+    cause the Visitor Profile to be incomplete [by @tsteur] - Sponsored
+    by Piwik PRO] (Closes: #9893)
+  * .htaccess file ownership in 2.16.1 [by @mattab, @tsteur] (Closes:
+    #10143)
+  * Correct wording: Donation widget only displayed to superusers [by
+    @johnrackles, @mattab, @tsteur] (Closes: #10357)
+  * Plugins: Generating a new visualisation via
+    'generate:visualizationplugin' fails with InvalidArgumentException
+    [by @tsteur] (Closes: #10374)
+  * Fatal error when requesting RSS format: Call to a member function
+    getTimezone() on boolean [by @mattab, @tsteur] (Closes: #10399)
+  * DoNotTrack: Tk response header value wrong (Closes: #10427)
+  * Deprecated - Non-static method
+    PiwikDbAdapter::isRecommendedAdapter() should not be called
+    statically, [by @tsteur] (Closes: #10463)
+  * Fix possible twig error in updater if support is defined but no
+    email [by @tsteur] (Closes: #10501)
+  * Cannot Generate Tests using Piwik Console [by @tsteur] (Closes:
+    #10368)
+  * Update documentation how to install Piwik from git on Windows for
+    developers (Closes: #10370)
+  * Update Docs: Tracking Events with Custom Dimension (Closes: #10389)
+  * Implement ordering by "last updated", "new" at
+    http://plugins.piwik.org/ (Closes: #9105)
+  * Update to Device detector 3.7.1 [by @mattab, @tsteur] (Closes:
+    #10362)
+  * Added new event Archiving.makeNewArchiverObject to allow customising
+    plugin archiving [by @mgazdzik, @mattab] (Closes: #10366)
+  * Add tests for piwik/searchengine-and-social-list#14 for Japanese
+    search engines and keywords [by @piwikjapan, @sgiehl] (Closes:
+    #10440)
+  * Define changelog, faq and documentation in separate files in plugins
+    [by @tsteur] (Closes: #10481)
+  * Exposing some DOM methods for Piwik.js [by @tsteur, @mattab]
+    (Closes: #10522)
+  * Additional information passed in the hook "isExcludedVisit" (issue
+    #10415) [by @Thomas-F, @mattab] (Closes: #10564)
+  * If Piwik is not installed yet, it's possible the tmp/ folder is not
+    writable, display a useful error message [by @mattab] (Closes:
+    #10634)
+  * [automatic translation update] Updated 103 strings in 36 languages
+    (fa, fr, sv, tr, ar, cs, da, de, el, es, fi, it, ja, ko, nb, nl, pl,
+    pt-br, ro, ru, sk, sr, tl, uk, zh-cn, be, bg, ca, id, lt, lv, pt,
+    sl, sq, vi, zh-tw) [by @sgiehl] (Closes: #10384)
+  * [automatic translation update] Updated 118 strings in 4 languages
+    (cs, it, nb, de) [by @sgiehl] (Closes: #10442)
+  * [automatic translation update] Updated 201 strings in 8 languages
+    (cs, de, el, es, fr, nb, tr, it) [by @sgiehl] (Closes: #10585)
+  * Release 2.16.2 [by @mattab, @sgiehl, @tsteur] (Closes: #10058)
+  * Possibly broken encoding & rule in tablet.yml [by @sgiehl] (Closes:
+    #5355)
+  * Add some bots found in logs [by @HostedDinner, @sgiehl] (Closes:
+    #5518)
+  * Detection of dbbrowser and Streamy browsers [by @Wazelin, @sgiehl]
+    (Closes: #5521)
+  * It is possible to get device model name? [by @sgiehl] (Closes:
+    #5522)
+  * Maemo hasn't group and link to `$1` looks like mistake [by @catap,
+    @sgiehl] (Closes: #5523)
+  * Add BriskBard browser [by @Aeyoun] (Closes: #5525)
+  * Added BriskBard [by @Aeyoun, @sgiehl] (Closes: #5528)
+  * Added: all `yandex` bots [by @evilebottnawi, @sgiehl] (Closes:
+    #5529)
+  * Isivioo and B-Line browsers detection [by @Wazelin, @sgiehl]
+    (Closes: #5532)
+  * Bugfix/android streamy detection [by @Wazelin, @sgiehl] (Closes:
+    #5533)
+  * Add engine version to Client [by @Wazelin] (Closes: #5534)
+  * Implemented Engine version parser. [by @Wazelin, @sgiehl] (Closes:
+    #5535)
+  * Fix warnings with regexps that present in Ruby [by @mkdynamic,
+    @sgiehl] (Closes: #5536)
+  * Optimized Catchpoint lookup [by @sckoop, @sgiehl] (Closes: #5537)
+  * ViewSonic V500 is recognized as "smart display" instead of
+    smartphone [by @sgiehl] (Closes: #5538)
+  * Various Lenovo and LG tablets are recognized as smartphones [by
+    @sgiehl] (Closes: #5539)
+  * Various devices are wrongly recognized as tablets [by @sgiehl]
+    (Closes: #5540)
+  * There are cases where device brand is recognized, but model is not
+    [by @sgiehl] (Closes: #5541)
+  * There are cases where device models are not recognized in mobile UAs
+    [by @sgiehl] (Closes: #5542)
+  * Detect Galaxy Note 7 [by @DaimonPl, @sgiehl] (Closes: #5551)
+  * Detection improvements [by @DaimonPl, @sgiehl] (Closes: #5552)
+  * updates "MultiPhone 8500 Duo" client fixture [by @mneudert, @sgiehl]
+    (Closes: #5554)
+  * Add new google plus app referrer to socials. [by @tiv-source,
+    @sgiehl] (Closes: #13)
+  * Japanese localization. [by @piwikjapan, @sgiehl] (Closes: #14)
+  * Updated IxQuick and StartPage [by @Aeyoun, @sgiehl] (Closes: #15)
+  * Updated Kvasir [by @Aeyoun, @sgiehl] (Closes: #16)
+  * Added com.google.android.googlequicksearchbox to Google [by @Aeyoun,
+    @sgiehl] (Closes: #17)
+  * Updated Ecosia [by @Aeyoun, @sgiehl] (Closes: #18)
+  * Added V2EX [by @Aeyoun, @sgiehl] (Closes: #19)
+  * Added com.google.android.apps.plus to Google+ [by @Aeyoun, @sgiehl]
+    (Closes: #20)
+  * added added new yandex hosts [by @olegdem, @sgiehl] (Closes: #21)
+  * Add lumb.co [by @futureweb, @spmedia] (Closes: #516)
+  * Add savetubevideo.info [by @futureweb, @spmedia] (Closes: #517)
+  * Add law-check-two.xyz [by @brodjustice, @spmedia] (Closes: #520)
+  * Add 1-99seo.com [by @royallthefourth, @spmedia] (Closes: #522)
+  * Add 1-free-share-buttons.com [by @GeauxHome, @spmedia] (Closes:
+    #523)
+  * Add compliance-john.top [by @GeauxHome, @spmedia] (Closes: #524)
+  * Add spin2016.cf [by @GeauxHome, @spmedia] (Closes: #526)
+  * Add chcu.net [by @ericguirbal, @spmedia] (Closes: #528)
+  * www.igadgetsworld.com (Closes: #529)
+  * add igadgetsworld.com to list [by @mattb77, @spmedia] (Closes: #530)
+  * adding option to provide separate url for API [by @wronan, @mattab]
+    (Closes: #129)
+  * Add new static and download extensions [by @Framartin, @mattab]
+    (Closes: #147)
+  * Problem with permission on config.ini.php [by @mattab] (Closes:
+    #149)
+  * Handle being able to build for both LTS and latest Major [by
+    @mattab] (Closes: #49)
+  * Fix a possible endless loop, and a possible seg fault [by @tsteur]
+    (Closes: #12)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Mon, 03 Oct 2016 15:46:10 +1100
+
 piwik (2.16.2-1) stable; urgency=high
 
   * Releasing Piwik 2.16.2

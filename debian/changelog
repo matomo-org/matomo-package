@@ -1,3 +1,328 @@
+piwik (2.16.2-1) stable; urgency=high
+
+  * Releasing Piwik 2.16.2
+  * New report listing all User ID, in Visitors > Users [by @alexkuk,
+    @tsteur] (Closes: #9883)
+  * Full PHP 7 compatibility [by @tsteur, @mattab] (Closes: #8689)
+  * Piwik.js: Support for sending data to multiple idSites (Closes:
+    #7257)
+  * The string to escape is not a valid UTF-8 string in
+    "@CoreHome/getDefaultIndexView.twig". [by @mattab, @tsteur] (Closes:
+    #4410)
+  * Piwik JS Tracker: Easier way for using multiple trackers [by
+    @mattab] (Closes: #9525)
+  * Manage websites: Links to website [by @Peteys93, @tsteur] (Closes:
+    #10066)
+  * Add a web app manifest so you can add Piwik icon to the launcher in
+    Mobile devices [by @tsteur] (Closes: #10214)
+  * piwik.js: Access is denied in Internet Explorer 8 within IFrame [by
+    @Kijewski, @mattab] (Closes: #10105)
+  * Let users exclude IPv6 address ranges using archives debian Makefile
+    piwik README.md scripts tmp wildcard exclusion rules for IPv6 such
+    as 2001:DB8:*:*:*:*:*:* [by @mattab] (Closes: #9411)
+  * Document new way to easily send tracking requests to multiple Piwik
+    servers and/or multiple websites ID [by @mattab] (Closes: #10174)
+  * Manage goals: Help text is misplaced [by @sgiehl] (Closes: #9995)
+  * Unlimited paging in lists when selecting all [by @sgiehl] (Closes:
+    #10044)
+  * 7 days in Evolution over the period when Period is Day [by @tsteur]
+    (Closes: #10130)
+  * Improve detection for empty keywords for referring search engines
+    [by @sgiehl] (Closes: #10163)
+  * Piwik.js: add callback ability to trackPageView [by @er314, @tsteur]
+    (Closes: #10172)
+  * New Goals.getGoal(idSite, idGoal) API method to get a single goal
+    [by @tsteur] (Closes: #10305)
+  * Embed Piwik Report - columnDescription-bubbles are out of view [by
+    @sgiehl - Sponsored by Piwik PRO] (Closes: #9838)
+  * Update country flags for Tokelau, Myanmar, Lesotho, Libya and French
+    Guiana to their modern versions. [by @polyfloyd, @sgiehl] (Closes:
+    #10242)
+  * When changing segment definition, inform the user that past data
+    will be cleared [by @sgiehl - Sponsored by Piwik PRO] (Closes:
+    #9984)
+  * on Mobile Device, let users drag and drop items such as segments,
+    using touchpunch library [by @wronan, @mattab] (Closes: #10045)
+  * Tweak core:archive output logging to better explain where to find
+    error log depending on server configuration [by @mattab, @sgiehl]
+    (Closes: #10189)
+  * piwik.js: Prepend a slash to all paths such as when users don't
+    specify leading slash for URL path [by @mattab] (Closes: #10302)
+  * Accessibility: set a title attribute on Main menu item for better
+    experience on screen readers [by @tyrylu, @sgiehl] (Closes: #10160)
+  * Don't try to display a custom logo or favicon if they don't exist
+    [by @ksubileau, @tsteur] (Closes: #9966)
+  * Updates device detector to latest version [by @sgiehl] (Closes:
+    #10204)
+  * Professional Services for Piwik, neutral branding within Piwik app
+    [by @mattab] (Closes: #10339)
+  * Creating visitor segment in mobile phone fails [by @tsteur, @mattab]
+    (Closes: #9196)
+  * Bing, Yahoo, etc. may be shown as "Websites" instead of "Search
+    engines" (Closes: #9438)
+  * Some periods may not be archived at all [by @tsteur] (Closes: #9468)
+  * Outlinks and downloads may not be tracked if users don't specify a
+    leading slash in paths (eg. setDomains) (Closes: #9872)
+  * Goal conversion sometimes not tracked when a Goal matches event
+    names/categories/actions [by @mattab] (Closes: #9923)
+  * Don't try to display a custom logo or favicon if they don't exist
+    [by @ksubileau, @tsteur] (Closes: #10000)
+  * PHP 7, API: actual error messages not shown when a PHP Error occurs
+    [by @mattab] (Closes: #10115)
+  * Error: Invalid dimension 'null'. [by @mattab] (Closes: #10117)
+  * When a custom search engine is added and it has the same domain as
+    the website tracked, referrer is not detected as expected [by
+    @sgiehl - Sponsored by Piwik PRO] (Closes: #10121)
+  * trackLink does not invoke callback if request is done via GET ? [by
+    @er314] (Closes: #10153)
+  * Overlay bubbles are not displayed if custom port in
+    http://hostname:port/ [by @tsteur] (Closes: #10169)
+  * JavaScript SDK: Calling an undefined JS API method should trigger a
+    useful error message to help users locate the issue quickly [by
+    @mattab] (Closes: #10175)
+  * Error in visit details when UserCountry plugin is disabled (Closes:
+    #10206)
+  * addEcommerceItem not added to subsequent order [by @mattab] (Closes:
+    #10252)
+  * API: CSV exports compatibility with &date=previousX, &date=lastX and
+    more [by @tsteur, @mattab] (Closes: #10273)
+  * Archiving output showing always "0" visits for period = day summary
+    [by @mattab] (Closes: #10276)
+  * New install of Piwik 2.16.1 incorrectly reports Tracker Status 500
+    "GET request to piwik.php failed." [by @mattab] (Closes: #10283)
+  * Tracked resolution of Mac Retina displays is wrong (Closes: #10289)
+  * Searching recursively in sub-tables should work as expected [by
+    @mattab] (Closes: #10303)
+  * Piwik.js: setting custom dimensions fails on IE8 with
+    customDimensionIdsAlreadyHandled is a array,has no indexOf() in line
+    3932 [by @sgiehl, @mattab] (Closes: #10310)
+  * [automatic translation update] Updated 42 strings in 5 languages
+    (ru, de, sv, pt-br, fr) [by @sgiehl] (Closes: #10092)
+  * [automatic translation update] Updated 491 strings in 48 languages
+    (am, ar, be, bg, ca, cs, da, de, el, es, et, eu, fa, fi, fr, gl, he,
+    hi, hr, hu, id, it, ja, ko, lt, lv, nb, nl, nn, pl, pt-br, pt, ro,
+    ru, sk, sl, sq, sr, sv, ta, te, th, tl, tr, uk, vi, zh-cn, zh-tw)
+    [by @sgiehl] (Closes: #10114)
+  * [automatic translation update] Updated 251 strings in 4 languages
+    (de, nl, sq, vi) [by @sgiehl] (Closes: #10155)
+  * [automatic translation update] Updated 1490 strings in 3 languages
+    (uk, ar, fa) [by @sgiehl] (Closes: #10180)
+  * [automatic translation update] Updated 315 strings in 1 languages
+    (uk) [by @sgiehl] (Closes: #10191)
+  * [automatic translation update] Updated 418 strings in 11 languages
+    (ar, da, de, es, et, fa, sl, fr, it, sq, el) [by @sgiehl] (Closes:
+    #10265)
+  * [automatic translation update] Updated 54 strings in 7 languages
+    (nl, es, he, pt-br, cs, el, uk) [by @sgiehl] (Closes: #10328)
+  * [automatic translation update] Updated 253 strings in 44 languages
+    (tr, bg, cs, da, de, el, es, fr, id, it, ja, nb, nl, pt-br, ro, ru,
+    sk, sl, sq, sr, sv, uk, zh-cn, zh-tw, fi, ko, am, ar, be, ca, et,
+    eu, fa, gl, hi, hu, ka, lt, nn, pl, pt, th, tl, vi) [by @sgiehl]
+    (Closes: #10344)
+  * When an event is tracked without a URL, Goal conversions ("Event
+    matching goals") should be tracked as expected [by @mattab, @tsteur]
+    (Closes: #10018)
+  * Add link to Product changelog in the Developer changelog [by
+    @mattab, @tsteur] (Closes: #10046)
+  * Piwik.js: Add current domain to list of domains automatically only
+    if no path is set [by @tsteur, @mattab] (Closes: #10051)
+  * Piwik.js: Explain a user should call setSessionCookieTimeout when
+    changing visit length [by @tsteur, @sgiehl] (Closes: #10082)
+  * JavaScript SDK: add support to send tracking requests to multiple
+    Piwik servers and/or store in one or multiple websites ID [by
+    @mattab] (Closes: #10085)
+  * allow + in database names during setup [by @nbezzala, @tsteur]
+    (Closes: #10091)
+  * Source code: fix some typos [by @stweil, @sgiehl] (Closes: #10148)
+  * Piwik.js: fix to double-execution of trackLink callback [by @er314,
+    @tsteur] (Closes: #10170)
+  * Overlay while using custom http port: fix to urlnormalizer [by
+    @er314, @tsteur] (Closes: #10171)
+  * CI builds: Splits AllTests build in two separate builds [by @sgiehl,
+    @mattab] (Closes: #10192)
+  * Update README.md file to link to our QA and Security pages [by
+    @mattab] (Closes: #10205)
+  * Put idSite into single quote for support custom string id [by
+    @joubertredrat, @tsteur] (Closes: #10247)
+  * Update JQuery to the latest 1.12.4 version [by @mattab] (Closes:
+    #10260)
+  * Let plugins provide custom piwik.js tracker tests [by @tsteur]
+    (Closes: #10270)
+  * deprecate ci-status project and ci-status.com website (Closes:
+    #10274)
+  * Piwik.js: Reset the list of items in the cart, after tracking an
+    ecommerce conversion [by @mattab] (Closes: #10279)
+  * When Piwik config file becomes un-readable, make it clear that the
+    file still exists but is not readable [by @mattab] (Closes: #10331)
+  * Update composer libraries, while enforcing the minimum php in
+    composer.json [by @mattab] (Closes: #10334)
+  * Release 2.16.2 [by @mattab] (Closes: #10058)
+  * Add detection for RemixOS if possible [by @sgiehl] (Closes: #5483)
+  * Improve detection of Fever bot [by @sgiehl] (Closes: #5485)
+  * Improve brand detection of Apple devices [by @sgiehl] (Closes:
+    #5486)
+  * Add detection of TweakStyle User Agent [by @felicienfrancois,
+    @sgiehl] (Closes: #5488)
+  * Improves inaccurate bot detections to avoid mismatches [by @sgiehl]
+    (Closes: #5490)
+  * Use configured cache for vendor fragment parsing [by @sideshowcecil,
+    @sgiehl] (Closes: #5491)
+  * Improve detection of Windows Media Player [by @sgiehl] (Closes:
+    #5492)
+  * Improve bot detections: Slackbot and Domain Re-Animator Bot [by
+    @sgiehl] (Closes: #5493)
+  * Introduce new Yaml Parser facade to allow switching the yml parser
+    [by @sgiehl] (Closes: #5494)
+  * Improve ReadMe [by @sgiehl] (Closes: #5495)
+  * Implements new protected method getRegexesDirectory() [by
+    @minterior, @sgiehl] (Closes: #5497)
+  * Adds detection or various new bots for Yahoo, Cot, Yourls [by
+    @sgiehl] (Closes: #5498)
+  * Opera 7 was the first browser to use Presto [by @sgiehl] (Closes:
+    #5499)
+  * MotorolaWebKit is misidentified as a model named "rolaWebKit" [by
+    @sgiehl] (Closes: #5500)
+  * Qt misidentified as a Nokia model name [by @sgiehl] (Closes: #5501)
+  * Palmscape browser is misidentified as a Palm model named "scape" [by
+    @sgiehl] (Closes: #5502)
+  * Custom user-agent OR detect LG TV [by @sgiehl] (Closes: #5503)
+  * VLC 2.3.3 not detected as a mediaplayer [by @sgiehl] (Closes: #5506)
+  * Add detection for 10+ podcast clients [by @benzimmer, @sgiehl]
+    (Closes: #5510)
+  * remove line of control characters from fixtures [by @benzimmer,
+    @sgiehl] (Closes: #5512)
+  * detection of MediaPlayer Foobar2000 [by @HostedDinner, @sgiehl]
+    (Closes: #5513)
+  * Rainmeter (https://www.rainmeter.net/) is not detected [by @sgiehl]
+    (Closes: #5514)
+  * adds quotes to database entries [by @mneudert, @sgiehl] (Closes:
+    #5517)
+  * Add many Search engines not recognized yet: HTTPS, non-HTTPS [by
+    @sgiehl] (Closes: #3)
+  * Adds missing hosts for Google Custom Search [by @sgiehl] (Closes:
+    #4)
+  * Adds missing parameter name for Excite [by @sgiehl] (Closes: #5)
+  * Adds missing parameter name for Startpagina [by @sgiehl] (Closes:
+    #6)
+  * Adds missing hosts for Infospace [by @sgiehl] (Closes: #7)
+  * Adds detection for searchengine SmartShopping [by @sgiehl] (Closes:
+    #8)
+  * Other local search engines (orange, qwant) [by @sgiehl] (Closes: #9)
+  * Introduces possibility to define search engines not providing
+    keywords for certain urls [by @sgiehl] (Closes: #10)
+  * Added 4 swedish search engines [by @MartinSund, @sgiehl] (Closes:
+    #12)
+  * Improve README for use case of real time piping of apache logs to
+    Piwik [by @mattab] (Closes: #46)
+  * Support for importing AWS ELB access logs analytics (Closes: #131)
+  * Adds support for AWS ELB log files [by @sgiehl, @mattab] (Closes:
+    #140)
+  * Log Analytics and piwik on different machines -> must use a
+    token_auth with admin permission or super user (Closes: #141)
+  * Live log analytics from Apache - format error [by @mattab] (Closes:
+    #142)
+  * Fix IOError: [Errno 29] Illegal seek [by @mattab] (Closes: #143)
+  * setter functions changed as fluent. [by @shibby, @tsteur] (Closes:
+    #19)
+  * Let users track ecommerce orders with the same SKU multiple times
+    [by @mattab] (Closes: #20)
+  * Ability to force using a user-agent when fetching piwik.js, useful
+    to avoid some firewalls blocking the requests [by @mattab] (Closes:
+    #1)
+  * PHP 7 Compatibility (Closes: #48)
+  * PHP 7 compatibility [by @tsteur, @mattab] (Closes: #4)
+  * Support wildcards in IPv6 address ranges [by @kevinoid, @mattab]
+    (Closes: #3)
+  * Return true when cache file does not exist [by @mattab] (Closes:
+    #11)
+  * Add myplaycity.com [by @mnapoli] (Closes: #250)
+  * Add domain-tracker.com [by @spmedia, @mnapoli] (Closes: #276)
+  * Add dogsrun.net [by @spmedia, @mnapoli] (Closes: #287)
+  * Adding getrichquick.ml [by @timetolive, @mnapoli] (Closes: #291)
+  * Adding free-video-tool.com [by @jloh, @mnapoli] (Closes: #295)
+  * Add keywords-monitoring-your-success.com [by @mnapoli] (Closes:
+    #297)
+  * Add boostmyppc.com [by @spmedia, @mnapoli] (Closes: #301)
+  * Add 6hopping.com [by @spmedia, @mnapoli] (Closes: #302)
+  * Add getrichquickly.info [by @spmedia, @mnapoli] (Closes: #303)
+  * Add makeprogress.ga [by @spmedia, @mnapoli] (Closes: #304)
+  * Add social-traffic-1.xyz [by @Xcrucifier, @mnapoli] (Closes: #308)
+  * Add social-traffic-7.xyz [by @Xcrucifier, @mnapoli] (Closes: #309)
+  * Add smartphonediscount.info [by @kkkrist, @mnapoli] (Closes: #310)
+  * Add hdmoviecams.com [by @spmedia, @mnapoli] (Closes: #311)
+  * Add marketland.ml [by @spmedia, @mnapoli] (Closes: #313)
+  * Add increasewwwtraffic.info [by @spmedia, @mnapoli] (Closes: #314)
+  * Add social-button.xyz [by @Xcrucifier, @mnapoli] (Closes: #315)
+  * Add socialbuttons.xyz [by @Xcrucifier, @mnapoli] (Closes: #316)
+  * Add topquality.cf [by @spmedia, @mnapoli] (Closes: #317)
+  * Add social-traffic-3.xyz [by @spmedia, @mnapoli] (Closes: #318)
+  * Add social-traffic-4.xyz [by @lembitk, @mnapoli] (Closes: #319)
+  * Add social-traffic-5.xyz [by @lembitk, @mnapoli] (Closes: #320)
+  * Adds pornogig.com [by @zodthepossum, @mnapoli] (Closes: #179)
+  * Adds pornogig.com [by @zodthepossum, @mnapoli] (Closes: #179)
+  * Add free-social-buttons7.xyz [by @lembitk, @mnapoli] (Closes: #321)
+  * Add social-traffic-2.xyz [by @spmedia, @mnapoli] (Closes: #322)
+  * Add dominateforex.ml [by @spmedia, @mnapoli] (Closes: #323)
+  * Add getlamborghini.ga [by @spmedia, @mnapoli] (Closes: #324)
+  * Add easycommerce.cf [by @spmedia, @mnapoli] (Closes: #325)
+  * Add keywords-monitoring-success.com [by @mouse-reeve, @mnapoli]
+    (Closes: #326)
+  * Add supervesti.ru [by @ericguirbal, @mnapoli] (Closes: #328)
+  * Add sad-torg.com.ua [by @ericguirbal, @mnapoli] (Closes: #329)
+  * Add varikozok.ru [by @ericguirbal, @mnapoli] (Closes: #330)
+  * Add mosrif.ru [by @ericguirbal, @mnapoli] (Closes: #331)
+  * Add meds-online24.com [by @ericguirbal, @mnapoli] (Closes: #332)
+  * Add pornoklad.ru [by @ericguirbal, @mnapoli] (Closes: #333)
+  * Add sexsaoy.com [by @ericguirbal, @mnapoli] (Closes: #334)
+  * Add woman-orgasm.ru [by @ericguirbal, @mnapoli] (Closes: #335)
+  * Add ghostvisitor.com [by @spmedia, @mnapoli] (Closes: #336)
+  * Add magicdiet.gq [by @spmedia, @mnapoli] (Closes: #337)
+  * Add burn-fat.ga [by @spmedia, @mnapoli] (Closes: #338)
+  * Add cookie-law-enforcement-dd.xyz [by @spmedia, @mnapoli] (Closes:
+    #339)
+  * Add eu-cookie-law-enforcement2.xyz [by @spmedia, @mnapoli] (Closes:
+    #340)
+  * Add ownshop.cf [by @spmedia, @mnapoli] (Closes: #341)
+  * Add unpredictable.ga [by @spmedia, @mnapoli] (Closes: #342)
+  * Add popads.net [by @spmedia, @mnapoli] (Closes: #343)
+  * Add monetizationking.net [by @spmedia, @mnapoli] (Closes: #344)
+  * Add online-templatestore.com [by @spmedia, @mnapoli] (Closes: #346)
+  * Add zoominfo.com [by @spmedia, @mnapoli] (Closes: #347)
+  * Putting a stop to the 'Cookie Law' domain referrer spam wave [by
+    @mnapoli] (Closes: #354)
+  * Add azlex.uz [by @ericguirbal, @mnapoli] (Closes: #355)
+  * Add havepussy.com [by @ericguirbal, @mnapoli] (Closes: #362)
+  * Add moneytop.ru [by @ericguirbal, @mnapoli] (Closes: #368)
+  * Add zvetki.ru [by @ericguirbal, @mnapoli] (Closes: #383)
+  * Add freenode.info [by @ericguirbal, @mnapoli] (Closes: #384)
+  * Add solitaire-game.ru [by @ericguirbal, @mnapoli] (Closes: #385)
+  * Add call-of-duty.info [by @ericguirbal, @mnapoli] (Closes: #387)
+  * Add replica-watch.ru [by @ericguirbal, @mnapoli] (Closes: #409)
+  * Add buy-cheap-pills-order-online.com [by @ericguirbal, @mnapoli]
+    (Closes: #412)
+  * Add djonwatch.ru [by @ericguirbal, @mnapoli] (Closes: #435)
+  * Add vesnatehno.com [by @ericguirbal, @mnapoli] (Closes: #444)
+  * Add fix-website-errors.com [by @spmedia, @mnapoli] (Closes: #445)
+  * Add law-enforcement-bot-ff.xyz [by @spmedia, @mnapoli] (Closes:
+    #446)
+  * Add law-enforcement-ee.xyz [by @spmedia, @mnapoli] (Closes: #455)
+  * Add wallpaperdesk.info [by @ericguirbal, @mnapoli] (Closes: #461)
+  * Add legalrc.biz [by @ericguirbal, @mnapoli] (Closes: #464)
+  * Add site-auditor.online [by @spmedia, @mnapoli] (Closes: #467)
+  * add slow-website.xyz [by @Ccantey, @mnapoli] (Closes: #476)
+  * Add pron.pro [by @ericguirbal, @mnapoli] (Closes: #478)
+  * Add ilovevitaly.xyz [by @spmedia, @mnapoli] (Closes: #480)
+  * Add social-buttons-ii.xyz [by @spmedia, @mnapoli] (Closes: #481)
+  * Add law-six.xyz [by @ricvelozo, @mnapoli] (Closes: #484)
+  * Add works.if.ua [by @spmedia] (Closes: #486)
+  * Add rumamba.com [by @ericguirbal, @mnapoli] (Closes: #493)
+  * Added seo-2-0.com [by @bjarnoldus, @mnapoli] (Closes: #501)
+  * Add law-enforcement-check-three.xyz [by @JSilverthorne, @mnapoli]
+    (Closes: #503)
+  * New maintainer (Closes: #505)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Fri, 05 Aug 2016 07:04:02 +1000
+
 piwik (2.16.1-2) stable; urgency=high
 
   * Added support for PHP7

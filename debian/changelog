@@ -1,3 +1,13 @@
+piwik (2.16.5-1) stable; urgency=high
+
+  * Releasing Piwik 2.16.5
+  * Datebase upgrade from 2.16.2 to 2.16.4 throws notices (Closes: #10671)
+  * While Clicking Email Reports option I got following error
+    "DateTimeZone::__construct(): Unknown or bad timezone (UTC+5.5)" [by
+    @sgiehl] (Closes: #10639)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Wed, 05 Oct 2016 17:26:26 +1100
+
 piwik (2.16.4-1) stable; urgency=high
 
   * Releasing Piwik 2.16.4

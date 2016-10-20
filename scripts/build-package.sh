@@ -14,7 +14,7 @@ VERSION="$1"
 #   when building a release for this latest major version.
 # * Update this right before releasing a first "public beta" of a new major version
 ###########################################
-CURRENT_LATEST_MAJOR_VERSION="2"
+CURRENT_LATEST_MAJOR_VERSION="3"
 
 MAJOR_VERSION=`echo $VERSION | cut -d'.' -f1`
 

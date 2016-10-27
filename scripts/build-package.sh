@@ -10,11 +10,15 @@ VERSION="$1"
 ###########################################
 # Current Latest Piwik Major Version
 # -----------------------------------------
-# * We will only update the website piwik.org/download
-#   when building a release for this latest major version.
-# * Update this right before releasing a first "public beta" of a new major version
+# Update this to the MAJOR VERSION when:
+# 1) before releasing a "public stable" of the current major version to shop to everyone,
+#    (when piwik.org/download/ and builds.piwik.org/piwik.zip will be updated)
+# 2) or before releasing a "public beta" of the new major version to ship to everyone in beta channel
+#    (when builds.piwik.org/LATEST_BETA will be updated)
+#
+#
 ###########################################
-CURRENT_LATEST_MAJOR_VERSION="3"
+CURRENT_LATEST_MAJOR_VERSION="2"
 
 MAJOR_VERSION=`echo $VERSION | cut -d'.' -f1`
 

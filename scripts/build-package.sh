@@ -11,7 +11,7 @@ VERSION="$1"
 # Current Latest Piwik Major Version
 # -----------------------------------------
 # Update this to the MAJOR VERSION when:
-# 1) before releasing a "public stable" of the current major version to shop to everyone,
+# 1) before releasing a "public stable" of the current major version to ship to everyone,
 #    (when piwik.org/download/ and builds.piwik.org/piwik.zip will be updated)
 # 2) or before releasing a "public beta" of the new major version to ship to everyone in beta channel
 #    (when builds.piwik.org/LATEST_BETA will be updated)

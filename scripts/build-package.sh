@@ -18,7 +18,7 @@ VERSION="$1"
 #
 #
 ###########################################
-CURRENT_LATEST_MAJOR_VERSION="2"
+CURRENT_LATEST_MAJOR_VERSION="3"
 
 MAJOR_VERSION=`echo $VERSION | cut -d'.' -f1`
 

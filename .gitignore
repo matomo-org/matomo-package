@@ -1,3 +1,4 @@
+.idea/
 archives/*
 debian/piwik
 debian/piwik.debhelper.log

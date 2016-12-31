@@ -1,3 +1,57 @@
+piwik (2.17.1-1) stable; urgency=high
+
+  * Releasing Piwik 2.17.1
+  * Remove many languages from language selector (Closes: #10709)
+  * Missing icon for Samsung Browser [by @sgiehl] (Closes: #10848)
+  * Call to undefined function Piwikposix_getgrgid() after
+    "core:update", Filechecks.php on line 268 [by @tsteur] (Closes:
+    #10721)
+  * [automatic translation update] Updated 407 strings in 8 languages
+    (ru, sr, uk, zh-cn, de, es, it, ko) [by @sgiehl] (Closes: #10809)
+  * [automatic translation update] Updated 214 strings in 33 languages
+    (uk, pt, id, ar, bg, cs, da, de, el, es, fi, fr, hi, it, ja, ko, nb,
+    nl, pl, pt-br, ro, ru, sk, sq, sr, sv, tl, tr, vi, zh-cn, et, ta,
+    ca) [by @sgiehl] (Closes: #10853)
+  * Fix script tag is not closed when generating tracker code and custom
+    tracker plugin is installed [by @tsteur, @mattab] (Closes: #10792)
+  * Better async tracker initialization to not having to use _paq.push
+    [by @tsteur, @mattab] (Closes: #10818)
+  * Show more ways of how users can donate [by @tsteur, @mattab]
+    (Closes: #10822)
+  * Load marketplace client in updater only when marketplace is enabled
+    [by @tsteur, @mattab] (Closes: #10827)
+  * when using a custom logo still display "Piwik" at the end of the
+    page title [by @mattab] (Closes: #10833)
+  * Minor tweaks and events in Goals UI [by @tsteur, @mattab] (Closes:
+    #10844)
+  * Trigger JS tracker update when checking for updates [by @tsteur,
+    @mattab] (Closes: #10852)
+  * Add 3-letter-domains.net [by @mouse-reeve, @spmedia] (Closes: #535)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sun, 20 Nov 2016 16:33:17 +1100
+
+piwik (2.17.0-1) stable; urgency=high
+
+  * Releasing Piwik 2.17.0
+  * Marketplace improvements: view, purchase and manage premium plugins
+    [by @tsteur, @mattab] (Closes: #10737)
+  * deprecate license_homepage plugin metadata and link to a
+    LICENSE[.md|.txt] file if found [by @mattab] (Closes: #10756)
+  * Allow for underscores in plugin names. (Closes: #10541)
+  * when a plugin modifies piwik.js the system check will show a warning
+    "File size mismatch: /storage/divezone/www/piwik/piwik.js (expected
+    length: X, found: Y)" [by @tsteur, @mattab] (Closes: #10755)
+  * Make sure to format percentages in Scheduled Reports [by @tsteur,
+    @mattab] (Closes: #10766)
+  * [automatic translation update] Updated 520 strings in 9 languages
+    (tr, ar, da, de, es, ko, sq, nl, it) [by @sgiehl] (Closes: #10718)
+  * [automatic translation update] Updated 395 strings in 32 languages
+    (ko, ar, de, fr, pt-br, sq, bg, ca, cs, da, el, es, et, fa, fi, hi,
+    id, it, ja, nb, nl, ro, ru, sk, sr, sv, ta, tl, tr, uk, vi, zh-cn)
+    [by @sgiehl] (Closes: #10742)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Mon, 31 Oct 2016 05:02:00 +1100
+
 piwik (2.16.5-1) stable; urgency=high
 
   * Releasing Piwik 2.16.5

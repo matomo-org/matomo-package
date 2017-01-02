@@ -113,9 +113,9 @@ function die() {
 function organizePackage() {
 	if [ ! -f "composer.phar" ]
 	then
-		curl -sS https://getcomposer.org/installer | php
+		curl -sS https://getcomposer.org/installer | php  || die "Error installing composer "
 	fi
-	php composer.phar install --no-dev -o
+	php composer.phar install --no-dev -o || die "Error installing composer packages"
 
 	# ------------
 	# WARNING:

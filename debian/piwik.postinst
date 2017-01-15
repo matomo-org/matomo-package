@@ -1,5 +1,21 @@
 #!/bin/sh
+
 set -e
+
+# Piwik GPG repository key management
+if [ "$1" = 'configure' -a -n "$2" ]; then
+	# remove keys from the trusted.gpg file as they are now shipped in fragment files in trusted.gpg.d
+	if dpkg --compare-versions "$2" 'lt' "2012.1" && which gpg > /dev/null && which apt-key > /dev/null; then
+		TRUSTEDFILE='/etc/apt/trusted.gpg'
+		eval $(apt-config shell TRUSTEDFILE Apt::GPGV::TrustedKeyring)
+		eval $(apt-config shell TRUSTEDFILE Dir::Etc::Trusted/f)
+		if [ -e "$TRUSTEDFILE" ]; then
+			for KEY in 81E2E78B66FED89E; do
+				apt-key --keyring "$TRUSTEDFILE" del $KEY > /dev/null 2>&1 || :
+			done
+		fi
+	fi
+fi
 
 # Source debconf library.
 . /usr/share/debconf/confmodule

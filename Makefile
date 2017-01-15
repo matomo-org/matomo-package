@@ -97,7 +97,7 @@ cleanup:
 
 checkconfig:
 		@echo -n " [CONF] Checking configuration files... "
-		@if [ "$(shell cat debian/.piwik.install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" ]; then \
+		@if [ "$(shell cat debian/piwik.install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" ]; then \
 			echo "\n $(RED)[CONF]$(NC) Configuration files may have been added or removed, please update debian/piwik.install"; \
 			echo "          $(shell cat debian/piwik.install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" "$(shell pwd)"; \
 			exit 1; \

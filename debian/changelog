@@ -1,3 +1,9 @@
+piwik (3.0.0-3) stable; urgency=high
+
+  * bump dependency on php to 5.5.9
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sun, 15 Jan 2017 15:00:27 +1100
+
 piwik (3.0.0-2) stable; urgency=high
 
   * renaming specific files

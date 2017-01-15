@@ -41,6 +41,10 @@ INSTALL		= /usr/bin/install
 
 .PHONY		: checkfetch fixperms checkversions release checkenv builddeb checkdeb newrelease newversion changelog history clean upload fixsettings
 
+RED		= \033[0;31m
+GREEN		= \033[0;32m
+NC		= \033[0m
+
 # check and optionally fetch the corresponding piwik archive
 # from the official server. Uncompress the archive and
 # perform additional minor cleanups
@@ -90,14 +94,14 @@ cleanup:
 checkconfig:
 		@echo -n " [CONF] Checking configuration files... "
 		@if [ "$(shell cat debian/install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" ]; then \
-			echo "\n [CONF] Configuration files may have been added or removed, please update debian/install"; \
+			echo "\n $(RED)[CONF]$(NC) Configuration files may have been added or removed, please update debian/install"; \
 			echo "          $(shell cat debian/install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" "$(shell pwd)"; \
 			exit 1; \
 		fi
 		@echo "done"
 
 manifest:
-		@if [ -z "$(DESTDIR)" ]; then echo "missing DESTDIR="; exit 1; fi
+		@if [ -z "$(DESTDIR)" ]; then echo "$(RED)missing DESTDIR=$(NC)"; exit 1; fi
 		@echo -n " [MANIFEST] Generating manifest.inc.php... "
 		@rm -f $(DESTDIR)/etc/piwik/manifest.inc.php
 		@find $(DESTDIR)/ -type f -printf '%s ' -exec md5sum {} \; \
@@ -146,10 +150,10 @@ checklintianlic:
 	@for F in $(shell cat debian/piwik.lintian-overrides | grep extra-license-file | awk '{print $$3}') ; do \
 		echo -n "  * checking: $$F"; \
 		if [ ! -f "$(DESTDIR)/$$F" ]; then \
-			echo " missing."; \
+			echo " $(RED)missing$(NC)."; \
 			echo "1" >&2; \
 		else \
-			echo " ok."; \
+			echo " $(GREEN)ok$(NC)."; \
 		fi; \
 	done 3>&2 2>&1 1>&3 | grep --silent "1" && exit 1 || echo >/dev/null
 
@@ -159,17 +163,17 @@ checklintianextralibs:
 	@for F in $(shell cat debian/piwik.lintian-overrides | grep -e embedded-javascript-library -e embedded-php-library | awk '{print $$3}') ; do \
 		echo -n "  * checking: $$F"; \
 		if [ ! -f "$(DESTDIR)/$$F" ]; then \
-			echo " missing."; \
+			echo " $(RED)missing$(NC)."; \
 			echo "1" >&2; \
 		else \
-			echo " ok."; \
+			echo " $(GREEN)ok$(NC)."; \
 		fi; \
 	done 3>&2 2>&1 1>&3 | grep --silent "1" && exit 1 || echo >/dev/null
 
 # raise an error if the building version is lower that the head of debian/changelog
 checkversions:
 ifeq "$(PW_VERSION_LOWER)" "1"
-	@echo "The version you're trying to build is older that the head of your changelog."
+	@echo "$(RED)The version you're trying to build is older that the head of your changelog.$(NC)"
 	@exit 1
 endif
 

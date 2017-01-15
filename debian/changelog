@@ -1,3 +1,108 @@
+piwik (3.0.1-1) stable; urgency=high
+
+  * Releasing Piwik 3.0.1
+  * More beautiful (and vectorised?) icons for browsers, operating
+    systems, device types, device plugins [by @Findus23, @sgiehl]
+    (Closes: #10587)
+  * When safe mode is displayed, and Super User was not logged in
+    already, let Super User display the full safe mode to troubleshoot
+    further [by @mattab] (Closes: #11082)
+  * Unique visitors are displayed/processed wrongly when amount is
+    bigger than 1000 [by @sgiehl] (Closes: #11090)
+  * File integrity checker now reports files found in the filesystem but
+    not expected to be there [by @mattab] (Closes: #11096)
+  * Number of pageviews missing in realtime map tooltip [by @sgiehl]
+    (Closes: #11119)
+  * Widgetized Dashboard accessed with token is no longer working after
+    updating to 3.0 (Closes: #11055)
+  * updated browser and os icons [by @Findus23, @sgiehl] (Closes:
+    #11063)
+  * Layout issue in installation process (Closes: #11122)
+  * Display safe mode when a third party plugin triggers error such as
+    "Call to undefined method PiwikMenuMenuTop::add()" [by @tsteur]
+    (Closes: #10876)
+  * Safe mode: Display plugin versions next to plugin names [by @mattab]
+    (Closes: #11043)
+  * On Apache server: Internal Server Error due to .htaccess [by
+    @mattab] (Closes: #11040)
+  * Non Well Formed Numeric Value in Live Plugin in 3.0 [by @mattab]
+    (Closes: #11066)
+  * fix WARNING:
+    /home/piwik/htdocs/plugins/Referrers/Controller.php(422) Warning -
+    Invalid argument supplied for foreach() [by @mattab] (Closes:
+    #11098)
+  * Update FAQ: How do I change the Super User's password when password
+    recovery emails are not sent? (Closes: #10941)
+  * [automatic translation update] Updated 1042 strings in 51 languages
+    (ja, zh-tw, da, ar, be, bg, bs, ca, cs, cy, de, el, es, et, eu, fa,
+    fi, fr, gl, he, hi, hr, hu, id, is, it, ka, ko, lt, lv, nb, nl, nn,
+    pl, pt-br, pt, ro, ru, sk, sl, sq, sr, sv, ta, te, th, tr, uk, vi,
+    zh-cn, tl) [by @sgiehl] (Closes: #11080)
+  * [automatic translation update] Updated 1201 strings in 14 languages
+    (zh-tw, ar, da, el, es, fa, fr, hu, it, pl, ru, sq, sv, tl) [by
+    @sgiehl] (Closes: #11134)
+  * [automatic translation update] Updated 352 strings in 1 languages
+    (zh-tw) [by @sgiehl] (Closes: #11142)
+  * Allow plugin to decide about archiving without visits: new method
+    PiwikPluginArchiver::shouldRunEvenWhenNoVisits() [by @sgiehl,
+    @mattab] (Closes: #10719)
+  * Use gender-neutral wording where possible [by @x3ro, @mattab]
+    (Closes: #10982)
+  * Remove on pixel overlapping boxshadow on the corners [by
+    @michelgotta, @mattab] (Closes: #11052)
+  * when there's an error during Twig template processing, or during
+    LESS css compiling, or a generic PHP error, display the safe mode
+    [by @mattab] (Closes: #11083)
+  * Enabling WOFF files under Windows IIS [by @ksubileau, @mattab]
+    (Closes: #11091)
+  * updated searchEngine and social icons [by @Findus23, @sgiehl]
+    (Closes: #11093)
+  * Clarify FAQ instructions for logme mechanism (automatically logging
+    in users when they click from my app to Piwik) (Closes: #11094)
+  * Live API: New 'generationTimeMilliseconds' field used to process
+    Average generation time in Visitor Profile [by @mattab] (Closes:
+    #11095)
+  * Do not add Options -Indexes to .htaccess [by @mattab] (Closes:
+    #11097)
+  * Fix Numeric value out of range: 1264 Out of range value for column
+    'interaction_position' [by @mattab] (Closes: #11101)
+  * updated plugin icons [by @Findus23, @sgiehl] (Closes: #11121)
+  * System check, File integrity: Report directories to delete
+    separately + display command to delete directories and files [by
+    @mattab] (Closes: #11123)
+  * Release Piwik 3.0.1-b1 [by @mattab] (Closes: #11103)
+  * Release Piwik 3.0.1-b2 [by @mattab] (Closes: #11124)
+  * Release Piwik 3.0.1-b3 [by @mattab] (Closes: #11154)
+  * Added new event for totals calculation [by @tsteur, @mattab]
+    (Closes: #11139)
+  * Updating piwik/referrer-spam-blacklist (1.0.11) and piwik/piwik-php-
+    tracker (1.1.0) [by @mattab] (Closes: #11158)
+  * Release Piwik 3.0.1 (Closes: #11156)
+  * Device models are not recognized for various devices [by @sgiehl]
+    (Closes: #5548)
+  * recognize PritTorrent as bot [by @eteubert, @sgiehl] (Closes: #5564)
+  * isTouchEnabled - array instead of boolean [by @sgiehl] (Closes:
+    #5568)
+  * Fixes fixtures for some YAML parsers [by @mneudert, @sgiehl]
+    (Closes: #5569)
+  * timer4web.com (Closes: #532)
+  * Add stocktwits.com (Closes: #533)
+  * add adsensecustomsearchads.com (Closes: #547)
+  * New spammer meduza-consult.ru [by @mattb77, @spmedia] (Closes: #548)
+  * New spammer azbukafree.com [by @mattb77, @spmedia] (Closes: #550)
+  * Add mockupui.com [by @ericguirbal, @spmedia] (Closes: #554)
+  * Issue with file_get_contents and PHP 5.5 [by @braekling] (Closes:
+    #6)
+  * Add support for fetching the content with CURL when fopen is
+    disabled in PHP configuration [by @mattab] (Closes: #21)
+  * Output the image/gif HTTP header only when needed [by @mattab]
+    (Closes: #22)
+  * Add possibility to add custom tracking parameter (Closes: #6)
+  * New const for number of max categories [by @tsteur, @mattab]
+    (Closes: #22)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sun, 15 Jan 2017 15:38:30 +1100
+
 piwik (3.0.0-3) stable; urgency=high
 
   * bump dependency on php to 5.5.9

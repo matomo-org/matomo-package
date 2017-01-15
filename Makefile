@@ -14,7 +14,11 @@ CURRENT_VERSION	:= $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;s/-.*
 DEB_ARCH := $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
 ifndef DEB_VERSION
-DEB_VERSION := $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;')
+DEB_VERSION := $(shell head -n 1 debian/changelog | sed 's/.*(//;s/).*//;')
+endif
+
+ifndef DEB_STATUS
+DEB_STATUS := $(shell head -n 1 debian/changelog | awk '{print $$3}' | sed 's/;//g')
 endif
 
 ifndef PW_VERSION
@@ -207,6 +211,15 @@ endif
 # creates the .deb package and other related files
 # all files are placed in ../
 builddeb:	checkenv checkversions
+		@echo -n " [PREP] Checking package status..."
+ifeq "$(DEB_STATUS)" "UNRELEASED"
+		@echo " $(RED)The package changelog marks the package as 'UNRELEASED'.$(NC)"
+		@echo "        $(RED)run this command: debchange --changelog debian/changelog --release ''$(NC)"
+		@exit 1
+else
+		@echo "$(GREEN)ok$(NC)."
+endif
+
 		@echo " [DPKG] Building package..."
 		@dpkg-buildpackage -i '-Itmp' -I.git -I$(ARCHIVE) -rfakeroot
 

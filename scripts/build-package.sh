@@ -272,6 +272,7 @@ git config lfs.fetchexclude "tests/"
 
 cd "$LOCAL_REPO"
 git checkout master --force
+git reset --hard origin/master
 git pull
 git fetch --tags
 echo "checkout repository for tag $VERSION..."

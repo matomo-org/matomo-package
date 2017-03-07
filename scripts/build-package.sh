@@ -262,7 +262,7 @@ cd $BUILD_DIR
 
 if ! [ -d $LOCAL_REPO ]
 then
-	git clone "$URL_REPO" "$LOCAL_REPO"
+	git clone --config filter.lfs.smudge=true "$URL_REPO" "$LOCAL_REPO"
 fi
 
 # we need to exclude LFS files from the upcoming git clone/git checkout,
@@ -272,6 +272,8 @@ git config lfs.fetchexclude "tests/"
 
 cd "$LOCAL_REPO"
 git checkout master --force
+git reset --hard origin/master
+git checkout master
 git pull
 git fetch --tags
 echo "checkout repository for tag $VERSION..."

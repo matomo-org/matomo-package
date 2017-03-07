@@ -1,3 +1,266 @@
+piwik (3.0.2-1) stable; urgency=high
+
+  * Releasing Piwik 3.0.2
+  * segment not valid-errors when filtering for operating system [by
+    @sgiehl] (Closes: #11321)
+  * Email reports in HTML: Updated styling to be consistent with new
+    Custom Alerts emails design [by @afroboya, @mattab] (Closes: #11251)
+  * Zen in Visitor Log, Visitor Profile: hide http:// and https:// from
+    URLs [by @mattab] (Closes: #5317)
+  * When there is no data for a website, as soon as a visit was detected
+    reload the report for Today [by @mattab] (Closes: #11275)
+  * Visitor log: "Close" button of visitor profile stays visible [by
+    @sgiehl] (Closes: #11302)
+  * piwik.js: Cross domain tracking [by @tsteur, @mattab] (Closes:
+    #2211)
+  * piwik.js: cross domain POST and automatically
+    setRequestMethod('POST') when request > 2K [by @tsteur, @mattab]
+    (Closes: #2321)
+  * LTV analytics - Ecommerce Life Time Value metric in Piwik Visitor
+    Profile and Live APIs [by @mattab] (Closes: #2750)
+  * New Reporting API: return the mapping from two letter country code
+    to the country name [by @sgiehl] (Closes: #11109)
+  * SMS Provider: new integration for ASP SMS [by @sgiehl] (Closes:
+    #11213)
+  * When printing Piwik reports, make the print version useful and
+    beautiful [by @niks799, @mattab] (Closes: #11242)
+  * Cross Domain linking in JavaScript tracking client piwik.js [by
+    @tsteur, @mattab] (Closes: #11243)
+  * Added new keyboard shortcuts, "s" for selector, "d" for calendar,
+    "w" for site selector [by @mattab] (Closes: #11252)
+  * Ecommerce Life Time Value metrics + New Ecommerce section in Visitor
+    Profile [by @mattab] (Closes: #11294)
+  * New "Enable cross domain linking" checkbox in Javascript Tracker
+    Code generator (Advanced section) [by @tsteur, @mattab] (Closes:
+    #11295)
+  * Improvements for tracking of single page applications [by @tsteur,
+    @mattab] (Closes: #11344)
+  * Garbled text of translation [by @mattab] (Closes: #11130)
+  * Small performance improvement [by @tsteur] (Closes: #11273)
+  * Visitors in real time data gone after 4PM Piwik 3.0 (Closes: #11165)
+  * Fix typo in example report [by @tsteur, @mattab] (Closes: #11164)
+  * Improved old icons [by @Findus23, @mattab] (Closes: #11190)
+  * Improved the design of Visitor Profile for more clarity [by @mattab]
+    (Closes: #11218)
+  * Tag cloud visualisation more readable: Colour and Size changes [by
+    @sonika-k, @mattab] (Closes: #11203)
+  * Visitor profile: use consistent close icon [by @niks799, @mattab]
+    (Closes: #11231)
+  * Better icons for SEO widget [by @Findus23, @sgiehl] (Closes: #11245)
+  * Define icon size for plugin icon in popup in visitor log [by
+    @Findus23, @mattab] (Closes: #11271)
+  * Fix Piwik UI becomes very slow when having many rows [by @tsteur]
+    (Closes: #11308)
+  * Dev documentation for getAsyncTracker function signatures not
+    correct (Closes: #11207)
+  * Update button should be more easily clickable in dashboard [by
+    @CheweyZ, @mattab] (Closes: #11211)
+  * Show links as underlined in reports help texts [by @niks799,
+    @mattab] (Closes: #11217)
+  * Replace prefilled values in Name & SiteUrl with placeholders. [by
+    @NickWilde1990, @mattab] (Closes: #11279)
+  * Added a new method that allows plugins to define metrics we expect
+    to see percentage values [by @tsteur] (Closes: #11274)
+  * X-Frame-Options header set to empty value [by @mattab] (Closes:
+    #10167)
+  * Downloading some HTML reports shows a "Success:ok" after the HTML
+    (Closes: #11014)
+  * "File integrity" modal is unusable as content is displayed as HTML
+    entities [by @mattab] (Closes: #11167)
+  * Personal settings - language selection overlapped by other dropdown
+    (Closes: #11180)
+  * Optional item "GD > 2.x + Freetype" in system check are Required [by
+    @mattab] (Closes: #11316)
+  * WARNING: /plugins/CorePluginsAdmin/Controller.php(272) ob_clean():
+    failed to delete buffer. No buffer to delete [by @mattab] (Closes:
+    #11320)
+  * Duplicating data using multiple Piwik trackers doesn't work
+    (documentation) [by @mattab] (Closes: #11340)
+  * Fix dataTable label suffix is directly shown after prefix but not
+    after the value itself [by @tsteur, @mattab] (Closes: #11378)
+  * SEO widget: Image Size too large (Closes: #11192)
+  * Clicking on the "Dashboard" top link hides all dashboard content [by
+    @sgiehl, @tsteur, @mattab] (Closes: #11386)
+  * Email reports: prevent errors when report is generated in some asian
+    language in some cases [by @vibbow, @mattab] (Closes: #10921)
+  * Update composer libraries to latest version [by @mattab] (Closes:
+    #11161)
+  * marketplace/plugin Tab FAQ: broken (Closes: #11195)
+  * Allowed memory size exhausted in
+    FileIntegrity.getDirectoriesFoundInManifest() [by @triforce,
+    @mattab] (Closes: #11197)
+  * Display original error that triggered a failure message "Piwik is
+    already installed" for easier troubleshooting [by @mattab] (Closes:
+    #11209)
+  * Ensure neutral gender copy in product user interface [by @mattab]
+    (Closes: #11216)
+  * Show the city and region next to the country flag in the visitor log
+    [by @niks799, @mattab] (Closes: #11227)
+  * Added tooltips and Help icons in the Manage Users section in
+    admininistration [by @CheweyZ, @mattab] (Closes: #11228)
+  * Visitor profile: add tooltip 'close' when mouse hovers on exit
+    button [by @niks799, @mattab] (Closes: #11232)
+  * Changed the export icon to use the font icon [by @niks799, @mattab]
+    (Closes: #11233)
+  * Improved the appearance of 'SEO Rankings' widget [by @sonika-k,
+    @mattab, @Findus23] (Closes: #11234)
+  * Call to undefined function Piwikfnmatch() [by @mattab] (Closes:
+    #11237)
+  * Unique visitors should show in Referrers evolution when processing
+    of unique visitors is enabled [by @CheweyZ, @mattab] (Closes:
+    #11240)
+  * Added new form icon [by @tsteur, @mattab] (Closes: #11248)
+  * Added new archive and lab icon [by @tsteur, @mattab] (Closes:
+    #11249)
+  * More stable plugin hook support in JS Tracker and add possibility to
+    pass parameters [by @tsteur] (Closes: #11259)
+  * Cross Domain: forward pk_vid parameter when the clicked element is
+    not directly a link but is within the link <a> element itself [by
+    @mattab] (Closes: #11262)
+  * General settings: set correct value for mail "type" dropdown [by
+    @Globulopolis, @sgiehl] (Closes: #11267)
+  * Make row evolution and segmented visitor log work for plugins that
+    define entities [by @tsteur] (Closes: #11284)
+  * Remove no longer needed edge case for conversions [by @tsteur]
+    (Closes: #11285)
+  * Display diagnostic widget in Settings page, only when the widget is
+    enabled [by @mattab, @tsteur] (Closes: #11288)
+  * Ability to force loading console commands from some plugins [by
+    @mattab] (Closes: #11290)
+  * Set a description for CustomPiwikJs plugin [by @mattab] (Closes:
+    #11291)
+  * Show feedback / help only when plugin is enabled [by @tsteur]
+    (Closes: #11292)
+  * Check whether Marketplace widgets are defined before showing them
+    [by @tsteur] (Closes: #11293)
+  * Remove Smartbanners [by @Findus23, @mattab] (Closes: #11301)
+  * New Goal Funnels plugin [by @mattab] (Closes: #6080)
+  * Show custom logo in email reports [by @tsteur] (Closes: #11305)
+  * Minor improvement to wording for scheduled report email [by
+    @clouseau, @mattab] (Closes: #11307)
+  * piwik.js: Added new method "getLinkTrackingTimer" [by @tsteur]
+    (Closes: #11317)
+  * An iterator cannot be used with foreach by reference in
+    core/DataTable/Filter/ColumnDelete.php [by @mattab] (Closes: #11331)
+  * tracking code - comment // should be /bin /boot /dead.letter /dev
+    /etc /home /initrd.img /initrd.img.old /lib /lib64 /lost+found
+    /media /mnt /opt /proc /root /run /sbin /srv /sys /tmp /usr /var
+    /vmlinuz /vmlinuz.old archives/ debian/ piwik/ scripts/ tmp/ [by
+    @iiegn, @mattab] (Closes: #11332)
+  * Exposing new method to detect whether a node is visible [by @tsteur]
+    (Closes: #11334)
+  * Fix rate metric was not formatted [by @tsteur] (Closes: #11337)
+  * When calculating report totals make sure to actually work on first
+    level table [by @tsteur] (Closes: #11338)
+  * Improve donation message [by @tsteur] (Closes: #11341)
+  * When generating a component, require correct Piwik version [by
+    @tsteur] (Closes: #11342)
+  * Adding newest Premium products to help page [by @mattab] (Closes:
+    #11366)
+  * Avoid segment encoding issues [by @sgiehl] (Closes: #11372)
+  * Make activated plugins count in Admin widget correct [by @mattab]
+    (Closes: #11377)
+  * Show all metrics in the glossary [by @tsteur, @mattab] (Closes:
+    #11407)
+  * Post new parameter with conversion event [by @tsteur, @mattab]
+    (Closes: #11415)
+  * External websites: link to HTTPS instead of HTTP [by @tsteur]
+    (Closes: #11418)
+  * Improves handling of SMTP password setting [by @sgiehl, @mattab]
+    (Closes: #11428)
+  * Release Piwik 3.0.2-b1 [by @mattab] (Closes: #11253)
+  * Release Piwik 3.0.2-b2 [by @mattab] (Closes: #11270)
+  * Release Piwik 3.0.2-b3 [by @mattab] (Closes: #11298)
+  * Release Piwik 3.0.2-b4 [by @mattab] (Closes: #11357)
+  * Release Piwik 3.0.2-b5 [by @mattab] (Closes: #11385)
+  * Release Piwik 3.0.2-b6 [by @mattab] (Closes: #11397)
+  * Release Piwik 3.0.2-rc1 [by @mattab] (Closes: #11427)
+  * [automatic translation update] Updated 397 strings in 12 languages
+    (et, cs, de, el, fr, it, ja, sk, sq, uk, zh-cn, zh-tw) [by @sgiehl,
+    @mattab] (Closes: #11210)
+  * [automatic translation update] Updated 375 strings in 13 languages
+    (nl, bn, es, tr, da, el, fr, ja, ko, nb, uk, zh-tw, sq) [by @sgiehl]
+    (Closes: #11297)
+  * [automatic translation update] Updated 188 strings in 9 languages
+    (de, ko, el, fr, ja, nl, sq, uk, zh-tw) [by @sgiehl] (Closes:
+    #11336)
+  * [automatic translation update] Updated 498 strings in 8 languages
+    (ko, nl, sv, de, el, fr, sq, zh-tw) [by @sgiehl] (Closes: #11374)
+  * [automatic translation update] Updated 121 strings in 8 languages
+    (es, cs, de, el, fr, sq, zh-tw, nl) [by @sgiehl] (Closes: #11421)
+  * Detect the other two OnePlus Two models [by @tsdgeos, @sgiehl]
+    (Closes: #5570)
+  * If BrowserEngine couldn't be detected, YamlParser falls back to Spyc
+    even though it was configured for Symfony (Closes: #5573)
+  * How to find unknown user agents? [by @sgiehl] (Closes: #5576)
+  * Grapeshot crawler not tracked [by @sgiehl] (Closes: #5577)
+  * User Agents with "Mobile" in default to Desktop [by @sgiehl]
+    (Closes: #5578)
+  * Added bots [by @Findus23, @sgiehl] (Closes: #5580)
+  * Prestigio Regex (Closes: #5581)
+  * More bots: Mnogosearch, SSL Labs, Google Structured Data Testing
+    Tools [by @Findus23, @sgiehl] (Closes: #5582)
+  * Adding generic bots and http libraries [by @Findus23, @sgiehl]
+    (Closes: #5583)
+  * Detect more popular mobile user agents such as OnePlus 3 [by
+    @d4rken, @sgiehl] (Closes: #5586)
+  * A few more Bots: DuckDuckGo Bot, "checker", Guzzle, PocketParser [by
+    @Findus23, @sgiehl] (Closes: #5587)
+  * add "CSS Certificate Spider" [by @voxdemonix, @sgiehl] (Closes:
+    #5588)
+  * Not Detecting OnePlus 3 [by @sgiehl] (Closes: #5592)
+  * Fix Pingdom bot exclusion [by @Kdecherf, @tsteur] (Closes: #165)
+  * added methods to get current ip and user agent [by @tsteur, @mattab]
+    (Closes: #24)
+  * Use stronger Debian package signing key (Closes: #50)
+  * Convert to integer to avoid PHP warning [by @nztim, @sgiehl]
+    (Closes: #9)
+  * Remove yahoo portal URLs from search engine list [by @dan-blanchard,
+    @sgiehl] (Closes: #22)
+  * add Laban.vn search engine [by @voxdemonix, @sgiehl] (Closes: #29)
+  * add Lilo search engine [by @voxdemonix, @sgiehl] (Closes: #30)
+  * Add bio-market.kz [by @mattb77, @spmedia] (Closes: #549)
+  * Add housediz.com [by @mattb77, @spmedia] (Closes: #551)
+  * added 4istoshop.com [by @crumblingwalls, @spmedia] (Closes: #555)
+  * added apxeo.info [by @crumblingwalls, @spmedia] (Closes: #556)
+  * Add aviav.co [by @crumblingwalls, @spmedia] (Closes: #557)
+  * Add aviav.eu [by @crumblingwalls, @spmedia] (Closes: #558)
+  * Add aviav.org [by @crumblingwalls, @spmedia] (Closes: #559)
+  * Add aviav.ru [by @crumblingwalls, @spmedia] (Closes: #560)
+  * Add aviav.ru.com [by @crumblingwalls, @spmedia] (Closes: #561)
+  * Add centrdebut.ru [by @crumblingwalls, @spmedia] (Closes: #562)
+  * Add aviav.info [by @crumblingwalls, @spmedia] (Closes: #563)
+  * Add electricwheelchairsarea.com [by @crumblingwalls, @spmedia]
+    (Closes: #564)
+  * Add by @crumblingwalls, @spmedia] (Closes: #565)
+  * Add telegramdownload10.com [by @crumblingwalls] (Closes: #566)
+  * Add whatsappdownload10.com [by @crumblingwalls] (Closes: #567)
+  * Add wechatdownload10.com [by @crumblingwalls] (Closes: #568)
+  * Add ukrup.com [by @crumblingwalls] (Closes: #569)
+  * Add uhodzalijami.ru [by @crumblingwalls] (Closes: #570)
+  * Add tri-slona.org [by @crumblingwalls] (Closes: #571)
+  * Add scanmarine.info [by @crumblingwalls] (Closes: #572)
+  * Add samolet.fr [by @crumblingwalls] (Closes: #573)
+  * Add komputers-best.ru [by @crumblingwalls] (Closes: #574)
+  * Add pizda.lol [by @crumblingwalls] (Closes: #575)
+  * Add pearlisland.ru [by @crumblingwalls] (Closes: #576)
+  * Add monarhs.info [by @crumblingwalls] (Closes: #577)
+  * Add matematikus.info [by @crumblingwalls] (Closes: #578)
+  * Add farmingworm.com [by @crumblingwalls] (Closes: #579)
+  * Add investzalog.ru [by @crumblingwalls] (Closes: #580)
+  * Add leboard.ru [by @crumblingwalls] (Closes: #581)
+  * Add letto.by [by @crumblingwalls] (Closes: #582)
+  * Add lider-zhaluzi.kiev.ua [by @crumblingwalls] (Closes: #583)
+  * Add manuscript.su [by @crumblingwalls] (Closes: #584)
+  * Add marblestyle.ru [by @crumblingwalls] (Closes: #585)
+  * Add dividendo.ru [by @crumblingwalls, @spmedia] (Closes: #586)
+  * Add tendergrupp.ru [by @crumblingwalls] (Closes: #587)
+  * Add stbgroup.ru [by @crumblingwalls] (Closes: #588)
+  * Add sharebutton.io [by @ymhuang0808, @spmedia] (Closes: #590)
+  * Add google-liar.ru [by @kjkelley, @spmedia] (Closes: #591)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Wed, 08 Mar 2017 09:02:27 +1100
+
 piwik (3.0.1-1) stable; urgency=high
 
   * Releasing Piwik 3.0.1

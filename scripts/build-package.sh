@@ -133,9 +133,17 @@ function organizePackage() {
 	rm -rf vendor/tecnickcom/tcpdf/examples
 	rm -rf vendor/tecnickcom/tcpdf/CHANGELOG.txt
 	rm -rf vendor/guzzle/guzzle/docs/
-	
+
 	# Delete un-used files from the piwik-icons repository
-	rm -rf plugins/Morpheus/icons/!(dist|README.md)
+	rm -rf plugins/Morpheus/icons/src*
+	rm -rf plugins/Morpheus/icons/tools*
+	rm -rf plugins/Morpheus/icons/flag-icon-css*
+	rm -rf plugins/Morpheus/icons/.*
+	rm -rf plugins/Morpheus/icons/.py
+	rm -rf plugins/Morpheus/icons/.sh
+	rm -rf plugins/Morpheus/icons/.json
+	rm -rf plugins/Morpheus/icons/.lock
+	rm -rf plugins/Morpheus/icons/.svg
 
 	# Delete un-used fonts
 	rm -rf vendor/tecnickcom/tcpdf/fonts/ae_fonts_2.0

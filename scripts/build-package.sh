@@ -32,7 +32,7 @@ REMOTE_LOGIN="piwik-builds"
 REMOTE_HTTP_PATH="/home/piwik-builds/www/builds.piwik.org"
 
 # List of Sub-modules that SHOULD be in the packaged release, eg PiwikTracker|CorePluginName
-SUBMODULES_PACKAGED_WITH_CORE='log-analytics'
+SUBMODULES_PACKAGED_WITH_CORE='log-analytics|piwik-icons'
 
 REMOTE="${REMOTE_LOGIN}@${REMOTE_SERVER}"
 REMOTE_CMD="ssh -C ${REMOTE}"
@@ -133,6 +133,9 @@ function organizePackage() {
 	rm -rf vendor/tecnickcom/tcpdf/examples
 	rm -rf vendor/tecnickcom/tcpdf/CHANGELOG.txt
 	rm -rf vendor/guzzle/guzzle/docs/
+	
+	# Delete un-used files from the piwik-icons repository
+	rm -rf plugins/Morpheus/icons/!(dist|README.md)
 
 	# Delete un-used fonts
 	rm -rf vendor/tecnickcom/tcpdf/fonts/ae_fonts_2.0

@@ -32,7 +32,7 @@ REMOTE_LOGIN="piwik-builds"
 REMOTE_HTTP_PATH="/home/piwik-builds/www/builds.piwik.org"
 
 # List of Sub-modules that SHOULD be in the packaged release, eg PiwikTracker|CorePluginName
-SUBMODULES_PACKAGED_WITH_CORE='log-analytics|piwik-icons'
+SUBMODULES_PACKAGED_WITH_CORE='log-analytics|plugins/Morpheus/icons'
 
 REMOTE="${REMOTE_LOGIN}@${REMOTE_SERVER}"
 REMOTE_CMD="ssh -C ${REMOTE}"
@@ -117,11 +117,19 @@ function organizePackage() {
 	fi
 	php composer.phar install --no-dev -o || die "Error installing composer packages"
 
+	# delete most submodules
+	for P in $(git submodule status | egrep -v $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')
+	do
+		rm -Rf ./$P
+	done
+
 	# ------------
 	# WARNING:
 	# if you add files below, also update the Integration test in ReleaseCheckListTest.php
 	# in isFileDeletedFromPackage()
 	# ------------
+
+	echo -e "Deleting un-needed files..."
 
 	rm -rf composer.phar
 	rm -rf vendor/twig/twig/test/
@@ -138,12 +146,12 @@ function organizePackage() {
 	rm -rf plugins/Morpheus/icons/src*
 	rm -rf plugins/Morpheus/icons/tools*
 	rm -rf plugins/Morpheus/icons/flag-icon-css*
-	rm -rf plugins/Morpheus/icons/.*
-	rm -rf plugins/Morpheus/icons/.py
-	rm -rf plugins/Morpheus/icons/.sh
-	rm -rf plugins/Morpheus/icons/.json
-	rm -rf plugins/Morpheus/icons/.lock
-	rm -rf plugins/Morpheus/icons/.svg
+	rm -rf plugins/Morpheus/icons/.git*
+	rm -rf plugins/Morpheus/icons/*.py
+	rm -rf plugins/Morpheus/icons/*.sh
+	rm -rf plugins/Morpheus/icons/*.json
+	rm -rf plugins/Morpheus/icons/*.lock
+	rm -rf plugins/Morpheus/icons/*.svg
 
 	# Delete un-used fonts
 	rm -rf vendor/tecnickcom/tcpdf/fonts/ae_fonts_2.0
@@ -183,19 +191,6 @@ function organizePackage() {
 	rm -f misc/others/diagram_general_request*
 	rm -f .coveralls.yml .scrutinizer.yml .phpstorm.meta.php
 	rm -f HIRING.md
-
-	# delete most submodules
-	for P in $(git submodule status | egrep -v $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')
-	do
-		rm -Rf ./$P
-	done
-
-	# clone submodules that should be in the release
-	for P in $(git submodule status | egrep $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')
-	do
-		echo -e "cloning submodule $P"
-		git submodule update --init $P
-	done
 
 	# delete unwanted folders, recursively
 	for x in .git ; do
@@ -293,6 +288,13 @@ git branch -D "build" > /dev/null
 git checkout -b "build" "tags/$VERSION" > /dev/null
 [ "$?" -eq "0" ] || die "tag $VERSION does not exist in repository"
 
+# clone submodules that should be in the release
+for P in $(git submodule status | egrep $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')
+do
+	echo -e "cloning submodule $P"
+	git submodule update --init $P
+done
+
 echo "copying files to a new directory..."
 cd ..
 [ -d "piwik" ] && rm -rf piwik
@@ -312,12 +314,15 @@ organizePackage
 cd ..
 
 echo "packaging release..."
+rm "../$LOCAL_ARCH/piwik-$VERSION.zip"
 zip -r "../$LOCAL_ARCH/piwik-$VERSION.zip" piwik How\ to\ install\ Piwik.html > /dev/null
 gpg --armor --detach-sign "../$LOCAL_ARCH/piwik-$VERSION.zip" || die "Failed to sign piwik-$VERSION.zip"
 
+rm "../$LOCAL_ARCH/piwik-$VERSION.tar.gz"
 tar -czf "../$LOCAL_ARCH/piwik-$VERSION.tar.gz" piwik How\ to\ install\ Piwik.html
 gpg --armor --detach-sign "../$LOCAL_ARCH/piwik-$VERSION.tar.gz" || die "Failed to sign piwik-$VERSION.tar.gz"
 
+rm "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip"
 zip -r "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip" piwik install.sql Manifest.xml parameters.xml > /dev/null 2> /dev/null
 gpg --armor --detach-sign "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip" || die "Failed to sign piwik-$VERSION-WAG.zip"
 

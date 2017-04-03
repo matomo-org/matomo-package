@@ -115,7 +115,8 @@ function organizePackage() {
 	then
 		curl -sS https://getcomposer.org/installer | php  || die "Error installing composer "
 	fi
-	php composer.phar install --no-dev -o || die "Error installing composer packages"
+	# --ignore-platform-reqs in case the building machine does not have one of the packages required ie. GD required by cpchart
+	php composer.phar install --no-dev -o --ignore-platform-reqs || die "Error installing composer packages"
 
 	# delete most submodules
 	for P in $(git submodule status | egrep -v $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')
@@ -276,6 +277,8 @@ fi
 git config lfs.fetchexclude "tests/"
 # ^^ not working, LFS files are fetched below... why?!
 
+echo -e "Working in $LOCAL_REPO"
+
 cd "$LOCAL_REPO"
 git checkout master --force
 git reset --hard origin/master
@@ -284,7 +287,12 @@ git pull
 git fetch --tags
 echo "checkout repository for tag $VERSION..."
 
-git branch -D "build" > /dev/null
+git branch -D "build" > /dev/null 2> /dev/null
+
+echo -e "Commit UI tests git-lfs files to avoid some problems checking out the tag..."
+git commit -m'Committing UI tests - nothing relevant to the Piwik package' tests/UI/expected-screenshots/*
+
+echo -e "Now checking out the tag!"
 git checkout -b "build" "tags/$VERSION" > /dev/null
 [ "$?" -eq "0" ] || die "tag $VERSION does not exist in repository"
 
@@ -314,15 +322,15 @@ organizePackage
 cd ..
 
 echo "packaging release..."
-rm "../$LOCAL_ARCH/piwik-$VERSION.zip"
+rm "../$LOCAL_ARCH/piwik-$VERSION.zip" 2> /dev/null
 zip -r "../$LOCAL_ARCH/piwik-$VERSION.zip" piwik How\ to\ install\ Piwik.html > /dev/null
 gpg --armor --detach-sign "../$LOCAL_ARCH/piwik-$VERSION.zip" || die "Failed to sign piwik-$VERSION.zip"
 
-rm "../$LOCAL_ARCH/piwik-$VERSION.tar.gz"
+rm "../$LOCAL_ARCH/piwik-$VERSION.tar.gz"  2> /dev/null
 tar -czf "../$LOCAL_ARCH/piwik-$VERSION.tar.gz" piwik How\ to\ install\ Piwik.html
 gpg --armor --detach-sign "../$LOCAL_ARCH/piwik-$VERSION.tar.gz" || die "Failed to sign piwik-$VERSION.tar.gz"
 
-rm "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip"
+rm "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip"  2> /dev/null
 zip -r "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip" piwik install.sql Manifest.xml parameters.xml > /dev/null 2> /dev/null
 gpg --armor --detach-sign "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip" || die "Failed to sign piwik-$VERSION-WAG.zip"
 

@@ -177,6 +177,15 @@ function organizePackage() {
 	rm -rf vendor/tecnickcom/tcpdf/fonts/pdf*
 	rm -rf vendor/tecnickcom/tcpdf/fonts/times*
 	rm -rf vendor/tecnickcom/tcpdf/fonts/uni2cid*
+	
+	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/advent_light*
+	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/Bedizen*
+	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/calibri*
+	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/Forgotte*
+	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/MankSans*
+	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/pf_arma_five*
+	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/Silkscreen*
+	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/verdana*
 
 	# ------------
 	# WARNING: Did you read the WARNING above?

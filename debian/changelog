@@ -1,3 +1,87 @@
+piwik (3.0.4-1) stable; urgency=high
+
+  * Releasing Piwik 3.0.4
+  * On mobile, show row actions on click [by @tsteur, @mattab] (Closes:
+    #11702)
+  * Let plugins customize the system summary widget [by @tsteur]
+    (Closes: #11685)
+  * Add possibility to filter list of plugins in "plugin:list" command
+    [by @tsteur, @sgiehl] (Closes: #11687)
+  * Add support for email and url form fields [by @tsteur, @mattab]
+    (Closes: #11708)
+  * Add possibility to ignore "no data recorded" screen for one hour [by
+    @tsteur] (Closes: #11686)
+  * In Widgetized iframe dashboard, using features such as Row Evolution
+    breaks the dashboard (it becomes a white screen) [by @sgiehl]
+    (Closes: #11359)
+  * Upgrader does not delete files that were removed in a newer Piwik
+    version [by @sgiehl] (Closes: #11446)
+  * In Scheduled reports, graphs display icons too big in the graph
+    labels (for country, browser and OS) [by @sgiehl, @Findus23]
+    (Closes: #11558)
+  * Move old brand icons to piwik icons [by @Findus23, @sgiehl] (Closes:
+    #11635)
+  * Plugin config of a required plugin should be loaded before the
+    requiring plugin [by @tsteur, @mattab] (Closes: #11681)
+  * Make it possible to customize the `No data available` message shown
+    in reports [by @sgiehl, @mattab] (Closes: #11693)
+  * Improve message in plugin admin if a plugin is not found in
+    filesystem [by @sgiehl] (Closes: #11629)
+  * Login: No autocorrect and no autocapitalize on iOS [by @tsteur,
+    @mattab] (Closes: #11701)
+  * Add submodules for LoginLdap and Bandwith plugins [by @mattab,
+    @sgiehl] (Closes: #10625)
+  * Add LoginLdap plugin as a submodule [by @mattab] (Closes: #10927)
+  * Exposing more cookie methods in tracker: methods setSessionCookie,
+    getCookie, hasCookies, getCookieDomain, getCookiePath, and
+    getSessionCookieTimeout [by @tsteur] (Closes: #11665)
+  * Automatically load required plugins during test [by @tsteur,
+    @mattab] (Closes: #11675)
+  * Unload plugin instead of deactivating it when a plugin has a missing
+    dependency [by @tsteur, @mattab] (Closes: #11682)
+  * Make sure plugins in config.ini.php are sorted depending on
+    dependencies [by @tsteur, @mattab] (Closes: #11683)
+  * Scheduled report name is double encoded [by @diosmosis, @sgiehl]
+    (Closes: #7987)
+  * Scheduled PDF Reports: Wrong time saved [by @sgiehl] (Closes:
+    #11459)
+  * Make sure required plugins are loaded in correct order [by @tsteur]
+    (Closes: #11678)
+  * Fix giving a user access to a site is not possible when login is
+    numeric [by @tsteur, @mattab] (Closes: #11689)
+  * Fix a bug in the join generator when same table is present multiple
+    times [by @tsteur] (Closes: #11690)
+  * forum signup/login via github auth (Closes: #11590)
+  * [automatic translation update] Updated 424 strings in 13 languages
+    (zh-cn, fi, ko, nl, sr, cs, es, fr, ja, de, el, sq, zh-tw) [by
+    @sgiehl] (Closes: #11691)
+  * Piwik Marketplace (upload Plugin) not possible without internet [by
+    @sgiehl] (Closes: #11494)
+  * Fix getVisitInformationPerServerTime API method to handle Datatable
+    Maps [by @sgiehl, @mattab] (Closes: #11619)
+  * JS Tracker: prevent IE 7 error [by @mattab] (Closes: #11668)
+  * Use SSL to fetch SEO stats metrics [by @mattab] (Closes: #11672)
+  * Notice - Undefined index: headers in PageSpeedCheck.php [by @mattab]
+    (Closes: #11674)
+  * Added missing method rowCount to db classes [by @tsteur, @mattab]
+    (Closes: #11698)
+  * Add possibility to specify column suffix in dataTable row [by
+    @tsteur, @mattab] (Closes: #11704)
+  * Release Piwik 3.0.4-b [by @mattab] (Closes: #11679)
+  * Release Piwik 3.0.4-rc1 [by @mattab] (Closes: #11699)
+  * Release Piwik 3.0.4-rc2 [by @mattab] (Closes: #11711)
+  * added thesmartsearch.net [by @jeffmcneill, @spmedia] (Closes: #600)
+  * Add piulatte.cz [by @spmedia] (Closes: #601)
+  * Add gearcraft.us [by @spmedia] (Closes: #602)
+  * Add paidonlinesites.com & landoftracking.com [by @STRML, @spmedia]
+    (Closes: #603)
+  * Remove unneeded fonts from cPchart to keep Piwik release package
+    smaller [by @sgiehl, @mattab] (Closes: #54)
+  * Add hiddenkeyword path regex for Yahoo! Japan [by @dan-blanchard,
+    @sgiehl] (Closes: #34)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Wed, 17 May 2017 09:52:52 +1000
+
 piwik (3.0.3-1) stable; urgency=high
 
   * Releasing Piwik 3.0.3

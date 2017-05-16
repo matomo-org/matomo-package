@@ -29,7 +29,7 @@ PW_VERSION_GREATER = $(shell ./debian/scripts/vercomp.sh $(PW_VERSION) $(CURRENT
 PW_VERSION_LOWER = $(shell ./debian/scripts/vercomp.sh $(PW_VERSION) $(CURRENT_VERSION))
 
 ifndef PW_ARCHIVE_EXT
-PW_ARCHIVE_EXT	:= $(shell wget -q --spider $(URL)/piwik-$(PW_VERSION).tar.gz && echo 'tar.gz' || echo 'zip' )
+PW_ARCHIVE_EXT	:= $(shell wget --no-cache -q --spider $(URL)/piwik-$(PW_VERSION).tar.gz && echo 'tar.gz' || echo 'zip' )
 endif
 
 ARCHIVE		= piwik-$(PW_VERSION).$(PW_ARCHIVE_EXT)
@@ -54,8 +54,8 @@ NC		= \033[0m
 # perform additional minor cleanups
 checkfetch:
 		@echo -n " [WGET] ... "
-		@if [ ! -f "$(SIG)" ]; then echo -n "$(URL)/$(SIG) "; wget -q $(URL)/$(SIG); fi;
-		@if [ ! -f "$(ARCHIVE)" ]; then echo -n "$(URL)/$(ARCHIVE) "; wget -q $(URL)/$(ARCHIVE); fi;
+		@if [ ! -f "$(SIG)" ]; then echo -n "$(URL)/$(SIG) "; wget --no-cache -q $(URL)/$(SIG); fi;
+		@if [ ! -f "$(ARCHIVE)" ]; then echo -n "$(URL)/$(ARCHIVE) "; wget --no-cache -q $(URL)/$(ARCHIVE); fi;
 		@echo "done."
 		@gpg --keyserver keys.gnupg.net --recv-keys $(FINGERPRINT)
 		@echo " [GPG] verify $(FINGERPRINT)" && gpg --verify $(SIG)

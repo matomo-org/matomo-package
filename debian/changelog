@@ -1,3 +1,127 @@
+piwik (3.0.3-1) stable; urgency=high
+
+  * Releasing Piwik 3.0.3
+  * Add option to disable plugin upload [by @sgiehl] (Closes: #11329)
+  * New flag icons [by @Findus23, @mattab] (Closes: #11553)
+  * Page Overlay may show the Piwik top bar behind the Website page
+    overlay report [by @phoob, @mattab] (Closes: #11510)
+  * Custom logo with white text and transparency is not visible on error
+    pages [by @sgiehl] (Closes: #11419)
+  * More secure / more random integer generation [by @tsteur] (Closes:
+    #11473)
+  * Fix multiple memory leaks in UserCountryMap [by @jvilk, @sgiehl]
+    (Closes: #11350)
+  * Fix memory leaks in data table / jqplot [by @jvilk, @sgiehl]
+    (Closes: #11354)
+  * Package "mass icons" via composer or submodule (Closes: #11370)
+  * On "No data has been recorded yet" show links to guides, faq and
+    features [by @sgiehl] (Closes: #11277)
+  * Default value for a plugin setting should be the human readable
+    value [by @sgiehl] (Closes: #11408)
+  * "No data has been recorded yet" page should mention alternative SDKs
+    [by @sgiehl] (Closes: #11436)
+  * Pressing ALT+d keyboard combination should not open calendar [by
+    @sgiehl] (Closes: #11498)
+  * always use window.jQuery instead of $ in ui tests [by @tsteur]
+    (Closes: #11505)
+  * Replace pChart library with CpChart [by @sgiehl, @mattab] (Closes:
+    #11559)
+  * Marketplace Plugins ZIP file cannot be decompressed on some systems
+    (eg. Windows) [by @sgiehl, @mattab] (Closes: #6538)
+  * NumberFormatting problems, avg. page generation time is displayed
+    with two decimal points in German language (Closes: #10596)
+  * Running the archive via cron will result often in errors "Illegal
+    string offset 'XAxisDisplay' 'XAxisFormat' " [by @sgiehl] (Closes:
+    #11116)
+  * Scheduled reports with images can generate error "Call to undefined
+    method PiwikDataTableSimple::getDataTables() in
+    plugins/ImageGraph/API.php on line 423 [by @mattab, @sgiehl]
+    (Closes: #11276)
+  * Scheduled PDF Reports: Report Referrer Type shows only keywords but
+    not detailed titles [by @sgiehl] (Closes: #11323)
+  * Integrity Check (whitelist misc/*.bin) + notice message [by @sgiehl]
+    (Closes: #11389)
+  * "Export as Image" exported image graph does not fit in the popover
+    on displays > 2k [by @sgiehl] (Closes: #11464)
+  * showColumns in Multisites API by pageviews does not work (Closes:
+    #11471)
+  * Fix Overlay bubbles on Firefox (and Opera Mini) [by @phoob, @mattab]
+    (Closes: #11485)
+  * Unable to find report 'Insights.getInsights'. [by @sgiehl] (Closes:
+    #11489)
+  * Error with mover and shaker widget after updating to Marketing
+    Campaigns Reporting [by @sgiehl] (Closes: #11493)
+  * Page Overlay: for links to the left of the screen, bubbles are
+    partially hidden [by @phoob, @mattab] (Closes: #11511)
+  * Premium Plugin Installer shows false error message after install [by
+    @tsteur, @mattab] (Closes: #11512)
+  * Undefined index warning in archive log (plugin: DevicesDetection)
+    [by @sgiehl] (Closes: #11567)
+  * Intl LC_NUMERIC use fallback if locale en_US not installed [by
+    @peterbo, @sgiehl] (Closes: #11571)
+  * [automatic translation update] Updated 244 strings in 9 languages
+    (de, es, fi, fr, pl, it, el, sq, zh-tw) [by @sgiehl] (Closes:
+    #11504)
+  * Plugin Filter "third party" shows several plugins with author
+    "piwik" [by @sgiehl] (Closes: #11145)
+  * System tests: enable images generation in scheduled reports [by
+    @mattab] (Closes: #11278)
+  * Fix UIControl memory leak [by @jvilk, @sgiehl] (Closes: #11362)
+  * Add system check for the hash() function [by @okay19, @sgiehl]
+    (Closes: #11455)
+  * Add unifont.ttf to file integrity whitelist [by @okay19, @sgiehl]
+    (Closes: #11456)
+  * Post JavaScript events when performing an action [by @tsteur]
+    (Closes: #11463)
+  * File integrity checker creates too long command lines. [by @sgiehl]
+    (Closes: #11468)
+  * Method description confusing in broadcast.js [by @sgiehl] (Closes:
+    #11469)
+  * Post current action in Template.beforeContent event [by @tsteur]
+    (Closes: #11481)
+  * Add new option to ignore ssl errors when running U tests via
+    PhantomJS [by @tsteur] (Closes: #11482)
+  * New event that lets plugins trigger notifications in the admin area
+    [by @tsteur] (Closes: #11483)
+  * Add possibility to select a specific frame within a page [by
+    @tsteur] (Closes: #11484)
+  * Improve URI check when showing external pages for Overlays [by
+    @sgiehl, @mattab] (Closes: #11497)
+  * Prepend only valid urls to api example links [by @sgiehl, @mattab]
+    (Closes: #11502)
+  * Make it possible to disable Flatten feature for a given report [by
+    @sgiehl, @mattab] (Closes: #11529)
+  * Drop temporary table when no longer needed [by @tsteur, @mattab]
+    (Closes: #11544)
+  * All icons in own repo and included as a submodule [by @mattab,
+    @Findus23] (Closes: #11548)
+  * Release Piwik 3.0.3-b1 [by @mattab] (Closes: #11533)
+  * Release Piwik 3.0.3-b2 [by @mattab] (Closes: #11551)
+  * fixed detect Asus zen 2 & go; + add zen 3 model + new brands [by
+    @sanchezzzhak, @sgiehl] (Closes: #5593)
+  * Add new brand SENSEIT and detect many models [by @sanchezzzhak,
+    @sgiehl] (Closes: #5594)
+  * Fix Lenovo devices [by @weberdever, @sgiehl] (Closes: #5595)
+  * please add Smartisan mobile device useragent parse [by @sgiehl]
+    (Closes: #5596)
+  * Windows Phone device detected as "Apple Iphone" [by @sgiehl]
+    (Closes: #5598)
+  * Moto G misdetected [by @sgiehl] (Closes: #5599)
+  * Adjust Google-HTTP-Java-Client regex to be compatible with ruby [by
+    @seandilda, @sgiehl] (Closes: #5601)
+  * Fix Chrome OS version detection [by @seandilda, @sgiehl] (Closes:
+    #5602)
+  * add riddler.io [by @voxdemonix, @sgiehl] (Closes: #5603)
+  * update BUbiNG's producer informations [by @voxdemonix, @sgiehl]
+    (Closes: #5605)
+  * added amazon-seo-service.com [by @RMastop, @spmedia] (Closes: #595)
+  * Organize list via A-Z + Add Fetlife, Add Instagram, some facebook
+    and reddit domains [by @spmedia, @sgiehl] (Closes: #32)
+  * Fix nginx acess_log directive [by @paskal, @mattab] (Closes: #159)
+  * Fix NGINX related documentation [by @easybe, @mattab] (Closes: #168)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Wed, 17 May 2017 09:18:45 +1000
+
 piwik (3.0.2-1) stable; urgency=high
 
   * Releasing Piwik 3.0.2

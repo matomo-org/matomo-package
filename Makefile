@@ -22,7 +22,7 @@ DEB_STATUS := $(shell head -n 1 debian/changelog | awk '{print $$3}' | sed 's/;/
 endif
 
 ifndef PW_VERSION
-PW_VERSION	:= $(shell wget -qO - $(URL)/LATEST)
+PW_VERSION	:= $(shell wget --no-cache -qO - $(URL)/LATEST)
 endif
 
 PW_VERSION_GREATER = $(shell ./debian/scripts/vercomp.sh $(PW_VERSION) $(CURRENT_VERSION))

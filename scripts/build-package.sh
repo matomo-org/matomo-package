@@ -147,6 +147,7 @@ function organizePackage() {
 	rm -rf plugins/Morpheus/icons/src*
 	rm -rf plugins/Morpheus/icons/tools*
 	rm -rf plugins/Morpheus/icons/flag-icon-css*
+	rm -rf plugins/Morpheus/icons/submodules*
 	rm -rf plugins/Morpheus/icons/.git*
 	rm -rf plugins/Morpheus/icons/*.py
 	rm -rf plugins/Morpheus/icons/*.sh

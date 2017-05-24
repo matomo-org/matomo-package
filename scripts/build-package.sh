@@ -149,11 +149,13 @@ function organizePackage() {
 	rm -rf plugins/Morpheus/icons/flag-icon-css*
 	rm -rf plugins/Morpheus/icons/submodules*
 	rm -rf plugins/Morpheus/icons/.git*
+	rm -rf plugins/Morpheus/icons/.travis.yml
 	rm -rf plugins/Morpheus/icons/*.py
 	rm -rf plugins/Morpheus/icons/*.sh
 	rm -rf plugins/Morpheus/icons/*.json
 	rm -rf plugins/Morpheus/icons/*.lock
 	rm -rf plugins/Morpheus/icons/*.svg
+	rm -rf plugins/Morpheus/icons/*.txt
 
 	# Delete un-used fonts
 	rm -rf vendor/tecnickcom/tcpdf/fonts/ae_fonts_2.0

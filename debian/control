@@ -11,7 +11,7 @@ Homepage: http://piwik.org
 Pre-Depends: debconf (>= 0.5.00) | debconf-2.0
 Depends: php5-cli (>= 5.5.9)|php7.0-cli, php5-mysql|php5-mysqlnd|php7.0-mysql, php5-curl|php7.0-curl, php5-gd|php7.0-gd
 Recommends: logrotate, libapache2-mod-php5 (>= 5.3.3)|php5-cgi (>= 5.5.9)|php5-fpm (>= 5.5.9)|libapache2-mod-php7.0|php7.0-cgi|php7.0-fpm, php5-geoip|php7.0-geoip
-Suggests: mysql-server, geoip-database-extra
+Suggests: mysql-server | mariadb-server, geoip-database-extra
 Description: leading Free/Libre open source Web Analytics software
  Piwik is a full featured PHP MySQL software program that you download and
  install on your own webserver. At the end of the five minute installation

@@ -24,3 +24,4 @@ debian/conf/apache.conf				etc/piwik
 debian/conf/lighttpd.conf			etc/piwik
 debian/conf/piwik-archive			etc/cron.d/
 debian/conf/piwik-log				etc/logrotate.d/
+debian/gpg-keys/piwik-keyring-automatic.gpg	etc/apt/trusted.gpg.d/

@@ -14,18 +14,22 @@ CURRENT_VERSION	:= $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;s/-.*
 DEB_ARCH := $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
 ifndef DEB_VERSION
-DEB_VERSION := $(shell head -1 debian/changelog | sed 's/.*(//;s/).*//;')
+DEB_VERSION := $(shell head -n 1 debian/changelog | sed 's/.*(//;s/).*//;')
+endif
+
+ifndef DEB_STATUS
+DEB_STATUS := $(shell head -n 1 debian/changelog | awk '{print $$3}' | sed 's/;//g')
 endif
 
 ifndef PW_VERSION
-PW_VERSION	:= $(shell wget -qO - $(URL)/LATEST)
+PW_VERSION	:= $(shell wget --no-cache -qO - $(URL)/LATEST)
 endif
 
 PW_VERSION_GREATER = $(shell ./debian/scripts/vercomp.sh $(PW_VERSION) $(CURRENT_VERSION))
 PW_VERSION_LOWER = $(shell ./debian/scripts/vercomp.sh $(PW_VERSION) $(CURRENT_VERSION))
 
 ifndef PW_ARCHIVE_EXT
-PW_ARCHIVE_EXT	:= $(shell wget -q --spider $(URL)/piwik-$(PW_VERSION).tar.gz && echo 'tar.gz' || echo 'zip' )
+PW_ARCHIVE_EXT	:= $(shell wget --no-cache -q --spider $(URL)/piwik-$(PW_VERSION).tar.gz && echo 'tar.gz' || echo 'zip' )
 endif
 
 ARCHIVE		= piwik-$(PW_VERSION).$(PW_ARCHIVE_EXT)
@@ -41,13 +45,17 @@ INSTALL		= /usr/bin/install
 
 .PHONY		: checkfetch fixperms checkversions release checkenv builddeb checkdeb newrelease newversion changelog history clean upload fixsettings
 
+RED		= \033[0;31m
+GREEN		= \033[0;32m
+NC		= \033[0m
+
 # check and optionally fetch the corresponding piwik archive
 # from the official server. Uncompress the archive and
 # perform additional minor cleanups
 checkfetch:
 		@echo -n " [WGET] ... "
-		@if [ ! -f "$(SIG)" ]; then echo -n "$(URL)/$(SIG) "; wget -q $(URL)/$(SIG); fi;
-		@if [ ! -f "$(ARCHIVE)" ]; then echo -n "$(URL)/$(ARCHIVE) "; wget -q $(URL)/$(ARCHIVE); fi;
+		@if [ ! -f "$(SIG)" ]; then echo -n "$(URL)/$(SIG) "; wget --no-cache -q $(URL)/$(SIG); fi;
+		@if [ ! -f "$(ARCHIVE)" ]; then echo -n "$(URL)/$(ARCHIVE) "; wget --no-cache -q $(URL)/$(ARCHIVE); fi;
 		@echo "done."
 		@gpg --keyserver keys.gnupg.net --recv-keys $(FINGERPRINT)
 		@echo " [GPG] verify $(FINGERPRINT)" && gpg --verify $(SIG)
@@ -89,15 +97,15 @@ cleanup:
 
 checkconfig:
 		@echo -n " [CONF] Checking configuration files... "
-		@if [ "$(shell cat debian/install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" ]; then \
-			echo "\n [CONF] Configuration files may have been added or removed, please update debian/install"; \
-			echo "          $(shell cat debian/install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" "$(shell pwd)"; \
+		@if [ "$(shell cat debian/piwik.install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" ]; then \
+			echo "\n $(RED)[CONF]$(NC) Configuration files may have been added or removed, please update debian/piwik.install"; \
+			echo "          $(shell cat debian/piwik.install | grep "^piwik/config/" | wc -l)" -ne "$(shell find ./piwik/config/ -type f | wc -l)" "$(shell pwd)"; \
 			exit 1; \
 		fi
 		@echo "done"
 
 manifest:
-		@if [ -z "$(DESTDIR)" ]; then echo "missing DESTDIR="; exit 1; fi
+		@if [ -z "$(DESTDIR)" ]; then echo "$(RED)missing DESTDIR=$(NC)"; exit 1; fi
 		@echo -n " [MANIFEST] Generating manifest.inc.php... "
 		@rm -f $(DESTDIR)/etc/piwik/manifest.inc.php
 		@find $(DESTDIR)/ -type f -printf '%s ' -exec md5sum {} \; \
@@ -146,10 +154,10 @@ checklintianlic:
 	@for F in $(shell cat debian/piwik.lintian-overrides | grep extra-license-file | awk '{print $$3}') ; do \
 		echo -n "  * checking: $$F"; \
 		if [ ! -f "$(DESTDIR)/$$F" ]; then \
-			echo " missing."; \
+			echo " $(RED)missing$(NC)."; \
 			echo "1" >&2; \
 		else \
-			echo " ok."; \
+			echo " $(GREEN)ok$(NC)."; \
 		fi; \
 	done 3>&2 2>&1 1>&3 | grep --silent "1" && exit 1 || echo >/dev/null
 
@@ -159,17 +167,17 @@ checklintianextralibs:
 	@for F in $(shell cat debian/piwik.lintian-overrides | grep -e embedded-javascript-library -e embedded-php-library | awk '{print $$3}') ; do \
 		echo -n "  * checking: $$F"; \
 		if [ ! -f "$(DESTDIR)/$$F" ]; then \
-			echo " missing."; \
+			echo " $(RED)missing$(NC)."; \
 			echo "1" >&2; \
 		else \
-			echo " ok."; \
+			echo " $(GREEN)ok$(NC)."; \
 		fi; \
 	done 3>&2 2>&1 1>&3 | grep --silent "1" && exit 1 || echo >/dev/null
 
 # raise an error if the building version is lower that the head of debian/changelog
 checkversions:
 ifeq "$(PW_VERSION_LOWER)" "1"
-	@echo "The version you're trying to build is older that the head of your changelog."
+	@echo "$(RED)The version you're trying to build is older that the head of your changelog.$(NC)"
 	@exit 1
 endif
 
@@ -203,6 +211,15 @@ endif
 # creates the .deb package and other related files
 # all files are placed in ../
 builddeb:	checkenv checkversions
+		@echo -n " [PREP] Checking package status..."
+ifeq "$(DEB_STATUS)" "UNRELEASED"
+		@echo " $(RED)The package changelog marks the package as 'UNRELEASED'.$(NC)"
+		@echo "        $(RED)run this command: debchange --changelog debian/changelog --release ''$(NC)"
+		@exit 1
+else
+		@echo "$(GREEN)ok$(NC)."
+endif
+
 		@echo " [DPKG] Building package..."
 		@dpkg-buildpackage -i '-Itmp' -I.git -I$(ARCHIVE) -rfakeroot
 

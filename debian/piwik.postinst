@@ -1,5 +1,21 @@
 #!/bin/sh
+
 set -e
+
+# Piwik GPG repository key management
+if [ "$1" = 'configure' -a -n "$2" ]; then
+	# remove keys from the trusted.gpg file as they are now shipped in fragment files in trusted.gpg.d
+	if dpkg --compare-versions "$2" 'lt' "2012.1" && which gpg > /dev/null && which apt-key > /dev/null; then
+		TRUSTEDFILE='/etc/apt/trusted.gpg'
+		eval $(apt-config shell TRUSTEDFILE Apt::GPGV::TrustedKeyring)
+		eval $(apt-config shell TRUSTEDFILE Dir::Etc::Trusted/f)
+		if [ -e "$TRUSTEDFILE" ]; then
+			for KEY in 81E2E78B66FED89E; do
+				apt-key --keyring "$TRUSTEDFILE" del $KEY > /dev/null 2>&1 || :
+			done
+		fi
+	fi
+fi
 
 # Source debconf library.
 . /usr/share/debconf/confmodule
@@ -77,8 +93,15 @@ echo "  * When installing/using piwik, make sure you disable any ads blocker"
 
 db_get piwik/automatic-upgrade || true
 if [ "$RET" = "true" ]; then
-	echo "  * Please wait while Piwik is upgrading..."
-	php /usr/share/piwik/console core:update --yes
+	if [ -e "/usr/share/piwik/config/config.ini.php" ]; then
+		# it's safe to assume an admin has configured piwik
+		# so an upgrade should be doable
+		echo "  * Please wait while Piwik is upgrading..."
+		php /usr/share/piwik/console core:update --yes
+	else
+		echo "  * Automatic upgrade not perform as Piwik doesn't seem to be installed."
+		echo "  * Have you configured it yet?"
+	fi
 else
 	echo "  * To finish Piwik's upgrade, please run: /usr/bin/php /usr/share/piwik/console core:update"
 fi

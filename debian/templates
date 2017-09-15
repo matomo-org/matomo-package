@@ -10,14 +10,14 @@ _Description: Enable automatic database upgrade for your Piwik installation?
  so the database is upgraded automatically. Though, you should ensure you
  have proper backup in place and keep in mind that major Piwik version
  updates may come with many DB updates that can take a long time.
-
+ .
  If you select "yes", the database update will be executed and it remains as
  such for all future package upgrades when required.
-
+ .
  If you select "no", you will need to take care of database updates yourself
  after a package upgrade. In such a case, Piwik will show the list of
  database queries that need to be executed in the UI.
-
+ .
  You may change the previously selected behaviour using the following debian
  command: dpk-reconfigure piwik
 

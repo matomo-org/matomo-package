@@ -23,8 +23,12 @@ db_version 2.0 || { echo "$0: needs DebConf 2.0 or later"; exit 1; }
 
 # fix dir permission if needed
 if ! dpkg-statoverride --list /var/lib/piwik/data/tmp >/dev/null; then
-	chown -R www-data:www-data /var/lib/piwik/data/tmp
-	chmod -R 0755 /var/lib/piwik/data/tmp
+	if [ -d /var/lib/piwik/data/tmp ]; then
+		# if a site is busy, the cache files may appear/disappear when the commands below are running
+		# which would create a false positive failure. So trying to avoid that situation.
+		chown -R www-data:www-data /var/lib/piwik/data/tmp 2>/dev/null || true
+		chmod -R 0755 /var/lib/piwik/data/tmp 2> /dev/null || true
+	fi
 else
 	echo "  * Skipped permission changes in /var/lib/piwik/data/tmp according to 'dpkg'"
 fi

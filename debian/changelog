@@ -1,3 +1,10 @@
+piwik (3.1.0-2) stable; urgency=high
+
+  * prevent a package upgrade failure due to a race condition in
+    piwik.postinst
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 16 Sep 2017 09:01:57 +1000
+
 piwik (3.1.0-1) stable; urgency=high
 
   * Releasing Piwik 3.1.0
@@ -224,7 +231,7 @@ piwik (3.1.0-1) stable; urgency=high
   * Allow arrays to be used in custom parameters [by @tsteur] (Closes:
     #27)
 
- -- Aurélien Requiem <aurelien@requiem.fr>  Fri, 15 Sep 2017 20:18:25 +1000
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 16 Sep 2017 08:59:22 +1000
 
 piwik (3.0.4-1) stable; urgency=high
 

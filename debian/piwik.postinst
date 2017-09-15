@@ -93,8 +93,15 @@ echo "  * When installing/using piwik, make sure you disable any ads blocker"
 
 db_get piwik/automatic-upgrade || true
 if [ "$RET" = "true" ]; then
-	echo "  * Please wait while Piwik is upgrading..."
-	php /usr/share/piwik/console core:update --yes
+	if [ -e "/usr/share/piwik/config/config.ini.php" ]; then
+		# it's safe to assume an admin has configured piwik
+		# so an upgrade should be doable
+		echo "  * Please wait while Piwik is upgrading..."
+		php /usr/share/piwik/console core:update --yes
+	else
+		echo "  * Automatic upgrade not perform as Piwik doesn't seem to be installed."
+		echo "  * Have you configured it yet?"
+	fi
 else
 	echo "  * To finish Piwik's upgrade, please run: /usr/bin/php /usr/share/piwik/console core:update"
 fi

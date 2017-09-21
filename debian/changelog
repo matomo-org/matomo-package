@@ -1,3 +1,50 @@
+piwik (3.1.1-1) stable; urgency=high
+
+  * Releasing Piwik 3.1.1
+  * Fatal on real time widget, icon not defined [by @sgiehl] (Closes:
+    #12037)
+  * Range period should use existing archives of week/month/year periods
+    if possible [by @tsteur, @mattab] (Closes: #12003)
+  * 3.1.0 - Error 500 when getVisitorProfilePopup [by @sgiehl] (Closes:
+    #12028)
+  * The visit counter displays incorrect values after more than 100
+    visits [by @sgiehl] (Closes: #12034)
+  * Error "SQLSTATE[42S22]: Column not found: 1054 Unknown column
+    'log_action_event_category.type' in 'field list'" [by @sgiehl]
+    (Closes: #12036)
+  * vendor/twig/twig/lib/Twig/Extension/Core.php(1560): Warning -
+    constant(): Couldn't find constant
+    Piwik::LABEL_ID_GOAL_IS_ECOMMERCE_ORDER [by @mattab] (Closes:
+    #12070)
+  * Remove commit 4e47c8 (Remove Tibet from the map) [by @sgiehl]
+    (Closes: #6006)
+  * Windows: rename(C:misc/GeoIPCity.dat.new,C:misc/GeoIPCity.dat): The
+    process cannot access the file because it is being used by another
+    process. (code: 32) [by @RMastop, @mattab] (Closes: #5050)
+  * Raw html-output of error-message instead of rendered html [by
+    @sgiehl] (Closes: #11172)
+  * action_title_category_delimiter not respected for transitions view
+    [by @sgiehl] (Closes: #11754)
+  * Running the system check in the console may not show all of the
+    information [by @sgiehl] (Closes: #11789)
+  * Changes to support custom periods [by @diosmosis, @mattab] (Closes:
+    #11837)
+  * Updating Angular to version 1.6 [by @diosmosis, @mattab] (Closes:
+    #11857)
+  * regression for Plugins extending EventAction class [by @sgiehl,
+    @Yiivgeny] (Closes: #12041)
+  * Hide file integrity warnings from SEO site verification processes
+    [by @mattab] (Closes: #12060)
+  * Use HTTPS for piwik.org link [by @tsteur, @mattab] (Closes: #12077)
+  * Add allmarketsnewdayli.gdn [by @spmedia] (Closes: #625)
+  * Add obsessionphrases.com [by @spmedia] (Closes: #626)
+  * Automatic Configuration fails when installing on Debian 8.2 Virtual
+    Server (Closes: #44)
+  * Failing to install on debian jessie [by @aureq] (Closes: #51)
+  * Wording for database update unclear? (Closes: #53)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Thu, 21 Sep 2017 16:02:07 +1000
+
 piwik (3.1.0-4) stable; urgency=high
 
   * Removed extra inclusion manifest.inc.php

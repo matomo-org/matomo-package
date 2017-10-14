@@ -25,7 +25,8 @@ then
 		then
 			rm -f /etc/apache2/conf-enabled/piwik.conf
 		fi
-		invoke-rc.d apache2 reload 3>/dev/null || true			
+		invoke-rc.d apache2 reload 3>/dev/null || true
+	fi			
 fi
 
 #DEBHELPER#

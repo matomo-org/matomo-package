@@ -1,3 +1,120 @@
+piwik (3.2.0-1) stable; urgency=high
+
+  * Releasing Piwik 3.2.0
+  * Fix for Not able to load translation file
+    plugins/UserCountry/lang/cs.json: Syntax error, malformed JSON [by
+    @jaromirmuller, @sgiehl] (Closes: #12094)
+  * Better segment editor and fixes [by @tsteur] (Closes: #12040)
+  * When embedding Dashboard as Widget/Iframe, the Segment Selection
+    does not apply [by @tsteur, @mattab] (Closes: #12166)
+  * Ability to add "Ecommerce > Sales" reports as Widgets in the
+    Dashboard [by @diosmosis] (Closes: #11942)
+  * In all emails, show links to Piwik as HTTPS when using force_ssl=1
+    (Closes: #10814)
+  * First column gets narrower the more sublevels are opened [by
+    @sgiehl] (Closes: #12131)
+  * Make it possible to show a header message for datatables [by
+    @sgiehl] (Closes: #12146)
+  * JavaScript Memory Leak: #columnPreview click handlers [by @sgiehl]
+    (Closes: #12058)
+  * Extract series picker into angular component [by @diosmosis,
+    @tsteur] (Closes: #11905)
+  * Unable to save frequency of old data deletion schedule [by
+    @eramirezprotec] (Closes: #12097)
+  * Call to undefined function
+    PiwikPluginsScheduledReportsmb_strtoupper() in
+    plugins/ScheduledReports/Controller.php 39 [by @sgiehl] (Closes:
+    #12101)
+  * Warnings all over the page in every page (Warning - htmlentities():
+    charset 'Windows-1255' not supported) [by @sgiehl] (Closes: #12134)
+  * Fix reports are not cached per site [by @tsteur] (Closes: #12148)
+  * Fix bugs in table sorting query builder [by @tsteur, @mattab]
+    (Closes: #12154)
+  * [automatic translation update] Updated 85 strings in 8 languages
+    (cs, da, el, fr, ja, pl, sv, tr) [by @sgiehl] (Closes: #12123)
+  * Improve a message in english (grammar) [by @iMarkus, @sgiehl]
+    (Closes: #12136)
+  * Allow WidgetConfigs used in ByDimension widget containers to be
+    shown in dashboard manager [by @diosmosis, @mattab] (Closes: #11995)
+  * Ignore misc/user/*js files in integrity checker [by @mattab]
+    (Closes: #12091)
+  * Make old Sparkline Library support PHP 7.2 [by @Findus23, @sgiehl]
+    (Closes: #12099)
+  * Template header & footer event [by @tsteur, @mattab] (Closes:
+    #12102)
+  * Adding new events triggered when dynamic files are changed by Piwik.
+    [by @diosmosis, @mattab] (Closes: #12106)
+  * Make sure all users are returned [by @tsteur, @mattab] (Closes:
+    #12109)
+  * Glossary: make sure to return all metrics and reports [by @mattab,
+    @sgiehl] (Closes: #12110)
+  * No longer show "this is demo.piwik.org" message in top control [by
+    @tsteur, @mattab] (Closes: #12111)
+  * Fix possible "Action setIgnoreCookie not found in the module
+    CoreAdminHome" error [by @tsteur, @mattab] (Closes: #12112)
+  * Pass -piwik-domain value to phpunit via environment variable... [by
+    @diosmosis, @mattab] (Closes: #12119)
+  * Tracking: Write current interaction position for all actions [by
+    @tsteur, @mattab] (Closes: #12125)
+  * Force using utf-8 as charset for htmlentities/htmlspecialchars [by
+    @sgiehl, @mattab] (Closes: #12135)
+  * Improve promo widget [by @tsteur] (Closes: #12145)
+  * Remove the word Piwik from CSV download filenames [by @tsteur,
+    @mattab] (Closes: #12150)
+  * Add quotes around goal conversion rate metric [by @tsteur, @mattab]
+    (Closes: #12151)
+  * Set the piwik domain before initialising environment so the correct
+    config will be used [by @mattab] (Closes: #12159)
+  * Minor marketplace plugin formatting tweak for bundles [by @tsteur]
+    (Closes: #12144)
+  * Facebook messenger detection [by @etienne-martin, @sgiehl] (Closes:
+    #5646)
+  * Adds detection for Nokia branded phones by HMD Global [by @jan2000,
+    @sgiehl] (Closes: #5647)
+  * Adds detection for Blaupunkt devices [by @sgiehl, @Findus23]
+    (Closes: #5648)
+  * Adds detection for Evolveo devices [by @sgiehl, @Findus23] (Closes:
+    #5649)
+  * Adds detection for more Kindle devices [by @sgiehl] (Closes: #5650)
+  * Adds detection for TrekStor devices [by @sgiehl, @Findus23] (Closes:
+    #5651)
+  * adds detection for various Sony devices [by @sgiehl] (Closes: #5652)
+  * Adds detection for UMIDIGI devices [by @sgiehl, @Findus23] (Closes:
+    #5653)
+  * Adds detection for Neffos devices [by @sgiehl, @Findus23] (Closes:
+    #5654)
+  * Facebook messenger detection #5646 [by @etienne-martin, @sgiehl]
+    (Closes: #5655)
+  * Adds detection for Odys devices [by @sgiehl, @Findus23] (Closes:
+    #5656)
+  * Adds detection for Konrow devices [by @sgiehl, @Findus23] (Closes:
+    #5657)
+  * Adds detection for Wolfgang devices [by @sgiehl, @Findus23] (Closes:
+    #5658)
+  * Adds detection for various specific devices [by @sgiehl] (Closes:
+    #5659)
+  * Adds detection for Firefox Focus browser [by @sgiehl, @Findus23]
+    (Closes: #5660)
+  * Adds detection for Landvo devices [by @sgiehl, @Findus23] (Closes:
+    #5661)
+  * Adds detection for Cyrus devices [by @sgiehl, @Findus23] (Closes:
+    #5662)
+  * Adds detection for JAY-Tech devices [by @sgiehl, @Findus23] (Closes:
+    #5663)
+  * Added support for Edge/Android and Edge/iOS ... [by @nickurt,
+    @sgiehl] (Closes: #5667)
+  * Adds detection for recent Apple devices [by @sgiehl] (Closes: #5669)
+  * DAVdroid recognition [by @HostedDinner, @sgiehl] (Closes: #5671)
+  * Add f1nder.org [by @spmedia] (Closes: #627)
+  * Add seojokes.net [by @spmedia] (Closes: #628)
+  * Add rapidsites.pro [by @spmedia] (Closes: #629)
+  * Add cheap-trusted-backlinks.com [by @gripgrip, @spmedia] (Closes:
+    #630)
+  * Add isotoner.com [by @spmedia] (Closes: #631)
+  * Add realresultslist.com [by @spmedia] (Closes: #632)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sat, 14 Oct 2017 10:48:47 +1100
+
 piwik (3.1.1-1) stable; urgency=high
 
   * Releasing Piwik 3.1.1

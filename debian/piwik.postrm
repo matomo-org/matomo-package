@@ -17,6 +17,16 @@ then
 		rm -f /etc/apache2/conf.d/piwik.conf
 		invoke-rc.d apache2 reload 3>/dev/null || true
 	fi
+	
+	if [ -L /etc/apache2/conf-available/piwik.conf ];
+	then
+		rm -f /etc/apache2/conf-available/piwik.conf
+		if [ -L /etc/apache2/conf-enabled/piwik.conf ];
+		then
+			rm -f /etc/apache2/conf-enabled/piwik.conf
+		fi
+		invoke-rc.d apache2 reload 3>/dev/null || true
+	fi			
 fi
 
 #DEBHELPER#

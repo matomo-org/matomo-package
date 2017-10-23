@@ -20,11 +20,11 @@ then
 	
 	if [ -L /etc/apache2/conf-available/piwik.conf ];
 	then
-		rm -f /etc/apache2/conf-available/piwik.conf
 		if [ -L /etc/apache2/conf-enabled/piwik.conf ];
 		then
-			rm -f /etc/apache2/conf-enabled/piwik.conf
-		fi
+			a2disconf --maintmode piwik
+		fi			
+		rm -f /etc/apache2/conf-available/piwik.conf
 		invoke-rc.d apache2 reload 3>/dev/null || true
 	fi			
 fi

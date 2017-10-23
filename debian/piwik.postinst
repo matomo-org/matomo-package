@@ -83,7 +83,7 @@ then
 	if [ ! -e /etc/apache2/conf-available/piwik.conf ];
 	then
 		ln -s /etc/piwik/apache.conf /etc/apache2/conf-available/piwik.conf
-		ln -s /etc/apache2/conf-available/piwik.conf /etc/apache2/conf-enabled/piwik.conf
+		a2enconf --maintmode piwik
 		invoke-rc.d apache2 reload 2>/dev/null || true
 	fi
 	echo "  * Check Piwik web configuration in /etc/apache2/conf-available/piwik.conf"

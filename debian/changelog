@@ -1,3 +1,13 @@
+piwik (3.2.0-2) stable; urgency=high
+
+  * Releasing Piwik 3.2.0 (packaging only)
+  * attempt to migrate piwik.conf when migrating from debian 7 to debian 8 or
+    above
+  * attempt to detect newer version of debian (8 and above) before deploying
+    piwik.conf on debian 7
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Sun, 29 Oct 2017 16:46:16 +1100
+
 piwik (3.2.0-1) stable; urgency=high
 
   * Releasing Piwik 3.2.0

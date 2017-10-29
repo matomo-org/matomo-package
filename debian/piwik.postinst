@@ -78,6 +78,7 @@ else
 	echo "Lighttpd not installed, skipping"
 fi
 
+# debian 8 and above
 if [ -d "/etc/apache2/conf-available" ]
 then
 	if [ ! -e /etc/apache2/conf-available/piwik.conf ];
@@ -91,16 +92,21 @@ else
 	echo "Apache2.4 not installed, skipping"
 fi
 
+# debian 7
 if [ -d "/etc/apache2/conf.d" ]
 then
-	if [ ! -e /etc/apache2/conf.d/piwik.conf ];
+	# install `piwik.conf` if no newer distribution is detected
+	if [ ! -e "/etc/apache2/conf-available/piwik.conf" ];
 	then
-		ln -s /etc/piwik/apache.conf /etc/apache2/conf.d/piwik.conf
-		invoke-rc.d apache2 reload 2>/dev/null || true
+		if [ ! -e /etc/apache2/conf.d/piwik.conf ];
+		then
+			ln -s /etc/piwik/apache.conf /etc/apache2/conf.d/piwik.conf
+			invoke-rc.d apache2 reload 2>/dev/null || true
+		fi
+		echo "  * Check Piwik web configuration in /etc/apache2/conf.d/piwik.conf"
 	fi
-	echo "  * Check Piwik web configuration in /etc/apache2/conf.d/piwik.conf"
 else
-	echo "Apache2 not installed, skipping"
+	echo "Apache2.2 not installed, skipping"
 fi
 
 echo "  * Piwik main configuration files are stored in /etc/piwik/"

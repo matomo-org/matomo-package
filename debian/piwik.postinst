@@ -81,13 +81,22 @@ fi
 # debian 8 and above
 if [ -d "/etc/apache2/conf-available" ]
 then
-	if [ ! -e /etc/apache2/conf-available/piwik.conf ];
+	if [ -e "/etc/apache2/conf.d/piwik.conf" -a ! -e "/etc/apache2/conf-available/piwik.conf" ];
 	then
-		ln -s /etc/piwik/apache.conf /etc/apache2/conf-available/piwik.conf
+		echo "  * Migrating previous '/etc/apache2/conf.d/piwik.conf' to '/etc/apache2/conf-available/piwik.conf'"
+		mv /etc/apache2/conf.d/piwik.conf /etc/apache2/conf-available/piwik.conf
+		# the conf is enabled since it was debian 7 default behavior
 		a2enconf --maintmode piwik
 		invoke-rc.d apache2 reload 2>/dev/null || true
+	else
+		if [ ! -e /etc/apache2/conf-available/piwik.conf ];
+		then
+			ln -s /etc/piwik/apache.conf /etc/apache2/conf-available/piwik.conf
+			a2enconf --maintmode piwik
+			invoke-rc.d apache2 reload 2>/dev/null || true
+		fi
+		echo "  * Check Piwik web configuration in /etc/apache2/conf-available/piwik.conf"
 	fi
-	echo "  * Check Piwik web configuration in /etc/apache2/conf-available/piwik.conf"
 else
 	echo "Apache2.4 not installed, skipping"
 fi

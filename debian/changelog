@@ -1,3 +1,201 @@
+piwik (3.2.1-1) stable; urgency=high
+
+  * Releasing Piwik 3.2.1
+  * New plugin: provide simple UI to invalidate old reports [by @sgiehl]
+    (Closes: #8942)
+  * Ability to restrict user login to specific IP addresses (Closes:
+    #4577)
+  * Use consistent HTML email body for all scheduled reports (HTML, PDF
+    & CSV) [by @diosmosis, @mattab] (Closes: #12233)
+  * Show shortcut help screen when pressing `?` [by @sgiehl, @mattab]
+    (Closes: #12283)
+  * Various bugs when using SSL and/or a reverse proxy (Closes: #6880)
+  * Piwik setup in a sub path URL behind a proxy (Closes: #7898)
+  * When embedding dashboard in an iframe, some widgets don't apply the
+    selected Segment [by @sgiehl] (Closes: #12172)
+  * Actions tracked without a URL but with action_name should be
+    displayed in the Visitor log [by @sgiehl] (Closes: #12182)
+  * Formats numbers in the real time widget [by @AMcNeice, @mattab]
+    (Closes: #12171)
+  * UI: Backspace eats extra characters [by @Morerice, @sgiehl] (Closes:
+    #12143)
+  * issue with Widgetized dashboards: only [object Object] displayed [by
+    @sgiehl] (Closes: #12113)
+  * Customizable LESS var for header/menu links color [by @tsteur,
+    @mattab] (Closes: #12201)
+  * Issue the CORS header (Access-Control-Allow-Origin) also on Tracking
+    API requests [by @mattab] (Closes: #12207)
+  * Add visitor details events [by @tsteur] (Closes: #12262)
+  * Sometimes the datatable footer controls can be hidden [by @sgiehl]
+    (Closes: #10605)
+  * Document how to view our UI demo page in developer guides (Closes:
+    #11710)
+  * Convert period selector to angular & allow plugins to add periods to
+    the frontend [by @diosmosis, @mattab] (Closes: #11873)
+  * Integrity Check wants to delete whole piwik directory [by @sgiehl]
+    (Closes: #12290)
+  * SEO Report average keyword position for google keywords (Closes:
+    #2466)
+  * New Report: the Top IP Addresses (Closes: #3613)
+  * Include segment codes, where applicable, in all API results (Closes:
+    #4381)
+  * Widget - Table content disappears when "Display a table with more
+    metrics" icon is clicked (Closes: #6330)
+  * Action URL segment could filter both (Page URLs OR Event URLs) [by
+    @mattab, @sgiehl] (Closes: #11131)
+  * Keyboard shortcuts for Piwik app [by @sgiehl] (Closes: #5230)
+  * Make it possible to configure max visits for visitor profile
+    (Closes: #12045)
+  * New "Event URL" segment `eventUrl` to segment on any Segment URL [by
+    @mattab] (Closes: #12236)
+  * Add possibility to restrict piwik access by ip [by @tsteur, @mattab]
+    (Closes: #12242)
+  * In log importer, allow filtering logs by host & datetime (new
+    submodule commit + tests). [by @diosmosis, @mattab] (Closes: #12267)
+  * Add possibility to ignore certain files in File integrity check [by
+    @sgiehl] (Closes: #12268)
+  * Show message if visitor log shows no data because the data was
+    purged [by @tsteur, @mattab] (Closes: #12294)
+  * Fixes seriespicker regression (changes to dashboard weren't saved
+    anymore) [by @sgiehl] (Closes: #12223)
+  * Small performance improvements in ArchiveProcessor [by @tsteur,
+    @mattab] (Closes: #12288)
+  * Improve serialize dataTable performance [by @tsteur, @mattab]
+    (Closes: #12289)
+  * use same padding for all widget content [by @fdellwing, @mattab]
+    (Closes: #12220)
+  * In Tracking code page, clarify that at least two domains need to be
+    set in the Websites before one can enable "Enable cross domain
+    tracking" feature (Closes: #11866)
+  * Make all new segments "Pre-processed" when
+    browser_archiving_disabled_enforce=1 [by @mattab] (Closes: #12254)
+  * Mention that old report data can be invalidated using the new
+    InvalidateReports plugin [by @mattab] (Closes: #12286)
+  * make HTML in safemode-page valid [by @Findus23, @sgiehl] (Closes:
+    #12270)
+  * Updates device detector to 3.9.1 [by @sgiehl] (Closes: #12329)
+  * Moved UI tests from core to custom alerts plugin [by @sgiehl]
+    (Closes: #12330)
+  * Log on DEBUG level all SQL archiving queries [by @mattab] (Closes:
+    #12257)
+  * Fix addTracker does not return the tracker instance [by @tsteur]
+    (Closes: #12203)
+  * Prevent error Key "url" for array with keys XXX does not exist [by
+    @mattab, @sgiehl] (Closes: #12272)
+  * Create a FAQ about tracking Internal newsletters (Closes: #11566)
+  * [automatic translation update] Updated 615 strings in 7 languages
+    (de, el, fi, ja, nl, pl, tr) [by @sgiehl] (Closes: #12180)
+  * [automatic translation update] Updated 495 strings in 11 languages
+    (pl, el, fa, it, ja, ko, nl, sv, tr, zh-cn, zh-tw) [by @sgiehl]
+    (Closes: #12241)
+  * [automatic translation update] Updated 887 strings in 13 languages
+    (cs, de, es, fr, it, ja, nb, sq, sv, tr, el, pl, zh-tw) [by @sgiehl]
+    (Closes: #12328)
+  * added $_COOKIE to RequestSet environment [by @MichaelHeerklotz,
+    @tsteur] (Closes: #11771)
+  * Configuration for Piwik behind nginx reverse proxy with path rewrite
+    [by @user121216, @mattab] (Closes: #12011)
+  * Upgrade travis to trusty environment [by @mneudert, @sgiehl]
+    (Closes: #12087)
+  * Even more HTTPS links [by @Findus23, @sgiehl] (Closes: #12161)
+  * Do not show bundles in premium feature widgets [by @tsteur, @mattab]
+    (Closes: #12179)
+  * Date:getUtcOffset() returns in seconds, not in minutes [by @sgiehl]
+    (Closes: #12205)
+  * Ignore Java detection on Edge as it doesn't work [by @sgiehl,
+    @mattab] (Closes: #12214)
+  * Command in update screen should include piwik-domain [by @sgiehl]
+    (Closes: #12219)
+  * New setting `show_update_notification_to_superusers_only` makes it
+    possible to hide update notifications for users except for super
+    users [by @peterbo, @sgiehl] (Closes: #12224)
+  * When tracking, ignore user abort first [by @tsteur, @sgiehl]
+    (Closes: #12226)
+  * Add cross domain linking helper text [by @spacenate, @mattab]
+    (Closes: #12235)
+  * Check XML files in tests for validity [by @sgiehl, @mattab] (Closes:
+    #12247)
+  * Disallow indexing for pages doing a redirect [by @sgiehl, @mattab]
+    (Closes: #12263)
+  * Update Piwik PHP SDK to latest version (piwik/piwik-php-tracker) [by
+    @mattab] (Closes: #12287)
+  * Let plugins decide whether to embed widgetized iframe empty or not
+    [by @tsteur, @mattab] (Closes: #12292)
+  * Added events for adding and filtering profile summaries [by @tsteur]
+    (Closes: #12303)
+  * Update check needs to sent activated plugins' state [by @tsteur]
+    (Closes: #12309)
+  * Do not print Piwik when a custom logo is used [by @tsteur, @mattab]
+    (Closes: #12325)
+  * Ability to import requests matching a particular HOST [by
+    @diosmosis] (Closes: #194)
+  * Allow filtering logs by host & datetime [by @diosmosis, @mattab]
+    (Closes: #196)
+  * AWS S3 logs: import Requester field as User ID (Closes: #86)
+  * Improves automatic format detection (regex improvements) [by
+    @sgiehl] (Closes: #182)
+  * gracefully handle ValueError for generation time [by @SlavikCA,
+    @mattab] (Closes: #191)
+  * PSR-6 & PSR-16 compliant cache bridges [by @bpolaszek, @sgiehl]
+    (Closes: #5665)
+  * Mozilla/5.0 SeznamEmailProxy/2.0.174 (Closes: #5668)
+  * Update bots.yml [by @razseo, @sgiehl, @bpolaszek] (Closes: #5670)
+  * Add bots for Czech Republic [by @soukicz, @sgiehl, @bpolaszek]
+    (Closes: #5673)
+  * LOGICOM Tablette tactile M BOT TAB [by @sgiehl] (Closes: #5674)
+  * Google Pixel devices with Android 8 always detected as Opera
+    browser. [by @sgiehl] (Closes: #5675)
+  * Some more bots [by @Findus23, @sgiehl] (Closes: #5676)
+  * Adds detection for Condor devices (www.condor.dz) [by @sgiehl,
+    @Findus23] (Closes: #5677)
+  * Adds detection for Lexand devices (https://lexand.ru) [by @sgiehl]
+    (Closes: #5678)
+  * Use PHPUnitFrameworkTestCase instead of PHPUnit_Framework_TestCase
+    [by @carusogabriel, @sgiehl] (Closes: #5679)
+  * Bot detection improvement [by @sgiehl] (Closes: #5681)
+  * iPad detection improvments [by @sgiehl] (Closes: #5682)
+  * Adds device type for iPhone X [by @mneudert, @sgiehl] (Closes:
+    #5683)
+  * Adds detection for various Huawei and Samsung devices [by @cb8,
+    @sgiehl] (Closes: #5685)
+  * BBK doesn't seem to have any devices (Closes: #5687)
+  * Adds detection for various Huawei and Samsung devices (part II) [by
+    @cb8, @sgiehl] (Closes: #5688)
+  * Add phablet Samsung Galaxy Note 8 [by @weberdever, @sgiehl] (Closes:
+    #5689)
+  * Added support for sending and reading Tracker Cookies [by
+    @MichaelHeerklotz, @tsteur] (Closes: #28)
+  * Opera Mini, Opera Beta and Opera/Opera Mobile icons all have
+    slightly different dimensions (Closes: #6)
+  * brand/Danew [by @sogen, @Findus23] (Closes: #18)
+  * Vodafone, Alcatel, Compaq [by @sogen, @Findus23] (Closes: #19)
+  * Apache2 patch [by @dg01d] (Closes: #59)
+  * remove php file from piwik-icons [by @Findus23, @mattab] (Closes:
+    #60)
+  * Add adanih.com [by @Gaffnet, @spmedia] (Closes: #633)
+  * Added homeafrikalike.tk [by @Gaffnet, @spmedia] (Closes: #634)
+  * Added homemypicture.tk [by @Gaffnet, @spmedia] (Closes: #635)
+  * Added livingroomdecoratingideas.website [by @Gaffnet, @spmedia]
+    (Closes: #636)
+  * Added mattgibson.us [by @Gaffnet, @spmedia] (Closes: #637)
+  * Added freewlan.info [by @Gaffnet, @spmedia] (Closes: #638)
+  * Added findercarphotos.com [by @Gaffnet, @spmedia] (Closes: #639)
+  * Added animalphotos.xyz [by @Gaffnet, @spmedia] (Closes: #642)
+  * Added 3waynetworks.com [by @Gaffnet, @spmedia] (Closes: #643)
+  * Added bedroomlighting.us [by @Gaffnet, @spmedia] (Closes: #644)
+  * Remove vc.ru [by @spmedia] (Closes: #645)
+  * Added seocheckupx.com to the list [by @pierrevanhulst, @spmedia]
+    (Closes: #646)
+  * Added copyrightinstitute.org [by @kylevandenelsen, @spmedia]
+    (Closes: #647)
+  * Added 1-musica.dcdcapital.com [by @Gaffnet, @spmedia] (Closes: #648)
+  * some of the urls are offline (Closes: #28)
+  * 360search: `m.so.com` is missing in urls [by @sgiehl] (Closes: #36)
+  * Linkedin Android URL [by @MichalTomczak, @sgiehl] (Closes: #38)
+  * mail.ru is not defined as a search engine [by @sgiehl] (Closes: #39)
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Thu, 07 Dec 2017 06:48:44 +1100
+
 piwik (3.2.0-2) stable; urgency=high
 
   * Releasing Piwik 3.2.0 (packaging only)

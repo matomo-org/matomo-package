@@ -335,17 +335,20 @@ organizePackage
 
 cd ..
 
+# will be changed soon, now Piwik core expects a piwik/ folder
+mv matomo piwik
+
 echo "packaging release..."
 rm "../$LOCAL_ARCH/piwik-$VERSION.zip" 2> /dev/null
-zip -r "../$LOCAL_ARCH/piwik-$VERSION.zip" matomo How\ to\ install\ Matomo.html > /dev/null
+zip -r "../$LOCAL_ARCH/piwik-$VERSION.zip" piwik How\ to\ install\ Matomo.html > /dev/null
 gpg --armor --detach-sign "../$LOCAL_ARCH/piwik-$VERSION.zip" || die "Failed to sign piwik-$VERSION.zip"
 
 rm "../$LOCAL_ARCH/piwik-$VERSION.tar.gz"  2> /dev/null
-tar -czf "../$LOCAL_ARCH/piwik-$VERSION.tar.gz" matomo How\ to\ install\ Matomo.html
+tar -czf "../$LOCAL_ARCH/piwik-$VERSION.tar.gz" piwik How\ to\ install\ Matomo.html
 gpg --armor --detach-sign "../$LOCAL_ARCH/piwik-$VERSION.tar.gz" || die "Failed to sign piwik-$VERSION.tar.gz"
 
 rm "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip"  2> /dev/null
-zip -r "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip" matomo install.sql Manifest.xml parameters.xml > /dev/null 2> /dev/null
+zip -r "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip" piwik install.sql Manifest.xml parameters.xml > /dev/null 2> /dev/null
 gpg --armor --detach-sign "../$LOCAL_ARCH/piwik-$VERSION-WAG.zip" || die "Failed to sign piwik-$VERSION-WAG.zip"
 
 
@@ -392,7 +395,7 @@ else
 	if [ "$BUILDING_LATEST_MAJOR_VERSION_STABLE_OR_BETA" -eq "1" ]
 	then
 		echo -e "Built current latest Matomo major version: creating symlinks on the remote server"
-		for name in latest matomo matomo-latest
+		for name in latest piwik piwik-latest
 		do
 			for ext in zip tar.gz; do
 				$REMOTE_CMD "ln -sf $REMOTE_HTTP_PATH/piwik-$VERSION.$ext $REMOTE_HTTP_PATH/$name.$ext" || die "failed to remotely link $REMOTE_HTTP_PATH/piwik-$VERSION.$ext to $REMOTE_HTTP_PATH/$name.$ext"

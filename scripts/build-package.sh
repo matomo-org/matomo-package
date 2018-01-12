@@ -319,9 +319,9 @@ done
 
 echo "copying files to a new directory..."
 cd ..
-[ -d "matomo" ] && rm -rf matomo
-cp -pdr "$LOCAL_REPO" matomo
-cd matomo
+[ -d "piwik" ] && rm -rf piwik
+cp -pdr "$LOCAL_REPO" piwik
+cd piwik
 
 [ "$(git describe --exact-match --tags HEAD)" = "$VERSION" ] || die "could not checkout to the tag for this version, make sure tag exists"
 
@@ -334,9 +334,6 @@ echo "Organizing files and generating manifest file..."
 organizePackage
 
 cd ..
-
-# will be changed soon, now Piwik core expects a piwik/ folder
-mv matomo piwik
 
 echo "packaging release..."
 rm "../$LOCAL_ARCH/piwik-$VERSION.zip" 2> /dev/null

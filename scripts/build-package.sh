@@ -56,6 +56,15 @@ BUILD_DIR=$WORKDIR/../archives/
 
 trap "script_cleanup" EXIT
 
+function Usage() {
+	echo -e "ERROR: This command is missing one or more option. See help below."
+	echo -e "$0 version [flavour]"
+	echo -e "\t* version: Package version under which you want the archive to be published."
+	echo -e "\t* flavour: Base name of your archive. Can either be 'matomo' or 'piwik'. If unspecified, both archives are generated."
+	# exit with code 1 to indicate an error.
+	exit 1
+}
+
 
 # check local environment for all required apps/tools
 function checkEnv() {
@@ -251,6 +260,18 @@ namespace Piwik;\nclass Manifest {\n\tstatic $files=array(\n/; $ s/$/\n\t);\n}/'
 		> ./config/manifest.inc.php
 
 }
+
+
+if [ -z "$1" ]; then Usage "$0"; fi
+if [ -z "$2" ]; then
+	FLAVOUR="both"
+else
+	if [ "$2" != "matomo" -a "$2" != "piwik" ]; then
+		Usage "$0"
+	else
+		FLAVOUR="$2"
+	fi
+fi
 
 # check for local requirements
 checkEnv

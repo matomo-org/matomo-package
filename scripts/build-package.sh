@@ -151,6 +151,7 @@ function organizePackage() {
 	rm -rf vendor/tecnickcom/tcpdf/examples
 	rm -rf vendor/tecnickcom/tcpdf/CHANGELOG.txt
 	rm -rf vendor/guzzle/guzzle/docs/
+	rm -rf vendor/davaxi/sparkline/!(src|LICENSE)
 
 	# Delete un-used files from the matomo-icons repository
 	rm -rf plugins/Morpheus/icons/src*

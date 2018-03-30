@@ -30,7 +30,7 @@ then
 	exit 1
 fi
 
-CHANGELOG_URL=$(wget -O - -q 'http://piwik.org/changelog/' | grep "Piwik $1" | sed 's/.*<a href=\([^>]*\).*/\1/' | sed -e 's/"//g' -e "s/'//g" | grep ^http | grep "$1/")
+CHANGELOG_URL=$(wget -O - -q 'http://matomo.org/changelog/' | grep "Matomo $1" | sed 's/.*<a href=\([^>]*\).*/\1/' | sed -e 's/"//g' -e "s/'//g" | grep ^http | grep "$1/")
 
 if [ -z "$(echo $CHANGELOG_URL | grep -i http)" ]
 then
@@ -41,8 +41,8 @@ fi
 echo "Changelog url found at $CHANGELOG_URL"
 
 wget -O - -q "$CHANGELOG_URL" | \
-	sed -n "/List of.*in Piwik $1.*>$/,/<\/ul>/p;" | \
-	grep -e 'dev.piwik.org/trac/ticket' -e 'github.com/piwik' | \
+	sed -n "/List of.*in Matomo $1.*>$/,/<\/ul>/p;" | \
+	grep -e 'dev.matomo.org/trac/ticket' -e 'github.com/matomo-org' | \
 	sed -e :a -e 's/<[^>]*>//g;/</N;//ba' | \
 	sed '/^$/d' | \
 	recode --silent --force UTF-8..ascii | recode UTF-8..HTML | sed -e "${UTF8_ALIENS}" | \

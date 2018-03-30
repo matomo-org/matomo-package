@@ -30,7 +30,7 @@ then
 	exit 1
 fi
 
-CHANGELOG_URL=$(wget -O - -q 'http://matomo.org/changelog/' | grep "Matomo $1" | sed 's/.*<a href=\([^>]*\).*/\1/' | sed -e 's/"//g' -e "s/'//g" | grep ^http | grep "$1/")
+CHANGELOG_URL=$(wget -O - -q 'https://matomo.org/changelog/' | grep "Matomo $1" | sed 's/.*<a href=\([^>]*\).*/\1/' | sed -e 's/"//g' -e "s/'//g" | grep ^http | grep "$1/")
 
 if [ -z "$(echo $CHANGELOG_URL | grep -i http)" ]
 then

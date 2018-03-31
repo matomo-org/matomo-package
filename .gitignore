@@ -1,5 +1,10 @@
 .idea/
+*.sw?
 archives/*
+debian/matomo
+debian/matomo.debhelper.log
+debian/matomo.substvars
+debian/matomo.*.debhelper
 debian/piwik
 debian/piwik.debhelper.log
 debian/piwik.substvars
@@ -7,6 +12,10 @@ debian/piwik.*.debhelper
 debian/files
 tmp/*
 tmp.*
+matomo
+matomo-*.tar.gz
+matomo-*.zip
+matomo-*.asc
 piwik
 piwik-*.tar.gz
 piwik-*.zip

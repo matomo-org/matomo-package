@@ -1,4 +1,4 @@
-/var/log/piwik/piwik-archive.log
+/var/log/matomo/matomo-archive.log
 {
 	rotate 30
 	daily

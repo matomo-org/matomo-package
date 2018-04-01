@@ -19,15 +19,3 @@ Description: Leading Free/Libre open source Web Analytics software
  paste this tag on websites you wish to track and access your analytics reports
  in real time.
  .
-
-Package: piwik
-Architecture: all
-Homepage: http://matomo.org
-Pre-Depends: debconf (>= 0.5.00) | debconf-2.0
-Depends: matomo (>=3.3.0)
-Description: Transitional package from Piwik to Matomo
- Matomo (formerly Piwik) is a full featured PHP MySQL software program that you download and
- install on your own webserver. At the end of the five minute installation
- process you will be given a JavaScript code. Simply copy and paste this tag
- on websites you wish to track and access your analytics reports in real time.
- .

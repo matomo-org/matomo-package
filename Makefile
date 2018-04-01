@@ -244,7 +244,7 @@ checkdeb:
 
 # create a new release based on RELEASE_VERSION variable
 newrelease:
-		debchange --changelog debian/changelog --urgency $(URGENCY) --package $(shell cat debian/control | grep ^Source | awk '{print $$2}') --newversion $(RELEASE_VERSION)-1 "Releasing Matomo $(RELEASE_VERSION)"
+		@debchange --changelog debian/changelog --urgency $(URGENCY) --package $(shell cat debian/control | grep ^Source | awk '{print $$2}') --newversion $(RELEASE_VERSION)-1 "Releasing Matomo $(RELEASE_VERSION)"
 
 # creates a new version in debian/changelog
 newversion:

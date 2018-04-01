@@ -1,0 +1,9 @@
+#
+# config file
+etc/matomo							usr/share/matomo/config
+#
+# Symlink tmp
+var/lib/matomo/data/tmp						usr/share/matomo/tmp
+#
+# Other files
+usr/share/doc/matomo/README.md					usr/share/matomo/README.md

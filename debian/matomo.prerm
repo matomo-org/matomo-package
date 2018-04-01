@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+## Delete manually these directories because they are not empty and dpkg fails
+
+if [ "$1" = "remove" ];
+then
+	rm -rf /var/lib/matomo
+	rm -rf /usr/share/matomo/config
+fi
+
+if [ "$1" = "upgrade" ];
+then
+	rm -rf /var/lib/matomo/data/tmp/templates_c/*
+fi
+
+
+#DEBHELPER#

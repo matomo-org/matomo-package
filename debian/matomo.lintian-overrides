@@ -45,3 +45,7 @@ matomo: php-script-but-no-phpX-cli-dep usr/share/matomo/console
 matomo: php-script-but-no-phpX-cli-dep usr/share/matomo/vendor/leafo/lessphp/lessify
 matomo: php-script-but-no-phpX-cli-dep usr/share/matomo/vendor/leafo/lessphp/plessc
 matomo: php-script-but-no-phpX-cli-dep usr/share/matomo/vendor/tecnickcom/tcpdf/tools/tcpdf_addfont.php
+matomo: php-script-but-no-php-cli-dep usr/share/matomo/console
+matomo: php-script-but-no-php-cli-dep usr/share/matomo/vendor/leafo/lessphp/lessify
+matomo: php-script-but-no-php-cli-dep usr/share/matomo/vendor/leafo/lessphp/plessc
+matomo: php-script-but-no-php-cli-dep usr/share/matomo/vendor/tecnickcom/tcpdf/tools/tcpdf_addfont.php

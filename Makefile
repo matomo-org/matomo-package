@@ -283,6 +283,8 @@ prepupload:
 		@test ! -f ../matomo_$(DEB_VERSION)_$(DEB_ARCH).changes || mv ../matomo_$(DEB_VERSION)_$(DEB_ARCH).changes $(CURDIR)/tmp/
 		@test ! -f ../matomo_$(DEB_VERSION).tar.gz || echo " [MV] ../matomo_$(DEB_VERSION).tar.gz => tmp/"
 		@test ! -f ../matomo_$(DEB_VERSION).tar.gz || mv ../matomo_$(DEB_VERSION).tar.gz $(CURDIR)/tmp/
+		@test ! -f ../matomo_$(DEB_VERSION)_$(DEB_ARCH).buildinfo || echo " [MV] ../matomo_$(DEB_VERSION)_$(DEB_ARCH).buildinfo => tmp/"
+		@test ! -f ../matomo_$(DEB_VERSION)_$(DEB_ARCH).buildinfo || mv ../matomo_$(DEB_VERSION)_$(DEB_ARCH).buildinfo $(CURDIR)/tmp/
 
 upload:		prepupload
 		@echo " [UPLOAD] => to matomo"

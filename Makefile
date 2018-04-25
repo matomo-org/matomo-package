@@ -285,8 +285,8 @@ prepupload:
 		@test ! -f ../matomo_$(DEB_VERSION).tar.gz || mv ../matomo_$(DEB_VERSION).tar.gz $(CURDIR)/tmp/
 
 upload:		prepupload
-		@echo " [UPLOAD] => to piwik"
-		@dupload --quiet --to piwik $(CURDIR)/tmp/matomo_$(DEB_VERSION)_$(DEB_ARCH).changes
+		@echo " [UPLOAD] => to matomo"
+		@dupload --quiet --to matomo $(CURDIR)/tmp/matomo_$(DEB_VERSION)_$(DEB_ARCH).changes
 
 commitrelease:
 		@echo " [GIT] Commit release"

@@ -216,7 +216,7 @@ ifndef DEBFULLNAME
 		@exit 1
 endif
 		@echo " [GPG] Checking environment"
-		@gpg --list-secret-keys "$(DEBFULLNAME) <$(DEBEMAIL)>" >/dev/null
+		@gpg2 --list-secret-keys "$(DEBFULLNAME) <$(DEBEMAIL)>" >/dev/null
 
 # creates the .deb package and other related files
 # all files are placed in ../

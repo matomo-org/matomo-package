@@ -239,7 +239,7 @@ endif
 checkdeb:
 		@echo " [LINTIAN] Checking package(s)..."
 		@for P in $(shell cat debian/control | grep ^Package | awk '{print $$2}'); do \
-			lintian --color auto -L '>=important' -v -i ../$${P}_$(shell parsechangelog | grep ^Version | awk '{print $$2}')_*.deb; \
+			lintian --no-tag-display-limit --color auto -L '>=important' -v -i ../$${P}_$(shell parsechangelog | grep ^Version | awk '{print $$2}')_*.deb; \
 		done
 
 # create a new release based on RELEASE_VERSION variable

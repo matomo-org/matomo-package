@@ -158,6 +158,7 @@ function organizePackage() {
 	rm -rf vendor/tecnickcom/tcpdf/examples
 	rm -rf vendor/tecnickcom/tcpdf/CHANGELOG.TXT
 	rm -rf vendor/guzzle/guzzle/docs/
+	rm -rf vendor/php-di/php-di/benchmarks/
 	rm -rf vendor/geoip2/geoip2/.gitmodules
 	rm -rf vendor/geoip2/geoip2/.php_cs
 	rm -rf vendor/maxmind-db/reader/ext/

@@ -155,12 +155,17 @@ function organizePackage() {
 	rm -rf vendor/twig/twig/test/
 	rm -rf vendor/twig/twig/doc/
 	rm -rf vendor/symfony/console/Symfony/Component/Console/Resources/bin
-	rm -rf vendor/mnapoli/php-di/website
-	rm -rf vendor/mnapoli/php-di/news
-	rm -rf vendor/mnapoli/php-di/doc
 	rm -rf vendor/tecnickcom/tcpdf/examples
-	rm -rf vendor/tecnickcom/tcpdf/CHANGELOG.txt
+	rm -rf vendor/tecnickcom/tcpdf/CHANGELOG.TXT
 	rm -rf vendor/guzzle/guzzle/docs/
+	rm -rf vendor/php-di/php-di/benchmarks/
+	rm -rf vendor/geoip2/geoip2/.gitmodules
+	rm -rf vendor/geoip2/geoip2/.php_cs
+	rm -rf vendor/maxmind-db/reader/ext/
+	rm -rf vendor/maxmind-db/reader/autoload.php
+	rm -rf vendor/maxmind-db/reader/CHANGELOG.md
+	rm -rf vendor/maxmind/web-service-common/dev-bin/
+	rm -rf vendor/maxmind/web-service-common/CHANGELOG.md
 
 	# Delete un-used files from the matomo-icons repository
 	rm -rf plugins/Morpheus/icons/src*

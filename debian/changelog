@@ -1,3 +1,10 @@
+piwik (9.99.9-1) stable; urgency=high
+
+  * transitional package
+  * initial release
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Thu, 07 Dec 2017 06:48:44 +1100
+
 piwik (3.2.1-1) stable; urgency=high
 
   * Releasing Piwik 3.2.1

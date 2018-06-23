@@ -21,16 +21,6 @@ if [ "$1" = 'configure' -a -n "$2" ]; then
 	fi
 fi
 
-OBSOLETE_CONFS="/etc/lighttpd/conf-available/50-piwik.conf /etc/apache2/conf.d/piwik.conf /etc/apache2/conf-available/piwik.conf /etc/apache2/conf-available/piwik.conf"
-for C in $OBSOLETE_CONFS; do
-	if [ -e "$C" ]; then
-		echo "  * Found obsolete configuration file related to Piwik in $C"
-	fi
-done
-
 echo "  * Piwik is now Matomo. Matomo configuration files are stored in /etc/matomo/"
-echo "  * /etc/piwik/ has been moved to /etc/piwik.orig and has been kept only for convenience purpose."
-echo "  * Review the changes accordingly."
-
 
 exit 0

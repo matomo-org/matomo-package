@@ -1,18 +1,17 @@
-Source: matomo
+Source: piwik
 Section: web
 Priority: optional
 Maintainer: Aurelien Requiem <aurelien@requiem.fr>
 Build-Depends: debhelper (>=9), unzip
 Standards-Version: 3.8.0
 
-Package: matomo
+Package: piwik
 Architecture: all
 Homepage: http://matomo.org
 Pre-Depends: debconf (>= 0.5.00) | debconf-2.0
-Depends: php5-cli (>= 5.5.9)|php-cli, php5-mysql|php5-mysqlnd|php-mysql, php5-curl|php-curl, php5-gd|php-gd
-Recommends: logrotate, libapache2-mod-php5 (>= 5.3.3)|php5-cgi (>= 5.5.9)|php5-fpm (>= 5.5.9)|libapache2-mod-php|php-cgi|php-fpm, php5-geoip|php-geoip
-Suggests: mariadb-server | mysql-server, geoip-database-extra, php-mbstring
-Description: Leading Free/Libre open source Web Analytics software
+Depends: matomo (>= 3.3.0)
+Description: Transitional package from Piwik to Matomo
+ This package is a transitional package from Piwik to Matomo
  Matomo (formerly Piwik) is a full featured PHP MySQL software program that
  you download and install on your own webserver. At the end of the five minute
  installation process you will be given a JavaScript code. Simply copy and

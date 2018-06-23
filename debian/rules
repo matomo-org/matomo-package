@@ -23,9 +23,6 @@ install: build
 	@dh_testroot
 	@dh_prep
 	@dh_installdirs
-	@$(MAKE) checkfetch DESTDIR=$(CURDIR)/$d
-	@$(MAKE) cleanup DESTDIR=$(CURDIR)/$d
-	@$(MAKE) checkconfig DESTDIR=$(CURDIR)/$d
 	@dh_install
 	@dh_lintian
 	@dh_link
@@ -44,11 +41,6 @@ binary-indep: build install
 	@dh_compress
 	@dh_link
 	@dh_fixperms
-	@$(MAKE) fixperms DESTDIR=$(CURDIR)/$d
-	@$(MAKE) fixsettings DESTDIR=$(CURDIR)/$d
-	@$(MAKE) checklintianlic DESTDIR=$(CURDIR)/$d
-	@$(MAKE) checklintianextralibs DESTDIR=$(CURDIR)/$d
-	@$(MAKE) manifest DESTDIR=$(CURDIR)/$d
 	@dh_installdeb
 	@dh_gencontrol
 	@dh_md5sums

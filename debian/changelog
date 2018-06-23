@@ -1,3 +1,9 @@
+piwik (9.9.1-1) stable; urgency=high
+
+  * initial release for Piwik to Matomo transitional package
+
+ -- Matomo Autonomous Build System <nobody@matomo.org>  Sat, 23 Jun 2018 03:16:05 +0000
+
 piwik (3.2.1-1) stable; urgency=high
 
   * Releasing Piwik 3.2.1

@@ -8,10 +8,22 @@ set -e
 if [ "$1" = "install" ]
 then
 	if [ -d "/etc/piwik" -a ! -e "/etc/piwik.orig" ]; then
+		echo "  * Piwik is now Matomo. Matomo configuration files are stored in /etc/matomo/"
+
 		echo "  * Piwik has been previously installed on this system and its configuration folder"
-		echo "  * remains. We're moving Piwik configuration folder from '/etc/piwik' to"
-		echo "  * '/etc/piwik.orig' so this package can install correctly."
+		echo "  * remains. We're moving Piwik configuration folder from '/etc/piwik' to '/etc/piwik.orig'"
+		echo "  * so this package can install correctly."
+
+		echo "  * Review the configuration changes accordingly."
+
 		mv "/etc/piwik" "/etc/piwik.orig"
+
+		OBSOLETE_CONFS="/etc/lighttpd/conf-available/50-piwik.conf /etc/apache2/conf.d/piwik.conf /etc/apache2/conf-available/piwik.conf "
+		for C in $OBSOLETE_CONFS; do
+			if [ -e "$C" ]; then
+				echo "  * Found obsolete configuration file related to Piwik in $C"
+			fi
+		done
 	fi
 fi
 

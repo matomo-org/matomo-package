@@ -51,8 +51,6 @@ then
 		invoke-rc.d lighttpd reload 2>/dev/null || true
 	fi
 	echo "  * Check Matomo web configuration in /etc/lighttpd/conf-available/50-matomo.conf"
-else
-	echo "Lighttpd not installed, skipping"
 fi
 
 # debian 8 and above
@@ -74,8 +72,6 @@ then
 		fi
 		echo "  * Check Matomo web configuration in /etc/apache2/conf-available/matomo.conf"
 	fi
-else
-	echo "Apache2.4 not installed, skipping"
 fi
 
 # debian 7
@@ -91,8 +87,6 @@ then
 		fi
 		echo "  * Check Matomo web configuration in /etc/apache2/conf.d/matomo.conf"
 	fi
-else
-	echo "Apache2.2 not installed, skipping"
 fi
 
 # Piwik to Matomo configuration migration

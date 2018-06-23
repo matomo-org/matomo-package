@@ -98,7 +98,7 @@ fi
 # Piwik to Matomo configuration migration
 if [ -d "/etc/piwik.orig" ]
 then
-	if [ -e "/etc/piwik.orig/config.ini.php" ]
+	if [ -e "/etc/piwik.orig/config.ini.php" -a ! -e "/etc/matomo/config.ini.php" ]
 	then
 		echo "  * Copying Piwik configuration (/etc/piwik.orig/config.ini.php) to Matomo configuration folder (/etc/matomo/)"
 		cp -pd "/etc/piwik.orig/config.ini.php" "/etc/matomo/config.ini.php"

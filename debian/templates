@@ -19,5 +19,27 @@ _Description: Enable automatic database upgrade for your Piwik installation?
  database queries that need to be executed in the UI.
  .
  You may change the previously selected behaviour using the following debian
- command: dpk-reconfigure piwik
+ command: dpk-reconfigure matomo
+
+Template: matomo/automatic-upgrade
+Type: boolean
+Default: false
+_Description: Enable automatic database upgrade for your Matomo (Piwik) installation?
+ Please choose whether you want to enable automatic database upgrade for your Matomo (Piwik) installation.
+ .
+ From time to time, Piwik database schema must be upgraded so Matomo (Piwik)
+ can continue to work correctly. You have the ability to automate the process
+ so the database is upgraded automatically. Though, you should ensure you
+ have proper backup in place and keep in mind that major Matomo (Piwik) version
+ updates may come with many DB updates that can take a long time.
+ .
+ If you select "yes", the database update will be executed and it remains as
+ such for all future package upgrades when required.
+ .
+ If you select "no", you will need to take care of database updates yourself
+ after a package upgrade. In such a case, Piwik will show the list of
+ database queries that need to be executed in the UI.
+ .
+ You may change the previously selected behaviour using the following debian
+ command: dpk-reconfigure matomo
 

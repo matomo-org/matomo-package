@@ -60,6 +60,7 @@ checkfetch:
 		@if [ ! -f "$(SIG)" ]; then echo -n "$(URL)/$(SIG) "; wget --no-cache -q $(URL)/$(SIG); fi;
 		@if [ ! -f "$(ARCHIVE)" ]; then echo -n "$(URL)/$(ARCHIVE) "; wget --no-cache -q $(URL)/$(ARCHIVE); fi;
 		@echo "done."
+		@gpgconf --kill dirmngr
 		@gpg2 --keyserver keys.gnupg.net --recv-keys $(FINGERPRINT)
 		@echo " [GPG] verify $(FINGERPRINT)" && gpg --verify $(SIG)
 		@echo " [RM] matomo/" && if [ -d "matomo" ]; then rm -rf "matomo"; fi

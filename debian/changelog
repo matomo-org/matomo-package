@@ -1,3 +1,248 @@
+matomo (3.4.0-1) stable; urgency=high
+
+  * Releasing Matomo 3.4.0
+  * JS Tracker, New method `resetUserId` to de-assign a user id after a
+    logout [by @znerol, @mattab] (Closes: #12141)
+  * Let user select how many records / rows to export when clicking for
+    example CSV export (Closes: #8314)
+  * Let me customise the opt-out iframe: fonts, color, sizes (Closes:
+    #12455)
+  * Email reports sent via the cron core:archive task do not contain
+    reports that depend on idsite (Closes: #12560)
+  * Shows icon to disable/enable Zen Mode (full screen view) [by
+    @ryyee99, @mattab] (Closes: #12459)
+  * Added custom URL parameters to style the optOut iframe [by @Jouveer,
+    @mattab] (Closes: #12472)
+  * New Dashboard API methods: `copyDashboardToUser`,
+    `createNewDashboardForUser`, `removeDashboard` and
+    `resetDashboardLayout` [by @sgiehl, @mattab] (Closes: #12587)
+  * Give developers the possibility to compare translation keys in
+    different languages [by @tsteur] (Closes: #12495)
+  * Add more date segments: visitEndServerDate visitEndServerDayOfMonth
+    visitEndServerDayOfWeek visitEndServerDayOfYear, etc. [by @tsteur]
+    (Closes: #12521)
+  * scrollTo feature not working anymore, notifications not visible etc
+    (Closes: #12625)
+  * Chrome: Selecting the tracking code with one click does not work
+    anymore (Closes: #12637)
+  * Small performance improvement in custom tracker [by @tsteur,
+    @mattab] (Closes: #12443)
+  * Fix a possible issue when there are more than 2 billion visits
+    tracked and system is 32 bits [by @mattab] (Closes: #12469)
+  * Format sparklines better (Closes: #12451)
+  * Popover: position the minimise and reload icons correctly [by
+    @Jouveer, @mattab] (Closes: #12458)
+  * Align icon in Row Evolution popover [by @danikachhour, @mattab]
+    (Closes: #12464)
+  * Page Overlay: Replace images with font icons [by @sgiehl] (Closes:
+    #12465)
+  * Improvements to Annotations listing design [by @carmenliao, @mattab]
+    (Closes: #12476)
+  * Move site selector loading indicator to the left [by @Findus23,
+    @sgiehl] (Closes: #12485)
+  * improve styling of shortcut help [by @Findus23, @sgiehl] (Closes:
+    #12486)
+  * update checker display issues [by @sgiehl] (Closes: #12487)
+  * Adds new icons to UI demo page [by @sgiehl, @mattab] (Closes:
+    #12490)
+  * Fixes position of activity indicator [by @sgiehl] (Closes: #12530)
+  * DeviceDetection, display themed "refresh" button [by @alcalyn,
+    @sgiehl] (Closes: #12570)
+  * Remove word "website" from website selector [by @tsteur] (Closes:
+    #9063)
+  * Better adblock detection during setup (Closes: #11660)
+  * Allow to login by Email as well as Username (Closes: #11959)
+  * Hide widgets not working without internet connection if disabled in
+    config [by @sgiehl, @mattab] (Closes: #12279)
+  * Add new keyboard shortcuts for Top/Bottom of page (Closes: #12456)
+  * Embed Widgets page: added link to the Embed reports user guide [by
+    @ryyee99, @mattab] (Closes: #12475)
+  * Improvement maintenance mode message to show a message based on
+    record_statistics value [by @ryyee99, @mattab] (Closes: #12479)
+  * Add possibility to toggle (show/hide) left menu [by @tsteur]
+    (Closes: #9263)
+  * Login and Reset password: improved fields [by @Jouveer, @mattab]
+    (Closes: #12448)
+  * Renames piwik font to matomo [by @sgiehl, @mattab] (Closes: #12489)
+  * updates piwik/* and matomo/* composer packages [by @sgiehl] (Closes:
+    #12645)
+  * UserID "Signing out use-case" - actions still attributed to the same
+    Visitor [by @znerol, @mattab] (Closes: #7556)
+  * E-Mail Report: Page URL Links shifted after "Others" [by @sgiehl]
+    (Closes: #11825)
+  * Page Overlay Information boxes are displayed under menus and divs
+    [by @sgiehl] (Closes: #12168)
+  * Twig Filesystem: Warning - realpath(): open_basedir restriction in
+    effect [by @sgiehl] (Closes: #12280)
+  * Browser widget bug with pagination [by @sgiehl] (Closes: #12369)
+  * Visitor Profile "First visit" does not always show the very first
+    visit [by @sgiehl] (Closes: #12373)
+  * Do not use segment to fetch additional visits for visitor profile
+    [by @sgiehl, @mattab] (Closes: #12374)
+  * Move public static functions out of Live controller [by @sgiehl]
+    (Closes: #12394)
+  * Show error message if visitor in visitor profile could not be found
+    instead of fatal error [by @tsteur, @mattab] (Closes: #12396)
+  * GeoIP re-attribution: debug output now shows changes to visits geo-
+    location [by @lwille, @mattab] (Closes: #12478)
+  * When generating URLs, only strip PATH_INFO when it is not empty [by
+    @mattab] (Closes: #12500)
+  * JS Tracker: expected no warning in the console when addTracker
+    multiple times [by @mattab, @tsteur] (Closes: #12545)
+  * Cloud visualisation may display error "Key 1 for array with keys 0
+    does not exist" [by @sgiehl] (Closes: #12578)
+  * Ensure to also install plugins when there is a POST request [by
+    @tsteur, @sgiehl] (Closes: #12619)
+  * Trigger DB failed exception also for POST API requests [by @tsteur]
+    (Closes: #12621)
+  * [automatic translation update] Updated 2074 strings in 49 languages
+    (hr, de, bn, bs, cy, ta, am, be, bg, ca, eu, gl, he, hu, is, ka, ar,
+    cs, da, el, es, et, fa, fi, fr, hi, id, it, ja, lt, nl, pl, pt-br,
+    ru, sq, sr, sv, tr, uk, zh-cn, zh-tw, ko, nb, nn, pt, ro, th, vi,
+    lv) [by @sgiehl] (Closes: #12514)
+  * [automatic translation update] Updated 1628 strings in 49 languages
+    (bs, ca, el, et, eu, fi, fr, ja, ka, ko, nb, nl, pl, pt-br, sk, sl,
+    sq, sv, tl, tr, vi, zh-cn, zh-tw, it, ar, be, bg, cs, da, de, es,
+    fa, he, hi, hu, id, is, nn, pt, ro, ru, sr, th, uk, lt, lv, ta, gl,
+    bn) [by @sgiehl] (Closes: #12629)
+  * Export overlay for Datatables [by @sgiehl, @mattab] (Closes: #11958)
+  * Fix Tibetan cities display on China's city map [by @fengkaijia,
+    @sgiehl] (Closes: #12103)
+  * Adding some more did you know sections [by @tsteur, @mattab]
+    (Closes: #12356)
+  * Rename metrics that start with "Total" and remove the word Total
+    (Closes: #12359)
+  * Improved Print Versions [by @danikachhour, @mattab] (Closes: #12447)
+  * Changed Feeds URL to HTTPS [by @Jouveer, @mattab] (Closes: #12449)
+  * Websites manager, exclude IP addresses, explain that CIDR notation
+    is supported [by @Jouveer, @mattab] (Closes: #12450)
+  * Modals popover can now be closed with keyboard [by @Jouveer,
+    @mattab] (Closes: #12462)
+  * Aligned all icons to left of menus [by @Jouveer, @mattab] (Closes:
+    #12463)
+  * improve integration in Firefox Quantum and Chrome Android [by
+    @Findus23, @mattab] (Closes: #12491)
+  * During installer, better detect adblockers that may block Matomo
+    css/js files [by @Findus23, @mattab] (Closes: #12493)
+  * Assorted events and changes [by @diosmosis, @tsteur] (Closes:
+    #12496)
+  * Ignore shared hoster files in integrity check [by @Findus23,
+    @sgiehl] (Closes: #12501)
+  * During installation, trim inputs in the database setup page to avoid
+    whitespaces issues [by @mattab] (Closes: #12502)
+  * Use renamed composer packages [by @sgiehl] (Closes: #12518)
+  * Adds audio icon to matomo font [by @sgiehl, @mattab] (Closes:
+    #12520)
+  * Use more font icons instead of images [by @sgiehl] (Closes: #12532)
+  * Better handling of POST tracking requests when page is unloaded
+    (using sendBeacon) [by @tsteur, @mattab] (Closes: #12538)
+  * Fix others row might not be replaced in subtables of others row [by
+    @tsteur] (Closes: #12541)
+  * Update reports cache at least once every hour [by @tsteur, @mattab]
+    (Closes: #12542)
+  * Allow plugins to define custom action types [by @sgiehl] (Closes:
+    #12556)
+  * Update error message in API/UI if date is before 1992 (#12559) [by
+    @simivar, @sgiehl] (Closes: #12561)
+  * Add new Filesystem.allCachesCleared event after all caches cleared.
+    [by @diosmosis, @tsteur] (Closes: #12568)
+  * Key visitsAggregated does not exist as the array is empty in
+    _profileSummaryVisits.twig (Closes: #12579)
+  * Developer documentation: the list of all segments is missing the
+    "Metrics" segments [by @diosmosis] (Closes: #12590)
+  * Update component-cache version to 1.0.2. [by @diosmosis, @tsteur]
+    (Closes: #12591)
+  * JS Tracker, cross domain tracking: new method to get the URL
+    parameters to forward the Visitor id value (&pk_vid=xyz) [by
+    @diosmosis] (Closes: #12602)
+  * Add getCrossDomainLinkingUrlParameter() to allow users to add pk_vid
+    to dynamic links. [by @diosmosis, @mattab] (Closes: #12603)
+  * Allow deleting first dashboard for automation purposes. [by
+    @diosmosis, @mattab] (Closes: #12607)
+  * Better handling of situation when there are no dashboards for a user
+    [by @sgiehl] (Closes: #12608)
+  * Define root path for twig file loader [by @sgiehl, @mattab] (Closes:
+    #12614)
+  * Make dimensions cache site aware since CustomDimensions adds
+    different dimensions based on the current site. [by @diosmosis,
+    @mattab] (Closes: #12618)
+  * Makes report generation site aware [by @sgiehl, @mattab] (Closes:
+    #12626)
+  * Add third party cookie domain setting [by @diosmosis, @mattab]
+    (Closes: #12632)
+  * Show a special offer if one is defined for a plugin [by @tsteur]
+    (Closes: #12652)
+  * add Telegram Messenger [by @Findus23, @sgiehl] (Closes: #41)
+  * Adds detection for search engine Tarmot [by @sgiehl] (Closes: #42)
+  * Add package.json to make the repo compliant with NPM (Closes: #43)
+  * Add Pinterest country specific TLDs to social list [by @boris-hocde,
+    @sgiehl] (Closes: #45)
+  * mention that first URL will be used for icon [by @Findus23, @sgiehl]
+    (Closes: #46)
+  * Improve brand icons (Closes: #9)
+  * Port to more languages (Closes: #5257)
+  * Additional browsers [by @sgiehl] (Closes: #5609)
+  * Adds detection for Doro and Teclast devices [by @sgiehl] (Closes:
+    #5696)
+  * Bugfix/bot parser discard details [by @wazelin, @sgiehl] (Closes:
+    #5699)
+  * Added recognition of ukr.net mail proxy and rambler mail image proxy
+    [by @unisender-dev, @sgiehl] (Closes: #5700)
+  * Some LOGICOM smartphones are being detected as BOT's [by @sgiehl]
+    (Closes: #5701)
+  * New 3rd party .NET Library (Closes: #5703)
+  * Adds detection for some new bots [by @sgiehl] (Closes: #5704)
+  * Adds detection for various new devices and brands [by @sgiehl]
+    (Closes: #5705)
+  * Added support for Windows IoT 10.0 devices [by @nickurt, @sgiehl]
+    (Closes: #5706)
+  * Adds detection for Noblex, STK & Azumi Mobile devices [by @sgiehl]
+    (Closes: #5707)
+  * Adds detection for EKO devices [by @sgiehl] (Closes: #5708)
+  * Lenovo tab4 and sentry [by @weberdever, @sgiehl] (Closes: #5709)
+  * Adds detection for some Samsung devices [by @cb8, @sgiehl] (Closes:
+    #5710)
+  * Adds bot-detection for 3 site monitors [by @NanneHuiges, @sgiehl]
+    (Closes: #5711)
+  * Adds bot-parsers as injectionable objects [by @NanneHuiges, @sgiehl]
+    (Closes: #5712)
+  * Add support for various mobile devices [by @cb8, @sgiehl] (Closes:
+    #5714)
+  * Add NetSurf browser and engine [by @J5lx, @sgiehl, @Findus23]
+    (Closes: #5715)
+  * Added Symfony 4 YAML parser compatibility. [by @klizas, @sgiehl]
+    (Closes: #5716)
+  * Improved detection of Sony TV models [by @JanMachEU, @sgiehl]
+    (Closes: #5718)
+  * StatusCake Bot [by @converdo, @sgiehl] (Closes: #5719)
+  * HubSpot Website Grader Bot detection [by @sgiehl] (Closes: #5720)
+  * Added detection for LG models like 49UJ6307 [by @JanMachEU, @sgiehl]
+    (Closes: #5721)
+  * Web Browser as Chrome detected [by @sgiehl] (Closes: #5722)
+  * Detection of Samsung SmartTV models from 2016-17 [by @JanMachEU,
+    @sgiehl] (Closes: #5723)
+  * Detection of LG OLED models [by @JanMachEU, @sgiehl] (Closes: #5724)
+  * Detection of short Sony models [by @JanMachEU, @sgiehl] (Closes:
+    #5725)
+  * Added detection for Hisense brand [by @JanMachEU, @sgiehl] (Closes:
+    #5726)
+  * Add uptime-[as|eu|us].net [by @woodardj, @spmedia] (Closes: #651)
+  * Add theautoprofit.ml [by @spmedia] (Closes: #652)
+  * Change composer name to matomo/referrer-spam-blacklist [by @sgiehl]
+    (Closes: #653)
+  * PHP Warning: curl_setopt(): You must pass either an object or an
+    array with the CURLOPT_HTTPHEADER argument ? (Closes: #27)
+  * Rename Piwik -> Matomo [by @sgiehl] (Closes: #17)
+  * Make File::getFilename() public and return correct value in
+    File::doFlush(). [by @diosmosis, @tsteur] (Closes: #18)
+  * Rename Piwik -> Matomo [by @sgiehl] (Closes: #12)
+  * Rename Piwik -> Matomo [by @sgiehl] (Closes: #8)
+  * Piwik is now Matomo [by @mattab] (Closes: #206)
+  * Adding two options -add-to-date & -request-suffix [by @diosmosis,
+    @mattab] (Closes: #208)
+
+ -- Matomo Autonomous Build System <nobody@matomo.org>  Sun, 24 Jun 2018 03:22:28 +0000
+
 matomo (3.3.0-1) stable; urgency=high
 
   * Releasing Matomo 3.3.0

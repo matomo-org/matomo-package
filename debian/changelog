@@ -1,3 +1,273 @@
+matomo (3.5.0-1) stable; urgency=high
+
+  * Releasing Matomo 3.5.0
+  * Tracking code could use HTTPS when the Piwik server is configured to
+    force SSL connections [by @sgiehl] (Closes: #7366)
+  * Make geoip backend work with geoip2 [by @sgiehl] (Closes: #4487)
+  * Support for MySQL and SSL Connections (Closes: #7039)
+  * GDPR + Add a couple of new platform features especially around
+    validating settings [by @tsteur, @mattab] (Closes: #12558)
+  * GDPR - Overview / Info screen (Closes: #12594)
+  * GDPR - Right to access data (Closes: #12595)
+  * GDPR - Right to erasure or right to be forgotten (Closes: #12596)
+  * GDPR - Right to rectification (Closes: #12597)
+  * GDPR - The data subject right to restriction of processing / The
+    right to withdraw consent (Closes: #12598)
+  * GDPR - The right to be informed (Closes: #12599)
+  * Matomo Analytics - GDPR Compliance Project (Closes: #12600)
+  * Add FAQ for how to use SSL connections to MySQL (Closes: #12636)
+  * Personal Data Anonymisation & Removal tool for analytics raw data -
+    GDPR compliance (Closes: #12641)
+  * Moves various UI tests to their plugins [by @sgiehl] (Closes:
+    #12649)
+  * iframe opt-in/opt-out code is not properly closed [by @sgiehl]
+    (Closes: #12665)
+  * CorePluginsAdmin.setSystemSettings always saves the plugin settings
+    for all plugins [by @tsteur] (Closes: #12826)
+  * Tracker: Serialization failure: 1213 Deadlock found when trying to
+    get lock (Closes: #6398)
+  * Row evolution with goal crash [by @sgiehl] (Closes: #11526)
+  * Tooltips in conversion overview not working properly [by @sgiehl]
+    (Closes: #12676)
+  * updates php-di package [by @sgiehl, @diosmosis] (Closes: #12831)
+  * GeoIP2 implementation as a plugin [by @sgiehl, @mattab] (Closes:
+    #12699)
+  * Extra spacing in Visitor log when visits include duplicate actions
+    [by @sgiehl] (Closes: #12671)
+  * Saving plugin settings shows loading/saving indicator for all plugin
+    settings (Closes: #12825)
+  * Document config setting multi_server_environment=1 for when Piwik is
+    deployed on multiple servers (Closes: #10777)
+  * New dimensions "Website ID" and "Website name" [by @diosmosis]
+    (Closes: #12409)
+  * Add minimal first party cookie opt out support to JS tracker [by
+    @diosmosis, @mattab] (Closes: #12829)
+  * CLI Archiver should not launch daily and weekly/monthly/yearly
+    archiving at the same time (Closes: #12718)
+  * Visitor log: do not allow to show "all" rows as it can time out [by
+    @diosmosis] (Closes: #12789)
+  * Visitor log should display country/city information without having
+    to hover on the country flag [by @sgiehl] (Closes: #12015)
+  * Fixes regression: rowevolution not working in overlay mode [by
+    @sgiehl] (Closes: #12771)
+  * Invalid MySQL Version when using MariaDB (Closes: #12772)
+  * When setting or resetting User ID, do not update the Visitor ID in
+    the first party cookie [by @mattab] (Closes: #12742)
+  * Show "Keyword not defined" on hover on the Search engine icons [by
+    @sgiehl] (Closes: #12813)
+  * IPv6 Geolocation is not working (Closes: #8601)
+  * Running "./console core:purge-old-archive-data all" fails on some
+    system with [Exception] Date format [by @sgiehl] (Closes: #11778)
+  * When a user deletes a site that is currently selected in the URL,
+    need to redirect another URL [by @diosmosis] (Closes: #12617)
+  * Fatal error: Cannot unset string offsets in JqplotDataGenerator [by
+    @sgiehl] (Closes: #12627)
+  * Overlay API Calls: Not working with View and Admin rights [by
+    @sgiehl] (Closes: #12635)
+  * In Email reports, Page URLs report append directory root pages with
+    /index [by @sgiehl] (Closes: #12651)
+  * Fix pageview metric so it doesn't include events [by @mattab,
+    @diosmosis] (Closes: #12700)
+  * In Row evolution popover may return "Call to a member function
+    toString() on null" [by @sgiehl] (Closes: #12734)
+  * Fix syntax for 'SHOW COLUMNS FROM' on MySQL 8 [by @jedix, @sgiehl]
+    (Closes: #12759)
+  * Fixing missing Google indexed pages and Domain age information in
+    SEO Rankings widget [by @ecobux, @sgiehl] (Closes: #12821)
+  * [automatic translation update] Updated 126 strings in 8 languages
+    (de, es, sl, el, pl, sq, tr, zh-tw) [by @sgiehl] (Closes: #12704)
+  * [automatic translation update] Updated 326 strings in 12 languages
+    (da, cs, de, el, fi, pl, pt-br, sq, tr, et, zh-cn, zh-tw) [by
+    @sgiehl] (Closes: #12793)
+  * [automatic translation update] Updated 16 strings in 4 languages
+    (de, el, pl, tr) [by @sgiehl] (Closes: #12818)
+  * Document heartbeat/"time on page" information for the HTTP Tracking
+    API (Closes: #9477)
+  * Show information in visitor profile if dataset was "truncated" [by
+    @sgiehl, @mattab] (Closes: #12376)
+  * Discard idGoal parameter for row evolution in goal visualizations
+    [by @sgiehl, @mattab] (Closes: #12378)
+  * Option::set() INSERT ... ON DUPLICATE KEY can be slow [by
+    @robocoder, @diosmosis] (Closes: #12550)
+  * On Azure fallback to "select @@version" [by @robocoder, @mattab]
+    (Closes: #12551)
+  * Do not run the same archive command twice [by @tsteur, @mattab]
+    (Closes: #12702)
+  * Added new event to add stylesheets [by @tsteur, @mattab] (Closes:
+    #12705)
+  * During core:archive when a day or period archiving fails for a
+    website, abort the website archiving [by @mattab] (Closes: #12708)
+  * Enable LOAD DATA LOCAL INFILE for PHP >= 5.6.17 when mysqlnd is
+    used. [by @MichaelHeerklotz, @diosmosis, @mattab] (Closes: #12710)
+  * Make sure core:archive terminates when all initial websites have
+    been processed [by @tsteur, @mattab] (Closes: #12716)
+  * Log a job ID for cli commands [by @tsteur, @diosmosis] (Closes:
+    #12717)
+  * piwikUrl.getSearchParam() should not set an empty URL value [by
+    @tsteur, @mattab] (Closes: #12728)
+  * When invalidating a websites report, allow plugins to invalidate
+    additional sites automatically [by @tsteur, @mattab] (Closes:
+    #12729)
+  * Escape ampersands in tracker URLs [by @c960657, @mattab] (Closes:
+    #12731)
+  * This addresses the various dead lock issues when using transactions
+    and multiple recorders. [by @kachenjr, @mattab] (Closes: #12733)
+  * Aggregate 500 events in a sub-table instead of 100 [by @mattab,
+    @sgiehl] (Closes: #12741)
+  * Add possibility to let a plugin generator define the translation key
+    [by @tsteur] (Closes: #12746)
+  * Add Common::stripHeader() [by @c960657, @mattab] (Closes: #12748)
+  * Faster Real Time Maps [by @sgiehl, @mattab] (Closes: #12752)
+  * Empty dashboard page after adding new goal (Closes: #12753)
+  * 3rd party cookie visitor ID value should not change over time [by
+    @mattab] (Closes: #12755)
+  * piwik.js minification: use newer yuicompressor version [by @tsteur,
+    @diosmosis] (Closes: #12774)
+  * Use a higher precision for rates to show more accurate percentage
+    values [by @tsteur, @diosmosis] (Closes: #12775)
+  * Add new icon rocket, upload and bug [by @tsteur] (Closes: #12776)
+  * Prevent tracking failures when invalid goal patterns are defined [by
+    @sgiehl, @diosmosis] (Closes: #12787)
+  * Validate goal pattern and type in API [by @sgiehl] (Closes: #12788)
+  * Add possibility to specify an icon and onclick handler for submenu
+    items [by @tsteur] (Closes: #12791)
+  * Show number of Goals created in the System summary widget [by
+    @sgiehl] (Closes: #12794)
+  * Add new embed icon [by @tsteur, @diosmosis] (Closes: #12802)
+  * Lower limit from 500 to 400 when searching for visits in GDPR data
+    subject search [by @tsteur, @diosmosis] (Closes: #12803)
+  * Added new setting field to configure multiple values [by @tsteur,
+    @diosmosis] (Closes: #12807)
+  * Show activity indicator only for plugin settings that is being
+    updated [by @tsteur] (Closes: #12828)
+  * Update file list that is removed from packages [by @sgiehl,
+    @diosmosis] (Closes: #12830)
+  * GDPR: Document the new JavaScript tracker methods: requireConsent,
+    rememberConsentGiven, forgetConsentGiven, setConsentGiven (Closes:
+    #12835)
+  * GDPR: The feature to pseudo-anonymise User ID is actually "replacing
+    the User ID with a pseudonym" [by @diosmosis] (Closes: #12836)
+  * Use extra salt stored in database for userid anonymization [by
+    @sgiehl, @mattab] (Closes: #12844)
+  * Added missing translation key [by @tsteur, @sgiehl] (Closes: #12850)
+  * Prevent possible view access error [by @tsteur, @mattab] (Closes:
+    #12854)
+  * Mac Chrome cannot detect brandel [by @sgiehl] (Closes: #5728)
+  * Useragents not detected YelpApp (Closes: #5732)
+  * Adds detection for HannSpree tablets [by @sgiehl] (Closes: #5733)
+  * Adds detection for Obi devices [by @sgiehl] (Closes: #5734)
+  * do not track header (Closes: #23)
+  * getVisitIp() does not support IPv6 [by @diosmosis] (Closes: #25)
+  * Support for Heatmaps & Session Recordings [by @diosmosis] (Closes:
+    #26)
+  * Don't set Content-Type to image/gif if tracking debugging is enabled
+    (Closes: #30)
+  * add DNT and X_DO_NOT_TRACK header support [by @level420, @diosmosis]
+    (Closes: #32)
+  * add compatibility with Heatmap & Session Recording (Closes: #33)
+  * Fixing travis build [by @diosmosis] (Closes: #34)
+  * Tracker Proxy doesn't forward beacon POST (Closes: #36)
+  * Added xn--7sbabm1ahc4b2aqff.su [by @kambrium, @spmedia] (Closes:
+    #657)
+  * Added xn--itbbudqejbfpg3l.com [by @kambrium, @spmedia] (Closes:
+    #658)
+  * Added zdorovie-nogi.info [by @kambrium, @spmedia] (Closes: #659)
+  * Added eko-gazon.ru [by @kambrium, @spmedia] (Closes: #660)
+  * Added prodaemdveri.com [by @kambrium, @spmedia] (Closes: #661)
+  * Added dienai.ru [by @kambrium, @spmedia] (Closes: #662)
+  * Added bsell.ru [by @kambrium, @spmedia] (Closes: #663)
+  * Added teplohod-gnezdo.ru [by @kambrium, @spmedia] (Closes: #664)
+  * Added luton-invest.ru [by @kambrium, @spmedia] (Closes: #665)
+  * Added loveorganic.ch [by @kambrium, @spmedia] (Closes: #666)
+  * Added betterhealthbeauty.com [by @kambrium, @spmedia] (Closes: #667)
+  * Added magnetic-bracelets.ru [by @kambrium, @spmedia] (Closes: #668)
+  * Added deart-13.ru [by @kambrium, @spmedia] (Closes: #669)
+  * Added podemnik.pro [by @kambrium, @spmedia] (Closes: #670)
+  * Added komp-pomosch.ru [by @kambrium, @spmedia] (Closes: #671)
+  * Added intex-air.ru [by @kambrium, @spmedia] (Closes: #672)
+  * Added zdm-auto.com [by @kambrium, @spmedia] (Closes: #673)
+  * Added infodocsportal.com [by @kambrium, @spmedia] (Closes: #674)
+  * Added kabinet-online-vtb.ru [by @kambrium, @spmedia] (Closes: #675)
+  * Added svetoch.moscow [by @kambrium, @spmedia] (Closes: #676)
+  * Added podseka1.ru [by @kambrium, @spmedia] (Closes: #677)
+  * Added avtovykup.kz [by @kambrium, @spmedia] (Closes: #678)
+  * Added remkompov.ru [by @kambrium, @spmedia] (Closes: #679)
+  * Added kabinet-tinkoff.ru [by @kambrium, @spmedia] (Closes: #680)
+  * Added artpaint-market.ru [by @kambrium, @spmedia] (Closes: #681)
+  * Added kabinet-ttk.ru [by @kambrium, @spmedia] (Closes: #682)
+  * Added kabinet-click-alfabank.ru [by @kambrium, @spmedia] (Closes:
+    #683)
+  * Added kabinet-my-pochtabank.ru [by @kambrium, @spmedia] (Closes:
+    #684)
+  * Added healbio.ru [by @kambrium, @spmedia] (Closes: #685)
+  * Added inform-ua.info [by @kambrium, @spmedia] (Closes: #686)
+  * Added incitystroy.ru [by @kambrium, @spmedia] (Closes: #687)
+  * Added osteochondrosis.ru [by @kambrium, @spmedia] (Closes: #688)
+  * Added auto-kia-fulldrive.ru [by @kambrium, @spmedia] (Closes: #689)
+  * Added 12u.info [by @kambrium, @spmedia] (Closes: #690)
+  * Added biplanecentre.ru [by @kambrium, @spmedia] (Closes: #691)
+  * Added club-lukojl.ru [by @kambrium, @spmedia] (Closes: #692)
+  * Added sp-laptop.ru [by @kambrium, @spmedia] (Closes: #694)
+  * Added magnetic-bracelets.ru [by @kambrium, @spmedia] (Closes: #695)
+  * Added workius.ru [by @kambrium, @spmedia] (Closes: #696)
+  * Added zahvat.ru [by @kambrium, @spmedia] (Closes: #697)
+  * Added tsatu.edu.ua [by @kambrium, @spmedia] (Closes: #698)
+  * Added inet-shop.su [by @kambrium, @spmedia] (Closes: #699)
+  * Add animenime.ru [by @ericguirbal, @spmedia] (Closes: #700)
+  * Update README.md [by @spmedia] (Closes: #702)
+  * Update spammers.txt [by @spmedia] (Closes: #708)
+  * Sort the spammers and remove duplicates [by @ericguirbal, @spmedia]
+    (Closes: #718)
+  * Add prosmibank.ru [by @ericguirbal, @spmedia] (Closes: #719)
+  * Add happysong.ru [by @ericguirbal, @spmedia] (Closes: #720)
+  * Add lerporn.info [by @ericguirbal, @spmedia] (Closes: #721)
+  * Add skinali.photo-clip.ru [by @ericguirbal, @spmedia] (Closes: #722)
+  * Add goodhumor24.com [by @ericguirbal, @spmedia] (Closes: #723)
+  * Add autoblog.org.ua [by @ericguirbal, @spmedia] (Closes: #724)
+  * Add spb-scenar.ru [by @ericguirbal, @spmedia] (Closes: #725)
+  * Add metallo-konstruktsii.ru [by @ericguirbal, @spmedia] (Closes:
+    #726)
+  * Add kerch.site [by @ericguirbal, @spmedia] (Closes: #727)
+  * Add sundrugstore.com [by @ericguirbal, @spmedia] (Closes: #728)
+  * Add store-rx.com [by @ericguirbal, @spmedia] (Closes: #729)
+  * Add med-dopomoga.com [by @ericguirbal, @spmedia] (Closes: #730)
+  * Add popugaychiki.com [by @ericguirbal, @spmedia] (Closes: #731)
+  * Add incomekey.net [by @ericguirbal, @spmedia] (Closes: #732)
+  * Add office2web.com [by @ericguirbal, @spmedia] (Closes: #733)
+  * Add xn--80aaajkrncdlqdh6ane8t.xn--p1ai [by @ericguirbal, @spmedia]
+    (Closes: #734)
+  * Add unlimitdocs.net [by @ericguirbal, @spmedia] (Closes: #735)
+  * Add documentsite.net [by @ericguirbal, @spmedia] (Closes: #736)
+  * Add docsarchive.net [by @ericguirbal, @spmedia] (Closes: #737)
+  * Add picturesmania.com [by @ericguirbal, @spmedia] (Closes: #738)
+  * Add univerfiles.com [by @ericguirbal, @spmedia] (Closes: #739)
+  * Add documentbase.net [by @ericguirbal, @spmedia] (Closes: #740)
+  * Add edudocs.net [by @ericguirbal, @spmedia] (Closes: #741)
+  * Add columb.net.ua [by @ericguirbal, @spmedia] (Closes: #742)
+  * Add msu.kharlov.ua [by @ericguirbal, @spmedia] (Closes: #743)
+  * Add xn--7sbabn5abjehfwi8bj.xn--p1ai [by @ericguirbal, @spmedia]
+    (Closes: #744)
+  * Add pornohd1080.online [by @ericguirbal, @spmedia] (Closes: #745)
+  * Add game300.ru [by @ericguirbal, @spmedia] (Closes: #746)
+  * Add dermatovenerologiya.com [by @ericguirbal, @spmedia] (Closes:
+    #747)
+  * Add ek-invest.ru [by @ericguirbal, @spmedia] (Closes: #748)
+  * Add sovetskie-plakaty.ru [by @ericguirbal, @spmedia] (Closes: #750)
+  * Add laminat.com.ua [by @ericguirbal, @spmedia] (Closes: #751)
+  * Add hoztorg-opt.ru [by @ericguirbal, @spmedia] (Closes: #752)
+  * Add komputers-best.ru [by @ericguirbal, @spmedia] (Closes: #753)
+  * Add docsportal.net [by @ericguirbal, @spmedia] (Closes: #755)
+  * Add studentguide.ru [by @ericguirbal, @spmedia] (Closes: #756)
+  * Add mikozstop.com [by @ericguirbal, @spmedia] (Closes: #757)
+  * Add docs4all.com [by @ericguirbal, @spmedia] (Closes: #758)
+  * Added 140 spammers [by @kambrium, @spmedia] (Closes: #777)
+  * Update spammers.txt [by @spmedia] (Closes: #779)
+  * abc.xyz included? (Closes: #781)
+  * Update spammers.txt [by @spmedia] (Closes: #783)
+  * Update spammers.txt [by @spmedia] (Closes: #784)
+
+ -- Matomo Autonomous Build System <nobody@matomo.org>  Sun, 24 Jun 2018 03:30:46 +0000
+
 matomo (3.4.0-1) stable; urgency=high
 
   * Releasing Matomo 3.4.0

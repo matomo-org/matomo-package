@@ -1,3 +1,94 @@
+matomo (3.3.0-1) stable; urgency=high
+
+  * Releasing Matomo 3.3.0
+  * Piwik is now Matomo [by @tsteur] (Closes: #12410)
+  * All Websites view does not truncate website title when title is very
+    long [by @sgiehl] (Closes: #12386)
+  * API: when an invalid format is specified, keep the error message
+    shorter [by @mattab, @sgiehl] (Closes: #12401)
+  * Multi-Channel attribution modelling (Closes: #6064)
+  * Hide duplicate actions in visitor log by default [by @sgiehl]
+    (Closes: #12160)
+  * Consider matomo-org as official github owner [by @tsteur] (Closes:
+    #12414)
+  * Fixes memory leak in piwikApiService. [by @jvilk, @tsteur] (Closes:
+    #12249)
+  * Piwik 3.2.1 Right Sidebar Menu issue [by @sgiehl] (Closes: #12334)
+  * in the console command diagnostics:run, display a success message
+    when all checks are green [by @mattab] (Closes: #12342)
+  * Email server settings: disable fields auto completion [by @mattab,
+    @tsteur] (Closes: #12404)
+  * use SPDX license specifier for plugins (Closes: #12429)
+  * visitor log: grouping hides information [by @sgiehl] (Closes: #9586)
+  * [automatic translation update] Updated 1069 strings in 13 languages
+    (fi, cs, fr, ru, sq, tr, ro, de, ja, zh-tw, sv, el, pl) [by @sgiehl]
+    (Closes: #12419)
+  * Upgrade to latest Travis CI infrastructure [by @mneudert] (Closes:
+    #11986)
+  * Ability to customise the piwik/tmp directory path in
+    config/config.ini.php file [by @iMarkus, @mattab] (Closes: #12189)
+  * Usort Warning ReportsProvider.php line 166 [by @sgiehl] (Closes:
+    #12281)
+  * Extends TestRunner options for Travis trusty distribution selection
+    [by @mneudert, @sgiehl] (Closes: #12295)
+  * Adds segment for device model [by @sgiehl] (Closes: #12298)
+  * Adds segmented visitor log for provider report [by @sgiehl, @mattab]
+    (Closes: #12299)
+  * Release Piwik 3.2.1 [by @mattab] (Closes: #12333)
+  * Respect maintenance mode when archiving [by @tsteur] (Closes:
+    #12339)
+  * When general settings admin is disabled, do not show archive
+    settings [by @tsteur] (Closes: #12343)
+  * Integrity check in Piwik-3.2.1 shows essential core
+    directories/files as 'deletable'... [by @sgiehl] (Closes: #12344)
+  * Improves truncate twig filter [by @sgiehl, @mattab] (Closes: #12347)
+  * Log Analytics: use latest submodule [by @mattab] (Closes: #12350)
+  * JS Tracker: make setSecureCookie work [by @mattab] (Closes: #12355)
+  * Show trace in log message only if enabled. [by @tsteur, @mattab,
+    @sgiehl] (Closes: #12357)
+  * Files integrity system check messages (Closes: #12362)
+  * Truncate multisites label if too long [by @sgiehl, @tsteur] (Closes:
+    #12387)
+  * Prevent fatal error message when accessing visitor log without
+    access [by @tsteur] (Closes: #12393)
+  * Prevent possible error languageTranslateWithCode is not defined [by
+    @tsteur] (Closes: #12398)
+  * UI test improvements [by @sgiehl] (Closes: #12405)
+  * Fix theme color regression [by @sgiehl, @tsteur] (Closes: #12407)
+  * Delete PULL_REQUEST_TEMPLATE [by @Findus23, @tsteur] (Closes:
+    #12412)
+  * Further Piwik.org => Matomo.org replacements [by @tsteur] (Closes:
+    #12415)
+  * Update default DB table prefix [by @tsteur, @mattab] (Closes:
+    #12416)
+  * Show Matomo instead of Piwik in the user interface in more places
+    [by @mattab] (Closes: #12421)
+  * Mention name change in the developer changelog [by @tsteur] (Closes:
+    #12424)
+  * Matomo 3.3.0-b2 [by @mattab] (Closes: #12427)
+  * Show the 'Piwik is Matomo' banner after the successful upgade [by
+    @mattab] (Closes: #12434)
+  * Log Analytics: Track the HTTP request method used for each request
+    (GET or POST) [by @sgiehl] (Closes: #25)
+  * Piwik & self signed certificates : urlopen error [SSL:
+    CERTIFICATE_VERIFY_FAILED] certificate verify failed. Add new -
+    accept-invalid-ssl-certificate [by @ntd] (Closes: #138)
+  * Adds option to enable tracking of HTTP-method as page custom
+    variable [by @sgiehl, @mattab] (Closes: #183)
+  * Abort with warning when using Python 3 [by @mneudert, @mattab]
+    (Closes: #195)
+  * Invalid log lines with common_complete log format (Closes: #197)
+  * Only issue an invalid line status, when the line was really invalid
+    and skipped [by @mattab] (Closes: #198)
+  * Add -accept-invalid-ssl-certificate option. [by @smarsching,
+    @mattab] (Closes: #199)
+  * Make code compatible with Python <=2.7.8. [by @smarsching, @mattab]
+    (Closes: #200)
+  * Run _get_token_auth after config object is initialized. [by
+    @smarsching, @mattab] (Closes: #201)
+
+ -- Matomo Autonomous Build System <nobody@matomo.org>  Sat, 23 Jun 2018 09:48:06 +0000
+
 piwik (3.2.1-1) stable; urgency=high
 
   * Releasing Piwik 3.2.1

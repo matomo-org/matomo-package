@@ -1,3 +1,109 @@
+matomo (3.5.1-1) stable; urgency=high
+
+  * Releasing Matomo 3.5.1
+  * See IP addresses in Real-time visitor widget [by @sgiehl] (Closes:
+    #12876)
+  * Show privacy notice when signing up for a newsletter during
+    installation [by @diosmosis] (Closes: #12921)
+  * Row evolution broken [by @sgiehl] (Closes: #12862)
+  * Tooltip for limit selector appears even when limit selector is open
+    [by @sgiehl] (Closes: #12937)
+  * Rename Actions and Referrers in reporting menu [by @diosmosis]
+    (Closes: #12750)
+  * Check configured variables for availability in GeoIP2 server module
+    [by @sgiehl, @diosmosis] (Closes: #12892)
+  * Slightly faster location provider instance creation [by @tsteur,
+    @diosmosis] (Closes: #12967)
+  * Rename "Users" report to "User IDs" and move it down the list [by
+    @sgiehl] (Closes: #12806)
+  * Leave the help text always displayed once the Help icon was clicked
+    [by @sgiehl] (Closes: #12895)
+  * Add possibility to trigger the archiving only for a specific plugin
+    [by @tsteur, @diosmosis] (Closes: #12945)
+  * GeoIPAutoUpdater fails updating geoip2 database with .mmdb file
+    ending [by @mattab] (Closes: #11049)
+  * Super users are not anonymous [by @letharion, @diosmosis] (Closes:
+    #12766)
+  * The Visitor Map does not show unique visitors at city level [by
+    @sgiehl] (Closes: #12860)
+  * Prevent possible fatal when showing deleted goals in visitor profile
+    [by @sgiehl, @diosmosis] (Closes: #12910)
+  * Invalid MySQL Version [by @tsteur] (Closes: #12927)
+  * Fix DI is not used in tracker updater command [by @tsteur,
+    @diosmosis] (Closes: #12944)
+  * Fixed undefined APIRequest in Visualization.php [by @bagbag,
+    @sgiehl] (Closes: #12947)
+  * Update Intl translations to CLDR 33 [by @c960657, @sgiehl] (Closes:
+    #12890)
+  * [automatic translation update] Updated 273 strings in 13 languages
+    (ar, da, de, fa, fr, hu, pl, pt-br, pt, sq, tr, zh-tw, el) [by
+    @sgiehl] (Closes: #12912)
+  * [automatic translation update] Updated 427 strings in 47 languages
+    (am, ar, be, bg, ca, cs, da, de, el, es, et, eu, fa, fi, fr, gl, he,
+    hi, hu, id, is, it, ja, ka, ko, lt, lv, nb, nl, nn, pl, pt-br, pt,
+    ro, ru, sk, sl, sq, sr, sv, th, tl, tr, uk, vi, zh-cn, zh-tw) [by
+    @sgiehl] (Closes: #12982)
+  * EU is called "Unknown" in the country overview (Closes: #11588)
+  * Improve and split tests [by @sgiehl, @diosmosis] (Closes: #12822)
+  * Move the "Locations" menu just above the "Real-time Map" [by
+    @sgiehl] (Closes: #12852)
+  * Add rel="noopener noreferrer" to a link [by @nico3333fr, @sgiehl]
+    (Closes: #12861)
+  * In the GDPR Overview display the log data retention policy as
+    configured [by @sgiehl] (Closes: #12864)
+  * Make archive_tar compatible with PHP 7.2 [by @futureweb, @sgiehl]
+    (Closes: #12872)
+  * Allow use of GeoLite2-ASN database as ISP database [by @sgiehl,
+    @diosmosis] (Closes: #12874)
+  * Improves realtime widget [by @sgiehl, @diosmosis] (Closes: #12884)
+  * Deactivate other Geoip2 plugins when the official GeoIp2 plugin is
+    activated [by @sgiehl] (Closes: #12886)
+  * Display visitor provider in Real time widget [by @sgiehl] (Closes:
+    #12887)
+  * Prevent undefined index 'enable_ssl' warning [by @sundbry, @sgiehl]
+    (Closes: #12900)
+  * Document "How do I create a custom opt-out form?" [by @diosmosis]
+    (Closes: #12905)
+  * Improve report documentation of search keywords report [by @sgiehl]
+    (Closes: #12911)
+  * Add new method to detect if root request is an API request [by
+    @tsteur] (Closes: #12913)
+  * Improve memory usage for some action archivers [by @tsteur,
+    @diosmosis] (Closes: #12930)
+  * Disallow change of GeoIp2 server variables if GeoLocation admin is
+    disabled [by @sgiehl, @diosmosis] (Closes: #12941)
+  * Allow numbers in css font family for opt out iframe [by @sgiehl,
+    @diosmosis] (Closes: #12953)
+  * Geoip1 should still be available even when Geoip2 is available [by
+    @mattab] (Closes: #12959)
+  * Added a few mobile user-agents (mostly top Android devices) [by
+    @GregOriol, @sgiehl] (Closes: #5735)
+  * Added a few mobile user-agents (mostly rare Android devices) [by
+    @GregOriol, @sgiehl] (Closes: #5736)
+  * Google bots not detected [by @sgiehl] (Closes: #5738)
+  * Syntax regular browser.yml errror (JS) [by @sgiehl] (Closes: #5739)
+  * Added a few more mobile device variants [by @GregOriol, @sgiehl]
+    (Closes: #5740)
+  * Convert multidimensional query parameter args in URLs correctly [by
+    @diosmosis] (Closes: #211)
+  * Support Opt-Out Cookie and forward Opt-Out iFrame (Closes: #29)
+  * Readme needs updating (Closes: #41)
+  * tracker proxy compatible with php 5.2 again [by @frictionel,
+    @mattab] (Closes: #44)
+  * Add uptime-gamma.net (Closes: #654)
+  * Add atyks.ru [by @ericguirbal, @spmedia] (Closes: #785)
+  * Update spammers.txt [by @spmedia] (Closes: #808)
+  * Add shnyagi.net [by @ericguirbal, @spmedia] (Closes: #809)
+  * Add comp-pomosch.ru [by @ericguirbal, @spmedia] (Closes: #810)
+  * Add gandikapper.ru [by @ericguirbal, @spmedia] (Closes: #812)
+  * Add hyip-zanoza.me [by @ericguirbal, @spmedia] (Closes: #813)
+  * Add yaderenergy.ru [by @ericguirbal, @spmedia] (Closes: #814)
+  * Add vzheludke.com [by @ericguirbal, @spmedia] (Closes: #815)
+  * so.m.sm.cn not detected correctly [by @sgiehl] (Closes: #48)
+  * Add coccoc.com search engine [by @hongquan, @sgiehl] (Closes: #50)
+
+ -- Matomo Autonomous Build System <nobody@matomo.org>  Sun, 24 Jun 2018 03:35:23 +0000
+
 matomo (3.5.0-1) stable; urgency=high
 
   * Releasing Matomo 3.5.0

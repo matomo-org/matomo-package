@@ -18,7 +18,7 @@ then
 
 		mv "/etc/piwik" "/etc/piwik.orig"
 
-		OBSOLETE_CONFS="/etc/lighttpd/conf-available/50-piwik.conf /etc/apache2/conf.d/piwik.conf /etc/apache2/conf-available/piwik.conf "
+		OBSOLETE_CONFS="/etc/lighttpd/conf-available/50-piwik.conf /etc/apache2/conf.d/piwik.conf /etc/apache2/conf-available/piwik.conf"
 		for C in $OBSOLETE_CONFS; do
 			if [ -e "$C" ]; then
 				echo "  * Found obsolete configuration file related to Piwik in $C"

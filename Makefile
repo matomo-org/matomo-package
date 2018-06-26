@@ -250,6 +250,7 @@ newrelease:
 # creates a new version in debian/changelog
 newversion:
 		@debchange --changelog debian/changelog -i --urgency $(URGENCY)
+		@debchange --changelog debian/changelog --force-distribution $(DIST) --urgency $(URGENCY) -r
 
 # allow user to enter one or more changelog comment manually
 changelog:

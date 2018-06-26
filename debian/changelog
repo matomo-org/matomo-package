@@ -1,3 +1,9 @@
+matomo (3.5.1-2) stable; urgency=high
+
+  * updated apache configuration to point to matomo installation folder
+
+ -- Matomo Autonomous Build System <nobody@matomo.org>  Tue, 26 Jun 2018 07:35:50 +0000
+
 matomo (3.5.1-1) stable; urgency=high
 
   * Releasing Matomo 3.5.1

@@ -102,7 +102,7 @@ function checkEnv() {
 	if [ ! -x "/usr/bin/git-lfs" -o ! -x "$(which git-lfs)" ]
 	then
 		echo "Warning: Cannot find git-lfs. Cloning Matomo may take more space than usual..."
-		echo "WArning: Hit CTRL+C to stop now, or wait a few seconds to continue."
+		echo "Warning: Hit CTRL+C to stop now, or wait a few seconds to continue."
 		sleep 5
 	fi
 
@@ -158,7 +158,7 @@ function organizePackage() {
 	rm -rf vendor/tecnickcom/tcpdf/examples
 	rm -rf vendor/tecnickcom/tcpdf/CHANGELOG.TXT
 	rm -rf vendor/guzzle/guzzle/docs/
-	rm -rf vendor/davaxi/sparkline/!(src|LICENSE)
+	rm -rf vendor/davaxi/sparkline/tests
 	rm -rf vendor/php-di/php-di/benchmarks/
 	rm -rf vendor/geoip2/geoip2/.gitmodules
 	rm -rf vendor/geoip2/geoip2/.php_cs

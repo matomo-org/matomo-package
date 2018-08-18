@@ -361,8 +361,10 @@ for F in $FLAVOUR; do
 	git commit -m'committing UI tests to avoid git checkout failures...'
 
 	echo -e "Now checking out the tag!"
-	git checkout -b "build" "tags/$VERSION" > /dev/null
-	[ "$?" -eq "0" ] || die "tag $VERSION does not exist in repository"
+	if ! git checkout -b "build" "tags/$VERSION" > /dev/null
+	then
+		die "tag $VERSION does not exist in repository"
+	fi
 
 	# clone submodules that should be in the release
 	for P in $(git submodule status | grep -E $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')

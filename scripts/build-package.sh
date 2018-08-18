@@ -308,6 +308,7 @@ else
 		echo "Using Cache from $CACHE_DIRECTORY"
 	else
 		Usage "$0"
+	fi
 fi
 
 # check for local requirements

@@ -23,6 +23,7 @@ URL_REPO=https://github.com/matomo-org/matomo.git
 
 LOCAL_REPO="matomo_last_version_git"
 LOCAL_ARCH="archives"
+CACHE_DIRECTORY="/srv/matomo-cache/"
 
 REMOTE_SERVER="matomo.org"
 REMOTE_LOGIN="piwik-builds"
@@ -59,9 +60,10 @@ trap "script_cleanup" EXIT
 
 function Usage() {
 	echo -e "ERROR: This command is missing one or more option. See help below."
-	echo -e "$0 version [flavour]"
+	echo -e "$0 version [flavour] [cache]"
 	echo -e "\t* version: Package version under which you want the archive to be published."
 	echo -e "\t* flavour: Base name of your archive. Can either be 'matomo' or 'piwik'. If unspecified, both archives are generated."
+	echo -e "\t* cache: Set to 'true' if you want to use a repository-cache in $CACHE_DIRECTORY."
 	# exit with code 1 to indicate an error.
 	exit 1
 }
@@ -298,6 +300,16 @@ else
 	fi
 fi
 
+if [ -z "$3" ]; then
+	CACHE=false
+else
+	if [ "$3" == "true" ]; then
+		CACHE=true
+		echo "Using Cache from $CACHE_DIRECTORY"
+	else
+		Usage "$0"
+
+
 # check for local requirements
 checkEnv
 
@@ -323,7 +335,7 @@ for F in $FLAVOUR; do
 
 	cd $BUILD_DIR
 
-	if ! [ -d "$LOCAL_REPO" ]
+	if ! [ "$CACHE" == true ] && [ -d "$CACHE_DIRECTORY" ]
 	then
 		# for this to work 'git-lfs' has to be installed on the local machine
 		#export GIT_TRACE_PACKET=1
@@ -334,6 +346,14 @@ for F in $FLAVOUR; do
 		then
 			die "Error: Failed to clone git repository $URL_REPO"
 		fi
+		if [ "$CACHE" == true ]; then
+			copy repo to 
+			rm -rf "$CACHE_DIRECTORY"
+			cp -r "$LOCACL_REPO" "$CACHE_DIRECTORY"
+		fi
+	else
+		echo "copy repo from cache directory"
+		mv "$CACHE_DIRECTORY" "$LOCAL_REPO"
 	fi
 
 	echo -e "Working in $LOCAL_REPO"

@@ -283,7 +283,7 @@ if [ -z "$1" ]; then
 	Usage "$0"
 else
 	VERSION="$1"
-	MAJOR_VERSION=`echo "$VERSION" | cut -d'.' -f1`
+	MAJOR_VERSION=$(echo "$VERSION" | cut -d'.' -f1)
 fi
 
 if [ -z "$2" ]; then

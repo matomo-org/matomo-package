@@ -69,37 +69,37 @@ function Usage() {
 
 # check local environment for all required apps/tools
 function checkEnv() {
-	if [ ! -x "/usr/bin/curl" -o ! -x "$(which curl)" ]
+	if [ ! -x "/usr/bin/curl" ] || [ ! -x "$(which curl)" ]
 	then
 		die "Cannot find curl"
 	fi
 
-	if [ ! -x "/usr/bin/git" -o ! -x "$(which git)" ]
+	if [ ! -x "/usr/bin/git" ] || [ ! -x "$(which git)" ]
 	then
 		die "Cannot find git"
 	fi
 
-	if [ ! -x "/usr/bin/php" -o ! -x "$(which php)" ]
+	if [ ! -x "/usr/bin/php" ] || [ ! -x "$(which php)" ]
 	then
 		die "Cannot find php"
 	fi
 
-	if [ ! -x "/usr/bin/gpg" -o ! -x "$(which gpg)" ]
+	if [ ! -x "/usr/bin/gpg" ] || [ ! -x "$(which gpg)" ]
 	then
 		die "Cannot find gpg"
 	fi
 
-	if [ ! -x "/usr/bin/zip" -o ! -x "$(which zip)" ]
+	if [ ! -x "/usr/bin/zip" ] || [ ! -x "$(which zip)" ]
 	then
 		die "Cannot find zip"
 	fi
 
-	if [ ! -x "/usr/bin/mail" -o ! -x "$(which mail)" ]
+	if [ ! -x "/usr/bin/mail" ] || [ ! -x "$(which mail)" ]
 	then
 		die "Cannot find mail"
 	fi
 
-	if [ ! -x "/usr/bin/git-lfs" -o ! -x "$(which git-lfs)" ]
+	if [ ! -x "/usr/bin/git-lfs" ] || [ ! -x "$(which git-lfs)" ]
 	then
 		echo "Warning: Cannot find git-lfs. Cloning Matomo may take more space than usual..."
 		echo "Warning: Hit CTRL+C to stop now, or wait a few seconds to continue."
@@ -290,7 +290,7 @@ if [ -z "$2" ]; then
 	FLAVOUR="matomo piwik"
 	echo "Building 'matomo' and 'piwik' archives"
 else
-	if [ "$2" != "matomo" -a "$2" != "piwik" ]; then
+	if [ "$2" != "matomo" ] && [ "$2" != "piwik" ]; then
 		Usage "$0"
 	else
 		FLAVOUR="$2"
@@ -330,7 +330,7 @@ for F in $FLAVOUR; do
 		#export GIT_TRACE=1
 		#export GIT_CURL_VERBOSE=1
 		git clone --config filter.lfs.smudge="git-lfs smudge --skip" "$URL_REPO" "$LOCAL_REPO"
-		if [ "$?" -ne "0" -o ! -d "$LOCAL_REPO" ]
+		if [ "$?" -ne "0" ] || [ ! -d "$LOCAL_REPO" ]
 		then
 			die "Error: Failed to clone git repository $URL_REPO"
 		fi

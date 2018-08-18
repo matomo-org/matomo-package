@@ -330,7 +330,7 @@ for F in $FLAVOUR; do
 		#export GIT_TRACE=1
 		#export GIT_CURL_VERBOSE=1
 		git clone --config filter.lfs.smudge="git-lfs smudge --skip" "$URL_REPO" "$LOCAL_REPO"
-		if [ "$?" -ne "0" ] || [ ! -d "$LOCAL_REPO" ]
+		if [ "$?" -ne "0" ] || [ ! -d "$LOCAL_REPO" ] # don't add another line in from of this one as "$?" would then check its result instead
 		then
 			die "Error: Failed to clone git repository $URL_REPO"
 		fi

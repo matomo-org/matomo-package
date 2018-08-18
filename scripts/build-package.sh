@@ -50,7 +50,7 @@ CURRENT_DIR="$(pwd)"
 
 # this is where our build script is.
 WORK_DIR="$(mktemp -d)"
-cd "$WORK_DIR"
+cd "$WORK_DIR" || exit
 
 # this is where our Matomo is going to be built
 BUILD_DIR=$WORK_DIR/archives/
@@ -119,7 +119,7 @@ function script_cleanup() {
 	# setting back umask
 	umask $UMASK
 
-	cd "$CURRENT_DIR"
+	cd "$CURRENT_DIR" || exit
 }
 
 # report error and exit
@@ -321,7 +321,7 @@ for F in $FLAVOUR; do
 	[ -d "$LOCAL_ARCH" ] || mkdir "$LOCAL_ARCH"
 	[ -d "$BUILD_DIR" ] || mkdir "$BUILD_DIR"
 
-	cd $BUILD_DIR
+	cd $BUILD_DIR || exit
 
 	if ! [ -d "$LOCAL_REPO" ]
 	then
@@ -337,7 +337,7 @@ for F in $FLAVOUR; do
 	fi
 
 	echo -e "Working in $LOCAL_REPO"
-	cd "$LOCAL_REPO"
+	cd "$LOCAL_REPO" || exit
 
 	# we need to exclude LFS files from the upcoming git clone/git checkout,
 	# unfortunately this git config command does not work...
@@ -372,12 +372,12 @@ for F in $FLAVOUR; do
 	done
 
 	# leave $LOCAL_REPO folder
-	cd ..
+	cd .. || exit
 
 	echo "copying files to a new directory..."
 	[ -d "$F" ] && rm -rf "$F"
 	cp -pdr "$LOCAL_REPO" "$F"
-	cd "$F"
+	cd "$F" || exit
 
 	[ "$(git describe --exact-match --tags HEAD)" = "$VERSION" ] || die "could not checkout to the tag for this version, make sure tag exists"
 
@@ -390,7 +390,7 @@ for F in $FLAVOUR; do
 	organizePackage
 
 	# leave $F folder
-	cd ..
+	cd .. || exit
 
 	echo "packaging release..."
 	rm "../$LOCAL_ARCH/$F-$VERSION.zip" 2> /dev/null

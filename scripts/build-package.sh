@@ -386,7 +386,10 @@ for F in $FLAVOUR; do
 	echo "Preparing release $VERSION"
 	echo "Matomo version in core/Version.php: $(grep "'$VERSION'" core/Version.php)"
 
-	[ "$(grep "'$VERSION'" core/Version.php | wc -l)" = "1" ] || die "version $VERSION does not match core/Version.php";
+	if ! grep "'$VERSION'" core/Version.php
+	then
+		die "version $VERSION does not match core/Version.php"
+	fi
 
 	echo "Organizing files and generating manifest file..."
 	organizePackage

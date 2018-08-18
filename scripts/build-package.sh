@@ -336,7 +336,7 @@ for F in $FLAVOUR; do
 
 	cd $BUILD_DIR
 
-	if [ "$CACHE" != true ] || [ -d "$CACHE_DIRECTORY" ]
+	if [ "$CACHE" != true ] || [ ! -d "$CACHE_DIRECTORY" ]
 	then
 		# for this to work 'git-lfs' has to be installed on the local machine
 		#export GIT_TRACE_PACKET=1
@@ -348,9 +348,9 @@ for F in $FLAVOUR; do
 			die "Error: Failed to clone git repository $URL_REPO"
 		fi
 		if [ "$CACHE" == true ]; then
-			copy repo to 
+			echo copy repo to cache directory
 			rm -rf "$CACHE_DIRECTORY"
-			cp -r "$LOCACL_REPO" "$CACHE_DIRECTORY"
+			cp -r "$LOCAL_REPO" "$CACHE_DIRECTORY"
 		fi
 	else
 		echo "copy repo from cache directory"

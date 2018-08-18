@@ -417,8 +417,8 @@ FILES=""
 for ext in zip tar.gz
 do
 	for F in $FLAVOUR; do
-		gpg --verify "../$LOCAL_ARCH/$F-$VERSION.$ext.asc"
-		if [ "$?" -ne "0" ]; then
+		if ! gpg --verify "../$LOCAL_ARCH/$F-$VERSION.$ext.asc"
+		then
 			die "Failed to verify signature for ../$LOCAL_ARCH/$F-$VERSION.$ext"
 		fi
 		FILES="$FILES ../$LOCAL_ARCH/$F-$VERSION.$ext ../$LOCAL_ARCH/$F-$VERSION.$ext.asc"

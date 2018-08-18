@@ -433,9 +433,9 @@ scp -p "$FILES" "${REMOTE}:$REMOTE_HTTP_PATH/"
 
 for F in $FLAVOUR
 do
-	if [ "$(echo "$VERSION" | grep -E 'rc|b|a|alpha|beta|dev' -i | wc -l)" -eq 1 ]
+	if echo "$VERSION" | grep -E 'rc|b|a|alpha|beta|dev' -i
 	then
-		if [ "$(echo "$VERSION" | grep -E 'rc|b|beta' -i | wc -l)" -eq 1 ]
+		if echo "$VERSION" | grep -E 'rc|b|beta' -i
 		then
 			echo -e "Beta or RC release"
 

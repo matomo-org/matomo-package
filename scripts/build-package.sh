@@ -336,7 +336,7 @@ for F in $FLAVOUR; do
 
 	cd $BUILD_DIR
 
-	if ! [ "$CACHE" == true ] && [ -d "$CACHE_DIRECTORY" ]
+	if [ "$CACHE" == true ] && [ -d "$CACHE_DIRECTORY" ]
 	then
 		# for this to work 'git-lfs' has to be installed on the local machine
 		#export GIT_TRACE_PACKET=1

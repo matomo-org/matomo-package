@@ -7,8 +7,8 @@ This repository contains:
 
 ## Debian Package
 
- * [debian/Readme.debian](https://github.com/matomo/matomo-package/blob/master/debian/README.Debian#readme) - How to use the Debian package and setup Matomo on your Debian server.
- * [debian/Readme.md](https://github.com/matomo/matomo-package/tree/master/debian#readme) - Guide for Matomo staff in charge of generating the Debian package. System administrators may also be interested in this documentation.
+ * [debian/Readme.debian](https://github.com/matomo-org/matomo-package/blob/master/debian/README.Debian#readme) - How to use the Debian package and setup Matomo on your Debian server.
+ * [debian/Readme.md](https://github.com/matomo-org/matomo-package/tree/master/debian#readme) - Guide for Matomo staff in charge of generating the Debian package. System administrators may also be interested in this documentation.
 
 ## Core Matomo Package
 

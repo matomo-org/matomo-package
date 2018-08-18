@@ -8,14 +8,14 @@ then
 		exit 1
 	fi
 
-	if [ "$(git status --short . | grep -v 'debian/changelog' | wc -l)" -ne 0 ]
+	if git status --short . | grep -v 'debian/changelog'
 	then
 		echo "One or more files needs to be committed"
 		exit 1
 	else
 		RELEASE=$(head -n 1 debian/changelog | sed 's/[()]//g' | awk '{print $2}')
 		git commit -S -m "$(head -n 1 debian/changelog)" debian/changelog
-		git tag --sign -m "release ${RELEASE}" ${RELEASE}
+		git tag --sign -m "release ${RELEASE}" "${RELEASE}"
 
 	fi
 fi

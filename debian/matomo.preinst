@@ -7,7 +7,7 @@ set -e
 
 if [ "$1" = "install" ]
 then
-	if [ -d "/etc/piwik" -a ! -e "/etc/piwik.orig" ]; then
+	if [ -d "/etc/piwik" ] && [ ! -e "/etc/piwik.orig" ]; then
 		echo "  * Piwik is now Matomo. Matomo configuration files are stored in /etc/matomo/"
 
 		echo "  * Piwik has been previously installed on this system and its configuration folder"

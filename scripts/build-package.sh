@@ -117,7 +117,7 @@ function script_cleanup() {
 	[ -d "$WORK_DIR" ] && rm -rf "$WORK_DIR"
 
 	# setting back umask
-	umask $UMASK
+	umask "$UMASK"
 
 	cd "$CURRENT_DIR" || exit
 }
@@ -140,7 +140,7 @@ function organizePackage() {
 	# delete most submodules
 	for P in $(git submodule status | egrep -v $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')
 	do
-		rm -Rf ./$P
+		rm -Rf "./$P"
 	done
 
 	# ------------
@@ -283,7 +283,7 @@ if [ -z "$1" ]; then
 	Usage "$0"
 else
 	VERSION="$1"
-	MAJOR_VERSION=`echo $VERSION | cut -d'.' -f1`
+	MAJOR_VERSION=`echo "$VERSION" | cut -d'.' -f1`
 fi
 
 if [ -z "$2" ]; then
@@ -321,7 +321,7 @@ for F in $FLAVOUR; do
 	[ -d "$LOCAL_ARCH" ] || mkdir "$LOCAL_ARCH"
 	[ -d "$BUILD_DIR" ] || mkdir "$BUILD_DIR"
 
-	cd $BUILD_DIR || exit
+	cd "$BUILD_DIR" || exit
 
 	if ! [ -d "$LOCAL_REPO" ]
 	then
@@ -368,7 +368,7 @@ for F in $FLAVOUR; do
 	for P in $(git submodule status | egrep $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')
 	do
 		echo -e "cloning submodule $P"
-		git submodule update --init $P
+		git submodule update --init "$P"
 	done
 
 	# leave $LOCAL_REPO folder
@@ -415,7 +415,7 @@ FILES=""
 for ext in zip tar.gz
 do
 	for F in $FLAVOUR; do
-		gpg --verify ../$LOCAL_ARCH/$F-$VERSION.$ext.asc
+		gpg --verify "../$LOCAL_ARCH/$F-$VERSION.$ext.asc"
 		if [ "$?" -ne "0" ]; then
 			die "Failed to verify signature for ../$LOCAL_ARCH/$F-$VERSION.$ext"
 		fi
@@ -424,28 +424,28 @@ do
 done
 
 echo ${REMOTE}
-scp -p $FILES "${REMOTE}:$REMOTE_HTTP_PATH/"
+scp -p "$FILES" "${REMOTE}:$REMOTE_HTTP_PATH/"
 
 for F in $FLAVOUR
 do
 	if [ "$(echo "$VERSION" | grep -E 'rc|b|a|alpha|beta|dev' -i | wc -l)" -eq 1 ]
 	then
-		if [ "$(echo $VERSION | grep -E 'rc|b|beta' -i | wc -l)" -eq 1 ]
+		if [ "$(echo "$VERSION" | grep -E 'rc|b|beta' -i | wc -l)" -eq 1 ]
 		then
 			echo -e "Beta or RC release"
 
 			if [ "$BUILDING_LATEST_MAJOR_VERSION_STABLE_OR_BETA" -eq "1" ]
 			then
 				echo -e "Beta or RC release of the latest Major Matomo release"
-				echo $REMOTE_CMD
+				echo "$REMOTE_CMD"
 				$REMOTE_CMD "echo $VERSION > $REMOTE_HTTP_PATH/LATEST_BETA" || die "failed to deploy latest beta version file"
 
-				echo $REMOTE_CMD_API
+				echo "$REMOTE_CMD_API"
 				$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST_BETA" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
 			fi
 
 			echo -e "Updating LATEST_${MAJOR_VERSION}X_BETA version on api.matomo.org..."
-			echo $REMOTE_CMD_API
+			echo "$REMOTE_CMD_API"
 			$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST_${MAJOR_VERSION}X_BETA" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
 
 		fi
@@ -470,13 +470,13 @@ do
 			SIZE=$(ls -l "../$LOCAL_ARCH/$F-$VERSION.zip" | awk '/d|-/{printf("%.3f %s\n",$5/(1024*1024),$9)}')
 
 			# upload to builds.matomo.org/LATEST*
-			echo $REMOTE_CMD
+			echo "$REMOTE_CMD"
 			$REMOTE_CMD "echo $VERSION > $REMOTE_HTTP_PATH/LATEST" || die "cannot deploy new version file on $REMOTE"
 			$REMOTE_CMD "echo $SIZE > $REMOTE_HTTP_PATH/LATEST_SIZE" || die "cannot deploy new archive size on $REMOTE"
 			$REMOTE_CMD "echo $VERSION > $REMOTE_HTTP_PATH/LATEST_BETA"  || die "cannot deploy new version file on $REMOTE"
 
 			# upload to matomo.org/LATEST* for the website
-			echo $REMOTE_CMD_WWW
+			echo "$REMOTE_CMD_WWW"
 			$REMOTE_CMD_WWW "echo $VERSION > $WWW_PATH/LATEST" || die "cannot deploy new version file on piwik@$REMOTE_SERVER"
 			$REMOTE_CMD_WWW "echo $SIZE > $WWW_PATH/LATEST_SIZE" || die "cannot deploy new archive size on piwik@$REMOTE_SERVER"
 
@@ -484,9 +484,9 @@ do
 			# only show this message when it's for 'matomo'
 			if [ "$F" == "matomo" ];
 			then
-				SHA1_WINDOWS="$(sha1sum ../$LOCAL_ARCH/$F-$VERSION-WAG.zip | cut -d' ' -f1)"
+				SHA1_WINDOWS="$(sha1sum "../$LOCAL_ARCH/$F-$VERSION-WAG.zip" | cut -d' ' -f1)"
 				[ -z "$SHA1_WINDOWS" ] && die "cannot compute sha1 hash for ../$LOCAL_ARCH/piwik-$VERSION-WAG.zip"
-				SHA512_WINDOWS="$(sha512sum ../$LOCAL_ARCH/$F-$VERSION-WAG.zip | cut -d' ' -f1)"
+				SHA512_WINDOWS="$(sha512sum "../$LOCAL_ARCH/$F-$VERSION-WAG.zip" | cut -d' ' -f1)"
 				[ -z "$SHA512_WINDOWS" ] && die "cannot compute sha512 hash for ../$LOCAL_ARCH/piwik-$VERSION-WAG.zip"
 
 				echo -e "Sending email to Microsoft web team \n\n"
@@ -516,13 +516,13 @@ Matomo team"
 		if [ "$BUILDING_LATEST_MAJOR_VERSION_STABLE_OR_BETA" -eq "1" ]
 		then
 			echo -e "Updating LATEST and LATEST_BETA versions on api.matomo.org..."
-			echo $REMOTE_CMD_API
+			echo "$REMOTE_CMD_API"
 			$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
 			$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST_BETA" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
 		fi
 
 		echo -e "Updating the LATEST_${MAJOR_VERSION}X and  LATEST_${MAJOR_VERSION}X_BETA version on api.piwik.org"
-		echo $REMOTE_CMD_API
+		echo "$REMOTE_CMD_API"
 		$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST_${MAJOR_VERSION}X" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
 		$REMOTE_CMD_API "echo $VERSION > $API_PATH/LATEST_${MAJOR_VERSION}X_BETA" || die "cannot deploy new version file on piwik-api@$REMOTE_SERVER"
 

@@ -18,14 +18,11 @@ then
 		invoke-rc.d apache2 reload 3>/dev/null || true
 	fi
 	
-	if [ -L /etc/apache2/conf-available/matomo.conf ];
+	if [ -e /usr/share/apache2/apache2-maintscript-helper ];
 	then
-		if [ -L /etc/apache2/conf-enabled/matomo.conf ];
-		then
-			a2disconf --maintmode matomo
-		fi			
+		. /usr/share/apache2/apache2-maintscript-helper
+		apache2_invoke disconf matomo.conf || exit $?
 		rm -f /etc/apache2/conf-available/matomo.conf
-		invoke-rc.d apache2 reload 3>/dev/null || true
 	fi			
 fi
 

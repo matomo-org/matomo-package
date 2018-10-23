@@ -54,7 +54,7 @@ then
 fi
 
 # debian 8 and above
-if [ -d "/etc/apache2/conf-available" ]
+if [ -d "/etc/apache2/conf-available" -a -x "/usr/sbin/a2enconf" ]
 then
 	if [ -e "/etc/apache2/conf.d/matomo.conf" -a ! -e "/etc/apache2/conf-available/matomo.conf" ];
 	then

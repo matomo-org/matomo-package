@@ -240,6 +240,7 @@ function organizePackage() {
 	rm -f misc/others/db-schema*
 	rm -f misc/others/diagram_general_request*
 	rm -f .coveralls.yml .scrutinizer.yml .phpstorm.meta.php
+	rm -f .lfsconfig
 	rm -f HIRING.md
 
 	# delete unwanted folders, recursively

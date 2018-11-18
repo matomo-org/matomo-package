@@ -61,7 +61,7 @@ checkfetch:
 		@if [ ! -f "$(ARCHIVE)" ]; then echo -n "$(URL)/$(ARCHIVE) "; wget --no-cache -q $(URL)/$(ARCHIVE); fi;
 		@echo "done."
 		@gpgconf --kill dirmngr
-		@gpg2 --keyserver keys.gnupg.net --recv-keys $(FINGERPRINT)
+		@test ! -z "$(shell gpg2 --list-keys | grep $(FINGERPRINT))" || gpg2 --keyserver keys.gnupg.net --recv-keys $(FINGERPRINT)
 		@echo " [GPG] verify $(FINGERPRINT)" && gpg --verify $(SIG)
 		@echo " [RM] matomo/" && if [ -d "matomo" ]; then rm -rf "matomo"; fi
 		@echo " [UNPACK] $(ARCHIVE)"
@@ -116,6 +116,7 @@ manifest:
 			| grep -v "user/.htaccess" \
 			| grep -v "$(DESTDIR)/DEBIAN/" \
 			| grep -v "$(DESTDIR)/usr/share/doc/matomo/" \
+			| grep -v "$(DESTDIR)/usr/share/matomo/README" \
 			| grep -v "$(DESTDIR)/usr/share/lintian/" \
 			| grep -v "$(DESTDIR)/etc/cron.d" \
 			| grep -v "$(DESTDIR)/etc/logrotate.d" \

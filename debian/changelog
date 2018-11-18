@@ -1,3 +1,410 @@
+matomo (3.6.0-1) stable; urgency=high
+
+  * Releasing Matomo 3.6.0
+  * Improve User Management and assigning permissions to users [by
+    @diosmosis] (Closes: #6187)
+  * New setting to disable all outgoing http requests from a Piwik
+    server [by @diosmosis] (Closes: #6324)
+  * Sessions with more security [by @diosmosis] (Closes: #12208)
+  * When website has been deleted, we should also delete the raw data
+    for this website [by @sgiehl, @diosmosis] (Closes: #12907)
+  * Possibility to unsubscribe from Email reports (pdf, html, csv) [by
+    @sgiehl] (Closes: #2197)
+  * Split "Social network" as its own referrer type in "All referrers"
+    report [by @sgiehl] (Closes: #11102)
+  * Compatibility with MySQL Group Replication and MySQL InnoDB Cluster
+    [by @Aardvark8, @diosmosis] (Closes: #11885)
+  * When a custom segment is used in an API request and
+    browser_archiving_disabled_enforce=1, throw an exception explaining
+    to create the segment first [by @diosmosis] (Closes: #12255)
+  * New widget "Generic > Metric" to display any of the metric / KPI
+    available in Matomo [by @diosmosis] (Closes: #12358)
+  * Scalable UX for user management [by @diosmosis] (Closes: #13158)
+  * Introducing a new role "write" and possibility to define
+    capabilities [by @tsteur, @diosmosis] (Closes: #13163)
+  * Implements possibility to unsubscribe from email reports [by
+    @sgiehl, @diosmosis] (Closes: #13214)
+  * New system check to Warn users if force_ssl is not yet enabled [by
+    @sgiehl] (Closes: #7279)
+  * Show paging and search in the screen 'Manage users' to easily manage
+    hundreds of users [by @diosmosis] (Closes: #4474)
+  * replace sparkline library with modern equivalent [by @Findus23,
+    @sgiehl] (Closes: #12066)
+  * Geoip2 geolocation lookup is slow (Closes: #12955)
+  * Change order of Ecommerce => Products (Closes: #12970)
+  * Hide GeoIP2 server module settings by default [by @sgiehl] (Closes:
+    #13053)
+  * Let super users configure CORS hostnames in the UI [by @sgiehl]
+    (Closes: #13156)
+  * Session not invalidated after logout [by @diosmosis] (Closes: #6531)
+  * Language selector in top menu does not apply theme color [by
+    @sgiehl] (Closes: #13291)
+  * MySQL 5.7.17 compatibility (where group replication enabled by
+    default) [by @diosmosis] (Closes: #11596)
+  * Allow to provide secondary sort column for reports [by @sgiehl,
+    @diosmosis] (Closes: #12128)
+  * Widget title does not change when switching to related report [by
+    @sgiehl] (Closes: #12681)
+  * Allow emails to be themed. [by @diosmosis] (Closes: #13223)
+  * When a segment is set to "reports are pre-processed" and viewing a
+    report which hasn't yet been processed, display a notification [by
+    @diosmosis] (Closes: #12256)
+  * When there is a memory error in core:archive process, have a way to
+    see the backtrace [by @diosmosis] (Closes: #13196)
+  * Check that all Matomo cookies are set with the Secure flag in the UI
+    (Closes: #12841)
+  * After clicking "Check for updates" button, the "zen menu" icon is
+    displayed twice [by @sgiehl] (Closes: #12990)
+  * Update cacert.pem (used for validating SSL connections) [by @mattab,
+    @sgiehl] (Closes: #13094)
+  * Ensure segmented visitor log numeration doesn't break [by @sgiehl,
+    @diosmosis] (Closes: #13169)
+  * Fix parameter unset and escaping [by @sgiehl, @mattab] (Closes:
+    #13240)
+  * In the Segmented Visitor Log popover, let me open the Visitor
+    Profile [by @diosmosis] (Closes: #7214)
+  * Event Value Segment [by @diosmosis] (Closes: #12648)
+  * GDPR: When consent has been given by a user, set &consent=1 in the
+    Tracking API URL [by @diosmosis] (Closes: #12834)
+  * Show info message in visitor profile if there had been more visits
+    than shown in the summary [by @sgiehl, @diosmosis] (Closes: #12863)
+  * Console is named Piwik instead of Matomo plus matomo-domain option
+    [by @sgiehl] (Closes: #12924)
+  * Add privacy policy/terms and conditions settings and display in
+    bottom of certain pages [by @diosmosis] (Closes: #12938)
+  * Improved glossary and let plugins add items to it [by @tsteur,
+    @diosmosis] (Closes: #12958)
+  * Export dialog should offer an option to format metrics [by @sgiehl]
+    (Closes: #12966)
+  * Show less unknowns in devices/brands reports (Closes: #12999)
+  * Add possibility to configure the number of max concurrent archivers:
+    -concurrent-archivers [by @tsteur, @diosmosis] (Closes: #13161)
+  * Add removeEcommerceItem() and clearEcommerceCart() methods to JS
+    tracker. [by @diosmosis] (Closes: #13228)
+  * Adds support for continent specific GeoIP2-City databases [by @fs1,
+    @sgiehl] (Closes: #13338)
+  * CLI Multi increase sleep time over time when checking for finished
+    processes [by @diosmosis] (Closes: #12684)
+  * Speed up package management on travis [by @szepeviktor, @sgiehl]
+    (Closes: #12727)
+  * Add possibility to profile archiving [by @diosmosis] (Closes:
+    #12935)
+  * GDPR Data Subject Tool: Allow finding a user only through visits
+    segment [by @sgiehl] (Closes: #12976)
+  * Missing newline in country flag mouseover [by @sgiehl] (Closes:
+    #13028)
+  * add woff2 fonts [by @Findus23, @diosmosis] (Closes: #12695)
+  * Canceling `Install purchased plugins` doesn't close the popup
+    (Closes: #12782)
+  * Placeholder for SiteUrl is displayed incorrectly (Closes: #13035)
+  * Improve the style of the glossary [by @Findus23, @tsteur] (Closes:
+    #13145)
+  * Fix wrapping in menu selectors [by @sgiehl, @diosmosis] (Closes:
+    #13320)
+  * Make it possible to sort datatable by custom second column [by
+    @sgiehl] (Closes: #12127)
+  * Translate timezone names [by @c960657, @diosmosis] (Closes: #12901)
+  * Split websites and socials into different pages [by @tsteur,
+    @diosmosis] (Closes: #12973)
+  * Export dialog: Let users copy the link to the exported data and open
+    in new tab optionally [by @sgiehl] (Closes: #12974)
+  * Do not link empty action urls in real time widget [by @sgiehl,
+    @diosmosis] (Closes: #13049)
+  * Hide Mobile Sidebar on desktop site [by @justju, @diosmosis]
+    (Closes: #13135)
+  * trackEcommerceCartUpdate Doesnt Clear Cart Items [by @diosmosis]
+    (Closes: #11766)
+  * Deprecates the `historyService` along with `broadcast.init`,
+    `broadcast.propagateAjax`, `broadcast.pageLoad` [by @sgiehl,
+    @diosmosis] (Closes: #12363)
+  * Remove internal API example [by @tsteur, @mattab] (Closes: #12996)
+  * in realtime map, display warning if there are no visits because of
+    missing latitude/longitude (Closes: #6704)
+  * in Graphs, selected metrics may not be saved and lost after a page
+    reload [by @diosmosis] (Closes: #11499)
+  * When there is no data to show in the sparkline, it shows nothing
+    instead of showing a flat sparkline (Closes: #12271)
+  * In Goal report: Returning visitors conversion rate is 0.0% , New
+    visitors conversion rate is 0.0% [by @diosmosis] (Closes: #12706)
+  * On opt-out page move js to separate file to fix inline-script (CSP)
+    [by @Skywalker-11, @diosmosis] (Closes: #12873)
+  * piwik.js JS Error in Firefox < 6 and Opera < Opera 11.60 [by
+    @sgiehl] (Closes: #12936)
+  * Show database update screen for non API calls to API module [by
+    @sgiehl, @diosmosis] (Closes: #12985)
+  * Fix changelog url in update notification mail [by @abeutel, @sgiehl]
+    (Closes: #12992)
+  * CLI Archiver does not execute record updated component [by @sgiehl]
+    (Closes: #13017)
+  * Fixes last icon in ImageGraph generated static images shows a wrong
+    icon [by @fdellwing, @diosmosis] (Closes: #13041)
+  * Provider/ISP URL sometimes does not work (Closes: #13045)
+  * login_whitelist_ip breaks optOut feature [by @sgiehl] (Closes:
+    #13066)
+  * Fix undefined variable [by @c960657, @sgiehl] (Closes: #13067)
+  * File integrity check suggests to delete custom SVG logo (Closes:
+    #13081)
+  * console based db upgrade refers to Piwik [by @sgiehl] (Closes:
+    #13099)
+  * Segmented Visitor Log does not have data with Page Title containing
+    whitespace (URL contains +) [by @sgiehl] (Closes: #13113)
+  * Visitor profile may fail if event plugin is disabled [by @sgiehl,
+    @diosmosis] (Closes: #13172)
+  * Join generator may not sort tables correctly [by @tsteur] (Closes:
+    #13181)
+  * Export reports in "Insights" visualization mode leds to "Error:
+    Invalid dimension 'false'." [by @sgiehl] (Closes: #13213)
+  * CustomVariables: Fix frontend display of value 0 [by
+    @MichaelHeerklotz, @sgiehl] (Closes: #13295)
+  * Make some menus translatable [by @c960657, @diosmosis] (Closes:
+    #12885)
+  * [automatic translation update] Updated 542 strings in 48 languages
+    (de, fi, hu, it, cs, da, el, es, fr, id, ja, ko, nb, nl, pl, pt-br,
+    ro, ru, sq, sr, sv, tr, uk, zh-cn, zh-tw, am, ar, be, bg, ca, et,
+    eu, fa, gl, he, hi, is, ka, lt, lv, nn, pt, sk, sl, te, th, tl, vi)
+    [by @sgiehl] (Closes: #13031)
+  * [automatic translation update] Updated 911 strings in 40 languages
+    (ca, ar, el, hu, lt, pt, sq, sv, tr, zh-tw, fr, pl, be, bg, cs, da,
+    de, es, fa, fi, hi, id, it, ja, ka, ko, lv, nb, nl, nn, pt-br, ro,
+    ru, sl, sr, th, tl, uk, vi, zh-cn) [by @sgiehl] (Closes: #13057)
+  * Translate currency names [by @c960657, @diosmosis] (Closes: #13068)
+  * [automatic translation update] Updated 666 strings in 7 languages
+    (da, de, fr, pl, pt, el, ja) [by @sgiehl] (Closes: #13072)
+  * [automatic translation update] Updated 1023 strings in 14 languages
+    (pt, de, hu, it, sq, zh-cn, zh-tw, ru, da, fr, ja, el, pl, tr) [by
+    @sgiehl] (Closes: #13209)
+  * Updates device detector to latest 3.11.1 [by @sgiehl] (Closes:
+    #13274)
+  * [automatic translation update] Updated 381 strings in 52 languages
+    (bn, cy, de, el, fa, it, pt-br, sq, tr, fr, cs, da, es, ja, nl, pl,
+    pt, ro, ru, sr, sv, tl, uk, zh-tw, ar, be, bg, bs, ca, et, eu, fi,
+    gl, he, hi, hr, hu, id, is, ka, ko, lt, lv, nb, nn, sk, sl, ta, te,
+    th, vi, zh-cn) [by @sgiehl] (Closes: #13281)
+  * [automatic translation update] Updated 501 strings in 5 languages
+    (cs, it, pt, sv, tr) [by @sgiehl] (Closes: #13316)
+  * [automatic translation update] Updated 221 strings in 8 languages
+    (da, nl, el, de, sv, pt, it, tr) [by @sgiehl] (Closes: #13349)
+  * Make it more clear in Reporting API reference that by default only
+    100 rows are returned [by @mattab] (Closes: #11772)
+  * Correctly set date in page title when period changed via period
+    selector [by @spacenate, @diosmosis] (Closes: #12222)
+  * Row Evolution reports displaying Bounce rate over time should show %
+    after the metric value [by @sgiehl] (Closes: #12275)
+  * Marketplace Widget - slow UI page loads when no internet
+    connectivity (Closes: #12277)
+  * Unexpected website error when using idSite=all (Closes: #12312)
+  * Couple more period selector related improvements [by @diosmosis]
+    (Closes: #12326)
+  * add matomo.zip for download (Closes: #12436)
+  * Remove usage of synchronous ajax requests [by @sgiehl, @diosmosis]
+    (Closes: #12546)
+  * New system check diagnostic for max_execution_time (#11050) [by
+    @simivar, @diosmosis] (Closes: #12576)
+  * Removed '-' when editing password in users manager [by @emilekberg,
+    @diosmosis] (Closes: #12698)
+  * Prevent caching of tracker in proxies [by @c960657, @diosmosis]
+    (Closes: #12730)
+  * Use test database [by @c960657, @sgiehl] (Closes: #12779)
+  * Replace proxy redirect with rel=noreferrer [by @c960657, @diosmosis]
+    (Closes: #12780)
+  * Do not show default value when default value is an array [by
+    @tsteur, @sgiehl] (Closes: #12824)
+  * Update Geoip FAQs and Docs to explain Geoip2 (and remove docs about
+    Geoip1) [by @sgiehl] (Closes: #12964)
+  * Upload and sync processed plugin system test build artifacts [by
+    @sgiehl, @diosmosis] (Closes: #12995)
+  * Added feature to optionally disable Schedule old data deletion
+    feature [by @tsteur, @diosmosis] (Closes: #13004)
+  * Support both LFS pointers and full objects in
+    ReleaseCheckListTest::test_screenshotsStoredInLfs [by @c960657,
+    @sgiehl] (Closes: #13009)
+  * Use generic device model names if device type is known [by @sgiehl,
+    @diosmosis] (Closes: #13015)
+  * Remove executable bit on most files [by @PowerKiKi, @sgiehl]
+    (Closes: #13038)
+  * Validate premium feature license correctly when cancelled [by
+    @tsteur, @diosmosis] (Closes: #13064)
+  * show ASN org as ORG aswell [by @fdellwing, @sgiehl] (Closes: #13078)
+  * Edit the tracking cookies FAQ and add information about default
+    timeouts [by @diosmosis] (Closes: #13084)
+  * Do not use CliMulti archiving strategy if ps does not show current
+    process [by @blankse, @diosmosis] (Closes: #13114)
+  * Improve detection of piwik/matomo URL [by @tsteur, @sgiehl] (Closes:
+    #13122)
+  * Destroy database connection only if it has a connection already [by
+    @tsteur, @diosmosis] (Closes: #13132)
+  * Allow hostnames to be configured in login whitelist [by @tsteur,
+    @sgiehl] (Closes: #13137)
+  * Fix theme header color is not applied in login screen [by @tsteur,
+    @sgiehl] (Closes: #13138)
+  * Document new "enable_internet_features = 0" INI setting in FAQ [by
+    @Findus23] (Closes: #13144)
+  * Ensure to cancel an archive process if it is already running [by
+    @tsteur, @diosmosis] (Closes: #13155)
+  * Do not load/apply local DI config in tests [by @tsteur, @diosmosis]
+    (Closes: #13182)
+  * Fix too much whitespace in title [by @tsteur, @sgiehl] (Closes:
+    #13197)
+  * Show visitor profile link in realtime widget only for logged in
+    users [by @sgiehl, @diosmosis] (Closes: #13235)
+  * If warning/error log detected in console command exit w/ code = 1.
+    [by @diosmosis, @mattab] (Closes: #13275)
+  * Add backtrace to exceptions treated as fatal errors [by @diosmosis]
+    (Closes: #13276)
+  * Use a stable sort method for visited pages in user profile [by
+    @sgiehl] (Closes: #13284)
+  * Linting code [by @kaplun, @diosmosis] (Closes: #213)
+  * Chrome headless detection (Closes: #5691)
+  * Python3 port for device-detector [by @thinkwelltwd, @sgiehl]
+    (Closes: #5741)
+  * Adds simple autoloader to use DeviceDetector without composer [by
+    @sgiehl] (Closes: #5742)
+  * Broken PHP requirements [by @sgiehl] (Closes: #5743)
+  * Added a few Android devices and variants [by @GregOriol, @sgiehl]
+    (Closes: #5746)
+  * Added some Android devices [by @GregOriol, @sgiehl] (Closes: #5747)
+  * Added Mobiistar Android smartphones [by @GregOriol, @sgiehl]
+    (Closes: #5748)
+  * Adds detection for KaiOS [by @sgiehl] (Closes: #5757)
+  * Adds detection for Cunaguaro [by @sgiehl] (Closes: #5758)
+  * Adds detection for Avast Secure Browser [by @sgiehl] (Closes: #5759)
+  * Improves detection of LYF devices [by @sgiehl] (Closes: #5760)
+  * Models not seen for LG, Sony, Samsung (Closes: #5761)
+  * Adds detection for various models [by @sgiehl] (Closes: #5762)
+  * New mediaplayer audacious [by @sgiehl] (Closes: #5763)
+  * A few missing brands and models (Closes: #5764)
+  * Added a few Android devices [by @GregOriol, @sgiehl] (Closes: #5766)
+  * Logicom more "M Bot" devices being detected as Bots [by @sgiehl]
+    (Closes: #5767)
+  * Improves detection of Haiku OS [by @sgiehl] (Closes: #5769)
+  * Added Oppo Browser [by @GregOriol, @sgiehl] (Closes: #5771)
+  * Added a few Android devices [by @GregOriol, @sgiehl] (Closes: #5772)
+  * Added some Android devices and variants [by @GregOriol, @sgiehl]
+    (Closes: #5774)
+  * Adds a bunch of new detections [by @sgiehl] (Closes: #5776)
+  * Android 9 P - empty OS version [by @sgiehl] (Closes: #5779)
+  * Adds detection for various new devices [by @sgiehl] (Closes: #5784)
+  * Adds detection for Nokia 2018 Models [by @jan2000, @sgiehl] (Closes:
+    #5785)
+  * Adds detection for some new devices [by @sgiehl] (Closes: #5786)
+  * add RPM package manager detection [by @jekader, @sgiehl] (Closes:
+    #5787)
+  * Debian 8 Configuration (Closes: #58)
+  * remove unneeded sparkline files [by @Findus23, @mattab] (Closes:
+    #63)
+  * Add xn--7kcaaxchbbmgncr7chzy0k0hk.xn--p1ai [by @ericguirbal,
+    @spmedia] (Closes: #816)
+  * Add housemilan.ru [by @ericguirbal, @spmedia] (Closes: #817)
+  * Add modforwot.ru [by @ericguirbal, @spmedia] (Closes: #818)
+  * Add hard-porn.mobi [by @ericguirbal, @spmedia] (Closes: #819)
+  * Add vaderenergy.ru [by @ericguirbal, @spmedia] (Closes: #820)
+  * Add documentserver.net [by @ericguirbal, @spmedia] (Closes: #821)
+  * Added mostorgnerud.ru [by @kambrium, @spmedia] (Closes: #822)
+  * Added tsc-koleso.ru [by @kambrium, @spmedia] (Closes: #823)
+  * Added diplomas-ru.com [by @kambrium, @spmedia] (Closes: #824)
+  * Added xn--ctbfcdjl8baejhfb1oh.xn--p1ai [by @kambrium, @spmedia]
+    (Closes: #825)
+  * Added guidetopetersburg.com [by @kambrium, @spmedia] (Closes: #826)
+  * Added xn--7sbbpe3afguye.xn--p1ai [by @kambrium, @spmedia] (Closes:
+    #827)
+  * Added mikrozaym2you.ru [by @kambrium, @spmedia] (Closes: #828)
+  * Added sp-zakupki.ru [by @kambrium, @spmedia] (Closes: #829)
+  * Added xn--90acjmaltae3acm.xn--p1acf [by @kambrium, @spmedia]
+    (Closes: #830)
+  * Added rfavon.ru [by @kambrium, @spmedia] (Closes: #831)
+  * Added 7kop.ru [by @kambrium, @spmedia] (Closes: #832)
+  * Update spammers.txt [by @spmedia] (Closes: #833)
+  * Added apteka-pharm.ru [by @kambrium, @spmedia] (Closes: #834)
+  * Added mksport.ru [by @kambrium, @spmedia] (Closes: #835)
+  * Add mybuh.kz [by @ericguirbal, @spmedia] (Closes: #837)
+  * Add sinhronperevod.ru [by @ericguirbal, @spmedia] (Closes: #838)
+  * Added amtel-vredestein.com [by @kambrium, @spmedia] (Closes: #840)
+  * Add ogorodnic.com [by @ericguirbal, @spmedia] (Closes: #841)
+  * Add luckybull.io [by @ericguirbal, @spmedia] (Closes: #842)
+  * Add xn--d1abj0abs9d.in.ua [by @ericguirbal, @spmedia] (Closes: #843)
+  * Add fanoboi.com [by @ericguirbal, @spmedia] (Closes: #844)
+  * Add souvenirua.com [by @ericguirbal, @spmedia] (Closes: #845)
+  * Removes e-kwiaciarz.pl [by @sgiehl, @spmedia] (Closes: #846)
+  * Add vzubkah.com [by @ericguirbal, @spmedia] (Closes: #847)
+  * Add pornoplen.com [by @ericguirbal, @spmedia] (Closes: #848)
+  * Add moinozhki.com [by @ericguirbal, @spmedia] (Closes: #849)
+  * Add get-more-freeer-visitors.info [by @JaccoK, @spmedia] (Closes:
+    #850)
+  * Add bestofferhddeed.info [by @JaccoK, @spmedia] (Closes: #851)
+  * Add getadsincomely.info [by @JaccoK, @spmedia] (Closes: #852)
+  * Add dawlenie.com [by @ericguirbal, @spmedia] (Closes: #853)
+  * Add ww2awards.info [by @ericguirbal, @spmedia] (Closes: #854)
+  * Update spammers.txt [by @jj089, @spmedia] (Closes: #855)
+  * Add seoservices2018.com [by @skylarmt, @spmedia] (Closes: #857)
+  * Add computer-remont.ru [by @ericguirbal, @spmedia] (Closes: #858)
+  * Add bpro1.top [by @ericguirbal, @spmedia] (Closes: #859)
+  * Add medicineseasybuy.com [by @ericguirbal, @spmedia] (Closes: #860)
+  * Add manimpotence.com [by @ericguirbal, @spmedia] (Closes: #861)
+  * Add rulate.ru [by @ericguirbal, @spmedia] (Closes: #862)
+  * Add udav.net [by @ericguirbal, @spmedia] (Closes: #863)
+  * Add 03e.info [by @ericguirbal, @spmedia] (Closes: #864)
+  * Add metallosajding.ru [by @ericguirbal, @spmedia] (Closes: #865)
+  * Add russian-postindex.ru [by @ericguirbal, @spmedia] (Closes: #866)
+  * Add blog100.org [by @ericguirbal, @spmedia] (Closes: #867)
+  * Add infektsii.com [by @ericguirbal, @spmedia] (Closes: #868)
+  * Add atleticpharm.org [by @ericguirbal, @spmedia] (Closes: #869)
+  * Add impotentik.com [by @ericguirbal, @spmedia] (Closes: #870)
+  * Add resell-seo-services.com [by @gitlabisbetterthangithub, @spmedia]
+    (Closes: #871)
+  * Add technika-remont.ru [by @ericguirbal, @spmedia] (Closes: #872)
+  * Add porno-chaman.info [by @ericguirbal, @spmedia] (Closes: #873)
+  * Add xn--8sblgmbj1a1bk8l.xn--161-4vemb6cjl7anbaea3afninj.xn--p1ai [by
+    @ericguirbal, @spmedia] (Closes: #874)
+  * Add rent2spb.ru [by @ericguirbal, @spmedia] (Closes: #875)
+  * Add xn--6kcamwewcd9bayelq.xn--p1ai [by @ericguirbal, @spmedia]
+    (Closes: #876)
+  * Add moneyzzz.ru [by @ericguirbal, @spmedia] (Closes: #877)
+  * Add xn--ctbigni3aj4h.xn--p1ai [by @ericguirbal, @spmedia] (Closes:
+    #878)
+  * Add balkanfarma.org [by @ericguirbal, @spmedia] (Closes: #879)
+  * Add viagra-soft.ru [by @ericguirbal, @spmedia] (Closes: #880)
+  * Add dosugrostov.site [by @ericguirbal, @spmedia] (Closes: #881)
+  * Add xn--8sbarihbihxpxqgaf0g1e.xn--80adxhks [by @ericguirbal,
+    @spmedia] (Closes: #882)
+  * Add allergija.com [by @ericguirbal, @spmedia] (Closes: #883)
+  * Add sladkoevideo.com [by @ericguirbal, @spmedia] (Closes: #884)
+  * Add ask-yug.com [by @ericguirbal, @spmedia] (Closes: #885)
+  * Add alkanfarma.org [by @ericguirbal, @spmedia] (Closes: #886)
+  * Add pornoelita.info [by @ericguirbal, @spmedia] (Closes: #887)
+  * Add prostitutki-rostova.ru.com [by @ericguirbal, @spmedia] (Closes:
+    #888)
+  * Add ruspoety.ru [by @ericguirbal, @spmedia] (Closes: #889)
+  * Add purchasepillsnorx.com [by @ericguirbal, @spmedia] (Closes: #890)
+  * Add sportwizard.ru [by @ericguirbal, @spmedia] (Closes: #891)
+  * Add ukrainian-poetry.com [by @ericguirbal, @spmedia] (Closes: #892)
+  * Add bezprostatita.com [by @ericguirbal, @spmedia] (Closes: #893)
+  * Add modnie-futbolki.net [by @ericguirbal, @spmedia] (Closes: #895)
+  * Add xn--ctbbcjd3dbsehgi.xn--p1ai [by @ericguirbal, @spmedia]
+    (Closes: #896)
+  * Add russian-translator.com [by @ericguirbal, @spmedia] (Closes:
+    #897)
+  * Add supermama.top [by @ericguirbal, @spmedia] (Closes: #898)
+  * Add top-l2.com [by @ericguirbal, @spmedia] (Closes: #899)
+  * Add x5market.ru [by @ericguirbal, @spmedia] (Closes: #900)
+  * Add rybalka-opt.ru [by @ericguirbal, @spmedia] (Closes: #901)
+  * Add money7777.info [by @ericguirbal, @spmedia] (Closes: #902)
+  * Add punch.media [by @spmedia] (Closes: #903)
+  * Add we-ping-for-youic.info [by @spmedia] (Closes: #904)
+  * Add snegozaderzhatel.ru [by @ericguirbal, @spmedia] (Closes: #905)
+  * Add poiskzakona.ru [by @ericguirbal, @spmedia] (Closes: #906)
+  * Add free-website-traffic.com [by @lisandrodemarchi, @spmedia]
+    (Closes: #907)
+  * Update Spammers.txt [by @spmedia] (Closes: #908)
+  * Add avtointeres.ru [by @ericguirbal, @spmedia] (Closes: #909)
+  * Add gepatit-info.top [by @ericguirbal, @spmedia] (Closes: #910)
+  * Add artdeko.info [by @ericguirbal, @spmedia] (Closes: #911)
+  * Add aerodizain.com [by @ericguirbal, @spmedia] (Closes: #912)
+  * Add undergroundcityphoto.com [by @ericguirbal, @spmedia] (Closes:
+    #913)
+  * Update spammers.txt [by @spmedia] (Closes: #914)
+
+ -- Matomo Autonomous Build System <nobody@matomo.org>  Sun, 18 Nov 2018 04:51:41 +0000
+
 matomo (3.5.1-2) stable; urgency=high
 
   * updated apache configuration to point to matomo installation folder

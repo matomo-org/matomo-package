@@ -4,9 +4,9 @@ matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jquer
 matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jquery-mousewheel/jquery.mousewheel.min.js
 matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jScrollPane/script/jquery.mousewheel.js
 matomo: embedded-javascript-library usr/share/matomo/libs/jqplot/excanvas.min.js
-matomo: embedded-php-library usr/share/matomo/core/Visualization/Sparkline.php
-matomo: embedded-php-library usr/share/matomo/libs/sparkline/lib/Sparkline.php
 matomo: embedded-php-library usr/share/matomo/plugins/CoreVisualizations/Visualizations/Sparkline.php
+matomo: embedded-php-library usr/share/matomo/vendor/davaxi/sparkline/src/Sparkline.php
+matomo: embedded-php-library usr/share/matomo/core/Visualization/Sparkline.php
 matomo: embedded-php-library usr/share/matomo/vendor/piwik/decompress/libs/PclZip/pclzip.lib.php
 matomo: extra-license-file usr/share/matomo/js/LICENSE.txt
 matomo: extra-license-file usr/share/matomo/libs/bower_components/chroma-js/LICENSE
@@ -17,7 +17,6 @@ matomo: extra-license-file usr/share/matomo/libs/bower_components/visibilityjs/L
 matomo: extra-license-file usr/share/matomo/libs/jqplot/gpl-2.0.txt
 matomo: extra-license-file usr/share/matomo/libs/jquery/gpl-2.0.txt
 matomo: extra-license-file usr/share/matomo/libs/jquery/gpl-3.0.txt
-matomo: extra-license-file usr/share/matomo/libs/sparkline/gpl-2.0.txt
 matomo: extra-license-file usr/share/matomo/libs/Zend/LICENSE.txt
 matomo: extra-license-file usr/share/matomo/misc/gpl-3.0.txt
 matomo: extra-license-file usr/share/matomo/plugins/ExampleUI/images/icons-planet/LICENSE

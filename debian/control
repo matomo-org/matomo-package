@@ -14,7 +14,7 @@ Recommends: logrotate, libapache2-mod-php5 (>= 5.3.3)|php5-cgi (>= 5.5.9)|php5-f
 Suggests: mariadb-server | mysql-server, geoip-database-extra, php-mbstring
 Description: Leading Free/Libre open source Web Analytics software
  Matomo (formerly Piwik) is a full featured PHP MySQL software program that
- you download and install on your own webserver. At the end of the five minute
+ you download and install on your own webserver. At the end of the five minutes
  installation process you will be given a JavaScript code. Simply copy and
  paste this tag on websites you wish to track and access your analytics reports
  in real time.

@@ -1,3 +1,249 @@
+matomo (3.6.1-1) stable; urgency=high
+
+  * Releasing Matomo 3.6.1
+  * Generate changelog using our Github Changelog Generator.
+  * Add possibility to manage and view Intranet websites [by @tsteur]
+    (Closes: #7724)
+  * Replace our github service "Piwik Plugins" with an app "Matomo
+    Plugins" or webhook [by @tsteur] (Closes: #13050)
+  * Send email if no tracked data within N days. [by @diosmosis]
+    (Closes: #13363)
+  * Implements wrapper method for a more secure unserialize with PHP 7
+    [by @sgiehl, @diosmosis] (Closes: #13285)
+  * Ensure report title is escaped in export overlay [by @sgiehl,
+    @diosmosis] (Closes: #13502)
+  * When requesting a password reset, the email content is out of date
+    [by @diosmosis] (Closes: #13520)
+  * Ensure sensitive data is sent as POST parameters in user management
+    [by @sgiehl, @diosmosis] (Closes: #13621)
+  * When a Goal is created as "Matching event", allow to set Goal value
+    as the event value (Closes: #13476)
+  * 3.6.0 period=day&date=today no longer highlights current date [by
+    @sgiehl] (Closes: #13369)
+  * Make sure user is not logged out when settings saved w/ no password
+    change. [by @diosmosis, @sgiehl] (Closes: #13391)
+  * HTML E-Mail report - Report list incorrect color [by @diosmosis]
+    (Closes: #13401)
+  * Fixes Ecommerce overview [by @sgiehl, @diosmosis] (Closes: #13405)
+  * Replace row action image icon with font icon in User ID report [by
+    @sgiehl] (Closes: #13303)
+  * Make email report unsubscribe link look consistent with other report
+    footer links [by @diosmosis] (Closes: #13330)
+  * Remove the user "alias" feature [by @diosmosis] (Closes: #10165)
+  * Please change wording of "You are currently opted in." [by @tsteur]
+    (Closes: #12954)
+  * Updates submodules [by @sgiehl] (Closes: #13564)
+  * New events + some other misc changes [by @diosmosis] (Closes:
+    #13388)
+  * Campaign name with capitals will create duplicate visits (Closes:
+    #12250)
+  * Pivoting by custom dimension results in an error [by @diosmosis]
+    (Closes: #13317)
+  * Fix capabilities weren't detected correctly [by @tsteur, @diosmosis]
+    (Closes: #13368)
+  * WARNING: /var/www/html/plugins/API/API.php(401): Notice - compact():
+    Undefined variable: idGoal [by @sgiehl] (Closes: #13375)
+  * Manage Users: SQL Error for role write [by @diosmosis] (Closes:
+    #13384)
+  * Error: You can't access this resource as it requires 'view' access
+    for the website id = 60. [by @diosmosis] (Closes: #13406)
+  * Work around mysql client segfault in update. [by @diosmosis,
+    @sgiehl] (Closes: #13407)
+  * It should not be possible to edit anonymous user or set certain
+    permissions [by @diosmosis] (Closes: #13412)
+  * When displaying unprocessed segment message, check for urlencoded
+    segment. [by @diosmosis, @tsteur] (Closes: #13415)
+  * Anonymous user settings results in an error when site no longer
+    exists [by @tsteur] (Closes: #13423)
+  * Fatal error in referrers report [by @tsteur] (Closes: #13438)
+  * Create periods with timezones in a couple places that are missing
+    it. [by @diosmosis] (Closes: #13445)
+  * Referrer name comparison should be case insensitive ... [by
+    @diosmosis] (Closes: #13469)
+  * Fix incorrect sort order when scheduled report uses custom report
+    [by @diosmosis] (Closes: #13487)
+  * Live.getSimpleLastVisitCount widget loses segment upon refresh
+    (Closes: #13499)
+  * Error message CpChart triggered with specific payload [by @sgiehl]
+    (Closes: #13505)
+  * Error message Variable "topMenu" does not exist [by @sgiehl]
+    (Closes: #13506)
+  * Error message in various places when invalid parameters are used [by
+    @sgiehl] (Closes: #13507)
+  * Better check for valid URLs [by @mattab, @diosmosis] (Closes:
+    #13572)
+  * Fix single day archive check in ArchiveProcessor/Parameters. [by
+    @diosmosis] (Closes: #13580)
+  * Adds new language Spanish (Argentina) [by @sgiehl, @diosmosis]
+    (Closes: #13350)
+  * [automatic translation update] Updated 303 strings in 8 languages
+    (el, fa, fi, fr, sv, it, pt, tr) [by @sgiehl] (Closes: #13436)
+  * [automatic translation update] Updated 699 strings in 15 languages
+    (es, fa, ja, nl, nn, sq, sv, uk, fr, el, it, pt-br, tr, cs, de) [by
+    @sgiehl] (Closes: #13560)
+  * [automatic translation update] Updated 73 strings in 6 languages
+    (it, sq, tr, el, es, pt-br) [by @sgiehl] (Closes: #13612)
+  * Run our automated tests suite also on PHP7 (Closes: #10586)
+  * Exception on visitor profile popup [by @sgiehl] (Closes: #12215)
+  * Multiple conditions for goal with AND/OR seperation (Closes: #12346)
+  * Auto-detect timezone and currency in installer [by @c960657,
+    @tsteur] (Closes: #13092)
+  * Couple changes to aid debugging [by @diosmosis] (Closes: #13269)
+  * Use Python 2.7 for travis tests [by @sgiehl] (Closes: #13282)
+  * Stable sort for most frequent segment values [by @sgiehl,
+    @diosmosis] (Closes: #13286)
+  * Make sure simple datatable metadata is serialized + some test case
+    changes [by @diosmosis] (Closes: #13296)
+  * Updates all Guides and FAQs to reference the new "Write" permission
+    (Closes: #13297)
+  * Remove COLUMN_AGGREGATION_OPS_METADATA_NAME metadata before
+    serializi... [by @diosmosis] (Closes: #13304)
+  * Adds UI tests for Custom Logos [by @sgiehl, @diosmosis] (Closes:
+    #13311)
+  * If serialize=1 in Original renderer, return serialized array w/
+    exception info instead of throwing. [by @diosmosis, @tsteur]
+    (Closes: #13340)
+  * Show confirm before changing a users password and show notification
+    on save complete. [by @diosmosis, @mattab] (Closes: #13342)
+  * Add site type as attribute to site card in sitesmanager UI so they
+    can be selected by type. [by @diosmosis] (Closes: #13343)
+  * Remember user who created a site. [by @diosmosis] (Closes: #13362)
+  * Override string trim only if needed to fix performance issue [by
+    @tsteur, @diosmosis] (Closes: #13371)
+  * Always set hours to 0 for periods.getToday [by @sgiehl, @diosmosis]
+    (Closes: #13373)
+  * Manage Users: Can't filter by access write [by @diosmosis] (Closes:
+    #13385)
+  * Fix "not empty" condition in SegmentExpression [by @splinter89,
+    @tsteur] (Closes: #13386)
+  * Ensure action details are sorted stable across PHP versions [by
+    @sgiehl, @diosmosis] (Closes: #13404)
+  * Prevent error related report may not be defined [by @tsteur,
+    @sgiehl] (Closes: #13425)
+  * Use Request::processRequest() so API events are triggered. [by
+    @diosmosis] (Closes: #13428)
+  * Allow session to be writable in CLI mode so tests can write values.
+    [by @diosmosis] (Closes: #13430)
+  * Replace unsupported characters in all tracking request params [by
+    @sgiehl, @diosmosis] (Closes: #13437)
+  * Use postMessage instead of directly making API calls in the overlay
+    iframe. [by @diosmosis] (Closes: #13446)
+  * do not automatically download lfs files when cloning/checking out
+    [by @diosmosis] (Closes: #13449)
+  * Remove user-agent checking code in SessionAuth. [by @diosmosis]
+    (Closes: #13470)
+  * Stable sort for additional pivoted columns [by @sgiehl, @diosmosis]
+    (Closes: #13477)
+  * don't send referrer to plugin authors website [by @Findus23,
+    @diosmosis] (Closes: #13479)
+  * Escape feature name for rate feature tooltips [by @sgiehl,
+    @diosmosis] (Closes: #13503)
+  * Avoid creating any archive tables for future dates [by @sgiehl,
+    @diosmosis] (Closes: #13504)
+  * Warning message in a UI notification after requesting a password
+    reset [by @diosmosis] (Closes: #13519)
+  * Put our current mission statement (as of Sept 2018) in the Readme
+    [by @mattab, @tsteur] (Closes: #13522)
+  * Add tests for password resetter and tweak process a bit. [by
+    @diosmosis] (Closes: #13523)
+  * Quote db name in certain queries. [by @diosmosis] (Closes: #13529)
+  * Manage users: when clicking "edit" button, scroll back to top [by
+    @oswdr, @tsteur] (Closes: #13551)
+  * don't consider .swf files safe [by @Findus23, @sgiehl] (Closes:
+    #13558)
+  * Prevent possible error if goalId is not set [by @sgiehl, @tsteur]
+    (Closes: #13561)
+  * Updates device detector to latest 3.11.2 [by @sgiehl] (Closes:
+    #13562)
+  * limit Sparkline size [by @Findus23, @sgiehl] (Closes: #13563)
+  * Support window.Matomo in JS Tracker [by @tsteur, @diosmosis]
+    (Closes: #13568)
+  * Fix license information may not be shown correctly [by @tsteur]
+    (Closes: #13569)
+  * Truncate referrer name & keyword in Base class so the value used
+    there matches what is in the DB. [by @diosmosis] (Closes: #13573)
+  * don't allow SEO plugin to make non-HTTPS requests [by @Findus23,
+    @tsteur] (Closes: #13575)
+  * fix SEO bing count [by @Findus23, @tsteur] (Closes: #13576)
+  * Encode html chars in integrity file list [by @sgiehl, @diosmosis]
+    (Closes: #13579)
+  * Acquire an exclusive lock when writing config file [by @tsteur,
+    @diosmosis] (Closes: #13583)
+  * Let plugins modify the JS tracker [by @tsteur, @diosmosis] (Closes:
+    #13615)
+  * Adds detection for newer version of iOS and macOS [by @sgiehl]
+    (Closes: #5791)
+  * Detect Instacast only as a mobile app. [by @etienne-martin, @sgiehl]
+    (Closes: #5793)
+  * Windows 8 version_compare (Closes: #5794)
+  * Adds detection for Huawei P smart [by @cb8, @sgiehl] (Closes: #5795)
+  * Windows 8 version_compare [by @etienne-martin, @sgiehl] (Closes:
+    #5796)
+  * Synthetic Monitoring User Agents not detected (Closes: #5799)
+  * Adds detection of VKShare (bot) [by @sgiehl] (Closes: #5800)
+  * Added some Android devices [by @GregOriol, @sgiehl] (Closes: #5801)
+  * 4 new bots, omgili, dataminr.com, TrendsmapResolver,
+    tweetedtimes.com [by @sgiehl] (Closes: #5802)
+  * Add Samsung Galaxy NOTE 9 (SM-N960) [by @pongee, @sgiehl] (Closes:
+    #5804)
+  * Adds detection for TechPad devices [by @sgiehl] (Closes: #5805)
+  * Adds detection for Zuum devices [by @sgiehl] (Closes: #5806)
+  * Adds detection for Unonu devices [by @sgiehl] (Closes: #5807)
+  * Adds detection for Akai devices [by @sgiehl] (Closes: #5809)
+  * Adds detection for Bluboo devices [by @sgiehl] (Closes: #5810)
+  * Adds detection for Comio devices [by @sgiehl] (Closes: #5811)
+  * Improves detection of iTunes on iPhone and iPad [by @sgiehl]
+    (Closes: #5812)
+  * Adds detection for some new Asus devices [by @sgiehl] (Closes:
+    #5813)
+  * Javascript/Node.js port of device-detector (Closes: #5814)
+  * Adds detection for FNB devices [by @sgiehl] (Closes: #5816)
+  * Javascript/Node.js port of device-detector [by @etienne-martin,
+    @sgiehl] (Closes: #5817)
+  * Adds detection for Miray devices [by @sgiehl] (Closes: #5818)
+  * Adds detection for Uhappy devices [by @sgiehl] (Closes: #5819)
+  * Add/Detect Snapchat UA as a bot (Closes: #5820)
+  * Add Oppo smartphones: PACM00, and PACT00 [by @pongee, @sgiehl]
+    (Closes: #5822)
+  * Detect devices MTC, Primepad, Lemnov [by @sanchezzzhak, @sgiehl]
+    (Closes: #5825)
+  * Adds detection for Opera Touch [by @sgiehl] (Closes: #5828)
+  * Improves detection of various Alcatel devices [by @liviuconcioiu,
+    @sgiehl] (Closes: #5831)
+  * What type of device Savio TB-PO1 (Closes: #5833)
+  * Improves detection of various Alcatel devices [by @liviuconcioiu,
+    @sgiehl] (Closes: #5834)
+  * New Google bot DMCA Takedown tool (Closes: #5835)
+  * Adds detection for Savio device; Improve AppleTV detection [by
+    @sanchezzzhak, @sgiehl] (Closes: #5836)
+  * Adds detection for new Google bot [by @sgiehl] (Closes: #5838)
+  * Improves/Adds detection of some Wiko devices [by @sgiehl] (Closes:
+    #5840)
+  * Adds detection for Snapchat Proxy [by @sgiehl] (Closes: #5841)
+  * Adds detection for Kempler & Strauss devices [by @sgiehl] (Closes:
+    #5842)
+  * Adds detection for GoMobile devices [by @sgiehl] (Closes: #5843)
+  * Add Mastodon as social network [by @mattab, @sgiehl] (Closes: #53)
+  * Add yes-com.com [by @ericguirbal, @spmedia] (Closes: #915)
+  * Add autoseo-service.org [by @spmedia] (Closes: #916)
+  * Add kakablog.net [by @lisandrodemarchi, @spmedia] (Closes: #917)
+  * Add grafaman.ru [by @ericguirbal, @spmedia] (Closes: #918)
+  * Add lider82.ru [by @ericguirbal, @spmedia] (Closes: #919)
+  * Add sribno.net [by @ericguirbal, @spmedia] (Closes: #920)
+  * Add kevblog.top [by @ericguirbal, @spmedia] (Closes: #922)
+  * Add xn--e1aaajzchnkg.ru.com [by @ericguirbal, @spmedia] (Closes:
+    #923)
+  * Adds xtrafficplus.com, blogstar.fun [by @mouse-reeve, @spmedia]
+    (Closes: #924)
+  * Add seo-services-with-results.com (Closes: #925)
+  * Do not append piwik.php if url contains matomo.php [by @tsteur]
+    (Closes: #38)
+  * Create LICENSE [by @Findus23, @mattab] (Closes: #46)
+  * Error class was not referenced properly [by @diosmosis] (Closes:
+    #221)
+
+ -- Matomo Autonomous Build System <nobody@matomo.org>  Sun, 18 Nov 2018 05:06:47 +0000
+
 matomo (3.6.0-1) stable; urgency=high
 
   * Releasing Matomo 3.6.0

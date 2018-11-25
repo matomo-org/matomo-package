@@ -73,21 +73,6 @@ then
 	fi
 fi
 
-# debian 7
-if [ -d "/etc/apache2/conf.d" ]
-then
-	# install `matomo.conf` if no newer distribution is detected
-	if [ ! -e "/etc/apache2/conf-available/matomo.conf" ];
-	then
-		if [ ! -e /etc/apache2/conf.d/matomo.conf ];
-		then
-			ln -s /etc/matomo/apache.conf /etc/apache2/conf.d/matomo.conf
-			invoke-rc.d apache2 reload 2>/dev/null || true
-		fi
-		echo "  * Check Matomo web configuration in /etc/apache2/conf.d/matomo.conf"
-	fi
-fi
-
 # Piwik to Matomo configuration migration
 if [ -d "/etc/piwik.orig" ]
 then

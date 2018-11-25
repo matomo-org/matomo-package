@@ -32,7 +32,7 @@ fi
 
 CHANGELOG_URL=$(wget -O - -q 'https://matomo.org/changelog/' | grep "Matomo $1" | sed 's/.*<a href=\([^>]*\).*/\1/' | sed -e 's/"//g' -e "s/'//g" | grep ^http | grep "$1/")
 
-if [ -z "$(echo $CHANGELOG_URL | grep -i http)" ]
+if ! echo "$CHANGELOG_URL" | grep --quiet --ignore-case http
 then
 	echo "Cannot find changelog url"
 	exit 2
@@ -48,11 +48,11 @@ wget -O - -q "$CHANGELOG_URL" | \
 	recode --silent --force UTF-8..ascii | recode UTF-8..HTML | sed -e "${UTF8_ALIENS}" | \
 	recode HTML..UTF-8 | recode HTML..UTF-8 | recode UTF-8..ascii | \
 	sed 's/\^A//g' | \
-	sed -r 's/^(#[0-9]+)([ ]+)(.*)/\3 (Closes: \1)/g' | while read LINE
+	sed -r 's/^(#[0-9]+)([ ]+)(.*)/\3 (Closes: \1)/g' | while read -r LINE
 do
 	echo "  * ${LINE}"
 	if [ "$TEST_MODE" -eq "0" ]
 	then
-		debchange --changelog debian/changelog -a -- ${LINE}
+		debchange --changelog debian/changelog -a -- "${LINE}"
 	fi
 done

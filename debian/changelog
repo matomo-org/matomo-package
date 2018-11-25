@@ -1,3 +1,126 @@
+matomo (3.7.0-1) stable; urgency=high
+
+  * Releasing Matomo 3.7.0
+  * Add Matomo Tag Manager to core [by @tsteur] (Closes: #13402)
+  * HTML in report documentation is shown plain text (Closes: #13668)
+  * Limit password length (at a reasonable length) [by @tsteur] (Closes:
+    #13491)
+  * Bad position of the date in the title [by @sgiehl] (Closes: #13649)
+  * Some translation in maps contains an unnecessary %s [by @sgiehl]
+    (Closes: #13695)
+  * Real-time widget border is slightly misplaced [by @tsteur] (Closes:
+    #13322)
+  * Device Type and Browser plugins reports: hide rows without visits
+    [by @tsteur] (Closes: #12266)
+  * Actions performed at the same time register as different visits
+    (Closes: #5966)
+  * "Remember me" doesn't, very much (Closes: #13327)
+  * After 3.6.1 update, error in e-commerce widget and overview "please
+    specify a value for date" [by @tsteur] (Closes: #13644)
+  * Show the CORS settings in the UI when
+    enable_general_settings_admin=0 [by @mattab, @tsteur] (Closes:
+    #13660)
+  * [automatic translation update] Updated 222 strings in 9 languages
+    (ja, fi, uk, de, es, pt, it, cs, tr) [by @sgiehl] (Closes: #13663)
+  * [automatic translation update] Updated 272 strings in 13 languages
+    (da, et, pl, pt-br, ru, sq, es, de, el, it, pt, tr, cs) [by @sgiehl]
+    (Closes: #13708)
+  * Page title in Tag Manager, Help page, Admin pages show the date but
+    there is no calendar in the page [by @tsteur] (Closes: #13353)
+  * Ability to change periods over which evolution graphs display in
+    scheduled reports [by @diosmosis] (Closes: #13501)
+  * Fix possible error in visitor profile when no visit found [by
+    @tsteur, @sgiehl] (Closes: #13549)
+  * Regenerate OmniFixture dump w/ more xss payloads [by @diosmosis]
+    (Closes: #13556)
+  * fix domain age from archive.org [by @Findus23, @sgiehl] (Closes:
+    #13574)
+  * Add more tests for format=original. [by @diosmosis, @sgiehl]
+    (Closes: #13584)
+  * Regenerate htaccess files after update [by @tsteur, @sgiehl]
+    (Closes: #13591)
+  * Different `delete_logs_older_than` value for log tables (Closes:
+    #13610)
+  * Update theme to reflect the new logo and brand color changes [by
+    @tsteur, @mattab] (Closes: #13629)
+  * fix switch continue in CreatePull [by @Findus23, @sgiehl] (Closes:
+    #13635)
+  * Tracking unavailable when data rotation happens (Closes: #13636)
+  * Undefined index: never [by @sgiehl] (Closes: #13638)
+  * Added API endpoint to return the php version info [by @Toflar,
+    @tsteur] (Closes: #13646)
+  * Fix punctuation, spelling, and grammar [by @imronras, @mattab]
+    (Closes: #13650)
+  * Let plugins change content of JS Tracking Code Missing Email [by
+    @tsteur] (Closes: #13658)
+  * Fix wrong Site class is used which may not be available in build [by
+    @tsteur, @diosmosis] (Closes: #13693)
+  * Fix link to linkedin to point directly to the group [by @tsteur,
+    @mattab] (Closes: #13699)
+  * In API requests made by Insights, make sure existing query params do
+    not affect requests. [by @diosmosis] (Closes: #13700)
+  * Add request parameters to API.Request.intercept event. [by
+    @diosmosis] (Closes: #13720)
+  * Matomo analytics tag option for setting secure cookies [by @tsteur]
+    (Closes: #119)
+  * Make sure that if JS tracker doesnt get bundled the tracking still
+    works [by @tsteur] (Closes: #121)
+  * Added VWO tag [by @MichaelHeerklotz, @tsteur] (Closes: #64)
+  * Added Emarsys tag [by @MichaelHeerklotz, @tsteur] (Closes: #65)
+  * add Bing Conversion Tracking [by @Findus23, @tsteur] (Closes: #76)
+  * Add new tag: Drift chat [by @Findus23] (Closes: #91)
+  * Add new tag: Change android address bar color [by @Findus23]
+    (Closes: #92)
+  * Add LiveZilla Tag [by @scysys, @tsteur] (Closes: #95)
+  * first version of ThemeColorTag [by @Findus23, @tsteur] (Closes:
+    #102)
+  * add drift tag [by @Findus23, @tsteur] (Closes: #111)
+  * Debian packages for 3.6.0 (Closes: #81)
+  * Bundle Tag Manager in Matomo build [by @tsteur, @mattab] (Closes:
+    #87)
+  * TB-* TM-* devices user agents (Closes: #5829)
+  * Detect devices: teXet, Touchmate, Grape  [by @sanchezzzhak, @sgiehl]
+    (Closes: #5839)
+  * Improves detection of various Alcatel devices [by @liviuconcioiu,
+    @sgiehl] (Closes: #5844)
+  * Improves detection of various BlackBerry devices [by @liviuconcioiu,
+    @sgiehl] (Closes: #5845)
+  * Improves detection of various LG devices [by @liviuconcioiu,
+    @sgiehl] (Closes: #5846)
+  * Improves detection of various ASUS devices [by @liviuconcioiu,
+    @sgiehl] (Closes: #5847)
+  * Improves detection of various ZTE devices [by @liviuconcioiu,
+    @sgiehl] (Closes: #5848)
+  * Improves detection of various Alcatel devices [by @liviuconcioiu,
+    @sgiehl] (Closes: #5849)
+  * Adds detection for ComTrade Tesla devices [by @liviuconcioiu,
+    @sgiehl] (Closes: #5850)
+  * Improves detection of various Alcatel tablets [by @liviuconcioiu,
+    @sgiehl] (Closes: #5851)
+  * Improves detection of various Bmobile devices [by @liviuconcioiu,
+    @sgiehl] (Closes: #5852)
+  * Added a few Android devices [by @GregOriol, @sgiehl] (Closes: #5854)
+  * Improves detection of Xiaomi devices [by @sgiehl] (Closes: #5855)
+  * Adds detection for Myria devices [by @liviuconcioiu, @sgiehl]
+    (Closes: #5856)
+  * Added a few Android devices [by @GregOriol, @sgiehl] (Closes: #5859)
+  * Adds detection for Top House devices [by @liviuconcioiu, @sgiehl]
+    (Closes: #5861)
+  * Google Search Console not detected [by @sgiehl] (Closes: #5864)
+  * Google Pixel (2 XL, 3XL) under Android 9 and Chrome 70 [by @sgiehl]
+    (Closes: #5865)
+  * Added a few Android devices [by @GregOriol, @sgiehl] (Closes: #5866)
+  * Add port for Crystal lang [by @creadone, @sgiehl] (Closes: #5867)
+  * Adds detection for Nextbit and Wooze devices [by @sanchezzzhak,
+    @sgiehl] (Closes: #5870)
+  * Add blog4u.top [by @Spone, @spmedia] (Closes: #926)
+  * Add get-seo-help.com [by @spmedia] (Closes: #927)
+  * Add ecblog.xyz [by @Spone, @spmedia] (Closes: #928)
+  * Add artblog.top [by @Spone, @spmedia] (Closes: #930)
+  * Add flyblog.xyz [by @ericguirbal, @spmedia] (Closes: #931)
+
+ -- Matomo Autonomous Build System <nobody@matomo.org>  Sun, 25 Nov 2018 04:13:23 +0000
+
 matomo (3.6.1-1) stable; urgency=high
 
   * Releasing Matomo 3.6.1

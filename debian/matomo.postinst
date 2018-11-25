@@ -57,7 +57,7 @@ fi
 if [ -e /usr/share/apache2/apache2-maintscript-helper ];
 then
 	. /usr/share/apache2/apache2-maintscript-helper
-	if [ -e "/etc/apache2/conf.d/matomo.conf" -a ! -e "/etc/apache2/conf-available/matomo.conf" ];
+	if [ -e "/etc/apache2/conf.d/matomo.conf" ] && [ ! -e "/etc/apache2/conf-available/matomo.conf" ];
 	then
 		echo "  * Migrating previous '/etc/apache2/conf.d/matomo.conf' to '/etc/apache2/conf-available/matomo.conf'"
 		mv /etc/apache2/conf.d/matomo.conf /etc/apache2/conf-available/matomo.conf
@@ -91,7 +91,7 @@ fi
 # Piwik to Matomo configuration migration
 if [ -d "/etc/piwik.orig" ]
 then
-	if [ -e "/etc/piwik.orig/config.ini.php" -a ! -e "/etc/matomo/config.ini.php" ]
+	if [ -e "/etc/piwik.orig/config.ini.php" ] && [ ! -e "/etc/matomo/config.ini.php" ]
 	then
 		echo "  * Copying Piwik configuration (/etc/piwik.orig/config.ini.php) to Matomo configuration folder (/etc/matomo/)"
 		cp -pd "/etc/piwik.orig/config.ini.php" "/etc/matomo/config.ini.php"

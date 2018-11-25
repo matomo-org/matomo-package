@@ -29,7 +29,7 @@ REMOTE_LOGIN="piwik-builds"
 REMOTE_HTTP_PATH="/home/piwik-builds/www/builds.piwik.org"
 
 # List of Sub-modules that SHOULD be in the packaged release, eg PiwikTracker|CorePluginName
-SUBMODULES_PACKAGED_WITH_CORE='log-analytics|plugins/Morpheus/icons'
+SUBMODULES_PACKAGED_WITH_CORE='log-analytics|plugins/Morpheus/icons|plugins/TagManager'
 
 REMOTE="${REMOTE_LOGIN}@${REMOTE_SERVER}"
 REMOTE_CMD="ssh -C ${REMOTE}"
@@ -240,6 +240,7 @@ function organizePackage() {
 	rm -f misc/others/db-schema*
 	rm -f misc/others/diagram_general_request*
 	rm -f .coveralls.yml .scrutinizer.yml .phpstorm.meta.php
+	rm -f .lfsconfig
 	rm -f HIRING.md
 
 	# delete unwanted folders, recursively

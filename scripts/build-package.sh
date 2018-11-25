@@ -362,7 +362,7 @@ for F in $FLAVOUR; do
 		if [ "$CACHE" == true ]; then
 			echo "Copy repo to cache directory"
 			rm -rf "$CACHE_DIRECTORY"
-			cp -r "$LOCAL_REPO" "$CACHE_DIRECTORY"
+			cp -pdr "$LOCAL_REPO" "$CACHE_DIRECTORY"
 		fi
 	else
 		echo "copy repo from cache directory"

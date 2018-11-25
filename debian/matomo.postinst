@@ -54,21 +54,20 @@ then
 fi
 
 # debian 8 and above
-if [ -d "/etc/apache2/conf-available" ] && [ -x "/usr/sbin/a2enconf" ]
+if [ -e /usr/share/apache2/apache2-maintscript-helper ];
 then
+	. /usr/share/apache2/apache2-maintscript-helper
 	if [ -e "/etc/apache2/conf.d/matomo.conf" ] && [ ! -e "/etc/apache2/conf-available/matomo.conf" ];
 	then
 		echo "  * Migrating previous '/etc/apache2/conf.d/matomo.conf' to '/etc/apache2/conf-available/matomo.conf'"
 		mv /etc/apache2/conf.d/matomo.conf /etc/apache2/conf-available/matomo.conf
 		# the conf is enabled since it was debian 7 default behavior
-		a2enconf --maintmode matomo
-		invoke-rc.d apache2 reload 2>/dev/null || true
+		apache2_invoke enconf matomo.conf || exit $?
 	else
 		if [ ! -e /etc/apache2/conf-available/matomo.conf ];
 		then
 			ln -s /etc/matomo/apache.conf /etc/apache2/conf-available/matomo.conf
-			a2enconf --maintmode matomo
-			invoke-rc.d apache2 reload 2>/dev/null || true
+			apache2_invoke enconf matomo.conf || exit $?
 		fi
 		echo "  * Check Matomo web configuration in /etc/apache2/conf-available/matomo.conf"
 	fi

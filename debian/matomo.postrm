@@ -12,12 +12,6 @@ then
 		invoke-rc.d lighttpd reload 3>/dev/null || true
 	fi
 
-	if [ -L /etc/apache2/conf.d/matomo.conf ];
-	then
-		rm -f /etc/apache2/conf.d/matomo.conf
-		invoke-rc.d apache2 reload 3>/dev/null || true
-	fi
-	
 	if [ -e /usr/share/apache2/apache2-maintscript-helper ];
 	then
 		. /usr/share/apache2/apache2-maintscript-helper

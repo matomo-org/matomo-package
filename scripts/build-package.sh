@@ -23,7 +23,7 @@ URL_REPO=https://github.com/matomo-org/matomo.git
 
 LOCAL_REPO="matomo_last_version_git"
 LOCAL_ARCH="archives"
-CACHE_DIRECTORY="/srv/matomo-cache/"
+CACHE_DIRECTORY="/tmp/matomo-cache/"
 
 REMOTE_SERVER="matomo.org"
 REMOTE_LOGIN="piwik-builds"
@@ -360,7 +360,7 @@ for F in $FLAVOUR; do
 			die "Error: Failed to clone git repository $URL_REPO"
 		fi
 		if [ "$CACHE" == true ]; then
-			echo copy repo to cache directory
+			echo "Copy repo to cache directory"
 			rm -rf "$CACHE_DIRECTORY"
 			cp -r "$LOCAL_REPO" "$CACHE_DIRECTORY"
 		fi

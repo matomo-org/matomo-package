@@ -42,9 +42,9 @@ API_PATH="/home/piwik-api/www/api.piwik.org/"
 WWW_PATH="/home/piwik/www/"
 
 # Change these to gcp/gfind on mac (get from the appropriate homebrew packages)
-CP=gcp
-FIND=gfind
-SED=gsed
+CP=cp
+FIND=find
+SED=sed
 
 # Setting umask so it works for most users, see https://github.com/matomo-org/matomo/issues/3869
 UMASK=$(umask)

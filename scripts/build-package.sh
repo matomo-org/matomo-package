@@ -394,7 +394,7 @@ for F in $FLAVOUR; do
             #export GIT_TRACE_PACKET=1
             #export GIT_TRACE=1
             #export GIT_CURL_VERBOSE=1
-            git clone --config filter.lfs.smudge="git-lfs smudge --skip" --depth=1 --branch="$VERSION" "$URL_REPO" "$LOCAL_REPO"
+            git clone --config filter.lfs.smudge="git-lfs smudge --skip" "$URL_REPO" "$LOCAL_REPO"
             if [ "$?" -ne "0" -o ! -d "$LOCAL_REPO" ]
             then
                 die "Error: Failed to clone git repository $URL_REPO"
@@ -415,12 +415,27 @@ for F in $FLAVOUR; do
         # we need to exclude LFS files from the upcoming git clone/git checkout,
         # unfortunately this git config command does not work...
         git config lfs.fetchexclude "tests/"
+		# ^^ not working, LFS files are fetched below... why?!
+
+		git checkout master --force
+		git reset --hard origin/master
+		git checkout master
+		git pull
+
+		# fetch everything
+		git fetch --tags --all --prune
+
+		echo "checkout repository for tag $VERSION..."
 
         git branch -D "build" > /dev/null 2> /dev/null
 
-        echo -e "Creating branch for tag!"
-        git checkout -b "build" > /dev/null
-        [ "$?" -eq "0" ] || die "tag $VERSION does not exist in repository"
+		echo -e "Commit UI tests git-lfs files to avoid some problems checking out the tag..."
+		git add plugins/*/tests/UI/ tests/UI/expected-screenshots/*
+		git commit -m'committing UI tests to avoid git checkout failures...'
+
+		echo -e "Now checking out the tag!"
+		git checkout -b "build" "tags/$VERSION" > /dev/null
+		[ "$?" -eq "0" ] || die "tag $VERSION does not exist in repository"
 
         # clone submodules that should be in the release
         for P in $(git submodule status | egrep $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')

@@ -240,6 +240,9 @@ function organizePackage() {
 	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/Silkscreen*
 	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/verdana*
 
+	rm -f $(find config -type f -name *.ini.php -not -name global.ini.php)
+	rm -f config/config.php
+
 	# ------------
 	# WARNING: Did you read the WARNING above?
 	# ------------

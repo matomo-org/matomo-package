@@ -504,6 +504,11 @@ if [ "$BUILD_ONLY" == true ]; then
     exit;
 fi
 
+if [ "$BUILDING_TAG" != "1"  ]; then
+	echo "Skipping remote work since we are building a path and not a tag.";
+	exit;
+fi
+
 # #### #### #### #### #### #
 # let's do the remote work #
 # #### #### #### #### #### #

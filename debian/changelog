@@ -1,3 +1,9 @@
+matomo (3.8.1-1) stable; urgency=high
+
+  * Releasing Matomo 3.8.1
+
+ -- Matomo Autonomous Build System <nobody@matomo.org>  Sat, 16 Mar 2019 04:28:58 +0000
+
 matomo (3.8.0-1) stable; urgency=high
 
   * Releasing Matomo 3.8.0

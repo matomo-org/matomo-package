@@ -35,7 +35,6 @@ matomo: extra-license-file usr/share/matomo/vendor/symfony/console/Symfony/Compo
 matomo: extra-license-file usr/share/matomo/vendor/symfony/event-dispatcher/Symfony/Component/EventDispatcher/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/symfony/monolog-bridge/Symfony/Bridge/Monolog/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/tecnickcom/tcpdf/LICENSE.TXT
-matomo: extra-license-file usr/share/matomo/vendor/tedivm/jshrink/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/twig/twig/LICENSE
 matomo: privacy-breach-piwik usr/share/matomo/js/piwik.js
 matomo: privacy-breach-piwik usr/share/matomo/piwik.js

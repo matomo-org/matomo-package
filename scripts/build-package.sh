@@ -50,11 +50,8 @@ umask 0022
 CURRENT_DIR="$(pwd)"
 
 # this is where our build script is.
-WORK_DIR="$(mktemp -d)"
+WORK_DIR="./archives/"
 cd "$WORK_DIR"
-
-# this is where our Matomo is going to be built
-BUILD_DIR=$WORK_DIR/archives/
 
 trap "script_cleanup" EXIT
 
@@ -113,10 +110,6 @@ function checkEnv() {
 # this function is called whenever the script exits
 # and it performs some cleanup tasks
 function script_cleanup() {
-
-	# FIXME: to be removed once the script has been validated
-	# all cleanup actions
-	[ -d "$WORK_DIR" ] && rm -rf "$WORK_DIR"
 
 	# setting back umask
 	umask $UMASK
@@ -327,7 +320,7 @@ fi
 checkEnv
 
 for F in $FLAVOUR; do
-	echo -e "Going to build Matomo $VERSION (Major version: $MAJOR_VERSION)"
+	echo -e "Going to build Matomo $VERSION (Major version: $MAJOR_VERSION) --> Flavor = $FLAVOUR"
 
 	if [ "$MAJOR_VERSION" == "$CURRENT_LATEST_MAJOR_VERSION" ]
 	then
@@ -344,9 +337,6 @@ for F in $FLAVOUR; do
 	echo "Starting '$FLAVOUR' build...."
 
 	[ -d "$LOCAL_ARCH" ] || mkdir "$LOCAL_ARCH"
-	[ -d "$BUILD_DIR" ] || mkdir "$BUILD_DIR"
-
-	cd $BUILD_DIR
 
 	if [ "$CACHE" != true ] || [ ! -d "$CACHE_DIRECTORY" ]
 	then
@@ -354,7 +344,21 @@ for F in $FLAVOUR; do
 		#export GIT_TRACE_PACKET=1
 		#export GIT_TRACE=1
 		#export GIT_CURL_VERBOSE=1
-		git clone --config filter.lfs.smudge="git-lfs smudge --skip" "$URL_REPO" "$LOCAL_REPO"
+
+
+		git config --global filter.lfs.smudge "git-lfs smudge --skip %f"
+		git config --global filter.lfs.process "git-lfs filter-process --skip"
+
+
+        if [ ! -d $LOCAL_REPO ]
+        then
+            git clone $URL_REPO $LOCAL_REPO
+        else
+            cd $LOCAL_REPO
+            git pull $URL_REPO
+            cd ..
+        fi
+
 		if [ "$?" -ne "0" -o ! -d "$LOCAL_REPO" ]
 		then
 			die "Error: Failed to clone git repository $URL_REPO"

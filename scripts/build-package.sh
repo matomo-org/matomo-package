@@ -364,6 +364,7 @@ for F in $FLAVOUR; do
 
 	echo "Starting '$FLAVOUR' build...."
 
+    mkdir -p "$WORK_DIR"
     cd "$WORK_DIR"
 
 	[ -d "$LOCAL_ARCH" ] || mkdir "$LOCAL_ARCH"
@@ -461,6 +462,7 @@ for F in $FLAVOUR; do
 	fi
 
 	echo "Organizing files and generating manifest file..."
+	ls
 	organizePackage
 
 	# leave $F folder

@@ -54,12 +54,9 @@ umask 0022
 CURRENT_DIR="$(pwd)"
 
 # this is where our build script is.
-WORK_DIR="$(mktemp -d)"
+WORK_DIR="./archives/"
 
 echo "Working directory is '$WORK_DIR'..."
-
-# this is where our Matomo is going to be built
-BUILD_DIR=$WORK_DIR/archives/
 
 trap "script_cleanup" EXIT
 
@@ -126,10 +123,6 @@ function checkEnv() {
 # this function is called whenever the script exits
 # and it performs some cleanup tasks
 function script_cleanup() {
-
-	# FIXME: to be removed once the script has been validated
-	# all cleanup actions
-	[ -d "$WORK_DIR" ] && rm -rf "$WORK_DIR"
 
 	# setting back umask
 	umask $UMASK
@@ -355,7 +348,7 @@ checkEnv
 
 # TODO: make sure it still works to clone the repo, and maybe get rid of cache param
 for F in $FLAVOUR; do
-	echo -e "Going to build Matomo $VERSION (Major version: $MAJOR_VERSION)"
+	echo -e "Going to build Matomo $VERSION (Major version: $MAJOR_VERSION) --> Flavor = $FLAVOUR"
 
 	if [ "$MAJOR_VERSION" == "$CURRENT_LATEST_MAJOR_VERSION" ]
 	then
@@ -374,7 +367,6 @@ for F in $FLAVOUR; do
     cd "$WORK_DIR"
 
 	[ -d "$LOCAL_ARCH" ] || mkdir "$LOCAL_ARCH"
-	[ -d "$BUILD_DIR" ] || mkdir "$BUILD_DIR"
 
     cd "$CURRENT_DIR"
     if [ ! -d "$VERSION" ]; then
@@ -388,7 +380,7 @@ for F in $FLAVOUR; do
     fi
 
     if [ "$BUILDING_TAG" == "1"  ]; then
-    	cd $BUILD_DIR
+    	cd $WORK_DIR
 
         if [ "$CACHE" != true ] || [ ! -d "$CACHE_DIRECTORY" ]
         then
@@ -448,7 +440,7 @@ for F in $FLAVOUR; do
     fi
 
 	# leave $LOCAL_REPO folder
-	cd "$BUILD_DIR"
+	cd "$WORK_DIR"
 
 	echo "copying files to a new directory..."
 	[ -d "$F" ] && rm -rf "$F"

@@ -54,7 +54,7 @@ umask 0022
 CURRENT_DIR="$(pwd)"
 
 # this is where our build script is.
-WORK_DIR="./archives/"
+WORK_DIR="$CURRENT_DIR/archives/"
 
 echo "Working directory is '$WORK_DIR'..."
 

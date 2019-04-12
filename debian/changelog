@@ -1,6 +1,21 @@
+matomo (3.9.1-2) stable; urgency=high
+
+  * Releasing Matomo 3.9.1
+  * Changelog not available for this release
+
+ -- Matomo Autonomous Build System <nobody@matomo.org>  Fri, 12 Apr 2019 09:29:13 +0000
+
+matomo (3.9.0-1) stable; urgency=high
+
+  * Releasing Matomo 3.9.0
+  * Changelog not available for this release
+
+ -- Matomo Autonomous Build System <nobody@matomo.org>  Fri, 12 Apr 2019 09:25:04 +0000
+
 matomo (3.8.1-1) stable; urgency=high
 
   * Releasing Matomo 3.8.1
+  * Changelog not available for this release
 
  -- Matomo Autonomous Build System <nobody@matomo.org>  Sat, 16 Mar 2019 04:28:58 +0000
 

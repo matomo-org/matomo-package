@@ -370,14 +370,16 @@ for F in $FLAVOUR; do
     if [ "$BUILDING_TAG" == "1"  ]; then
     	cd $WORK_DIR
 
-        # for this to work 'git-lfs' has to be installed on the local machine
-        #export GIT_TRACE_PACKET=1
-        #export GIT_TRACE=1
-        #export GIT_CURL_VERBOSE=1
-        git clone --config filter.lfs.smudge="git-lfs smudge --skip" "$URL_REPO" "$LOCAL_REPO"
-        if [ "$?" -ne "0" -o ! -d "$LOCAL_REPO" ]
-        then
-            die "Error: Failed to clone git repository $URL_REPO"
+        if [ ! -d "$LOCAL_REPO" ] ; then
+            # for this to work 'git-lfs' has to be installed on the local machine
+            #export GIT_TRACE_PACKET=1
+            #export GIT_TRACE=1
+            #export GIT_CURL_VERBOSE=1
+            git clone --config filter.lfs.smudge="git-lfs smudge --skip" "$URL_REPO" "$LOCAL_REPO"
+            if [ "$?" -ne "0" -o ! -d "$LOCAL_REPO" ]
+            then
+                die "Error: Failed to clone git repository $URL_REPO"
+            fi
         fi
 
         echo -e "Working in $LOCAL_REPO"

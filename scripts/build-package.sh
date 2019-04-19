@@ -23,7 +23,6 @@ URL_REPO=https://github.com/matomo-org/matomo.git
 
 LOCAL_REPO="matomo_last_version_git"
 LOCAL_ARCH="archives"
-CACHE_DIRECTORY="/tmp/matomo-cache/"
 
 REMOTE_SERVER="matomo.org"
 REMOTE_LOGIN="piwik-builds"
@@ -62,10 +61,9 @@ trap "script_cleanup" EXIT
 
 function Usage() {
 	echo -e "ERROR: This command is missing one or more option. See help below."
-	echo -e "$0 version [flavour] [cache] [build-only]"
+	echo -e "$0 version [flavour] [build-only]"
 	echo -e "\t* version: Package version under which you want the archive to be published or path to matomo checkout you want packaged."
 	echo -e "\t* flavour: Base name of your archive. Can either be 'matomo' or 'piwik'. If unspecified, both archives are generated."
-	echo -e "\t* cache: Set to 'true' if you want to use a repository-cache in $CACHE_DIRECTORY."
 	echo -e "\t* build-only: Set to 'true' if you want to build the package without uploading to the builds server. This will skip the version check as well."
 	# exit with code 1 to indicate an error.
 	exit 1
@@ -322,20 +320,9 @@ else
 fi
 
 if [ -z "$3" ] || [ "$3" == "false" ]; then
-	CACHE=false
-else
-	if [ "$3" == "true" ]; then
-		CACHE=true
-		echo "Using Cache from $CACHE_DIRECTORY"
-	else
-		Usage "$0"
-	fi
-fi
-
-if [ -z "$4" ] || [ "$4" == "false" ]; then
     BUILD_ONLY=false
 else
-    if [ "$4" == "true" ]; then
+    if [ "$3" == "true" ]; then
         BUILD_ONLY=true
         echo "Only building package"
     else
@@ -346,7 +333,7 @@ fi
 # check for local requirements
 checkEnv
 
-# TODO: make sure it still works to clone the repo, and maybe get rid of cache param
+# TODO: make sure it still works to clone the repo
 for F in $FLAVOUR; do
 	echo -e "Going to build Matomo $VERSION (Major version: $MAJOR_VERSION) --> Flavor = $FLAVOUR"
 
@@ -383,25 +370,14 @@ for F in $FLAVOUR; do
     if [ "$BUILDING_TAG" == "1"  ]; then
     	cd $WORK_DIR
 
-        if [ "$CACHE" != true ] || [ ! -d "$CACHE_DIRECTORY" ]
+        # for this to work 'git-lfs' has to be installed on the local machine
+        #export GIT_TRACE_PACKET=1
+        #export GIT_TRACE=1
+        #export GIT_CURL_VERBOSE=1
+        git clone --config filter.lfs.smudge="git-lfs smudge --skip" "$URL_REPO" "$LOCAL_REPO"
+        if [ "$?" -ne "0" -o ! -d "$LOCAL_REPO" ]
         then
-            # for this to work 'git-lfs' has to be installed on the local machine
-            #export GIT_TRACE_PACKET=1
-            #export GIT_TRACE=1
-            #export GIT_CURL_VERBOSE=1
-            git clone --config filter.lfs.smudge="git-lfs smudge --skip" "$URL_REPO" "$LOCAL_REPO"
-            if [ "$?" -ne "0" -o ! -d "$LOCAL_REPO" ]
-            then
-                die "Error: Failed to clone git repository $URL_REPO"
-            fi
-            if [ "$CACHE" == true ]; then
-                echo "Copy repo to cache directory"
-                rm -rf "$CACHE_DIRECTORY"
-                cp -pdr "$LOCAL_REPO" "$CACHE_DIRECTORY"
-            fi
-        else
-            echo "copy repo from cache directory"
-            mv "$CACHE_DIRECTORY" "$LOCAL_REPO"
+            die "Error: Failed to clone git repository $URL_REPO"
         fi
 
         echo -e "Working in $LOCAL_REPO"

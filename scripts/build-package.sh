@@ -346,6 +346,14 @@ for F in $FLAVOUR; do
 		BUILDING_LATEST_MAJOR_VERSION_STABLE_OR_BETA=0
 	fi
 
+	if ! echo "$VERSION" | grep -E 'rc|b|a|alpha|beta|dev' -i
+	then
+		if curl --output /dev/null --silent --head --fail "https://builds.matomo.org/$F-$VERSION.zip"
+		then
+			die "--> Error: stable version $VERSION has already been built (not expected). <-- "
+		fi
+	fi
+
 	echo -e "Proceeding..."
 	sleep 2
 

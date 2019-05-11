@@ -38,6 +38,7 @@ matomo: extra-license-file usr/share/matomo/vendor/tecnickcom/tcpdf/LICENSE.TXT
 matomo: extra-license-file usr/share/matomo/vendor/twig/twig/LICENSE
 matomo: privacy-breach-piwik usr/share/matomo/js/piwik.js
 matomo: privacy-breach-piwik usr/share/matomo/piwik.js
+matomo: privacy-breach-piwik usr/share/matomo/matomo.js
 matomo: privacy-breach-piwik usr/share/matomo/js/piwik.min.js
 matomo: privacy-breach-piwik usr/share/matomo/plugins/TagManager/Template/Tag/MatomoTag.web.js
 matomo: php-script-but-no-phpX-cli-dep usr/share/matomo/console

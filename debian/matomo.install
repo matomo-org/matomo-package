@@ -14,6 +14,8 @@ matomo/lang					usr/share/matomo/
 matomo/LEGALNOTICE				usr/share/matomo/
 matomo/libs					usr/share/matomo/
 matomo/misc					usr/share/matomo/
+matomo/matomo.js				usr/share/matomo/
+matomo/matomo.php				usr/share/matomo/
 matomo/piwik.js					usr/share/matomo/
 matomo/piwik.php				usr/share/matomo/
 matomo/plugins					usr/share/matomo/

@@ -1,3 +1,11 @@
+matomo (3.9.1-3) stable; urgency=high
+
+  * Ensure `matomo.php` and `matomo.js` are included the in debian package
+    (Closes: #97)
+  * Updated lintian-overrides
+
+ -- Matomo Autonomous Build System <nobody@matomo.org>  Sat, 11 May 2019 01:09:10 +0000
+
 matomo (3.9.1-2) stable; urgency=high
 
   * Releasing Matomo 3.9.1

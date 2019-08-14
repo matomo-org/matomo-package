@@ -199,6 +199,7 @@ function organizePackage() {
 	rm -rf plugins/Morpheus/icons/*.svg
 	rm -rf plugins/Morpheus/icons/*.txt
 	rm -rf plugins/Morpheus/icons/*.php
+	rm -rf plugins/Morpheus/icons/*.yml
 
 	# Delete un-used fonts
 	rm -rf vendor/tecnickcom/tcpdf/fonts/ae_fonts_2.0

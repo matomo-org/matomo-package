@@ -87,6 +87,7 @@ cleanup:
 		@find matomo/ -type f -name .jshintrc -exec rm -f {} \;
 		@find matomo/ -type f -name .scrutinizer.yml -exec rm -f {} \;
 		@find matomo/ -type f -name "*bower.json" -exec rm -f {} \;
+		@find matomo/ -type f -name ".npmignore" -exec rm -f {} \;
 		@rm -rf matomo/vendor/doctrine/cache/.git
 		@rm -f matomo/misc/translationTool.sh
 		@echo " [RM] Cleanup: jScrollPane"
@@ -94,6 +95,9 @@ cleanup:
 		@rm -f matomo/libs/bower_components/jScrollPane/ajax_content.html
 		@rm -f matomo/libs/bower_components/jScrollPane/script/demo.js
 		@rm -f matomo/libs/bower_components/jScrollPane/themes/lozenge/index.html
+		@rm -rf matomo/libs/bower_components/sprintf/demo
+		@rm -f matomo/vendor/leafo/lessphp/lessify matomo/vendor/leafo/lessphp/plessc
+		@rm -rf matomo/vendor/tecnickcom/tcpdf/tools
 		@grep -li demo matomo/libs/bower_components/jScrollPane/*.html | while read F; do rm -f $$F; done;
 		@echo " [RM] Cleanup: bower_components"
 		@rm -f matomo/libs/bower_components/jquery-placeholder/demo.html
@@ -151,13 +155,9 @@ fixperms:
 		@find $(DESTDIR) -type f -not -path "$(DESTDIR)/DEBIAN/*" -exec chmod 0644 {} \;
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/misc/cron/archive.sh
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/console
-		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/leafo/lessphp/lessify
-		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/leafo/lessphp/package.sh
-		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/leafo/lessphp/plessc
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/misc/composer/build-xhprof.sh
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/misc/composer/clean-xhprof.sh
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/pear/archive_tar/sync-php4
-		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/tecnickcom/tcpdf/tools/tcpdf_addfont.php
 		@echo "done."
 
 # check lintian licenses so we can remove obsolete ones

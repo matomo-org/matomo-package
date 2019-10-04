@@ -1,3 +1,4 @@
+matomo: package-installs-apt-keyring etc/apt/trusted.gpg.d/matomo-keyring-automatic.gpg
 matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jquery/dist/jquery.js
 matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jquery/dist/jquery.min.js
 matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jquery-mousewheel/jquery.mousewheel.js
@@ -36,16 +37,11 @@ matomo: extra-license-file usr/share/matomo/vendor/symfony/event-dispatcher/Symf
 matomo: extra-license-file usr/share/matomo/vendor/symfony/monolog-bridge/Symfony/Bridge/Monolog/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/tecnickcom/tcpdf/LICENSE.TXT
 matomo: extra-license-file usr/share/matomo/vendor/twig/twig/LICENSE
-matomo: privacy-breach-piwik usr/share/matomo/js/piwik.js
-matomo: privacy-breach-piwik usr/share/matomo/piwik.js
-matomo: privacy-breach-piwik usr/share/matomo/matomo.js
-matomo: privacy-breach-piwik usr/share/matomo/js/piwik.min.js
-matomo: privacy-breach-piwik usr/share/matomo/plugins/TagManager/Template/Tag/MatomoTag.web.js
-matomo: php-script-but-no-phpX-cli-dep usr/share/matomo/console
-matomo: php-script-but-no-phpX-cli-dep usr/share/matomo/vendor/leafo/lessphp/lessify
-matomo: php-script-but-no-phpX-cli-dep usr/share/matomo/vendor/leafo/lessphp/plessc
-matomo: php-script-but-no-phpX-cli-dep usr/share/matomo/vendor/tecnickcom/tcpdf/tools/tcpdf_addfont.php
-matomo: php-script-but-no-php-cli-dep usr/share/matomo/console
-matomo: php-script-but-no-php-cli-dep usr/share/matomo/vendor/leafo/lessphp/lessify
-matomo: php-script-but-no-php-cli-dep usr/share/matomo/vendor/leafo/lessphp/plessc
-matomo: php-script-but-no-php-cli-dep usr/share/matomo/vendor/tecnickcom/tcpdf/tools/tcpdf_addfont.php
+matomo: privacy-breach-piwik usr/share/matomo/js/piwik.js (choke on: 'settrackerurl')
+matomo: privacy-breach-piwik usr/share/matomo/js/piwik-min.js (choke on: "settrackerurl")
+matomo: privacy-breach-piwik usr/share/matomo/js/piwik.min.js (choke on: "settrackerurl")
+matomo: privacy-breach-piwik usr/share/matomo/matomo.js (choke on: "settrackerurl")
+matomo: privacy-breach-piwik usr/share/matomo/piwik.js (choke on: "settrackerurl")
+matomo: privacy-breach-piwik usr/share/matomo/plugins/TagManager/Template/Tag/MatomoTag.web.js (choke on: 'piwik.js')
+matomo: php-script-but-no-php-cli-dep usr/share/matomo/console #!php
+

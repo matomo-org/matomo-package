@@ -1,3 +1,9 @@
+matomo (3.11.0-2) stable; urgency=high
+
+  * Suggest 'libmaxminddb0' as a dependency for GeoIP2 availability in Matomo 
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Fri, 04 Oct 2019 12:52:43 +1000
+
 matomo (3.11.0-1) stable; urgency=high
 
   * Releasing Matomo 3.11.0

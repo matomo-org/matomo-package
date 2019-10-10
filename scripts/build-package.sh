@@ -233,6 +233,52 @@ function organizePackage() {
 	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/pf_arma_five*
 	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/Silkscreen*
 	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/verdana*
+	
+	# not needed js files
+	rm libs/bower_components/angular/angular.js 
+	rm libs/bower_components/angular/angular.min.js.gzip 
+	rm -f libs/bower_components/angular-sanitize/angular-sanitize.js 
+	rm -f libs/bower_components/angular-cookies/angular-cookies.js 
+	rm -f libs/bower_components/angular-animate/angular-animate.js 
+	rm -f libs/bower_components/iframe-resizer/js/iframeResizer.contentWindow.js 
+	rm -f libs/bower_components/iframe-resizer/js/iframeResizer.js 
+	rm -f libs/bower_components/iframe-resizer/src/ie8.polyfils.js 
+	rm -f libs/bower_components/iframe-resizer/src/iframeResizer.contentWindow.js 
+	rm -f libs/bower_components/iframe-resizer/src/iframeResizer.js 
+	rm -f libs/bower_components/iframe-resizer/test-main.js 
+	rm -f libs/bower_components/jScrollPane/image/logo.png 
+	rm -f libs/bower_components/jScrollPane/script/demo.js 
+	rm -f libs/bower_components/jScrollPane/script/jquery.jscrollpane.js 
+	rm -f libs/bower_components/jScrollPane/style/demo.css 
+	rm -f libs/bower_components/jquery-mousewheel/jquery.mousewheel.js 
+	rm -f libs/bower_components/jquery-ui/component.json 
+	rm -f libs/bower_components/jquery.scrollTo/jquery.scrollTo.js 
+	rm -f libs/bower_components/jquery.scrollTo/scrollTo.jquery.json 
+	rm -f libs/bower_components/jquery/dist/jquery.js 
+	rm -f libs/bower_components/jquery/dist/jquery.slim.js 
+	rm -f libs/bower_components/jquery/dist/jquery.slim.min.js 
+	rm -f libs/bower_components/jquery/sizzle/dist/sizzle.js 
+	rm -f libs/bower_components/materialize/bin/materialize.css 
+	rm -f libs/bower_components/materialize/bin/materialize.js 
+	rm -f libs/bower_components/materialize/dist/css/materialize.css 
+	rm -f libs/bower_components/materialize/dist/js/materialize.js 
+	rm -f libs/bower_components/materialize/extras/noUiSlider/nouislider.js 
+	rm -f libs/bower_components/ngDialog/js/ngDialog.js 
+	rm -f libs/bower_components/ngDialog/css/ngDialog.css 
+	rm -f libs/bower_components/ngDialog/css/ngDialog-theme-plain.css 
+	rm -f libs/bower_components/ngDialog/protractor.conf.js 
+	rm -f libs/bower_components/ngDialog/yarn.lock 
+	rm -f libs/jqplot/jqplot.core.js 
+	rm -f libs/jqplot/jqplot.lineRenderer.js 
+	rm -f libs/jqplot/jqplot.linearAxisRenderer.js 
+	rm -f libs/jqplot/jqplot.themeEngine.js 
+	rm -f libs/jqplot/plugins/jqplot.barRenderer.js 
+	rm -f libs/jqplot/plugins/jqplot.pieRenderer.js 
+	rm -f libs/bower_components/materialize/package.js 
+	rm -f libs/bower_components/mousetrap/mousetrap.js 
+	rm -rf libs/bower_components/mousetrap/plugins 
+	rm -rf libs/bower_components/jquery-ui/ui/i18n/
+	rm -rf libs/bower_components/jquery-ui/ui/minified/i18n/
 
 	rm -f $(find config -type f -name *.ini.php -not -name global.ini.php)
 	rm -f config/config.php

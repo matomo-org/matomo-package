@@ -260,7 +260,9 @@ function organizePackage() {
 
 	# delete unwanted files, recursively
 	for x in .gitignore .gitmodules .gitattributes .bowerrc .bower.json \
-		.coveralls.yml .editorconfig .gitkeep .jshintrc .php_cs .travis.sh .travis.yml; do
+		.coveralls.yml .editorconfig .gitkeep .jshintrc .php_cs .travis.sh \
+		phpunit.xml.dist phpunit.xml .phpcs.xml.dist Gruntfile.js karma.conf.js \
+		*.map .travis.yml bower.json package.json composer.json composer.lock; do
 		find . -name "$x" -exec rm -f {} \;
 	done
 

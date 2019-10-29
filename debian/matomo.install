@@ -1,5 +1,3 @@
-matomo/composer.json				usr/share/matomo/
-matomo/composer.lock				usr/share/matomo/
 matomo/config/global.php			etc/matomo/
 matomo/config/global.ini.php			etc/matomo/
 matomo/config/manifest.inc.php			etc/matomo/

@@ -1,7 +1,5 @@
 matomo: package-installs-apt-keyring etc/apt/trusted.gpg.d/matomo-keyring-automatic.gpg
-matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jquery/dist/jquery.js
 matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jquery/dist/jquery.min.js
-matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jquery-mousewheel/jquery.mousewheel.js
 matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jquery-mousewheel/jquery.mousewheel.min.js
 matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jScrollPane/script/jquery.mousewheel.js
 matomo: embedded-javascript-library usr/share/matomo/libs/jqplot/excanvas.min.js
@@ -19,8 +17,6 @@ matomo: extra-license-file usr/share/matomo/libs/jqplot/gpl-2.0.txt
 matomo: extra-license-file usr/share/matomo/libs/jquery/gpl-2.0.txt
 matomo: extra-license-file usr/share/matomo/libs/jquery/gpl-3.0.txt
 matomo: extra-license-file usr/share/matomo/libs/Zend/LICENSE.txt
-matomo: extra-license-file usr/share/matomo/misc/gpl-3.0.txt
-matomo: extra-license-file usr/share/matomo/plugins/ExampleUI/images/icons-planet/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/container-interop/container-interop/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/doctrine/cache/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/leafo/lessphp/LICENSE

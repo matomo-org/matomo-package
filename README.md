@@ -24,3 +24,8 @@ To generate a new Matomo release for example 3.0.0-b1, follow these steps:
 * The new Matomo version is now shipped to users worldwide,
  * Users will now notified in their Administration area, and some users will receive email alerts about the new version.
 
+## Multiple gpg keys
+To choose a default key without having to specify --default-key on the command-line every time, create a configuration file (if it doesn't already exist), `~/.gnupg/gpg.conf` and add a line containing
+
+`default-key 5590A237`
+

@@ -98,9 +98,6 @@ cleanup:
 		@rm -rf matomo/libs/bower_components/sprintf/demo
 		@rm -f matomo/vendor/leafo/lessphp/lessify matomo/vendor/leafo/lessphp/plessc
 		@rm -rf matomo/vendor/tecnickcom/tcpdf/tools
-		@grep -li demo matomo/libs/bower_components/jScrollPane/*.html | while read F; do rm -f $$F; done;
-		@echo " [RM] Cleanup: bower_components"
-		@rm -f matomo/libs/bower_components/jquery-placeholder/demo.html
 
 
 checkconfig:

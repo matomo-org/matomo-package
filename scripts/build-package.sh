@@ -184,6 +184,11 @@ function organizePackage() {
 	rm -rf vendor/maxmind-db/reader/CHANGELOG.md
 	rm -rf vendor/maxmind/web-service-common/dev-bin/
 	rm -rf vendor/maxmind/web-service-common/CHANGELOG.md
+	rm -rf vendor/php-di/invoker/doc/
+	rm -rf vendor/szymach/c-pchart/doc
+	rm -rf vendor/leafo/lessphp/docs
+	rm -rf vendor/container-interop/container-interop/docs
+	rm -rf vendor/pear/archive_tar/docs
 
 	# Delete un-used files from the matomo-icons repository
 	rm -rf plugins/Morpheus/icons/src*

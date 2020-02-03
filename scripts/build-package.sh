@@ -455,7 +455,7 @@ for F in $FLAVOUR; do
 		git pull
 
 		# fetch everything
-		git fetch --tags --all --prune
+		git fetch --tags --force  --all --prune || die "Error running git fetch --tags --force --all --prune"
 
 		echo "checkout repository for tag $VERSION..."
 
@@ -465,7 +465,7 @@ for F in $FLAVOUR; do
 		git add plugins/*/tests/UI/ tests/UI/expected-screenshots/*
 		git commit -m'committing UI tests to avoid git checkout failures...'
 
-		echo -e "Now checking out the tag!"
+		echo -e "Now checking out tags/$VERSION"
 		git checkout -b "build" "tags/$VERSION" > /dev/null
 		[ "$?" -eq "0" ] || die "tag $VERSION does not exist in repository"
 
@@ -475,6 +475,7 @@ for F in $FLAVOUR; do
             echo -e "cloning submodule $P"
             git submodule update --init --depth=1 $P
         done
+
     fi
 
 	# leave $LOCAL_REPO folder
@@ -490,6 +491,8 @@ for F in $FLAVOUR; do
     fi
 
 	echo "Preparing release $VERSION"
+	echo "Git branch: $(git branch)"
+	echo "Git path: $WORK_DIR/$LOCAL_REPO"
 	echo "Matomo version in core/Version.php: $(grep "'$VERSION'" core/Version.php)"
 
     if [ "$BUILD_ONLY" != true ]; then

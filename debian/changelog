@@ -1,3 +1,10 @@
+matomo (3.13.3-1) stable; urgency=high
+
+  * Releasing Matomo 3.13.2
+  * See https://matomo.org/changelog/matomo-3-13-3/
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Mon, 24 Feb 2020 17:04:57 +1100
+
 matomo (3.13.2-1) stable; urgency=high
 
   * Releasing Matomo 3.13.2

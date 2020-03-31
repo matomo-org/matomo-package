@@ -282,7 +282,7 @@ function organizePackage() {
 	rm -rf libs/bower_components/jquery-ui/ui/i18n/
 	rm -rf libs/bower_components/jquery-ui/ui/minified/i18n/
 
-	rm -f $(find config -type f -name *.ini.php -not -name global.ini.php)
+	rm -f $(find config -type f -name '*.ini.php' -not -name global.ini.php)
 	rm -f config/config.php
 
 	# ------------

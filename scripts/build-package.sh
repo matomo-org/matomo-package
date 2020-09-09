@@ -136,11 +136,6 @@ function die() {
 
 # organize files for packaging
 function organizePackage() {
-    if [ ! -f "npm" ]
-    then
-        >&2 echo "ERROR: npm cannot be found!"
-        exit 1
-    fi
 
 	if [ ! -f "composer.phar" ]
 	then
@@ -159,9 +154,6 @@ function organizePackage() {
 	fi
 	# --ignore-platform-reqs in case the building machine does not have one of the packages required ie. GD required by cpchart
 	php composer.phar install --no-dev -o --ignore-platform-reqs || die "Error installing composer packages"
-
-	# run npm
-	npm install --production
 
 	# delete most submodules
 	for P in $(git submodule status | egrep -v $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')

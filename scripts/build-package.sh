@@ -136,6 +136,7 @@ function die() {
 
 # organize files for packaging
 function organizePackage() {
+
 	if [ ! -f "composer.phar" ]
 	then
 		EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
@@ -242,50 +243,119 @@ function organizePackage() {
 	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/verdana*
 	
 	# not needed js files
-	rm libs/bower_components/angular/angular.js 
-	rm libs/bower_components/angular/angular.min.js.gzip 
-	rm -f libs/bower_components/angular-sanitize/angular-sanitize.js 
-	rm -f libs/bower_components/angular-cookies/angular-cookies.js 
-	rm -f libs/bower_components/angular-animate/angular-animate.js 
-	rm -f libs/bower_components/iframe-resizer/js/iframeResizer.contentWindow.js 
-	rm -f libs/bower_components/iframe-resizer/js/iframeResizer.js 
-	rm -f libs/bower_components/iframe-resizer/src/ie8.polyfils.js 
-	rm -f libs/bower_components/iframe-resizer/src/iframeResizer.contentWindow.js 
-	rm -f libs/bower_components/iframe-resizer/src/iframeResizer.js 
-	rm -f libs/bower_components/iframe-resizer/test-main.js 
-	rm -f libs/bower_components/jScrollPane/image/logo.png 
-	rm -f libs/bower_components/jScrollPane/script/demo.js 
-	rm -f libs/bower_components/jScrollPane/script/jquery.jscrollpane.js 
-	rm -f libs/bower_components/jScrollPane/style/demo.css 
-	rm -f libs/bower_components/jquery-mousewheel/jquery.mousewheel.js 
-	rm -f libs/bower_components/jquery-ui/component.json 
-	rm -f libs/bower_components/jquery.scrollTo/jquery.scrollTo.js 
-	rm -f libs/bower_components/jquery.scrollTo/scrollTo.jquery.json 
-	rm -f libs/bower_components/jquery/dist/jquery.js 
-	rm -f libs/bower_components/jquery/dist/jquery.slim.js 
-	rm -f libs/bower_components/jquery/dist/jquery.slim.min.js 
-	rm -f libs/bower_components/jquery/sizzle/dist/sizzle.js 
-	rm -f libs/bower_components/materialize/bin/materialize.css 
-	rm -f libs/bower_components/materialize/bin/materialize.js 
-	rm -f libs/bower_components/materialize/dist/css/materialize.css 
-	rm -f libs/bower_components/materialize/dist/js/materialize.js 
-	rm -f libs/bower_components/materialize/extras/noUiSlider/nouislider.js 
-	rm -f libs/bower_components/ngDialog/js/ngDialog.js 
-	rm -f libs/bower_components/ngDialog/css/ngDialog.css 
-	rm -f libs/bower_components/ngDialog/css/ngDialog-theme-plain.css 
-	rm -f libs/bower_components/ngDialog/protractor.conf.js 
-	rm -f libs/bower_components/ngDialog/yarn.lock 
-	rm -f libs/jqplot/jqplot.core.js 
+	rm -rf node_modules/angular/angular.min.js.gzip
+	rm -rf node_modules/angular/angular.js
+	rm -rf node_modules/angular/bower.json
+
+	rm -rf node_modules/angular-animate/angular-animate.min.js.gzip
+	rm -rf node_modules/angular-animate/angular-animate.js
+	rm -rf node_modules/angular-animate/bower.json
+
+	rm -rf node_modules/angular-sanitize/angular-sanitize.min.js.gzip
+	rm -rf node_modules/angular-sanitize/angular-sanitize.js
+	rm -rf node_modules/angular-sanitize/bower.json
+
+	rm -rf node_modules/angular-cookies/angular-cookies.min.js.gzip
+	rm -rf node_modules/angular-cookies/angular-cookies.js
+	rm -rf node_modules/angular-cookies/bower.json
+
+	rm -rf node_modules/chroma-js/Makefile
+	rm -rf node_modules/chroma-js/bower.json
+	rm -rf node_modules/chroma-js/chroma.js
+	rm -rf node_modules/chroma-js/doc
+	rm -rf node_modules/chroma-js/readme.md
+	rm -rf node_modules/chroma-js/src
+	rm -rf node_modules/chroma-js/test
+
+	rm -rf node_modules/iframe-resizer/js/iframeResizer.contentWindow.js
+	rm -rf node_modules/iframe-resizer/js/iframeResizer.js
+	rm -rf node_modules/iframe-resizer/src/ie8.polyfils.js
+	rm -rf node_modules/iframe-resizer/src/iframeResizer.contentWindow.js
+	rm -rf node_modules/iframe-resizer/src/iframeResizer.js
+	rm -rf node_modules/iframe-resizer/test-main.js
+	rm -rf node_modules/iframe-resizer/bower.json
+	rm -rf node_modules/iframe-resizer/gruntfile.js
+	rm -rf node_modules/iframe-resizer/karma-conf.js
+
+	rm -rf node_modules/jquery/dist/jquery.js
+	rm -rf node_modules/jquery/bower.json
+	rm -rf node_modules/jquery/src
+	rm -rf node_modules/jquery/external/sizzle/dist/sizzle.js
+
+	rm -rf node_modules/jquery-ui-dist/component.json
+	rm -rf node_modules/jquery-ui-dist/external
+	rm -rf node_modules/jquery-ui-dist/images
+	rm -rf node_modules/jquery-ui-dist/index.html
+	rm -rf node_modules/jquery-ui-dist/jquery-ui.css
+	rm -rf node_modules/jquery-ui-dist/jquery-ui.js
+	rm -rf node_modules/jquery-ui-dist/jquery-ui.structure.css
+	rm -rf node_modules/jquery-ui-dist/jquery-ui.theme.css
+
+	rm -rf node_modules/jquery.browser/Gruntfile.js
+	rm -rf node_modules/jquery.browser/bower.json
+	rm -rf node_modules/jquery.browser/test
+	rm -rf node_modules/jquery.browser/dist/jquery.browser.js
+
+	rm -rf node_modules/jquery.dotdotdot/bower.json
+	rm -rf node_modules/jquery.dotdotdot/gulpfile.js
+	rm -rf node_modules/jquery.dotdotdot/index.html
+	rm -rf node_modules/jquery.dotdotdot/dotdotdot.jquery.json
+	rm -rf node_modules/jquery.dotdotdot/src/jquery.dotdotdot.js
+	rm -rf node_modules/jquery.dotdotdot/src/jquery.dotdotdot.min.umd.js
+
+	rm -rf node_modules/jquery.scrollto/jquery.scrollTo.js
+	rm -rf node_modules/jquery.scrollto/scrollTo.jquery.json
+	rm -rf node_modules/jquery.scrollto/bower.json
+	rm -rf node_modules/jquery.scrollto/changes.txt
+	rm -rf node_modules/jquery.scrollto/demo
+	rm -rf node_modules/jquery.scrollto/tests
+
+	rm -rf node_modules/materialize-css/Gruntfile.js
+	rm -rf node_modules/materialize-css/extras
+	rm -rf node_modules/materialize-css/js
+	rm -rf node_modules/materialize-css/sass
+	rm -rf node_modules/materialize-css/dist/js/materialize.js
+	rm -rf node_modules/materialize-css/dist/css/materialize.css
+
+	rm -rf node_modules/mousetrap/Gruntfile.js
+	rm -rf node_modules/mousetrap/mousetrap.js
+	rm -rf node_modules/mousetrap/tests
+	rm -rf node_modules/mousetrap/plugins
+
+	rm -rf node_modules/ng-dialog/CONTRIBUTING.md
+	rm -rf node_modules/ng-dialog/Gruntfile.js
+	rm -rf node_modules/ng-dialog/bower.json
+	rm -rf node_modules/ng-dialog/css
+	rm -rf node_modules/ng-dialog/example
+	rm -rf node_modules/ng-dialog/karma.conf.js
+	rm -rf node_modules/ng-dialog/protractor.conf.js
+	rm -rf node_modules/ng-dialog/server.js
+	rm -rf node_modules/ng-dialog/tests
+
+	rm -rf node_modules/qrcodejs2/bower.json
+	rm -rf node_modules/qrcodejs2/index-svg.html
+	rm -rf node_modules/qrcodejs2/index.html
+	rm -rf node_modules/qrcodejs2/index.svg
+	rm -rf node_modules/qrcodejs2/jquery.min.js
+	rm -rf node_modules/qrcodejs2/qrcode.js
+
+	rm -rf node_modules/sprintf-js/CONTRIBUTORS.MD
+	rm -rf node_modules/sprintf-js/README.md
+	rm -rf node_modules/sprintf-js/src
+	rm -rf node_modules/sprintf-js/
+
+	rm -rf node_modules/visibilityjs/ChangeLog.md
+	rm -rf node_modules/visibilityjs/component.json
+	rm -rf node_modules/visibilityjs/index.d.ts
+	rm -rf node_modules/visibilityjs/index.js
+	rm -rf node_modules/visibilityjs/README.md
+
+	rm -f libs/jqplot/jqplot.core.js
 	rm -f libs/jqplot/jqplot.lineRenderer.js 
 	rm -f libs/jqplot/jqplot.linearAxisRenderer.js 
 	rm -f libs/jqplot/jqplot.themeEngine.js 
 	rm -f libs/jqplot/plugins/jqplot.barRenderer.js 
 	rm -f libs/jqplot/plugins/jqplot.pieRenderer.js 
-	rm -f libs/bower_components/materialize/package.js 
-	rm -f libs/bower_components/mousetrap/mousetrap.js 
-	rm -rf libs/bower_components/mousetrap/plugins 
-	rm -rf libs/bower_components/jquery-ui/ui/i18n/
-	rm -rf libs/bower_components/jquery-ui/ui/minified/i18n/
 
 	rm -f $(find config -type f -name '*.ini.php' -not -name global.ini.php)
 	rm -f config/config.php

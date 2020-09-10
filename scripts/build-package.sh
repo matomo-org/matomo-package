@@ -342,7 +342,6 @@ function organizePackage() {
 	rm -rf node_modules/sprintf-js/CONTRIBUTORS.MD
 	rm -rf node_modules/sprintf-js/README.md
 	rm -rf node_modules/sprintf-js/src
-	rm -rf node_modules/sprintf-js/
 
 	rm -rf node_modules/visibilityjs/ChangeLog.md
 	rm -rf node_modules/visibilityjs/component.json

@@ -374,6 +374,7 @@ function organizePackage() {
 	rm -f .coveralls.yml .scrutinizer.yml .phpstorm.meta.php
 	rm -f .lfsconfig
 	rm -f HIRING.md
+	rm -rf .github/
 
 	# delete unwanted folders, recursively
 	for x in .git ; do

@@ -1,24 +1,24 @@
 Install
 =======
 
-1 - Create a database named "piwik"
-	CREATE DATABASE `piwik` /*!40100 DEFAULT CHARACTER SET utf8 */;
+1 - Create a MariaDB / MySQL database named "matomo"
+	CREATE DATABASE `matomo` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
 2 - Create a user/password with access to the database previously created
-	CREATE USER piwik@localhost IDENTIFIED BY '4/V3ryStron6!*passW0rd';
-	GRANT ALL PRIVILEGES ON piwik.* to piwik@localhost;
-	-- the FILE privileges is optional, but piwik can leverage that feature
+	CREATE USER matomo@localhost IDENTIFIED BY '4/V3ryStron6!*passW0rd';
+	GRANT ALL PRIVILEGES ON matomo.* to matomo@localhost;
+	-- the FILE privileges is optional, but matomo can leverage that feature
 	-- to improve performance
-	GRANT FILE ON *.* TO piwik@localhost;
+	GRANT FILE ON *.* TO matomo@localhost;
 
-3a- If you don't have any virtualhost, uncomment the Alias line in /etc/apache2/conf.d/piwik.conf
+3a- If you don't have any virtualhost, uncomment the Alias line in /etc/apache2/conf.d/matomo.conf
 
 3b- If you operate with virtualhosts, do as follow
-	a) if you use a dedicated virtual host for your piwik
+	a) if you use a dedicated virtual host for your matomo
 	<VirtualHost *:80>
 		[...]
-		DocumentRoot /usr/share/piwik
-		Include "conf.d/piwik.conf"
+		DocumentRoot /usr/share/matomo
+		Include "conf.d/matomo.conf"
 		[...]
 	</VirtualHost>
 
@@ -27,23 +27,23 @@ Install
 		[...]
 		DocumentRoot /var/www/foo
 
-		Include "conf.d/piwik.conf"
-		Alias /piwik /usr/share/piwik
+		Include "conf.d/matomo.conf"
+		Alias /matomo /usr/share/matomo
 		[...]
 	</VirtualHost>
 
-4 - Point your browser to your piwik url
+4 - Point your browser to your matomo URL
 
-5 - Follow the steps and provide the MySQL credential details when requested.
+5 - Follow the steps and provide the MariaDB / MySQL credential details when requested.
 
 6 - Add the given javascript code to your pages, ideally at the bottom of the html just before </body>
 
-See http://piwik.org/docs/installation/
+See http://matomo.org/docs/installation/
 
 Cron job
 ========
 
-The Debian piwik package also provides a crontab file /etc/cron.d/piwik
+The Debian matomo package also provides a crontab file /etc/cron.d/matomo
 It's released commented out, but we highly recommend to uncomment it to make sure Piwik loads very fast.
 
-See http://piwik.org/docs/setup-auto-archiving/
+See http://matomo.org/docs/setup-auto-archiving/

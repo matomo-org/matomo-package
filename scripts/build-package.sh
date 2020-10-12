@@ -526,7 +526,6 @@ for F in $FLAVOUR; do
 
 		git checkout 4.x-dev --force
 		git reset --hard origin/4.x-dev
-		git clean -fd
 		git checkout 4.x-dev
 		git pull
 

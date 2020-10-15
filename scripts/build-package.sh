@@ -377,7 +377,7 @@ function organizePackage() {
 	rm -rf .github/
 
 	# delete unwanted folders, recursively
-	for x in .git ; do
+	for x in .git .github ; do
 		find . -name "$x" -exec rm -rf {} \; 2>/dev/null
 	done
 
@@ -504,45 +504,24 @@ for F in $FLAVOUR; do
     if [ "$BUILDING_TAG" == "1"  ]; then
     	cd $WORK_DIR
 
-        if [ ! -d "$LOCAL_REPO" ] ; then
-            # for this to work 'git-lfs' has to be installed on the local machine
-            #export GIT_TRACE_PACKET=1
-            #export GIT_TRACE=1
-            #export GIT_CURL_VERBOSE=1
-            git clone --config filter.lfs.smudge="git-lfs smudge --skip" "$URL_REPO" "$LOCAL_REPO"
-            if [ "$?" -ne "0" -o ! -d "$LOCAL_REPO" ]
-            then
-                die "Error: Failed to clone git repository $URL_REPO"
-            fi
+        if [ -d "$LOCAL_REPO" ] ; then
+            rm -rf $LOCAL_REPO
+        fi
+	
+        echo "cloning repository for tag $VERSION..."
+	
+        # for this to work 'git-lfs' has to be installed on the local machine
+        #export GIT_TRACE_PACKET=1
+        #export GIT_TRACE=1
+        #export GIT_CURL_VERBOSE=1
+        git clone --config filter.lfs.smudge="git-lfs smudge --skip" --single-branch --branch "$VERSION" "$URL_REPO" "$LOCAL_REPO"
+
+        if [ "$?" -ne "0" -o ! -d "$LOCAL_REPO" ]; then
+            die "Error: Failed to clone git repository $URL_REPO, maybe tag $VERSION does not exist"
         fi
 
         echo -e "Working in $LOCAL_REPO"
         cd "$LOCAL_REPO"
-
-        # we need to exclude LFS files from the upcoming git clone/git checkout,
-        # unfortunately this git config command does not work...
-        git config lfs.fetchexclude "tests/"
-		# ^^ not working, LFS files are fetched below... why?!
-
-		git checkout master --force
-		git reset --hard origin/master
-		git checkout master
-		git pull
-
-		# fetch everything
-		git fetch --tags --force  --all --prune || die "Error running git fetch --tags --force --all --prune"
-
-		echo "checkout repository for tag $VERSION..."
-
-        git branch -D "build" > /dev/null 2> /dev/null
-
-		echo -e "Commit UI tests git-lfs files to avoid some problems checking out the tag..."
-		git add plugins/*/tests/UI/ tests/UI/expected-screenshots/*
-		git commit -m'committing UI tests to avoid git checkout failures...'
-
-		echo -e "Now checking out tags/$VERSION"
-		git checkout -b "build" "tags/$VERSION" > /dev/null
-		[ "$?" -eq "0" ] || die "tag $VERSION does not exist in repository"
 
         # clone submodules that should be in the release
         for P in $(git submodule status | egrep $SUBMODULES_PACKAGED_WITH_CORE | awk '{print $2}')
@@ -550,25 +529,20 @@ for F in $FLAVOUR; do
             echo -e "cloning submodule $P"
             git submodule update --init --depth=1 $P
         done
-
     fi
 
-	# leave $LOCAL_REPO folder
-	cd "$WORK_DIR"
+    # leave $LOCAL_REPO folder
+    cd "$WORK_DIR"
 
-	echo "copying files to a new directory..."
-	[ -d "$F" ] && rm -rf "$F"
-	$CP -pdr "$LOCAL_REPO" "$F"
-	cd "$F"
+    echo "copying files to a new directory..."
+    [ -d "$F" ] && rm -rf "$F"
+    $CP -pdr "$LOCAL_REPO" "$F"
+    cd "$F"
 
-    if [ "$BUILD_ONLY" != true ]; then
-    	[ "$(git describe --exact-match --tags HEAD)" = "$VERSION" ] || die "could not checkout to the tag for this version, make sure tag exists"
-    fi
-
-	echo "Preparing release $VERSION"
-	echo "Git branch: $(git branch)"
-	echo "Git path: $WORK_DIR/$LOCAL_REPO"
-	echo "Matomo version in core/Version.php: $(grep "'$VERSION'" core/Version.php)"
+    echo "Preparing release $VERSION"
+    echo "Git tag: $(git describe --exact-match --tags HEAD)"
+    echo "Git path: $WORK_DIR/$LOCAL_REPO"
+    echo "Matomo version in core/Version.php: $(grep "'$VERSION'" core/Version.php)"
 
     if [ "$BUILD_ONLY" != true ]; then
     	[ "$(grep "'$VERSION'" core/Version.php | wc -l)" = "1" ] || die "version $VERSION does not match core/Version.php";

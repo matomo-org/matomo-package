@@ -377,7 +377,7 @@ function organizePackage() {
 	rm -rf .github/
 
 	# delete unwanted folders, recursively
-	for x in .git ; do
+	for x in .git .github ; do
 		find . -name "$x" -exec rm -rf {} \; 2>/dev/null
 	done
 

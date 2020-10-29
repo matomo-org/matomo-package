@@ -17,7 +17,7 @@
 #
 #
 ###########################################
-CURRENT_LATEST_MAJOR_VERSION="3"
+CURRENT_LATEST_MAJOR_VERSION="4"
 
 URL_REPO=https://github.com/matomo-org/matomo.git
 

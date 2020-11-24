@@ -404,13 +404,7 @@ function organizePackage() {
 
 	if [ -d "misc/package" ]
 	then
-		cp misc/package/WebAppGallery/* ..
 		rm -rf misc/package/
-	else
-		if [ -e misc/WebAppGallery ]; then
-			cp misc/WebAppGallery/* ..
-			rm -rf misc/WebAppGallery
-		fi
 	fi
 
 	$FIND ./ -type f -printf '%s ' -exec md5sum {} \; \
@@ -573,14 +567,6 @@ for F in $FLAVOUR; do
         cp "../$LOCAL_ARCH/$F-$VERSION.tar.gz" "$CURRENT_DIR"
     fi
 
-	rm "../$LOCAL_ARCH/$F-$VERSION-WAG.zip"  2> /dev/null
-	zip -9 -r "../$LOCAL_ARCH/$F-$VERSION-WAG.zip" "$F" install.sql Manifest.xml parameters.xml > /dev/null 2> /dev/null
-	if [ "$BUILD_ONLY" != true ]; then
-    	gpg --armor --detach-sign "../$LOCAL_ARCH/$F-$VERSION-WAG.zip" || die "Failed to sign $F-$VERSION-WAG.zip"
-    else
-        cp "../$LOCAL_ARCH/$F-$VERSION-WAG.zip" "$CURRENT_DIR"
-    fi
-
 done
 
 if [ "$BUILD_ONLY" == true ]; then
@@ -666,36 +652,9 @@ do
 			$REMOTE_CMD_WWW "echo $VERSION > $WWW_PATH/LATEST" || die "cannot deploy new version file on piwik@$REMOTE_SERVER"
 			$REMOTE_CMD_WWW "echo $SIZE > $WWW_PATH/LATEST_SIZE" || die "cannot deploy new archive size on piwik@$REMOTE_SERVER"
 
-			# only show this message when it's for 'matomo'
-			if [ "$F" == "matomo" ];
-			then
-				SHA1_WINDOWS="$(sha1sum ../$LOCAL_ARCH/$F-$VERSION-WAG.zip | cut -d' ' -f1)"
-				[ -z "$SHA1_WINDOWS" ] && die "cannot compute sha1 hash for ../$LOCAL_ARCH/piwik-$VERSION-WAG.zip"
-				SHA512_WINDOWS="$(sha512sum ../$LOCAL_ARCH/$F-$VERSION-WAG.zip | cut -d' ' -f1)"
-				[ -z "$SHA512_WINDOWS" ] && die "cannot compute sha512 hash for ../$LOCAL_ARCH/piwik-$VERSION-WAG.zip"
-
-				echo -e "Sending email to Microsoft web team \n\n"
-				echo -e "Hello, \n\n\
-We are proud to announce a new release for Matomo (formerly Piwik)! \n\
-Matomo $VERSION can be downloaded at: http://builds.matomo.org/WebAppGallery/$F-$VERSION-WAG.zip \n\
-SHA1 checksum is: $SHA1_WINDOWS \n\
-SHA512 checksum is: $SHA512_WINDOWS \n\n\
-Please consult the changelog for list of closed tickets: http://matomo.org/changelog/ \n\n\
-We're looking forward to seeing this Matomo version on Microsoft Web App Gallery. \n\
-If you have any question, feel free to ask at feedback@matomo.org. \n\n\
-Thank you,\n\n\
-Matomo team"
-				echo -e "\n----> Send this email 'New Matomo (Piwik) Version $VERSION' to appgal@microsoft.com,hello@matomo.org"
-			fi
-
 		fi
 
 		echo -e ""
-
-		# Copy Windows App Gallery release only for stable releases (makes Building betas faster)
-		echo $REMOTE
-		$REMOTE_CMD "test -d $REMOTE_HTTP_PATH/WebAppGallery || mkdir $REMOTE_HTTP_PATH/WebAppGallery" || die "cannot access the remote server $REMOTE"
-		scp -p "../$LOCAL_ARCH/$F-$VERSION-WAG.zip" "../$LOCAL_ARCH/$F-$VERSION-WAG.zip.asc" "${REMOTE}:$REMOTE_HTTP_PATH/WebAppGallery/" || die "failed to copy WebAppGalery files"
 
 
 		if [ "$BUILDING_LATEST_MAJOR_VERSION_STABLE_OR_BETA" -eq "1" ]

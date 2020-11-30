@@ -1,0 +1,63 @@
+---
+
+name: Packaging Motomo
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    #if: "contains(github.event.head_commit.message, 'matomo (#3.13.6-1) stable; urgency=high')"
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: ryankurte/action-apt@v0.2.0
+        with:
+          packages: "lintian devscripts debhelper dupload"
+
+      # - name: Build Collection
+      #   run: make collection.build
+
+      # - name: Publish Collection
+      #   run: make collection.publish
+      #   env:
+      #     COLLECTION_API_TOKEN: ${{ secrets.COLLECTION_API_TOKEN }}
+
+      # - name: Retrieve version from galaxy.yml
+      #   id: get_version
+      #   uses: CumulusDS/get-yaml-paths-action@v0.1.0
+      #   with:
+      #     file: ./galaxy.yml
+      #     version: version
+
+      # - name: Get Changelog Entry
+      #   id: changelog
+      #   uses: mindsers/changelog-reader-action@v2
+      #   with:
+      #     path: ./CHANGELOG.md
+      #     version: ${{steps.get_version.outputs.version }}
+
+      # - name: Create Release
+      #   id: create_release
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: ${{ steps.changelog.outputs.version }}
+      #     release_name: manala-roles ${{ steps.changelog.outputs.version }}
+      #     body: ${{ steps.changelog.outputs.changes }}
+      #     draft: false
+      #     prerelease: false
+
+      # - name: Upload Release Asset
+      #   id: upload_release
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+      #     asset_path: ./manala-roles-${{ steps.changelog.outputs.version }}.tar.gz
+      #     asset_name: manala-roles-${{ steps.changelog.outputs.version }}.tar.gz
+      #     asset_content_type: application/zip

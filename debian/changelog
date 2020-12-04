@@ -1,3 +1,9 @@
+matomo (3.14.1-2) stable; urgency=high
+
+  * Include LegacyAutoloader.php into the package
+
+ -- Aurélien Requiem <aurelien@requiem.fr>  Fri, 04 Dec 2020 22:48:39 +1100
+
 matomo (3.14.1-1) stable; urgency=high
 
   * Releasing Matomo 3.14.1

@@ -16,6 +16,7 @@ matomo/matomo.js				usr/share/matomo/
 matomo/matomo.php				usr/share/matomo/
 matomo/piwik.js					usr/share/matomo/
 matomo/piwik.php				usr/share/matomo/
+matomo/LegacyAutoloader.php			usr/share/matomo/
 matomo/plugins					usr/share/matomo/
 matomo/README.md				usr/share/doc/matomo/
 matomo/tests					usr/share/matomo/

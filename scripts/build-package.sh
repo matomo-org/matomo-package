@@ -170,6 +170,7 @@ function organizePackage() {
 	echo -e "Deleting un-needed files..."
 
 	rm -rf composer.phar
+	rm -rf vendor/bin/
 	rm -rf vendor/twig/twig/test/
 	rm -rf vendor/twig/twig/doc/
 	rm -rf vendor/symfony/console/Symfony/Component/Console/Resources/bin

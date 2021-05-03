@@ -97,13 +97,6 @@ function checkEnv() {
 		die "Cannot find zip"
 	fi
 
-    if [ "$BUILD_ONLY" != true ]; then
-		if [ ! -x "/usr/bin/mail" -a ! -x "$(which mail)" ]
-		then
-			die "Cannot find mail"
-		fi
-	fi
-
 	if [ ! -x "/usr/bin/md5sum" -a ! -x "$(which md5sum)" ]
 	then
 		die "Cannot find md5sum"

@@ -468,7 +468,7 @@ for F in $FLAVOUR; do
 	then
 		if curl --output /dev/null --silent --head --fail "https://builds.matomo.org/$F-$VERSION.zip"
 		then
-			die "--> Error: stable version $VERSION has already been built (not expected). <-- "
+			#die "--> Error: stable version $VERSION has already been built (not expected). <-- "
 		fi
 	fi
 

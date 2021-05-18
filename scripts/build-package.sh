@@ -25,8 +25,8 @@ LOCAL_REPO="matomo_last_version_git"
 LOCAL_ARCH="archives"
 
 REMOTE_SERVER="matomo.org"
-REMOTE_LOGIN="piwik-builds"
-REMOTE_HTTP_PATH="/home/piwik-builds/www/builds.piwik.org"
+REMOTE_LOGIN="innocraft-staff-stefan"
+REMOTE_HTTP_PATH="/home/innocraft-staff-stefan/www/builds.piwik.org"
 
 # List of Sub-modules that SHOULD be in the packaged release, eg PiwikTracker|CorePluginName
 SUBMODULES_PACKAGED_WITH_CORE='log-analytics|plugins/Morpheus/icons|plugins/TagManager'
@@ -34,11 +34,11 @@ SUBMODULES_PACKAGED_WITH_CORE='log-analytics|plugins/Morpheus/icons|plugins/TagM
 REMOTE="${REMOTE_LOGIN}@${REMOTE_SERVER}"
 REMOTE_CMD="ssh -C ${REMOTE}"
 
-REMOTE_CMD_API="ssh -C piwik-api@${REMOTE_SERVER}"
-REMOTE_CMD_WWW="ssh -C piwik@${REMOTE_SERVER}"
+REMOTE_CMD_API="ssh -C innocraft-staff-stefan@${REMOTE_SERVER}"
+REMOTE_CMD_WWW="ssh -C innocraft-staff-stefan@${REMOTE_SERVER}"
 
-API_PATH="/home/piwik-api/www/api.piwik.org/"
-WWW_PATH="/home/piwik/www/"
+API_PATH="/home/innocraft-staff-stefan/www/api.piwik.org/"
+WWW_PATH="/home/innocraft-staff-stefan/www/"
 
 # Change these to gcp/gfind on mac (get from the appropriate homebrew packages)
 CP=cp

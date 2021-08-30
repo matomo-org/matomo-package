@@ -380,7 +380,7 @@ function organizePackage() {
 		.coveralls.yml .editorconfig .gitkeep .jshintrc .php_cs .travis.sh \
 		phpunit.xml.dist phpunit.xml .phpcs.xml.dist phpcs.xml Gruntfile.js karma.conf.js \
 		*.map .travis.yml installed.json package.json package-lock.json \
-		composer.json composer.lock; do
+		composer.json composer.lock *.spec.js; do
 		find . -name "$x" -exec rm -f {} \;
 	done
 

@@ -1,16 +1,6 @@
 # Matomo Package 
 
-This repository contains:
-
-* Matomo release script (official package), 
-* and Debian/Ubuntu package (allows sysadmins to deploy Matomo within seconds using `apt-get install matomo -V`) 
-
-## Debian Package
-
- * [debian/Readme.debian](https://github.com/matomo-org/matomo-package/blob/master/debian/README.Debian#readme) - How to use the Debian package and setup Matomo on your Debian server.
- * [debian/Readme.md](https://github.com/matomo-org/matomo-package/tree/master/debian#readme) - Guide for Matomo staff in charge of generating the Debian package. System administrators may also be interested in this documentation.
-
-## Core Matomo Package
+This repository contains the Matomo release script (official package).
 
 To generate a new Matomo release for example 3.0.0-b1, follow these steps:
  

@@ -236,6 +236,8 @@ function organizePackage() {
 	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/Silkscreen*
 	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/verdana*
 	
+	rm -rf package-lock.json
+	
 	# not needed js files
 	rm -rf node_modules/angular/angular.min.js.gzip
 	rm -rf node_modules/angular/angular.js

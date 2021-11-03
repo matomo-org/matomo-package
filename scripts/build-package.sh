@@ -231,7 +231,6 @@ function organizePackage() {
 	rm -rf vendor/szymach/c-pchart/src/resources/fonts/Bedizen*
 	rm -rf vendor/szymach/c-pchart/src/resources/fonts/calibri*
 	rm -rf vendor/szymach/c-pchart/src/resources/fonts/Forgotte*
-	rm -rf vendor/szymach/c-pchart/src/resources/fonts/GeosansLight*
 	rm -rf vendor/szymach/c-pchart/src/resources/fonts/MankSans*
 	rm -rf vendor/szymach/c-pchart/src/resources/fonts/pf_arma_five*
 	rm -rf vendor/szymach/c-pchart/src/resources/fonts/Silkscreen*

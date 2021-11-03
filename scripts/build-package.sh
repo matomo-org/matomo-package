@@ -227,14 +227,14 @@ function organizePackage() {
 	rm -rf vendor/tecnickcom/tcpdf/fonts/times*
 	rm -rf vendor/tecnickcom/tcpdf/fonts/uni2cid*
 
-	rm -rf vendor/szymach/c-pchart/src/resources/fonts/advent_light*
-	rm -rf vendor/szymach/c-pchart/src/resources/fonts/Bedizen*
-	rm -rf vendor/szymach/c-pchart/src/resources/fonts/calibri*
-	rm -rf vendor/szymach/c-pchart/src/resources/fonts/Forgotte*
-	rm -rf vendor/szymach/c-pchart/src/resources/fonts/MankSans*
-	rm -rf vendor/szymach/c-pchart/src/resources/fonts/pf_arma_five*
-	rm -rf vendor/szymach/c-pchart/src/resources/fonts/Silkscreen*
-	rm -rf vendor/szymach/c-pchart/src/resources/fonts/verdana*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/advent_light*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/Bedizen*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/calibri*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/Forgotte*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/MankSans*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/pf_arma_five*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/Silkscreen*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/verdana*
 	
 	rm -rf package-lock.json
 	

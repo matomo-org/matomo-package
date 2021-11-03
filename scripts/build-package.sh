@@ -180,7 +180,6 @@ function organizePackage() {
 	rm -rf vendor/maxmind/web-service-common/dev-bin/
 	rm -rf vendor/maxmind/web-service-common/CHANGELOG.md
 	rm -rf vendor/php-di/invoker/doc/
-	rm -rf vendor/szymach/c-pchart/doc
 	rm -rf vendor/leafo/lessphp/docs
 	rm -rf vendor/container-interop/container-interop/docs
 	rm -rf vendor/pear/archive_tar/docs
@@ -227,14 +226,14 @@ function organizePackage() {
 	rm -rf vendor/tecnickcom/tcpdf/fonts/times*
 	rm -rf vendor/tecnickcom/tcpdf/fonts/uni2cid*
 
-	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/advent_light*
-	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/Bedizen*
-	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/calibri*
-	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/Forgotte*
-	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/MankSans*
-	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/pf_arma_five*
-	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/Silkscreen*
-	rm -rf vendor/szymach/c-pchart/src/Resources/fonts/verdana*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/advent_light*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/Bedizen*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/calibri*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/Forgotte*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/MankSans*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/pf_arma_five*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/Silkscreen*
+	rm -rf vendor/szymach/c-pchart/resources/fonts/verdana*
 	
 	rm -rf package-lock.json
 	

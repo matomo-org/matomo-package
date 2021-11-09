@@ -367,8 +367,6 @@ function organizePackage() {
 	rm -f misc/updateLanguageFiles.sh
 	rm -f misc/others/db-schema*
 	rm -f misc/others/diagram_general_request*
-	rm -f .coveralls.yml .scrutinizer.yml .phpstorm.meta.php
-	rm -f .lfsconfig
 	rm -f HIRING.md
 	rm -rf .github/
 
@@ -379,10 +377,13 @@ function organizePackage() {
 
 	# delete unwanted files, recursively
 	for x in .gitignore .gitmodules .gitattributes .bowerrc .bower.json bower.json \
-		.coveralls.yml .editorconfig .gitkeep .jshintrc .php_cs .travis.sh \
+		.coveralls.yml .editorconfig .gitkeep .jshintrc .php_cs .php_cs.dist \
 		phpunit.xml.dist phpunit.xml .phpcs.xml.dist phpcs.xml Gruntfile.js karma.conf.js \
 		*.map .travis.yml installed.json package.json package-lock.json \
-		composer.json composer.lock *.spec.js; do
+		.scrutinizer.yml .gitstats.yml composer.json composer.lock *.spec.js \
+		.phpstorm.meta.php .lfsconfig .travis.sh tsconfig.json tsconfig.spec.json \
+		.eslintrc.js .eslintignore .browserslistrc babel.config.js jest.config.js \
+		vue.config.js; do
 		find . -name "$x" -exec rm -f {} \;
 	done
 

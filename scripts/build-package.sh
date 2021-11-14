@@ -382,7 +382,7 @@ function organizePackage() {
 		*.map .travis.yml installed.json package.json package-lock.json \
 		.scrutinizer.yml .gitstats.yml composer.json composer.lock *.spec.js \
 		.phpstorm.meta.php .lfsconfig .travis.sh tsconfig.json tsconfig.spec.json \
-		.eslintrc.js .eslintignore .browserslistrc babel.config.js jest.config.js \
+		.eslintrc.js .eslintignore .eslintrc .browserslistrc babel.config.js jest.config.js \
 		vue.config.js; do
 		find . -name "$x" -exec rm -f {} \;
 	done

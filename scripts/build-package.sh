@@ -184,6 +184,10 @@ function organizePackage() {
 	rm -rf vendor/leafo/lessphp/docs
 	rm -rf vendor/container-interop/container-interop/docs
 	rm -rf vendor/pear/archive_tar/docs
+	rm -rf vendor/davaxi/sparkline/autoload.php
+	rm -rf vendor/davaxi/sparkline/src/autoload.php
+	rm -rf vendor/matomo/device-detector/autoload.php
+	rm -rf vendor/opis/closure/autoload.php
 
 	# Delete un-used files from the matomo-icons repository
 	rm -rf plugins/Morpheus/icons/src*

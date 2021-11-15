@@ -144,6 +144,7 @@ fixsettings:
 		@echo " [SED] Configuration adjustments"
 		@sed -i '/\.gitignore/d' $(DESTDIR)/etc/matomo/manifest.inc.php
 		@sed -i 's/^\(enable_auto_update\).*/\1 = 0/g;' $(DESTDIR)/etc/matomo/global.ini.php
+		@sed -i '1 s/python/python3/' $(DESTDIR)/usr/share/matomo/misc/log-analytics/import_logs.py
 
 # fix various file permissions
 fixperms:
@@ -155,6 +156,11 @@ fixperms:
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/misc/composer/build-xhprof.sh
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/misc/composer/clean-xhprof.sh
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/pear/archive_tar/sync-php4
+		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/matomo/matomo-php-tracker/run_tests.sh
+		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/szymach/c-pchart/coverage.sh
+		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/twig/twig/drupal_test.sh
+		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/wikimedia/less.php/bin/lessc
+
 		@echo "done."
 
 # check lintian licenses so we can remove obsolete ones

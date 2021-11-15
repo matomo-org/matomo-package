@@ -11,8 +11,16 @@ Files: debian/piwik.cron.d debian/conf/lighttpd.conf debian/docs
 Copyright: © 2013, Fabrizio Regalli <fabreg@fabreg.it>
 License: GPL-3+
 
-Files: debian/install debian/conf/apache.conf debian/postinst debian/postrm debian/prerm
+Files: debian/postrm debian/prerm
 Copyright: © 2013, Fabrizio Regalli <fabreg@fabreg.it>, Aurelien Requiem <aurelien@requiem.fr>
+License: GPL-3+
+
+Files: debian/README.Debian debian/control debian/lintian-overrides debian/templates debian/substvars
+Copyright: © 2013, Aurelien Requiem <aurelien@requiem.fr>, Edouard Gaulué <edouard@e-gaulue.com>
+License: GPL-3+
+
+Files: debian/conf/apache.conf debian/install debian/postinst
+Copyright: © 2013, Fabrizio Regalli <fabreg@fabreg.it>, Aurelien Requiem <aurelien@requiem.fr>, Edouard Gaulué <edouard@e-gaulue.com>
 License: GPL-3+
 
 Files: *

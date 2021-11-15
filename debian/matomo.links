@@ -6,4 +6,4 @@ etc/matomo							usr/share/matomo/config
 var/lib/matomo/data/tmp						usr/share/matomo/tmp
 #
 # Other files
-usr/share/doc/matomo/README.md					usr/share/matomo/README.md
+#usr/share/doc/matomo/README.md					usr/share/matomo/README.md

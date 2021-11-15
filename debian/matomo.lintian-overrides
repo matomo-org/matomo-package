@@ -1,24 +1,20 @@
 matomo: package-installs-apt-keyring etc/apt/trusted.gpg.d/matomo-keyring-automatic.gpg
-matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jquery/dist/jquery.min.js
-matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jquery-mousewheel/jquery.mousewheel.min.js
-matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jScrollPane/script/jquery.mousewheel.js
-matomo: embedded-javascript-library usr/share/matomo/libs/jqplot/excanvas.min.js
-matomo: embedded-php-library usr/share/matomo/plugins/CoreVisualizations/Visualizations/Sparkline.php
-matomo: embedded-php-library usr/share/matomo/vendor/davaxi/sparkline/src/Sparkline.php
-matomo: embedded-php-library usr/share/matomo/core/Visualization/Sparkline.php
+
+matomo: embedded-javascript-library usr/share/matomo/libs/jqplot/excanvas.min.js please use libjs-excanvas
+matomo: embedded-javascript-library usr/share/matomo/node_modules/jquery-mousewheel/jquery.mousewheel.js please use libjs-jquery-mousewheel
+matomo: embedded-javascript-library usr/share/matomo/node_modules/jquery-ui-dist/jquery-ui.min.css please use libjs-jquery-ui
+matomo: embedded-javascript-library usr/share/matomo/node_modules/jquery-ui-dist/jquery-ui.min.js please use libjs-jquery-ui
+matomo: embedded-javascript-library usr/share/matomo/node_modules/jquery/dist/jquery.min.js please use libjs-jquery
+matomo: embedded-javascript-library usr/share/matomo/plugins/UserCountryMap/javascripts/vendor/raphael.min.js please use libjs-raphael
+
+matomo: embedded-php-library usr/share/matomo/core/Visualization/Sparkline.php please use libsparkline-php
+matomo: embedded-php-library usr/share/matomo/plugins/CoreVisualizations/Visualizations/Sparkline.php please use libsparkline-php
+matomo: embedded-php-library usr/share/matomo/vendor/davaxi/sparkline/src/Sparkline.php please use libsparkline-php
+matomo: embedded-php-library usr/share/matomo/vendor/matomo/decompress/libs/PclZip/pclzip.lib.php please use libphp-pclzip
+
 matomo: extra-license-file usr/share/matomo/js/LICENSE.txt
-matomo: extra-license-file usr/share/matomo/libs/bower_components/chroma-js/LICENSE
-matomo: extra-license-file usr/share/matomo/libs/bower_components/jquery-mousewheel/LICENSE.txt
-matomo: extra-license-file usr/share/matomo/libs/bower_components/jquery.scrollTo/LICENSE
-matomo: extra-license-file usr/share/matomo/libs/bower_components/sprintf/LICENSE
-matomo: extra-license-file usr/share/matomo/libs/bower_components/visibilityjs/LICENSE
 matomo: extra-license-file usr/share/matomo/libs/jqplot/gpl-2.0.txt
-matomo: extra-license-file usr/share/matomo/libs/jquery/gpl-2.0.txt
-matomo: extra-license-file usr/share/matomo/libs/jquery/gpl-3.0.txt
 matomo: extra-license-file usr/share/matomo/libs/Zend/LICENSE.txt
-matomo: extra-license-file usr/share/matomo/vendor/container-interop/container-interop/LICENSE
-matomo: extra-license-file usr/share/matomo/vendor/doctrine/cache/LICENSE
-matomo: extra-license-file usr/share/matomo/vendor/leafo/lessphp/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/monolog/monolog/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/mustangostang/spyc/COPYING
 matomo: extra-license-file usr/share/matomo/vendor/pear/console_getopt/LICENSE
@@ -31,11 +27,12 @@ matomo: extra-license-file usr/share/matomo/vendor/symfony/event-dispatcher/Symf
 matomo: extra-license-file usr/share/matomo/vendor/symfony/monolog-bridge/Symfony/Bridge/Monolog/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/tecnickcom/tcpdf/LICENSE.TXT
 matomo: extra-license-file usr/share/matomo/vendor/twig/twig/LICENSE
+
 matomo: privacy-breach-piwik usr/share/matomo/js/piwik.js (choke on: 'settrackerurl')
-matomo: privacy-breach-piwik usr/share/matomo/js/piwik-min.js (choke on: "settrackerurl")
 matomo: privacy-breach-piwik usr/share/matomo/js/piwik.min.js (choke on: "settrackerurl")
 matomo: privacy-breach-piwik usr/share/matomo/matomo.js (choke on: "settrackerurl")
 matomo: privacy-breach-piwik usr/share/matomo/piwik.js (choke on: "settrackerurl")
-matomo: privacy-breach-piwik usr/share/matomo/plugins/TagManager/Template/Tag/MatomoTag.web.js (choke on: 'piwik.js')
+
 matomo: php-script-but-no-php-cli-dep usr/share/matomo/console #!php
 
+matomo: duplicate-font-file usr/share/matomo/plugins/ImageGraph/fonts/tahoma.ttf also in fonts-wine

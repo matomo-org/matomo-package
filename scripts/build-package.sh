@@ -184,6 +184,13 @@ function organizePackage() {
 	rm -rf vendor/leafo/lessphp/docs
 	rm -rf vendor/container-interop/container-interop/docs
 	rm -rf vendor/pear/archive_tar/docs
+	rm -rf vendor/lox/xhprof/xhprof_html/docs
+	rm -rf vendor/lox/xhprof/bin
+	rm -rf vendor/lox/xhprof/examples
+	rm -rf vendor/lox/xhprof/scripts
+	rm -rf vendor/lox/xhprof/extension
+	rm -rf vendor/lox/xhprof/composer.json
+	rm -rf vendor/lox/xhprof/package.xml
 
 	# Delete un-used files from the matomo-icons repository
 	rm -rf plugins/Morpheus/icons/src*

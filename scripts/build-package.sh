@@ -169,8 +169,12 @@ function organizePackage() {
 	rm -rf vendor/davaxi/sparkline/docker-compose.yml
 	rm -rf vendor/davaxi/sparkline/Dockerfile
 	rm -rf vendor/geoip2/geoip2/examples/
-	rm -rf vendor/lox/xhprof/examples/
-	rm -rf vendor/maxmind-db/reader/ext/
+	rm -rf vendor/lox/xhprof/bin
+	rm -rf vendor/lox/xhprof/examples
+	rm -rf vendor/lox/xhprof/scripts
+	rm -rf vendor/lox/xhprof/extension
+	rm -rf vendor/lox/xhprof/xhprof_html
+  rm -rf vendor/maxmind-db/reader/ext/
 	rm -rf vendor/maxmind-db/reader/autoload.php
 	rm -rf vendor/maxmind-db/reader/CHANGELOG.md
 	rm -rf vendor/maxmind/web-service-common/dev-bin/
@@ -194,6 +198,7 @@ function organizePackage() {
 	rm -rf config/environment/ui-test.php
 	rm -rf plugins/*/config/test.php
 	rm -rf plugins/*/config/ui-test.php
+
 
 	# Delete un-used files from the matomo-icons repository
 	rm -rf plugins/Morpheus/icons/src*

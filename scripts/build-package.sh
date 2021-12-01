@@ -183,6 +183,9 @@ function organizePackage() {
 	rm -rf vendor/szymach/c-pchart/resources/doc
 	rm -rf vendor/leafo/lessphp/docs
 	rm -rf vendor/lox/xhprof/bin
+	rm -rf vendor/lox/xhprof/examples
+	rm -rf vendor/lox/xhprof/extension
+	rm -rf vendor/lox/xhprof/xhprof_html/docs
 	rm -rf vendor/container-interop/container-interop/docs
 	rm -rf vendor/pear/archive_tar/docs
 

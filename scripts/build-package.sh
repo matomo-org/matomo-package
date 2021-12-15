@@ -164,33 +164,41 @@ function organizePackage() {
 
 	rm -rf composer.phar
 	rm -rf vendor/bin/
-	rm -rf vendor/twig/twig/test/
-	rm -rf vendor/twig/twig/doc/
-	rm -rf vendor/symfony/console/Symfony/Component/Console/Resources/bin
-	rm -rf vendor/tecnickcom/tcpdf/examples
-	rm -rf vendor/tecnickcom/tcpdf/CHANGELOG.TXT
-	rm -rf vendor/guzzle/guzzle/docs/
-	rm -rf vendor/davaxi/sparkline/tests
-	rm -rf vendor/php-di/php-di/benchmarks/
-	rm -rf vendor/geoip2/geoip2/.gitmodules
-	rm -rf vendor/geoip2/geoip2/.php_cs
-	rm -rf vendor/maxmind-db/reader/ext/
-	rm -rf vendor/maxmind-db/reader/autoload.php
-	rm -rf vendor/maxmind-db/reader/CHANGELOG.md
-	rm -rf vendor/maxmind/web-service-common/dev-bin/
-	rm -rf vendor/maxmind/web-service-common/CHANGELOG.md
-	rm -rf vendor/php-di/invoker/doc/
-	rm -rf vendor/szymach/c-pchart/resources/doc
-	rm -rf vendor/leafo/lessphp/docs
 	rm -rf vendor/container-interop/container-interop/docs
-	rm -rf vendor/pear/archive_tar/docs
-	rm -rf vendor/lox/xhprof/xhprof_html
+	rm -rf vendor/davaxi/sparkline/composer-8.json
+	rm -rf vendor/davaxi/sparkline/docker-compose.yml
+	rm -rf vendor/davaxi/sparkline/Dockerfile
+	rm -rf vendor/geoip2/geoip2/examples/
 	rm -rf vendor/lox/xhprof/bin
 	rm -rf vendor/lox/xhprof/examples
 	rm -rf vendor/lox/xhprof/scripts
 	rm -rf vendor/lox/xhprof/extension
-	rm -rf vendor/lox/xhprof/composer.json
-	rm -rf vendor/lox/xhprof/package.xml
+	rm -rf vendor/lox/xhprof/xhprof_html
+  rm -rf vendor/maxmind-db/reader/ext/
+	rm -rf vendor/maxmind-db/reader/autoload.php
+	rm -rf vendor/maxmind-db/reader/CHANGELOG.md
+	rm -rf vendor/maxmind/web-service-common/dev-bin/
+	rm -rf vendor/maxmind/web-service-common/CHANGELOG.md
+	rm -rf vendor/pear/archive_tar/docs
+	rm -rf vendor/php-di/invoker/doc/
+	rm -rf vendor/php-di/php-di/benchmarks/
+	rm -rf vendor/symfony/console/Symfony/Component/Console/Resources/bin
+	rm -rf vendor/szymach/c-pchart/resources/doc
+	rm -rf vendor/szymach/c-pchart/coverage.sh
+	rm -rf vendor/szymach/c-pchart/codeception.yml
+	rm -rf vendor/tecnickcom/tcpdf/examples
+	rm -rf vendor/tecnickcom/tcpdf/tools
+	rm -rf vendor/tecnickcom/tcpdf/CHANGELOG.TXT
+	rm -rf vendor/twig/twig/test/
+	rm -rf vendor/twig/twig/doc/
+	rm -rf vendor/twig/twig/.php-cs-fixer.dist.php
+
+	# Delete all di config files for test environments
+	rm -rf config/environment/test.php
+	rm -rf config/environment/ui-test.php
+	rm -rf plugins/*/config/test.php
+	rm -rf plugins/*/config/ui-test.php
+
 
 	# Delete un-used files from the matomo-icons repository
 	rm -rf plugins/Morpheus/icons/src*
@@ -198,7 +206,6 @@ function organizePackage() {
 	rm -rf plugins/Morpheus/icons/flag-icon-css*
 	rm -rf plugins/Morpheus/icons/submodules*
 	rm -rf plugins/Morpheus/icons/.git*
-	rm -rf plugins/Morpheus/icons/.travis.yml
 	rm -rf plugins/Morpheus/icons/*.py
 	rm -rf plugins/Morpheus/icons/*.sh
 	rm -rf plugins/Morpheus/icons/*.json
@@ -207,7 +214,8 @@ function organizePackage() {
 	rm -rf plugins/Morpheus/icons/*.txt
 	rm -rf plugins/Morpheus/icons/*.php
 	rm -rf plugins/Morpheus/icons/*.yml
-	
+
+	# Delete all Example plugins
 	rm -rf plugins/Example*
 
 	# Delete un-used fonts
@@ -242,28 +250,21 @@ function organizePackage() {
 	rm -rf vendor/szymach/c-pchart/resources/fonts/pf_arma_five*
 	rm -rf vendor/szymach/c-pchart/resources/fonts/Silkscreen*
 	rm -rf vendor/szymach/c-pchart/resources/fonts/verdana*
-	
-	rm -rf package-lock.json
-	
+
 	# not needed js files
 	rm -rf node_modules/angular/angular.min.js.gzip
 	rm -rf node_modules/angular/angular.js
-	rm -rf node_modules/angular/bower.json
 
 	rm -rf node_modules/angular-animate/angular-animate.min.js.gzip
 	rm -rf node_modules/angular-animate/angular-animate.js
-	rm -rf node_modules/angular-animate/bower.json
 
 	rm -rf node_modules/angular-sanitize/angular-sanitize.min.js.gzip
 	rm -rf node_modules/angular-sanitize/angular-sanitize.js
-	rm -rf node_modules/angular-sanitize/bower.json
 
 	rm -rf node_modules/angular-cookies/angular-cookies.min.js.gzip
 	rm -rf node_modules/angular-cookies/angular-cookies.js
-	rm -rf node_modules/angular-cookies/bower.json
 
 	rm -rf node_modules/chroma-js/Makefile
-	rm -rf node_modules/chroma-js/bower.json
 	rm -rf node_modules/chroma-js/chroma.js
 	rm -rf node_modules/chroma-js/doc
 	rm -rf node_modules/chroma-js/readme.md
@@ -276,14 +277,10 @@ function organizePackage() {
 	rm -rf node_modules/iframe-resizer/src/iframeResizer.contentWindow.js
 	rm -rf node_modules/iframe-resizer/src/iframeResizer.js
 	rm -rf node_modules/iframe-resizer/test-main.js
-	rm -rf node_modules/iframe-resizer/bower.json
-	rm -rf node_modules/iframe-resizer/gruntfile.js
-	rm -rf node_modules/iframe-resizer/karma-conf.js
 
 	rm -rf node_modules/jquery/dist/jquery.js
-	rm -rf node_modules/jquery/bower.json
 	rm -rf node_modules/jquery/src
-	rm -rf node_modules/jquery/external/sizzle/dist/sizzle.js
+	rm -rf node_modules/jquery/external
 
 	rm -rf node_modules/jquery-ui-dist/component.json
 	rm -rf node_modules/jquery-ui-dist/external
@@ -294,48 +291,35 @@ function organizePackage() {
 	rm -rf node_modules/jquery-ui-dist/jquery-ui.structure.css
 	rm -rf node_modules/jquery-ui-dist/jquery-ui.theme.css
 
-	rm -rf node_modules/jquery.browser/Gruntfile.js
-	rm -rf node_modules/jquery.browser/bower.json
 	rm -rf node_modules/jquery.browser/test
 	rm -rf node_modules/jquery.browser/dist/jquery.browser.js
 
-	rm -rf node_modules/jquery.dotdotdot/bower.json
 	rm -rf node_modules/jquery.dotdotdot/gulpfile.js
 	rm -rf node_modules/jquery.dotdotdot/index.html
 	rm -rf node_modules/jquery.dotdotdot/dotdotdot.jquery.json
-	rm -rf node_modules/jquery.dotdotdot/src/jquery.dotdotdot.js
-	rm -rf node_modules/jquery.dotdotdot/src/jquery.dotdotdot.min.umd.js
+	rm -rf node_modules/jquery.dotdotdot/src
 
 	rm -rf node_modules/jquery.scrollto/jquery.scrollTo.js
 	rm -rf node_modules/jquery.scrollto/scrollTo.jquery.json
-	rm -rf node_modules/jquery.scrollto/bower.json
 	rm -rf node_modules/jquery.scrollto/changes.txt
 	rm -rf node_modules/jquery.scrollto/demo
-	rm -rf node_modules/jquery.scrollto/tests
 
-	rm -rf node_modules/materialize-css/Gruntfile.js
 	rm -rf node_modules/materialize-css/extras
 	rm -rf node_modules/materialize-css/js
 	rm -rf node_modules/materialize-css/sass
 	rm -rf node_modules/materialize-css/dist/js/materialize.js
 	rm -rf node_modules/materialize-css/dist/css/materialize.css
 
-	rm -rf node_modules/mousetrap/Gruntfile.js
 	rm -rf node_modules/mousetrap/mousetrap.js
-	rm -rf node_modules/mousetrap/tests
 	rm -rf node_modules/mousetrap/plugins
+	rm -rf node_modules/mousetrap/mousetrap.sublime-project
 
 	rm -rf node_modules/ng-dialog/CONTRIBUTING.md
-	rm -rf node_modules/ng-dialog/Gruntfile.js
-	rm -rf node_modules/ng-dialog/bower.json
 	rm -rf node_modules/ng-dialog/css
 	rm -rf node_modules/ng-dialog/example
-	rm -rf node_modules/ng-dialog/karma.conf.js
 	rm -rf node_modules/ng-dialog/protractor.conf.js
 	rm -rf node_modules/ng-dialog/server.js
-	rm -rf node_modules/ng-dialog/tests
 
-	rm -rf node_modules/qrcodejs2/bower.json
 	rm -rf node_modules/qrcodejs2/index-svg.html
 	rm -rf node_modules/qrcodejs2/index.html
 	rm -rf node_modules/qrcodejs2/index.svg
@@ -352,6 +336,18 @@ function organizePackage() {
 	rm -rf node_modules/visibilityjs/index.js
 	rm -rf node_modules/visibilityjs/README.md
 
+	rm -rf node_modules/vue/dist/vue.cjs.js
+	rm -rf node_modules/vue/dist/vue.cjs.prod.js
+	rm -rf node_modules/vue/dist/vue.d.ts
+	rm -rf node_modules/vue/dist/vue.esm-browser.js
+	rm -rf node_modules/vue/dist/vue.esm-browser.prod.js
+	rm -rf node_modules/vue/dist/vue.esm-bundler.js
+	rm -rf node_modules/vue/dist/vue.runtime.esm-browser.js
+	rm -rf node_modules/vue/dist/vue.runtime.esm-browser.prod.js
+	rm -rf node_modules/vue/dist/vue.runtime.esm-bundler.js
+	rm -rf node_modules/vue/dist/vue.runtime.global.js
+	rm -rf node_modules/vue/dist/vue.runtime.global.prod.js
+
 	rm -f libs/jqplot/jqplot.core.js
 	rm -f libs/jqplot/jqplot.lineRenderer.js 
 	rm -f libs/jqplot/jqplot.linearAxisRenderer.js 
@@ -366,31 +362,24 @@ function organizePackage() {
 	# WARNING: Did you read the WARNING above?
 	# ------------
 
-	rm -rf libs/PhpDocumentor-1.3.2/
-	rm -rf libs/FirePHPCore/
-	rm -rf libs/open-flash-chart/php-ofc-library/ofc_upload_image.php
-
 	rm -rf tmp/*
-	rm -f misc/updateLanguageFiles.sh
-	rm -f misc/others/db-schema*
-	rm -f misc/others/diagram_general_request*
 	rm -f HIRING.md
-	rm -rf .github/
 
 	# delete unwanted folders, recursively
 	for x in .git .github ; do
-		find . -name "$x" -exec rm -rf {} \; 2>/dev/null
+	    find . -name "$x" -exec rm -rf {} \; 2>/dev/null
 	done
 
 	# delete unwanted files, recursively
 	for x in .gitignore .gitmodules .gitattributes .bowerrc .bower.json bower.json \
 		.coveralls.yml .editorconfig .gitkeep .jshintrc .php_cs .php_cs.dist \
-		phpunit.xml.dist phpunit.xml .phpcs.xml.dist phpcs.xml Gruntfile.js karma.conf.js \
-		*.map .travis.yml installed.json package.json package-lock.json \
+		phpunit.xml.dist phpunit.xml .phpcs.xml.dist phpcs.xml Gruntfile.js gruntfile.js \
+		*.map .travis.yml installed.json package.json package-lock.json yarn.lock\
 		.scrutinizer.yml .gitstats.yml composer.json composer.lock *.spec.js \
 		.phpstorm.meta.php .lfsconfig .travis.sh tsconfig.json tsconfig.spec.json \
 		.eslintrc.js .eslintignore .eslintrc .browserslistrc babel.config.js jest.config.js \
-		vue.config.js; do
+		karma.conf.js karma-conf.js vue.config.js .npmignore .ncurc.json .prettierrc .jscsrc \
+		phpstan.neon phpstan.neon.dist package.xml; do
 		find . -name "$x" -exec rm -f {} \;
 	done
 

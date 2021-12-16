@@ -396,6 +396,14 @@ function organizePackage() {
 
 	cp misc/How\ to\ install\ Matomo.html ..
 
+	SYMLINKS=(`find ./ -type l`)
+	if [ ${#SYMLINKS[@]} -gt 0 ]
+	then
+	  echo 'Symlinks detected. Please check if following links should be removed:'
+	  echo ${SYMLINKS[*]}
+	  exit 1
+	fi
+
 	if [ -d "misc/package" ]
 	then
 		rm -rf misc/package/

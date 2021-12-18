@@ -109,7 +109,7 @@ else
 fi
 
 if [ -e "/usr/share/matomo/config/config.ini.php" ]; then
-	echo "  * If upgradingr, visit index.php?module=Installation&action=systemCheckPage to check and manage your plugins."
+	echo "  * If upgrading, visit index.php?module=Installation&action=systemCheckPage to check and manage your plugins."
 fi
 
 #DEBHELPER#

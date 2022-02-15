@@ -1,24 +1,76 @@
+# That is the aim of this package to be able to install matomo through the Matomo "debian" repository
+# We could request users to do it by hand, some will have already do.
 matomo: package-installs-apt-keyring etc/apt/trusted.gpg.d/matomo-keyring-automatic.gpg
-matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jquery/dist/jquery.min.js
-matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jquery-mousewheel/jquery.mousewheel.min.js
-matomo: embedded-javascript-library usr/share/matomo/libs/bower_components/jScrollPane/script/jquery.mousewheel.js
-matomo: embedded-javascript-library usr/share/matomo/libs/jqplot/excanvas.min.js
-matomo: embedded-php-library usr/share/matomo/plugins/CoreVisualizations/Visualizations/Sparkline.php
-matomo: embedded-php-library usr/share/matomo/vendor/davaxi/sparkline/src/Sparkline.php
-matomo: embedded-php-library usr/share/matomo/core/Visualization/Sparkline.php
-matomo: extra-license-file usr/share/matomo/js/LICENSE.txt
-matomo: extra-license-file usr/share/matomo/libs/bower_components/chroma-js/LICENSE
-matomo: extra-license-file usr/share/matomo/libs/bower_components/jquery-mousewheel/LICENSE.txt
-matomo: extra-license-file usr/share/matomo/libs/bower_components/jquery.scrollTo/LICENSE
-matomo: extra-license-file usr/share/matomo/libs/bower_components/sprintf/LICENSE
-matomo: extra-license-file usr/share/matomo/libs/bower_components/visibilityjs/LICENSE
-matomo: extra-license-file usr/share/matomo/libs/jqplot/gpl-2.0.txt
-matomo: extra-license-file usr/share/matomo/libs/jquery/gpl-2.0.txt
-matomo: extra-license-file usr/share/matomo/libs/jquery/gpl-3.0.txt
-matomo: extra-license-file usr/share/matomo/libs/Zend/LICENSE.txt
-matomo: extra-license-file usr/share/matomo/vendor/container-interop/container-interop/LICENSE
+
+# Matomo is a Web application that provide its needed javascript library, not as good as using debian ones but complying with their requested version
+matomo: embedded-javascript-library usr/share/matomo/libs/jqplot/excanvas.min.js please use libjs-excanvas
+matomo: embedded-javascript-library usr/share/matomo/node_modules/jquery-mousewheel/jquery.mousewheel.js please use libjs-jquery-mousewheel
+matomo: embedded-javascript-library usr/share/matomo/node_modules/jquery-ui-dist/jquery-ui.min.css please use libjs-jquery-ui
+matomo: embedded-javascript-library usr/share/matomo/node_modules/jquery-ui-dist/jquery-ui.min.js please use libjs-jquery-ui
+matomo: embedded-javascript-library usr/share/matomo/node_modules/jquery/dist/jquery.min.js please use libjs-jquery
+matomo: embedded-javascript-library usr/share/matomo/plugins/UserCountryMap/javascripts/vendor/raphael.min.js please use libjs-raphael
+
+# Matomo is a Web application that provide its needed php library, not as good as using debian ones but complying with their requested version
+matomo: embedded-php-library usr/share/matomo/core/Visualization/Sparkline.php please use libsparkline-php
+matomo: embedded-php-library usr/share/matomo/plugins/CoreVisualizations/Visualizations/Sparkline.php please use libsparkline-php
+matomo: embedded-php-library usr/share/matomo/vendor/davaxi/sparkline/src/Sparkline.php please use libsparkline-php
+matomo: embedded-php-library usr/share/matomo/vendor/matomo/decompress/libs/PclZip/pclzip.lib.php please use libphp-pclzip
+
+# Matomo is a Web application that provide its needed font, not as good as using debian ones but complying with their requested version
+matomo: duplicate-font-file usr/share/matomo/plugins/ImageGraph/fonts/tahoma.ttf also in fonts-wine
+
+# Matomo core is GPL 3. Matomo rely on vendor libraries and try to verify their licence comply with the opensource Matomo nature.
+# For this package to get one day in the main debian repository, all licences should be mentionned in debian/copyright.
+matomo: extra-license-file usr/share/matomo/libs/Authenticator/LICENSE.md
+matomo: extra-license-file usr/share/matomo/misc/log-analytics/LICENSE.txt
+matomo: extra-license-file usr/share/matomo/node_modules/angular-animate/LICENSE.md
+matomo: extra-license-file usr/share/matomo/node_modules/angular-cookies/LICENSE.md
+matomo: extra-license-file usr/share/matomo/node_modules/angular-mocks/LICENSE.md
+matomo: extra-license-file usr/share/matomo/node_modules/angular-sanitize/LICENSE.md
+matomo: extra-license-file usr/share/matomo/node_modules/angular/LICENSE.md
+matomo: extra-license-file usr/share/matomo/node_modules/chroma-js/LICENSE
+matomo: extra-license-file usr/share/matomo/node_modules/iframe-resizer/LICENSE
+matomo: extra-license-file usr/share/matomo/node_modules/jquery-mousewheel/LICENSE.txt
+matomo: extra-license-file usr/share/matomo/node_modules/jquery-ui-dist/LICENSE.txt
+matomo: extra-license-file usr/share/matomo/node_modules/jquery.dotdotdot/LICENSE.txt
+matomo: extra-license-file usr/share/matomo/node_modules/jquery.scrollto/LICENSE
+matomo: extra-license-file usr/share/matomo/node_modules/jquery/LICENSE.txt
+matomo: extra-license-file usr/share/matomo/node_modules/jquery/external/sizzle/LICENSE.txt
+matomo: extra-license-file usr/share/matomo/node_modules/materialize-css/LICENSE
+matomo: extra-license-file usr/share/matomo/node_modules/mousetrap/LICENSE
+matomo: extra-license-file usr/share/matomo/node_modules/qrcodejs2/LICENSE
+matomo: extra-license-file usr/share/matomo/node_modules/sprintf-js/LICENSE
+matomo: extra-license-file usr/share/matomo/node_modules/visibilityjs/LICENSE
+matomo: extra-license-file usr/share/matomo/plugins/CorePluginsAdmin/templates/license.twig
+matomo: extra-license-file usr/share/matomo/plugins/TagManager/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/composer/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/composer/ca-bundle/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/composer/semver/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/davaxi/sparkline/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/doctrine/cache/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/geoip2/geoip2/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/leafo/lessphp/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/matomo/cache/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/matomo/decompress/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/matomo/device-detector/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/matomo/ini/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/matomo/matomo-php-tracker/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/matomo/network/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/matomo/searchengine-and-social-list/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/maxmind-db/reader/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/maxmind/web-service-common/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/opis/closure/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/php-di/phpdoc-reader/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/phpmailer/phpmailer/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/psr/container/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/symfony/polyfill-ctype/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/symfony/polyfill-mbstring/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/szymach/c-pchart/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/tedivm/jshrink/LICENSE
+matomo: extra-license-file usr/share/doc/matomo/LICENSE.gz
+matomo: extra-license-file usr/share/matomo/js/LICENSE.txt
+matomo: extra-license-file usr/share/matomo/libs/Zend/LICENSE.txt
+matomo: extra-license-file usr/share/matomo/libs/jqplot/gpl-2.0.txt
 matomo: extra-license-file usr/share/matomo/vendor/monolog/monolog/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/mustangostang/spyc/COPYING
 matomo: extra-license-file usr/share/matomo/vendor/pear/console_getopt/LICENSE
@@ -31,11 +83,20 @@ matomo: extra-license-file usr/share/matomo/vendor/symfony/event-dispatcher/Symf
 matomo: extra-license-file usr/share/matomo/vendor/symfony/monolog-bridge/Symfony/Bridge/Monolog/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/tecnickcom/tcpdf/LICENSE.TXT
 matomo: extra-license-file usr/share/matomo/vendor/twig/twig/LICENSE
+
+# That is the aim of Matomo to provide an opensource tracker alternative to Google or others
 matomo: privacy-breach-piwik usr/share/matomo/js/piwik.js (choke on: 'settrackerurl')
-matomo: privacy-breach-piwik usr/share/matomo/js/piwik-min.js (choke on: "settrackerurl")
 matomo: privacy-breach-piwik usr/share/matomo/js/piwik.min.js (choke on: "settrackerurl")
 matomo: privacy-breach-piwik usr/share/matomo/matomo.js (choke on: "settrackerurl")
 matomo: privacy-breach-piwik usr/share/matomo/piwik.js (choke on: "settrackerurl")
-matomo: privacy-breach-piwik usr/share/matomo/plugins/TagManager/Template/Tag/MatomoTag.web.js (choke on: 'piwik.js')
-matomo: php-script-but-no-php-cli-dep usr/share/matomo/console #!php
 
+# Matomo use it's own bug numbers
+#matomo: improbable-bug-number-in-closes
+
+# Change/reset permission on /var/lib/matomo/data/tmp to www-data 0755/0644
+matomo: recursive-privilege-change postinst:14
+matomo: recursive-privilege-change postinst:15
+matomo: recursive-privilege-change postinst:16
+
+# Rules added specifically for 4.0.0
+matomo: script-not-executable usr/share/matomo/vendor/leafo/lessphp/package.sh

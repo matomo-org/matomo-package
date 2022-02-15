@@ -18,19 +18,21 @@ Install
 	<VirtualHost *:80>
 		[...]
 		DocumentRoot /usr/share/matomo
-		Include "conf.d/matomo.conf"
 		[...]
 	</VirtualHost>
 
-	b) if you prefer to have a virtual directory instead
+	b) if you want the matomo Alias in all your virtualhosts, uncomment the Alias line in /etc/apache2/conf.d/matomo.conf
+
+	c) if you prefer to restrict matomo Alias to a specific virtualhost
 	<VirtualHost *:80>
 		[...]
 		DocumentRoot /var/www/foo
 
-		Include "conf.d/matomo.conf"
 		Alias /matomo /usr/share/matomo
 		[...]
 	</VirtualHost>
+
+3c- Ensure conf-available/matomo.conf is enable
 
 4 - Point your browser to your matomo URL
 

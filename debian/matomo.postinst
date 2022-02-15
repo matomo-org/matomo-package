@@ -12,7 +12,8 @@ if ! dpkg-statoverride --list /var/lib/matomo/data/tmp >/dev/null; then
 		# if a site is busy, the cache files may appear/disappear when the commands below are running
 		# which would create a false positive failure. So trying to avoid that situation.
 		chown -R www-data:www-data /var/lib/matomo/data/tmp 2>/dev/null || true
-		chmod -R 0755 /var/lib/matomo/data/tmp 2> /dev/null || true
+		find /var/lib/matomo/data/tmp -type d -exec chmod 755 {} \; 2> /dev/null || true
+		find /var/lib/matomo/data/tmp -type f -exec chmod 644 {} \; 2> /dev/null || true
 	fi
 else
 	echo "  * Skipped permission changes in /var/lib/matomo/data/tmp according to 'dpkg'"
@@ -87,12 +88,17 @@ echo "  * Matomo main configuration files are stored in /etc/matomo/"
 echo "  * Matomo crontab file is stored in /etc/cron.d/matomo-archive"
 echo "  * When installing/using matomo, make sure you disable any ads blocker"
 
+# Regenerating .htaccess files reflecting last Matomo version will (shouldn't hurt nginx as stated in the documentation)
+echo "  * Please wait while Matomo is upgrading web server configuration files..."
+echo "    (cf. https://matomo.org/faq/troubleshooting/how-do-i-fix-the-error-private-directories-are-accessible/)"
+php /usr/share/matomo/console core:create-security-files
+
 db_get matomo/automatic-upgrade || true
 if [ "$RET" = "true" ]; then
 	if [ -e "/usr/share/matomo/config/config.ini.php" ]; then
 		# it's safe to assume an admin has configured matomo
 		# so an upgrade should be doable
-		echo "  * Please wait while Matomo is upgrading..."
+		echo "  * Please wait while Matomo is upgrading database..."
 		php /usr/share/matomo/console core:update --yes
 	else
 		echo "  * Automatic upgrade not perform as Matomo doesn't seem to be installed."
@@ -100,6 +106,10 @@ if [ "$RET" = "true" ]; then
 	fi
 else
 	echo "  * To finish Matomo's upgrade, please run: /usr/bin/php /usr/share/matomo/console core:update"
+fi
+
+if [ -e "/usr/share/matomo/config/config.ini.php" ]; then
+	echo "  * If upgrading, visit index.php?module=Installation&action=systemCheckPage to check and manage your plugins."
 fi
 
 #DEBHELPER#

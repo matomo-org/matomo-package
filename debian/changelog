@@ -1,3 +1,159 @@
+matomo (4.1.1-1) stable; urgency=high
+
+  * Releasing Matomo 4.1.1
+  * Have a report description for every report [by @sgiehl] (Closes:
+    #16792)
+  * Admin menu should be collapsible for admins/super users [by @sgiehl]
+    (Closes: #16793)
+  * Add feature to ignore traffic of Cloud providers - prevent spam
+    tracking (Closes: #16794)
+  * Looping with filter_limit and filter_offset does not always get all
+    visits [by @sgiehl] (Closes: #16394)
+  * Anonymise IP when sending feedback through Matomo UI [by @sgiehl]
+    (Closes: #17052)
+  * Add regular expression support to list of user agents to exclude [by
+    @nina-py, @diosmosis] (Closes: #16766)
+  * Add imprint URL to Template.pageFooter (Closes: #16965)
+  * Evolution graphs: "Change period" feature to show historical up to
+    the very last period within the selected date range [by @diosmosis]
+    (Closes: #14149)
+  * Limit max execution time for all SQL queries executed during report
+    archiving [by @sgiehl] (Closes: #15241)
+  * Remove the incorrect tooltips in Visitors > Overview  [by @sgiehl]
+    (Closes: #16371)
+  * File Integrity Issues after Upgrade (Closes: #16938)
+  * 4.1.0 Data from "Channel Types" and others are showing Yesterday's
+    data while some other part are showing today's data [by @sgiehl]
+    (Closes: #16999)
+  * Better fix for climulti segment encoding bug [by @diosmosis]
+    (Closes: #17004)
+  * Matomo doesn't respect SMTP Encryption Method setting [by @sgiehl]
+    (Closes: #17015)
+  * Password recovery SMTP email configuration [by @sgiehl] (Closes:
+    #17026)
+  * -skip-idsites argument to core:archive works like -force-idsites in
+    4.x [by @diosmosis] (Closes: #17074)
+  * Use `hiddenkeyword` for Search engines by default (Closes: #16742)
+  * Ensure no longer used node module files are removed on update [by
+    @sgiehl, @diosmosis] (Closes: #17059)
+  * updates device detector to latest 4.1.0 [by @sgiehl] (Closes:
+    #17064)
+  * Segmented visitor log does not load any content when the Outlink URL
+    or Download URL contains an ampersand [by @sgiehl] (Closes: #11806)
+  * going to 'All Websites' dashboard and selecting a date range and
+    clicking a site results in error message [by @sgiehl] (Closes:
+    #15238)
+  * The parameter 'confirmPassword' isn't set in the Request [by
+    @sgiehl] (Closes: #16847)
+  * Error when viewing Page performance report with "Date Range" [by
+    @sgiehl] (Closes: #17003)
+  * [automatic translation update] Updated 116 strings in 6 languages
+    (ru da el zh-tw tr sv) [by @github-actions[bot], @sgiehl] (Closes:
+    #17036)
+  * [automatic translation update] Updated 73 strings in 34 languages
+    (ru de es da pt-br el ro ko bg be zh-cn pt cs vi id ca pl ja it ar
+    uk nl nb es-ar fr zh-tw tr tl lv fa sq sr fi sv) [by @github-
+    actions[bot], @sgiehl] (Closes: #17065)
+  * Text error in German translation -> "oderr" (Closes: #17067)
+  * add href in link in update message email [by @aloxe, @diosmosis]
+    (Closes: #16661)
+  * Let users configure a max actions per visit that should be recorded
+    (available in TrackingSpamPrevention plugin) (Closes: #16802)
+  * Don't accept files that are bigger than the upload limit when
+    uploading plugins [by @sgiehl, @diosmosis] (Closes: #16849)
+  * After updating to 4.0.5, plugin file VisitsByDaysSinceLastVisit.php
+    is not deleted [by @sgiehl] (Closes: #16927)
+  * Version 4 can break websites with a Content Security Policy [by
+    @tsteur] (Closes: #16935)
+  * always send an "Accept-Encoding" header with HTTP requests [by
+    @Findus23, @diosmosis] (Closes: #17009)
+  * Make "Compare To" translatable [by @c960657, @diosmosis] (Closes:
+    #17021)
+  * Rename piwik to matomo in uninstall script [by @mattab, @diosmosis]
+    (Closes: #17061)
+  * -force-all-periods is not supported and -force-date-last-n only
+    applies to new segments [by @diosmosis, @sgiehl] (Closes: #296)
+  * Adds detection for Chim Lrowser [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6472)
+  * Adds detection for PlayFree Browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6473)
+  * Adds detection for SFive browser [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6474)
+  * Adds detection for Navigateur Web [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6483)
+  * Adds detection for SeewoOS operating system [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6486)
+  * Improves macOS and iOS detection and version detection [by
+    @liviuconcioiu, @sgiehl] (Closes: #6522)
+  * Improves Blink engine version detection [by @liviuconcioiu, @sgiehl]
+    (Closes: #6539)
+  * Detect new brands: Helio, Winmax, SPC and Detect devices for
+    existing brands: Maxwest, Condor, Zuum, Echo Mobiles, General
+    Mobile, Beelink, ZTE, DEXP, HTC, Highscreen, Huawei, MiXzo, DNS,
+    Coolpad, Jinga, Contixo, Santin, Elephone, EvroMedia, Twoe, Artel,
+    Blu, Konrow, Teclast, Huawei, Sharp, Gigabyte, Lenovo, Navon [by
+    @sanchezzzhak, @sgiehl] (Closes: #6545)
+  * Adds detection for watchOS and Apple watches [by @liviuconcioiu,
+    @sgiehl] (Closes: #6547)
+  * Adds detection for Odin browser [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6548)
+  * Detect new brands: Zebra, Bkav, Brandt, Bigben, Thuraya, Artizlee,
+    Asanzo, SMARTEC and Detect devices for existing brands: TechPad,
+    Tele2, Savio, Blu, Wortmann, Black Fox, Aiwa, iBall, FireFly Mobile,
+    Vestel, Huawei, SPC, LG, Logicom, iVA, Pixus [by @sanchezzzhak,
+    @sgiehl] (Closes: #6549)
+  * Detect new brands: Mintt, Premio, Trifone and Detect devices for
+    existing brands: Accent, Contixo, Cherry Mobile, Avvio, Konrow,
+    Clarmin, Bush, Blaupunkt, Hometech, Ace, iPro, Mobicel, Kivi, Lava,
+    Phonemax, Plum, Apple [by @sanchezzzhak, @sgiehl] (Closes: #6553)
+  * Detect new brands: Bluewave, Poppox, Viumee, VAIO and Detect devices
+    for existing brands: Kyocera, Casper, Condor, Lenovo, Vivax,
+    Alcatel, Accent, Asus, iView, Polaroid, Kivi, BBK, Denver, Sky,
+    Starmobile, iPro, X-TIGI, Vonino, True, Bluedot, HTC, Panasonic,
+    Sharp, Huawei [by @sanchezzzhak, @sgiehl] (Closes: #6554)
+  * Detect new brands: Diva, Oale, Zentality, Black Bear, OpelMobile
+    Fortis and Detect devices for existing brands: BQ, Sky, Blu,
+    Alfawise, TWM, Mobo, Jinga, iHunt, Alcatel, Teclast, Lenovo,
+    AllDocube, Wiko, iSWAG, Zuum, LG, Mediacom, Samsung, Huawei,
+    Maxwest, Elephone, Vorke [by @sanchezzzhak, @sgiehl] (Closes: #6555)
+  * Adds detection for Whale OS [by @liviuconcioiu, @sgiehl] (Closes:
+    #6559)
+  * Adds detection for T-Browser [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6560)
+  * Adds detection for Digihome, Finlux, Hitachi, Hotel, JVC, Linsar,
+    Luxsor, Nordmende, Salora, Techwood, Westpoint, X.Vision, ALDI S"UD,
+    Celcus TVs and improves detection for Philips, Bush, Polaroid, TCL,
+    Kalley TVs [by @liviuconcioiu, @sanchezzzhak] (Closes: #6561)
+  * Adds detection for MIPS architecture [by @liviuconcioiu, @sgiehl]
+    (Closes: #6562)
+  * Adds detection for SuperH architecture [by @liviuconcioiu, @sgiehl]
+    (Closes: #6563)
+  * Update README.md [by @github-actions[bot], @sgiehl] (Closes: #6565)
+  * Detect FydeOS [by @sanchezzzhak, @sgiehl] (Closes: #6567)
+  * Detect apps: Instapaper, Keeper Password Manager, WeChat Share
+    Extension, Skyeng Teachers [by @sanchezzzhak, @sgiehl] (Closes:
+    #6568)
+  * Detect new brands: NuAns, Koolnee, Yoka TV, Sansui, Sico, Smadl,
+    FarEasTone, Smailo, Tymes, Solone and Detect devices for existing
+    brands: ZTE, Eltex, Cherry Mobile, Motorola, BQ, Ulefone, Mobicel,
+    Orange, Homtom, Huawei, Voyo, Mecool, Invin, Meizu, Vsun, Karbonn,
+    iBall, "own, Vulcan, Thomson, Blu, Iris, iMars and Detect app: Kik
+    [by @sanchezzzhak, @sgiehl] (Closes: #6569)
+  * Detect bots: Nimbostratus Bot, Heart Rails Capture, Notify Ninja,
+    Project Resonance, DataXu and Detect client libs:  WinHttpRequest,
+    Jakarta Commons-HttpClient  and Detect feed readers: NetNewsWire [by
+    @sanchezzzhak, @sgiehl] (Closes: #6571)
+  * Improvements Podcast clients [by @sanchezzzhak, @sgiehl] (Closes:
+    #6573)
+  * Detect new brands: Colors, Electroneum, Honeywell, High Q, IKU
+    Mobile, Magnus, Pluzz and Detect devices for existing brands:
+    Premio, Kzen, Casper, Timovi, Umax, Allview, Avvio, Cloudfone, AVH,
+    Sky, Energizer, Xolo, Hyundai, Mobicel, Accent, EXO, Cherry Mobile,
+    ProScan, Concord, Polytron, Polaroid, Positivo BGH, Primux, Prixton,
+    Vsun [by @sanchezzzhak, @sgiehl] (Closes: #6574)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 00:22:53 +0100
+
 matomo (4.1.0-4) stable; urgency=high
 
   * Add lintian override for wikimedia License file 

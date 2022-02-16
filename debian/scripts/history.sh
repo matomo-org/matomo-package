@@ -30,7 +30,9 @@ then
 	exit 1
 fi
 
-CHANGELOG_URL=$(wget -O - -q 'https://matomo.org/changelog/' | grep "Matomo $1" | sed 's/.*href=\([^>]*\).*/\1/' | sed -e 's/"//g' -e "s/'//g" | grep ^http | grep "$1/")
+#EG Remove last control on version to be more permisive 
+#CHANGELOG_URL=$(wget -O - -q 'https://matomo.org/changelog/' | grep "Matomo $1" | sed 's/.*href=\([^>]*\).*/\1/' | sed -e 's/"//g' -e "s/'//g" | grep ^http | grep "$1/")
+CHANGELOG_URL=$(wget -O - -q 'https://matomo.org/changelog/' | grep "Matomo.* $1" | sed 's/.*href=\([^>]*\).*/\1/' | sed -e 's/"//g' -e "s/'//g" | grep ^http)
 
 if ! echo "$CHANGELOG_URL" | grep --quiet --ignore-case http
 then
@@ -40,8 +42,10 @@ fi
 
 echo "Changelog url found at $CHANGELOG_URL"
 
+alt="${1%.*}.x"
+
 wget -O - -q "$CHANGELOG_URL" | \
-	sed -n "/List of.*in Matomo $1.*>$/,/<\/ul>/p;" | \
+	sed -n "/List of.*in Matomo \($1\|$alt\).*>$/,/<\/ul>/p;" | \
 	grep -e 'dev.matomo.org/trac/ticket' -e 'github.com/matomo-org' | \
 	sed -e :a -e 's/<[^>]*>//g;/</N;//ba' | \
 	sed '/^$/d' | \

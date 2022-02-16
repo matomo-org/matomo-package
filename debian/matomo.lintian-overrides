@@ -82,6 +82,7 @@ matomo: extra-license-file usr/share/matomo/vendor/symfony/event-dispatcher/Symf
 matomo: extra-license-file usr/share/matomo/vendor/symfony/monolog-bridge/Symfony/Bridge/Monolog/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/tecnickcom/tcpdf/LICENSE.TXT
 matomo: extra-license-file usr/share/matomo/vendor/twig/twig/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/wikimedia/less.php/LICENSE
 
 # That is the aim of Matomo to provide an opensource tracker alternative to Google or others
 matomo: privacy-breach-piwik usr/share/matomo/js/piwik.js (choke on: 'settrackerurl')

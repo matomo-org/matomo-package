@@ -208,7 +208,7 @@ else
 endif
 		@debchange --changelog debian/changelog --release ''
 		@$(MAKE) builddeb
-		@$(MAKE) checkdeb
+		@$(MAKE) checkdebdetail
 
 # check if the local environment is suitable to generate a package
 # we check environment variables and a gpg private key matching
@@ -247,6 +247,14 @@ checkdeb:
 		@echo " [LINTIAN] Checking package(s)..."
 		@for P in $(shell cat debian/control | grep ^Package | awk '{print $$2}'); do \
 			lintian --no-tag-display-limit --color auto -L ">=warning" -v -i ../$${P}_$(shell dpkg-parsechangelog | grep ^Version | awk '{print $$2}')_*.deb; \
+		done
+
+# check the generated .deb for consistency
+# the filename is determines by the 1st line of debian/changelog
+checkdebdetail:
+		@echo " [LINTIAN] Checking package(s)..."
+		@for P in $(shell cat debian/control | grep ^Package | awk '{print $$2}'); do \
+			lintian --no-tag-display-limit --color auto -L ">=info" -v -i ../$${P}_$(shell dpkg-parsechangelog | grep ^Version | awk '{print $$2}')_*.deb; \
 		done
 
 # create a new release based on RELEASE_VERSION variable

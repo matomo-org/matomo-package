@@ -49,7 +49,6 @@ matomo: extra-license-file usr/share/matomo/vendor/composer/semver/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/davaxi/sparkline/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/doctrine/cache/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/geoip2/geoip2/LICENSE
-matomo: extra-license-file usr/share/matomo/vendor/leafo/lessphp/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/matomo/cache/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/matomo/decompress/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/matomo/device-detector/LICENSE
@@ -98,5 +97,5 @@ matomo: recursive-privilege-change postinst:14
 matomo: recursive-privilege-change postinst:15
 matomo: recursive-privilege-change postinst:16
 
-# Rules added specifically for 4.0.0
-matomo: script-not-executable usr/share/matomo/vendor/leafo/lessphp/package.sh
+# Rules added specifically for 4.1.0
+matomo: script-not-executable usr/share/matomo/vendor/wikimedia/less.php/bin/lessc

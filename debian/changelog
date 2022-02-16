@@ -1,3 +1,143 @@
+matomo (4.1.0-2) stable; urgency=high
+
+  * Lintian : change in use of less.php 
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Wed, 16 Feb 2022 23:52:50 +0100
+
+matomo (4.1.0-1) stable; urgency=high
+
+  * Releasing Matomo 4.1.0
+  * core:archive Detection of archive process already in progress does
+    not check for instance ID (Closes: #16973)
+  * "Create and Schedule a report" page missing radio buttons [by
+    @tsteur] (Closes: #16983)
+  * Adds possibility to configure protocols for allowed outgoing
+    connections [by @sgiehl, @diosmosis] (Closes: #16910)
+  * Support date format last week, last month, last year  [by @sgiehl]
+    (Closes: #13818)
+  * Campaign URL Builder: Campaign ID field is missing in the app [by
+    @sgiehl] (Closes: #16233)
+  * Tons of "General error: 1205" in php error log while importing via
+    the python log importer (Closes: #16924)
+  * core:archive Fix intersecting period logic so proper archives will
+    archive in parallel. [by @diosmosis] (Closes: #16946)
+  * Apparently the segment needs to be double encoded when sent in the
+    climulti:request command. [by @diosmosis] (Closes: #16947)
+  * Replace confusing GeoIP warnings [by @sgiehl] (Closes: #16427)
+  * Fix overflow handling of datatables [by @sgiehl] (Closes: #16685)
+  * Screen to smoothly scroll back up to initial position after closing
+    a popover  [by @sgiehl] (Closes: #14968)
+  * use composer/ca-bundle for default CA bundle [by @Findus23,
+    @diosmosis] (Closes: #16797)
+  * WARNING: /var/www/matomo/core/Http.php(538): Notice - Trying to
+    access array offset on value of type null - Matomo 3.13.4 [by
+    @sgiehl] (Closes: #15850)
+  * Hide Comparison feature on All Websites dashboard  [by @sgiehl]
+    (Closes: #16879)
+  * Call to a member function setColumn() on boolean in
+    plugins/Referrers/API.php [by @sgiehl] (Closes: #16919)
+  * Privacy manager JS tracker writable check uses wrong file [by
+    @sgiehl] (Closes: #16953)
+  * MySQLi syntax error "AND idarchive < ?' at line 3" (Closes: #16978)
+  * core:archive reports "0 out of 4 archivers running currently" when -
+    matomo-domain parameter is at the start of the command (Closes:
+    #16984)
+  * Improvements on prepending a plus sign to evolutions [by @sgiehl,
+    @diosmosis] (Closes: #16923)
+  * [automatic translation update] Updated 32 strings in 4 languages (el
+    pt tr sq) [by @github-actions[bot], @sgiehl] (Closes: #16979)
+  * Append a suffix to temporary downloaded geoip files [by @sgiehl]
+    (Closes: #16704)
+  * multi_server_environment setting now disallows config edits from Web
+    UI [by @nina-py, @sgiehl] (Closes: #16760)
+  * core:archive add note message when continuing an existing queue [by
+    @diosmosis] (Closes: #16765)
+  * core:archive Better detection for end of sharedSiteId queue [by
+    @tsteur, @diosmosis] (Closes: #16769)
+  * Add GTM install guide to "no data tracked yet" page [by @tsteur,
+    @diosmosis] (Closes: #16785)
+  * Avoid warning while loading seo metrics [by @sgiehl, @diosmosis]
+    (Closes: #16808)
+  * Use wikimedia/less.php instead of leafo/lessphp [by @sgiehl,
+    @diosmosis] (Closes: #16813)
+  * Show an error notification in UI when given date/period combination
+    is invalid [by @sgiehl, @diosmosis] (Closes: #16840)
+  * Fix unknown keyword is not shown in transitions report in seach
+    engines section [by @tsteur, @diosmosis] (Closes: #16841)
+  * better Windows detection [by @Findus23, @diosmosis] (Closes: #16901)
+  * Harden check for numeric array indices [by @sgiehl, @diosmosis]
+    (Closes: #16908)
+  * Correct archived metric query for days to conversion [by @diosmosis]
+    (Closes: #16917)
+  * Ensure removed dimensions are not used even if they still exist [by
+    @sgiehl, @tsteur] (Closes: #16934)
+  * Uncaught exception: Date.php: The date '1970-01-01' is a date before
+    first website was online. [by @diosmosis] (Closes: #16937)
+  * Improve handling of current user information for Filechecks [by
+    @aragon999, @diosmosis] (Closes: #16941)
+  * Prevent memory error when using PHP8 and a session error happens [by
+    @tsteur] (Closes: #16943)
+  * core:archive Remember if process ever started [by @tsteur,
+    @diosmosis] (Closes: #16950)
+  * core:archive If one process' output is "abnormal", don't declare all
+    other concurrently running processes as finished [by @tsteur,
+    @diosmosis] (Closes: #16951)
+  * core:archive Only mark process as finished after fully sending the
+    output [by @tsteur, @diosmosis] (Closes: #16952)
+  * core:archive Avoid filesystem checks when process was set as
+    finished [by @tsteur, @diosmosis] (Closes: #16954)
+  * GeoIP location not working correctly since Matomo 4.0.0 (Closes:
+    #16964)
+  * Invalidate archives after deleting a visit to prevent race
+    conditions [by @tsteur, @diosmosis] (Closes: #16967)
+  * Update wikimedia/less.php dependency to v3.1.0 or above [by @sgiehl]
+    (Closes: #16981)
+  * core:archive when looking for other climulti processes, also make
+    sure idSite is same [by @diosmosis] (Closes: #16992)
+  * Add niuting.org [by @ericguirbal, @spmedia] (Closes: #1250)
+  * Add jyrxd.com [by @ericguirbal, @spmedia] (Closes: #1251)
+  * Adds detection for Freebox operating system [by @liviuconcioiu,
+    @sgiehl] (Closes: #6487)
+  * Adds detection for bots [by @liviuconcioiu, @sgiehl] (Closes: #6498)
+  * Detect new brands: Silelis, Wizz and Detect devices for existing
+    brands: X-View, Rombica, Huawei, Sencor, Hyundai, Sugar, TCL,
+    Condor, Lenovo, Sharp, PocketBook, Xiaomi, Fujitsu, Panasonic,
+    Kyocera, Samsung, Sony, Ainol, OnePlus, Chuwi, ZTE, NEC, Alcatel,
+    Polaroid, Mediacom [by @sanchezzzhak] (Closes: #6509)
+  * Adds detect platform ARM for aarch64 [by @sanchezzzhak] (Closes:
+    #6514)
+  * Improves detection for Google devices [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6515)
+  * Detect new brands: Leff, Tanix and Detect devices for existing
+    brands: Lenovo, Huawei, Meizu, Chuwi, Vivax [by @sanchezzzhak,
+    @sgiehl] (Closes: #6518)
+  * Detect new brands: Bluedot, Planet Computers, Reach, ELARI,
+    MobiWire, Inco, Starmobile and Detect devices for existing brands:
+    Echo Mobiles, ZTE, Highscreen, Irbis, Leagoo, Chuwi, Oukitel, Planet
+    Computers, Sharp, Nvidia, Allwinner, Lenovo, NEC, Huawei, UMIDIGI,
+    TechPad [by @sanchezzzhak, @sgiehl] (Closes: #6519)
+  * Improves detection for Samsung TVs [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6521)
+  * Detect new brands: 4ife, Hurricane, Hezire, iSWAG, Reeder and Detect
+    devices for existing brands: ZTE, LG, Huawei, ONN, Sony, RCA
+    Tablets, Vulcan, Hometech, Hoozo, Lanix, IMO Mobile, iBall, Inoi,
+    Karbonn, Lava [by @sanchezzzhak] (Closes: #6525)
+  * Update README.md [by @github-actions[bot], @sgiehl] (Closes: #6527)
+  * Detect new brands: Epik One, Altice, Kult, BioRugged and Detect
+    devices for existing brands: QMobile, Kalley, MyPhone, Jinga,
+    Explay, Inco, TWM, Asus, ComTrade Tesla, Blu, ZTE, Ace, Digiland,
+    Cherry Mobile [by @sanchezzzhak, @sgiehl] (Closes: #6530)
+  * Improves webOS version detection [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6537)
+  * Improves Seraphic Sraf browser detection [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6538)
+  * Improves detection for Panasonic Smart TVs [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6540)
+  * Improves detection for Sharp Smart TVs [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6541)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Wed, 16 Feb 2022 23:46:18 +0100
+
 matomo (4.0.5-2) stable; urgency=high
 
   * Add this commit to override spelling errors in changelog

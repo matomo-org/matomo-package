@@ -1,3 +1,87 @@
+matomo (4.0.5-2) stable; urgency=high
+
+  * Add this commit to override spelling errors in changelog
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Wed, 16 Feb 2022 23:25:24 +0100
+
+matomo (4.0.5-1) stable; urgency=high
+
+  * Releasing Matomo 4.0.5
+  * Unable to log in to matomo after 4.0.3 upgrade - Nginx/Ubuntu
+    (Closes: #16866)
+  * Support date format last week, last month, last year  [by @sgiehl]
+    (Closes: #13818)
+  * Displaying widgets in iframes logs bruteforce attacks [by @sgiehl]
+    (Closes: #16867)
+  * AbstractDeviceParser::getShortCode() must be of the type string, int
+    returned [by @sgiehl] (Closes: #16889)
+  * Check only invalidations created for correct sites [by @diosmosis]
+    (Closes: #16892)
+  * Comparison feature on All Websites dashboard not working (Showing
+    through Site Selector/Not showing comparison data) [by @sgiehl]
+    (Closes: #16879)
+  * named parameters in mysqli_stmt->bind_param (Closes: #16885)
+  * [automatic translation update] Updated 14 strings in 2 languages (de
+    zh-tw) [by @github-actions[bot], @sgiehl] (Closes: #16887)
+  * Use wikimedia/less.php instead of leafo/lessphp [by @sgiehl,
+    @diosmosis] (Closes: #16813)
+  * Avoid inserting duplicates in invalidation table to reduce IO. [by
+    @diosmosis] (Closes: #16843)
+  * Remove invalidations for segments that are not pre-processed if
+    found. [by @diosmosis] (Closes: #16895)
+  * Host detection: use HTTP_HOST as default, but provide a setting to
+    use SERVER_NAME instead [by @sgiehl, @tsteur] (Closes: #16899)
+  * SEO Plugin broken [by @sgiehl] (Closes: #16778)
+  * CLI Archive might not stop [by @diosmosis] (Closes: #16788)
+  * No custom dimensions in Matomo 4.0.0 (Closes: #16786)
+  * Error upgrading db while upgrading to 4.0.0-b1 (session update
+    fails) [by @sgiehl] (Closes: #16798)
+  * Matomo 4.0.0 warns about "ExampleTheme requires Piwik <4.0.0-b1" [by
+    @tsteur] (Closes: #16804)
+  * Matomo 4 migration: Index column size too large [by @sgiehl]
+    (Closes: #16811)
+  * Improve token auth migration [by @tsteur] (Closes: #16822)
+  * Change referrer url size to 1500 (#16835)
+  * Trim referrer url if needed (#16836)
+  * Create robots.txt to prevent bots from indexing Matomo app (#16795)
+  * Improve php8 compatibility (#16838)
+  * re-add missing condition for -skip-segments-today (#16777)
+  * never specify optional parameter before required one [by @tsteur]
+    (Closes: #16828)
+  * Missing setGenerationTimeMs after upgrade to 4.x [by @tsteur]
+    (Closes: #16853)
+  * Matomo 4.0.2 warns about "ExampleLogTables requires Piwik <4.0.0-b1"
+    [by @tsteur] (Closes: #16857)
+  * -skip-segments-today no longer working in Matomo 4? [by @diosmosis]
+    (Closes: #16775)
+  * Create robots.txt to prevent bots from indexing Matomo app [by
+    @mattab, @tsteur] (Closes: #16795)
+  * More rigorous checks for non-existant site so archiving wont fail if
+    ... [by @diosmosis, @tsteur] (Closes: #16837)
+  * Segments not working on preprocessed files since Matomo 4.0.0 [by
+    @diosmosis] (Closes: #16842)
+  * only select invalidations that were added before a sites archiving
+    began [by @diosmosis, @tsteur] (Closes: #16844)
+  * Fix ttl not being respected on existing invalidations [by
+    @diosmosis] (Closes: #16851)
+  * Widget access always only works with view access not respecting new
+    config setting [by @diosmosis] (Closes: #16869)
+  * When forcing GET request method in JS tracker then disable send
+    beacon [by @tsteur] (Closes: #16870)
+  * Detect browsers: Slimjet, 7Star, MxNitro [by @sanchezzzhak, @sgiehl]
+    (Closes: #6443)
+  * Detect new brands: Starlight, GEOFOX, Verico, Tinmo, Matrix and
+    Detect devices for existing brands: Asus, Sharp, Coolpad, Sony,
+    OPPO, Lenovo, Philips, Vivo, Xiaomi, Manta Multimedia, NEC, Vernee,
+    Karbonn, Kr"uger&Matz, RugGear, DEXP, Digma, MiXzo, Atom, Yu, Acer,
+    Irbis, teXet, Telefunken, Onda, IconBIT, Polaroid, Doogee, Allview,
+    BB Mobile, Touchmate, ArmPhone, Memup, Kazam, ZTE, Odys, Jinga,
+    Ginzzu, iLife, Mobicel, Blu, Blaupunkt [by @sanchezzzhak] (Closes:
+    #6444)
+  * Detect Crazy Browser [by @sanchezzzhak, @sgiehl] (Closes: #6448)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Wed, 16 Feb 2022 23:15:22 +0100
+
 matomo (4.0.0-2) stable; urgency=high
 
    * deal with new files in 4.x (focus on Buster and Bullseye due to min 
@@ -13,7 +97,7 @@ matomo (4.0.0-2) stable; urgency=high
    * update copyright
    * update Debian.md
 
- -- Edouard Gaulué <edouard@e-gaulue.com>  Tue, 15 Feb 2022 11:03:02 +0100
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Wed, 16 Feb 2022 23:05:55 +0100
 
 matomo (4.0.0-1) stable; urgency=high
 

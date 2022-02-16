@@ -1,3 +1,9 @@
+matomo (4.1.0-4) stable; urgency=high
+
+  * Add lintian override for wikimedia License file 
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 00:18:47 +0100
+
 matomo (4.1.0-3) stable; urgency=high
 
   * Dealing with the return of the robots.txt file 

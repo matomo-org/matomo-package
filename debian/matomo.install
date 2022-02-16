@@ -26,7 +26,7 @@ matomo/piwik.php				usr/share/matomo/
 matomo/plugins					usr/share/matomo/
 matomo/PRIVACY.md				usr/share/doc/matomo/
 matomo/README.md				usr/share/doc/matomo/
-#matomo/robots.txt				usr/share/matomo/
+matomo/robots.txt				usr/share/matomo/
 matomo/SECURITY.md				usr/share/doc/matomo/
 matomo/tests					usr/share/matomo/
 matomo/vendor					usr/share/matomo/

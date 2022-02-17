@@ -1,3 +1,177 @@
+matomo (4.7.1-2) stable; urgency=high
+
+  * Removal of sizzle license 
+  * Removal of fixperm on vendor/szymach/c-pchart/coverage.sh
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 11:36:22 +0100
+
+matomo (4.7.1-1) stable; urgency=high
+
+  * Releasing Matomo 4.7.1
+  * Rendering performance improvement for reports with many rows [by
+    @bx80] (Closes: #18394)
+  * Add system check warnings for php-fpm and nginx if config files are
+    accessible [by @bx80] (Closes: #13589)
+  * Tracking code page: Move JavaScript tracking code right after the
+    website [by @peterhashair] (Closes: #18521)
+  * Show a summary of what's new in the app [by @bx80] (Closes: #16805)
+  * Field conditions eg in Measurable Settings API not working anymore
+    [by @diosmosis] (Closes: #18539)
+  * Don't archive anything in Goals unless a goal is configured or
+    ecommerce is used [by @peterhashair, @sgiehl] (Closes: #18283)
+  * Do not create a session if accessing login page with a not supported
+    browser  [by @peterhashair] (Closes: #18560)
+  * Fix possible error when generating reports for custom dimensions [by
+    @sgiehl] (Closes: #18608)
+  * Fix possible error when generating PDF reports containing multibyte
+    chars [by @sgiehl] (Closes: #18664)
+  * Improve average page load time query accuracy (reporting too low in
+    some cases) [by @peterhashair] (Closes: #17012)
+  * When rearchive_reports_in_past_last_n_months INI setting is used,
+    the archiver should not skip processing the report for "Yesterday"
+    [by @bx80] (Closes: #18344)
+  * Dependent archives never processed for All visits segment causing
+    some data to not show [by @peterhashair] (Closes: #18362)
+  * Fix possible undefined constant exception when using ssl_no_verify
+    [by @sgiehl] (Closes: #18481)
+  * Ensure 2FA is not loaded when safemode is triggered [by @sgiehl]
+    (Closes: #18501)
+  * Ensure updates are always done with super user permission [by
+    @sgiehl] (Closes: #18503)
+  * remove compareDates with comparePeriods when adding new segment [by
+    @diosmosis, @sgiehl] (Closes: #18535)
+  * Ignore duplicate entry error when creating a sequence [by @sgiehl]
+    (Closes: #18590)
+  * Hide commands that don't work on windows [by @sgiehl] (Closes:
+    #18603)
+  * Force period type to 'range' if date is a range when checking chart
+    incomplete periods [by @bx80] (Closes: #18629)
+  * API Language updates [by @comradekingu, @justinvelluppillai]
+    (Closes: #18506)
+  * Filter metadata API response only when the test is executed for
+    allowed metadata API [by @AltamashShaikh, @tsteur] (Closes: #18510)
+  * Fixes more issues on PHP 8.1 [by @sgiehl] (Closes: #18514)
+  * Fixes: Saving plugin settings might not work with certain password
+    managers enabled [by @peterhashair, @diosmosis] (Closes: #18515)
+  * Fix error where no data is shown on campaign with segments and
+    periods [by @peterhashair] (Closes: #18540)
+  * Refactor emails about password reset into a Mail sub-class [by
+    @samjf, @justinvelluppillai] (Closes: #18616)
+  * Updated translation key for fingerprint metric which was not defined
+    [by @AltamashShaikh, @sgiehl] (Closes: #18621)
+  * Fixed error when importing a container: This variable cannot be
+    deleted as it is used in other places [by @AltamashShaikh] (Closes:
+    #388)
+  * FB pixel changed data type to string from INT [by @AltamashShaikh]
+    (Closes: #390)
+  * Unable to access MatamoTagManager variable in
+    matomoTagManagerAsyncInit [by @FalkHe] (Closes: #400)
+  * Make import and publish version faster when there are many
+    tags/triggers [by @tsteur] (Closes: #387)
+  * Detect new brands: Parrot Mobile, Bubblegum and Detect devices for
+    existing brands: Kalley, Multilaser, ZTE, Hyundai, Oukitel, HTC,
+    Leagoo, Doogee, Tanix, TCL, Hoozo, Rombica, Polar, GEOFOX, Acer,
+    Urovo, DEXP, Lenovo, Seuic, Crosscall, Archos, Perfeo, BQ, iTel [by
+    @sanchezzzhak, @sgiehl] (Closes: #6929)
+  * Detect new brands: Liberton, Cloud and Detect devices for existing
+    brands: Stylo, Vivo, Huawei, Teclast, Rombica, Pioneer, ComTrade
+    Tesla, Zebra, Mobicel, Ghia, Google, Erisson, Kivi, Doogee,
+    Mobiistar, Vernee, AllDocube, Artel, Oukitel, Tecno Mobile, Vodafone
+    [by @sanchezzzhak, @sgiehl] (Closes: #6930)
+  * Adds detection for TradingView and improves detection for Discord
+    [by @liviuconcioiu, @sanchezzzhak] (Closes: #6931)
+  * Improves detection for Alcatel, Aspera, Blu, Doro, Kodak, KRIP,
+    Microsoft, TCL, Zuum brands, adds detection for Instabridge app,
+    improves detection for Avast Secure Browser and Web Explorer [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #6933)
+  * Add detection for chanjet Browser user agents  (Closes: #6934)
+  * Adds detection for MobiIoT, Smooth Mobile brands and improves
+    detection for CORN, Evertek, Hi, iPro, ONN, RCA Tablets, Sky, Vivo,
+    Wiko, ZTE brands [by @liviuconcioiu, @sanchezzzhak] (Closes: #6935)
+  * Adds detection for T+ Browser [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6936)
+  * Adds detection for Huavi, Mafe, Virzo brands and improves detection
+    for Bmobile, Brondi, Cloud, Coolpad, Cricket, Digicel, Hotwav,
+    iHunt, iSWAG, Konrow, MobiWire, Naomi Phone, SPC, X-TIGI brands [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #6937)
+  * Rename T+ Browser to T+Browser and adds ChanjetCloud [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #6939)
+  * Adds detection for Evoo, Gtel, INSYS, Selecline, Turkcell, T"urk
+    Telekom, Venturer brands and improves detection for AT&T, Blu,
+    Cloud, Crosscall, Haier, Logic, Maxwest, STG Telecom, T-Mobile,
+    Vastking, X-TIGI brands [by @liviuconcioiu, @sanchezzzhak] (Closes:
+    #6940)
+  * Detect new brands: Soho Style, Shivaki and Detect devices for
+    existing brands: Epik One, Sky, Telefunken, MyPhone, Motorola, iTel,
+    MTC, Mobicel, Konka, M4tel, Hurricane, UMIDIGI, Zuum, Xiaomi,
+    Smartab, Navitel, Prestigio, ZTE, Wiko, SUNWIND [by @sanchezzzhak,
+    @sgiehl] (Closes: #6941)
+  * Adds detection for Remdun brand and improves detection for Advan,
+    CellAllure, Majestic, Samsung, STF Mobile, TechPad brands [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #6943)
+  * Detect devices for existing brands: Blu, Archos, Leagoo, Elephone,
+    Realme, ZTE, Vivo, Tecno Mobile, Lenovo, Mobicel, General Mobile,
+    Kivi, Fly [by @sanchezzzhak, @sgiehl] (Closes: #6944)
+  * Adds detection for Dreamgate, NOGA, HERO, POPTEL brands and improves
+    detection for A1, AT&T, Evertek, Samsung, Vsmart brands [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #6945)
+  * Adds detection for H96, MBOX, MDTV, Q-Box brands and unknown tv
+    boxes and improves detection for Alcatel, Andowl, Blaupunkt, CUBOT,
+    Hafury, Xiaomi brands [by @liviuconcioiu, @sanchezzzhak] (Closes:
+    #6946)
+  * Improves detection for Firefox Focus [by @thinkwelltwd,
+    @sanchezzzhak] (Closes: #6947)
+  * Detect apps: Be Focused, Focus Keeper, Focus Matrix [by
+    @sanchezzzhak, @sgiehl] (Closes: #6950)
+  * Detect new brand: ATVIO and Detect devices for existing brands:
+    Fujitsu, Realme, OPPO, Samsung, Sharp, Sony, Xiaomi, Tecno Mobile,
+    Smartisan, Hyundai, Vivo, OnePlus, MicroMax, Irbis, Motorola,
+    Ulefone, iHunt, Zuum [by @sanchezzzhak, @sgiehl] (Closes: #6953)
+  * updated tvOS and YunOS regexes [by @prk3, @sanchezzzhak] (Closes:
+    #6954)
+  * Improves Apple brand detection, improves Android version detection,
+    adds detection for CISPA bot [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6955)
+  * Detect new brands: FEONAL, Ematic, Sunmi and Detect devices for
+    existing brands: Xolo, Motorola, Samsung, LG, Sony, IconBIT, OPPO,
+    POCO, Lava, Huawei, TechPad, NEC, Lenovo, Asus, KDDI, ZTE, Sharp,
+    Alcatel, DIXON, Hurricane, LeEco, HTC, Santin, Polaroid [by
+    @sanchezzzhak, @sgiehl] (Closes: #6956)
+  * Adds detection for Polestar (car) user agent (Closes: #6957)
+  * Detect new brands: Alps, Prology, Smarty, Porsche, Polestar, DF,
+    QTECH, NavRoad, Vankyo and Detect devices for existing brands:
+    Hisense, Starwind, Viumee, NYX Mobile, Hi, Hotwav, Mecool, Shivaki,
+    Telefunken, Nomi, SUNWIND, LG [by @sanchezzzhak] (Closes: #6958)
+  * Detect new brands: ArtLine, BDQ, TuCEL and Detect devices for
+    existing brands: BBK, Divisat, Digma, Asano, Leff, Odys, Symphony,
+    RT Project, Polaroid, Prestigio [by @sanchezzzhak, @sgiehl] (Closes:
+    #6960)
+  * Adds detection for Microsoft Store and ASUS Updater apps [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #6962)
+  * Removed duplicate key ATVIO brand [by @sanchezzzhak] (Closes: #6965)
+  * Adds detection for Skype [by @liviuconcioiu, @sanchezzzhak] (Closes:
+    #6967)
+  * Add qxnr.net [by @ericguirbal, @spmedia] (Closes: #1289)
+  * Add Fishy Domains from the past few months [by @bpmusicDE, @spmedia]
+    (Closes: #1290)
+  * Add arpe.top [by @ericguirbal, @spmedia] (Closes: #1291)
+  * Add trafficbot4free.xyz [by @flease, @spmedia] (Closes: #1292)
+  * Add bottraffic143.xyz [by @flease, @spmedia] (Closes: #1293)
+  * Add covblog.top [by @ericguirbal, @spmedia] (Closes: #1294)
+  * Add trafficstudio.club [by @flease, @spmedia] (Closes: #1295)
+  * Add heeha.net [by @ericguirbal, @spmedia] (Closes: #1296)
+  * Add cvta.xyz (redirects to xtraffic) [by @skylarmt, @spmedia]
+    (Closes: #1297)
+  * Add blognet.top [by @ericguirbal, @spmedia] (Closes: #1298)
+  * Add tccp.xyz [by @skylarmt, @spmedia] (Closes: #1299)
+  * Add semalt.net [by @flease, @spmedia] (Closes: #1304)
+  * Add goldvaultmetals.com [by @ericguirbal, @spmedia] (Closes: #1305)
+  * Add dailyblog.xyz [by @ericguirbal, @spmedia] (Closes: #1306)
+  * Add klfd.net [by @ericguirbal, @spmedia] (Closes: #1308)
+  * Add iblogpress.xyz [by @ericguirbal, @spmedia] (Closes: #1309)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 11:25:42 +0100
+
 matomo (4.6.2-2) stable; urgency=high
 
   * Take account of changes in the xhprof library (again) 

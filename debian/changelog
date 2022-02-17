@@ -1,3 +1,94 @@
+matomo (4.2.1-2) stable; urgency=high
+
+  * Add this to override linitan warning about typo in changelog 
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 01:01:01 +0100
+
+matomo (4.2.1-1) stable; urgency=high
+
+  * Releasing Matomo 4.2.1
+  * Make all cookies httpOnly [by @sgiehl] (Closes: #17270)
+  * Segments are not deleted when User is deleted [by @flamisz] (Closes:
+    #13976)
+  * possibly avoid infinite looping if group_concat cuts off result [by
+    @diosmosis] (Closes: #17244)
+  * Only force single plugin archiving for root archive requests. [by
+    @diosmosis] (Closes: #17250)
+  * Critical error during database upgrade "The date '-0001-11-30' is a
+    date before first website was online" when updating to 4.2.0
+    (Closes: #17253)
+  * [automatic translation update] Updated 295 strings in 8 languages
+    (de el bg it sk tr sq sv) [by @github-actions[bot], @sgiehl]
+    (Closes: #17273)
+  * [automatic translation update] Updated 5 strings in 2 languages (zh-
+    cn tr) [by @github-actions[bot], @sgiehl] (Closes: #17280)
+  * All websites dashboard images may show as 404  [by @Findus23]
+    (Closes: #17248)
+  * Remove the text "(Default)" in the new segment screen [by @flamisz,
+    @diosmosis] (Closes: #17277)
+  * Adds detection for CoolBrowser [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6482)
+  * Adds detection for AOC, ALDI NORD, ELECTRONIA, Facebook, F&U, Fuego,
+    GoGEN, Horizon, KUBO, Laurus, Lifemaxx, Manhattan, MStar, OK,
+    PROFiLO, REGAL, SCBC, SEG, SWTV, Technicolor, Technika, TOKYO,
+    WELLINGTON, Western Digital, VOX television brands, improves
+    detection for Akai, ARRIS, Blaupunkt, Essentielb, Haier, Hi-Level,
+    Hisense, Hitachi, Hyundai, Kalley, LG, MediaTek, Miray, MTC, Nvidia,
+    Panasonic, Philips, Qilive, Samsung, Smart, Sony, TCL, TD Systems,
+    Thomson, Vestel television brands and improves detection for
+    Android, Fire OS, webOS [by @liviuconcioiu, @sanchezzzhak] (Closes:
+    #6615)
+  * Improves detection for Android, macOS, iOS, Windows, Windows Phone
+    operating systems and x86 platform [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6618)
+  * Adds detection for various bots and improves generic bots detection
+    [by @liviuconcioiu, @sanchezzzhak] (Closes: #6622)
+  * Adds detection for Qwant Mobile iOS browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6641)
+  * Adds detection for HasCodingOS and HasBrowser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6655)
+  * Adds detection for Deledao browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6658)
+  * Adds detection for 7654 Browser [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6659)
+  * Adds detection for JavaFX WebView [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6665)
+  * Adds detection for Byffox browser [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6666)
+  * Detect new brands: Simply, Aiuto and Detect devices for existing
+    brands:  Asus, Alcatel, HTC, Samsung, Sharp, Freetel, VAIO, Sony,
+    Fujitsu, iTel, ZTE, Kyocera, Pioneer, POCO, Blackview, Aligator,
+    Irbis, BQ, Videocon, Wiko, Mobiistar [by @sanchezzzhak, @sgiehl]
+    (Closes: #6675)
+  * Detect apps for Podcasts [by @sanchezzzhak] (Closes: #6676)
+  * Improves detection for Baidu Spark browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6677)
+  * Improves detection for Coc Coc browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6678)
+  * Improves detection for Avant Browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6679)
+  * Improves detection for Maxthon browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6681)
+  * Adds detection for Qazweb browser [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6682)
+  * Adds detection for Chromium GOST browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6683)
+  * Adds detection for Chedot browser [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6684)
+  * Adds detection for deg-degan browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6685)
+  * Improves version detection for Baidu Browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6687)
+  * Don't use numeric keys as it breaks using Symfony YAML [by @sgiehl]
+    (Closes: #6689)
+  * Detect devices for brands: LG, Fujitsu, Chuwi, Sharp, FireFly
+    Mobile, and create ExtraYaml check is not key number [by
+    @sanchezzzhak] (Closes: #6690)
+  * hotfix incorrect YAML attribute `name` in mobile-app.yml [by
+    @sanchezzzhak, @sgiehl] (Closes: #6692)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 00:56:57 +0100
+
 matomo (4.2.0-2) stable; urgency=high
 
   * Take account of phpcs.xml in install dir

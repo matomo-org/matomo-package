@@ -9,7 +9,6 @@ matomo: embedded-javascript-library usr/share/matomo/node_modules/jquery-ui-dist
 matomo: embedded-javascript-library usr/share/matomo/node_modules/jquery-ui-dist/jquery-ui.min.js please use libjs-jquery-ui
 matomo: embedded-javascript-library usr/share/matomo/node_modules/jquery/dist/jquery.min.js please use libjs-jquery
 matomo: embedded-javascript-library usr/share/matomo/plugins/UserCountryMap/javascripts/vendor/raphael.min.js please use libjs-raphael
-matomo: embedded-javascript-library usr/share/matomo/vendor/lox/xhprof/xhprof_html/jquery/jquery-1.2.6.js please use libjs-jquery
 
 # Matomo is a Web application that provide its needed php library, not as good as using debian ones but complying with their requested version
 matomo: embedded-php-library usr/share/matomo/core/Visualization/Sparkline.php please use libsparkline-php

@@ -1,3 +1,326 @@
+matomo (4.3.0-2) stable; urgency=high
+
+  * Removal of phpcs.xml in install dir 
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 01:07:16 +0100
+
+matomo (4.3.0-1) stable; urgency=high
+
+  * Releasing Matomo 4.3.0
+  * Display Inline help icon linking to User Guide, for all features
+    with a user guide [by @diosmosis] (Closes: #4481)
+  * When accessing UI with unsupported browser throw error and suggest
+    to use other browser [by @flamisz] (Closes: #16776)
+  * Remove the "Visitor ID" segment when the "Visitor profile" feature
+    has been disabled [by @flamisz] (Closes: #17488)
+  * Setting process_new_segments_from not respected when archiving
+    bigger periods [by @flamisz] (Closes: #17336)
+  * Performance report table not displayed properly [by @flamisz]
+    (Closes: #17242)
+  * Show periods labels in the evolution graphs to make it easier to
+    change period [by @flamisz] (Closes: #15021)
+  * Store the segment hash in the DB table [by @flamisz] (Closes:
+    #17301)
+  * Invalidate segment data on update only if the definition changes [by
+    @sgiehl] (Closes: #17444)
+  * Display the "oops" red error message, only when there was an error,
+    do not show it when user clicks away to load another menu or page
+    (Closes: #10578)
+  * Allow selecting password_hash algorithm [by @Findus23, @diosmosis]
+    (Closes: #17199)
+  * Performance metrics issues after 4.2 update [by @flamisz] (Closes:
+    #17259)
+  * Row evolution on subtables can cause errors randomly [by @sgiehl]
+    (Closes: #17374)
+  * Marketplace: "more" link does not work [by @flamisz] (Closes:
+    #17561)
+  * Ask for password confirmation before installing all plugins [by
+    @sgiehl, @diosmosis] (Closes: #17285)
+  * vendor/composer/installed.json is exposed publicly [by @sgiehl]
+    (Closes: #17378)
+  * Escape URL in geolocation admin error message [by @sgiehl,
+    @diosmosis] (Closes: #17436)
+  * detect brute force login attempts from different ip addresses [by
+    @diosmosis] (Closes: #17503)
+  * Ensure redirects in HTTP class are only done to allowed protocols
+    (for cURL) [by @sgiehl, @diosmosis] (Closes: #17524)
+  * Use Common::safe_unserialize for session data [by @sgiehl,
+    @diosmosis] (Closes: #17539)
+  * Add plugin name as comment to SQL query (Closes: #17327)
+  * Email export as TSV format [by @sgiehl] (Closes: #17463)
+  * Error Message notification is not hidden when navigating to a new
+    page [by @flamisz] (Closes: #17104)
+  * JS Error tracking should record the same error only once per page
+    view [by @flamisz] (Closes: #17163)
+  * Improve tracker performance when using custom dimensions (one less
+    update query per tracking request) (Closes: #17173)
+  * Don't load review logos if they are not shown (Closes: #17422)
+  * Unwanted date filter automatically added to
+    Live.getLastVisitsDetails [by @flamisz] (Closes: #17237)
+  * Initiate range archiving if an archive is invalidated, the request
+    is from the browser, and browser archiving is authorized [by
+    @diosmosis] (Closes: #17379)
+  * Exporting "Visitor Profile" data results in "Your session has
+    expired due to inactivity. Please log in to continue." [by @sgiehl]
+    (Closes: #17407)
+  * Re-allow tracking bots (Closes: #17497)
+  * Allow invalidating empty site [by @diosmosis] (Closes: #17519)
+  * Improve no data tracked yet please set up tracking code screen [by
+    @flamisz] (Closes: #16787)
+  * When a period has no data, but raw data, show a message [by
+    @flamisz] (Closes: #16790)
+  * In "Help" screen, show first the section "How can we help?" [by
+    @flamisz] (Closes: #17108)
+  * the "Compare to" button design has slightly regressed on firefox
+    only [by @flamisz] (Closes: #17162)
+  * icon for informational system check [by @Findus23, @diosmosis]
+    (Closes: #17389)
+  * better systemcheck error boxes [by @Findus23, @diosmosis] (Closes:
+    #17416)
+  * replace generate:plugin warning with pointer to guide [by @flamisz]
+    (Closes: #16922)
+  * When showing the Export URL, clarify that users must use their app
+    token (instead of displaying a token_auth that only works in their
+    session) (Closes: #16990)
+  * rename testcookie to make it clear it is created by Matomo [by
+    @Findus23, @diosmosis] (Closes: #17243)
+  * Don't allow enforcing 2FA unless the superuser has set it up already
+    (Closes: #17352)
+  * French Guiana shows up as France in maps and reports [by @sgiehl]
+    (Closes: #5056)
+  * France regions are not up-to-date (Closes: #15203)
+  * Ask users to refer us to other friends [by @flamisz] (Closes:
+    #16803)
+  * Translation missed on "Create a new user" [by @flamisz] (Closes:
+    #17086)
+  * Improve configuration of rearchive_reports_in_past_last_n_months
+    setting [by @diosmosis] (Closes: #17366)
+  * more markdown friendly system checks [by @Findus23, @diosmosis]
+    (Closes: #17421)
+  * Run Javascript tests with node/puppeteer as well as Phantomjs [by
+    @sgiehl] (Closes: #17424)
+  * Add date period to segment archive queries [by @flamisz] (Closes:
+    #17330)
+  * Avoid double HTML entities / special characters encoding [by
+    @flamisz] (Closes: #14065)
+  * Hide Unique Visitors from email reports when the metric is not
+    activated for this period [by @diosmosis] (Closes: #16222)
+  * Site Search hover help bug [by @TheCrowned] (Closes: #16374)
+  * core/Cookie.php:Cookie->delete() don't set secure and SameSite.
+    (Closes: #16637)
+  * Prevent new username from using existing user email address [by
+    @flamisz] (Closes: #17070)
+  * Matomo comparing month report with same month when clicking on the
+    last day of the month [by @flamisz] (Closes: #17080)
+  * fatal error: Modulo by zero: method=imageGraph while widht = 0
+    (Closes: #17092)
+  * CSV reports can fail because HTTP Content-Disposition header has
+    invalid characters in the filename field [by @flamisz] (Closes:
+    #17209)
+  * trackPageView still sends page performance report after
+    disablePerformanceTracking [by @tsteur] (Closes: #17267)
+  * archiving: look for all usable done flag types when checking for
+    existing child periods [by @diosmosis] (Closes: #17304)
+  * Widgetize request with token_auth param fails if superuser session
+    exists [by @flamisz] (Closes: #17335)
+  * Installer starts over after asking super user details (Closes:
+    #17362)
+  * Ensure correct no access message is shown [by @sgiehl] (Closes:
+    #17445)
+  * work around group_concat max len being too small in
+    ArchiveSelector.getArchiveIds [by @diosmosis] (Closes: #17496)
+  * Our work process when changing or removing a public API from the
+    Matomo platform [by @mattab] (Closes: #8126)
+  * Making it easier to know when a code review is required [by @tsteur]
+    (Closes: #17317)
+  * Developer Changelog and documenting changes in the Matomo Platform
+    [by @mattab] (Closes: #8127)
+  * In core:invalidate-report-data match segments by ID, name or
+    definition ... [by @diosmosis] (Closes: #16994)
+  * Add informational diagnostic for archive invalidations table. [by
+    @diosmosis] (Closes: #17110)
+  * Use https for urls in visitor details if host is defined with https
+    in site [by @sgiehl, @diosmosis] (Closes: #17151)
+  * Do not append performance metrics to page view log if performance
+    tracking disabled [by @ufoproger, @diosmosis] (Closes: #17268)
+  * Fix Marketplace falsely thinks a plugin is installed when it is not
+    [by @tsteur, @diosmosis] (Closes: #17278)
+  * remove dangling invalidation check (no longer needed) [by
+    @diosmosis] (Closes: #17289)
+  * Prevent possible warning during GeoIP2 update if providers aren't
+    initialised [by @tsteur, @sgiehl] (Closes: #17295)
+  * remove deletion of old archives in CronArchive since we do this in
+    ArchiveWriter, and it is buggy here [by @diosmosis] (Closes: #17314)
+  * Make sure not to clear the tracker cache so often when invalidating
+    in core:archive [by @diosmosis] (Closes: #17321)
+  * Allow configuring segments to not be rearchived when rearchiving
+    reports in the past. [by @diosmosis] (Closes: #17325)
+  * Add -skip-cache-clear option to core:update command  ... [by
+    @diosmosis] (Closes: #17326)
+  * allow forcing Archive to not initiate archiving for child archives
+    [by @diosmosis] (Closes: #17331)
+  * Add extra core:archive log for initiation of logging [by @diosmosis]
+    (Closes: #17332)
+  * Add event tags to top and bottom of body [by @MHarmony, @diosmosis]
+    (Closes: #17333)
+  * Require password confirmation for more plugin operations. [by
+    @diosmosis] (Closes: #17345)
+  * Ensure login allow list is not checked for authenticated tracking
+    requests [by @sgiehl, @diosmosis] (Closes: #17357)
+  * check for openssl extension [by @Findus23, @diosmosis] (Closes:
+    #17364)
+  * Warning in 2fa setting: gmdate() expects parameter 2 to be int [by
+    @tsteur, @diosmosis] (Closes: #17365)
+  * Apache 2.4+ compatibility for misc/cron/.htaccess [by @jorisdrenth,
+    @diosmosis] (Closes: #17387)
+  * Use ranking query in custom dimensions archiver [by @diosmosis]
+    (Closes: #17396)
+  * Disallow enable 2FA requirement when user doesn't have 2FA enabled
+    [by @andyjdavis, @diosmosis] (Closes: #17400)
+  * fix ScheduledReports.sendReport API [by @Findus23, @diosmosis]
+    (Closes: #17402)
+  * Do not allow setting partial archives to DONE_INVALIDATED [by
+    @diosmosis] (Closes: #17437)
+  * [automatic submodule updates] [by @github-actions[bot], @sgiehl]
+    (Closes: #17438)
+  * INI process_new_segments_from: allow processing segments X days
+    before last edit day [by @sgiehl, @diosmosis] (Closes: #17447)
+  * Workaround error in Overlay when site has no URLs [by @diosmosis]
+    (Closes: #17457)
+  * Add get-segment-sql development command for debugging [by
+    @diosmosis] (Closes: #17461)
+  * Add comment about using shop@innocraft.com for premium features [by
+    @diosmosis] (Closes: #17477)
+  * Add diagnostic that checks if server directories that should be
+    private are accessible [by @diosmosis] (Closes: #17490)
+  * no links in copy-paste system check [by @Findus23, @tsteur] (Closes:
+    #17515)
+  * Do not confuse normal rows with the label "-1" w/ the summary row
+    [by @diosmosis] (Closes: #17517)
+  * require password confirmation when resetting 2fa [by @diosmosis]
+    (Closes: #17528)
+  * add new ini config to enable/disable the php profiler feature [by
+    @diosmosis] (Closes: #17537)
+  * Add option to skip log purging check when invalidating archives in
+    the rare cases it is needed. [by @diosmosis] (Closes: #17538)
+  * more neutral wording and other style improvements [by @Findus23,
+    @sgiehl] (Closes: #17540)
+  * If no archives names are requested when querying archive data, do
+    not initiate archiving. [by @diosmosis] (Closes: #17547)
+  * Make sure summary row subtables are included in the serialized
+    representaion of a datatable tree. [by @diosmosis, @tsteur] (Closes:
+    #17569)
+  * iOS/macOS apps not detected correctly (Closes: #6604)
+  * Adds detection for Lumin OS and Helio browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6656)
+  * Adds detection for DVKBuntu operating system [by @liviuconcioiu,
+    @sgiehl] (Closes: #6671)
+  * Detect new brands: Seatel, 3GNET, IT, Jiake, Malata, Ditecma,
+    Datamini, Newsday and Detect devices for existing brands: Leotec,
+    Navon, Evolveo, Cherry Mobile, iPro, Odys, Iris, Maxwest, iTel [by
+    @sanchezzzhak] (Closes: #6694)
+  * Detect new brands: iQ&T, Pixela, Datalogic, Navitel, Naomi Phone,
+    Mantra, Maximus, Navcity, Linnex and Detect devices for existing
+    brands: Inco, MicroMax, IMO Mobile, Blu, Kzen, Cherry Mobile,
+    Altron, Evercoss, Leagoo, Leader Phone, Lava [by @sanchezzzhak]
+    (Closes: #6695)
+  * Fixes detection for Aloha browser [by @zudwalex, @sanchezzzhak]
+    (Closes: #6698)
+  * Detect library: Embarcadero URI Client and app: Rucket Chat and
+    bots: Ryowl, Sputnik Favicon Bot, Sputnik Image Bot, Hatena Favicon
+    [by @sanchezzzhak] (Closes: #6699)
+  * Detect new brands: Suzuki, Nabi, Gresso, G-Touch, FaRao Pro,
+    StrawBerry, Smartab, Subor, SuperTab, Pendoo, Engel and Detect
+    devices for existing brands: Sugar, TrekStor, Ghia, Lenovo, Freetel,
+    Lark, Zidoo, Sony, Siragon, SPC, Karbonn, Bitel, Cloudfone, Navon,
+    Ritmix, Starlight, Zuum, Blu, Dune HD, Philco [by @sanchezzzhak,
+    @sgiehl] (Closes: #6700)
+  * Detect new brands: Genesis, InfoKit, Bllocm, Huskee, SKG, SOLE,
+    SOLO, OINOM  and Detect devices for existing brands: Xiaomi,
+    Beelink, Meizu, NOA, HTC, Azumi, Motorola, iRulu, Multilaser,
+    Hotwav, Condor, ProScan, Philco, iBall, Q-Touch, QMobile, Kempler &
+    Strauss, Danew, Qilive, Solone, Accent, True, Chuwi [by
+    @sanchezzzhak, @sgiehl] (Closes: #6702)
+  * Detect new brand INCAR [by @sanchezzzhak, @sgiehl] (Closes: #6705)
+  * Detect apps: Pandora, NPR One, Wirtschafts Woche, Microsoft Outlook,
+    TVirl, ChMate, 2tch, Ciisaa, BB2C, twinkle, JaneStyle, JaneView,
+    BathyScaphe, Live5ch [by @sanchezzzhak] (Closes: #6706)
+  * Detect new brands: Singtech, Maze Speed, Sunny, True Slim, OASYS,
+    TEENO, v-mobile, Aspera, Vision Touch, NOBUX, Hitech and Detect
+    devices for existing brands: MSI, Siragon, FireFly, Blu, SFR,
+    Starmobile, Starlight, iBrit, Sico, Casper, Lenovo, Maxwest, STF
+    Mobile, Karbonn, Evercoss, ZTE, Sky, Alba, Azumi, Hisense, Inco,
+    Lava, Alcatel, "own, Videocon, EXO, Forstar, iBall, Wink [by
+    @sanchezzzhak] (Closes: #6708)
+  * Detect lib: Mikrotik Fetch and Detect bots:  Odnoklassniki Bot,
+    Mediatoolkit Bot, ZoominfoBot, WeViKaBot, SEOkicks, Plukkie,
+    Comscore [by @sanchezzzhak] (Closes: #6711)
+  * Add detect bots: SurdotlyBot, Gowikibot, SabsimBot, LumtelBot,
+    PiplBot, WooRank [by @sanchezzzhak] (Closes: #6715)
+  * Detect new brand: F150 and Detect devices for existing brands:
+    Archos, OnePlus, Alcatel, POCO, Oppo, BQ, Doogee, Samsung, Huawei,
+    Vivo, Xiaomi, CUBOT, Blackview, Realme, General Mobile, Teclast [by
+    @sanchezzzhak, @sgiehl] (Closes: #6716)
+  * feat(bots): Detects AppSignal bot [by @achedeuzot, @sanchezzzhak]
+    (Closes: #6718)
+  * Missing LG WebOS SmartTV (Closes: #6720)
+  * Detect version webos and detect brand LG  [by @sanchezzzhak]
+    (Closes: #6721)
+  * Detect devices for existing brands: Xiaomi, TCL, Alcatel, Hisense,
+    Huawei, Digma, Irbis, Cricket, Hyundai, Apple, Lenovo,  AT&T, LG,
+    Motorola, Kyocera, Lanix, OnePlus, iPro, Dell, Zuum, Polaroid, CHIA
+    and Detect library Akka HTTP [by @sanchezzzhak] (Closes: #6723)
+  * Adds detection for GRequests library and fix PHPCS [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #6724)
+  * Detect new brands: BilimLand and Detect devices for existing brands:
+    Motorola, TCL, AllDocube, Highscreen, Tecno Mobile, Huawei, 3Q,
+    Meizu, Xiaomi, Microsoft, Realme, Black Fox, POCO, BQ, Telefunken,
+    Fly, DEXP, Digma, Oukitel, Explay, Torex, Chuwi, Ulefone, Doogee,
+    iTel, Allview, Advan, Gionee [by @sanchezzzhak] (Closes: #6727)
+  * Detect browser OceanHero [by @sanchezzzhak] (Closes: #6728)
+  * Detect new brands: GFive, Greentel, Kyowon, LT, ONYX BOOX, Topway,
+    MAC AUDIO, BrightSign and Detect devices for existing brands:
+    Alcatel, Asus, Samsung, POCO, Realme, Xiaomi, OnePlus, Sony,
+    Allwinner, ZTE, TCL, Vivo, Huawei, Artel, HP, Blu, CUBOT, Ravoz, LG,
+    T-Mobile, Lava, iBall, Touchmate, Mito, Karbonn, Tecno Mobile,
+    QMobile, Videocon, Essentielb, Mobiistar, Yes, LG, Yezz, Logic,
+    Kyocera [by @sanchezzzhak, @sgiehl] (Closes: #6729)
+  * Device BookReader. What type of device should I specify in the
+    definition?  (Closes: #6730)
+  * Improves detect desktop and detect devices for brand: Dell [by
+    @sanchezzzhak, @sgiehl] (Closes: #6734)
+  * Adds detection bot Yahoo! Mail Proxy [by @sanchezzzhak] (Closes:
+    #6736)
+  * Improved version detection for Midori Browser [by @sanchezzzhak]
+    (Closes: #6737)
+  * Detect new brands: KINGZONE, Fourel, M-Tech, Fantec, 2F Mobile,
+    AURIS, YUHO and Detect devices for existing brands: Meizu,
+    Microsoft, HP, Twoe, Huawei, Konrow, Acer, Centric, Asus, Dell,
+    Xolo, InFocus, iBall, IKU Mobile, Venso, DEXP, IUNI, Keneksi,
+    Medion, Advan, Contixo, Iris, Digma, Ziox, HTC, Leagoo, Oysters,
+    Oukitel, Beelink, QMobile, Energy Sistem, Artel, MyPhone, Vivax,
+    Xiaomi, Cherry Mobile, Kr"uger&Matz, Blaupunkt, GOCLEVER, S-TELL,
+    Qumo, Karbonn, Condor, Torex, Savio, Yu [by @sanchezzzhak, @sgiehl]
+    (Closes: #6738)
+  * Adds detection for Binance mobile app [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6741)
+  * Using special characters in variable name results in errors in
+    trigger configuration [by @flamisz] (Closes: #308)
+  * Changing MTM Container Name or Description leads to HTTP 414 URI Too
+    Long when many container versions [by @sgiehl] (Closes: #309)
+  * Improve gzip detection (or allow override) for rotated files
+    (Closes: #249)
+  * Remove colons from timezone [by @mwithheld, @sgiehl] (Closes: #308)
+  * Add doreenblog.online [by @ericguirbal, @spmedia] (Closes: #1260)
+  * Add vanessablog.online [by @ericguirbal, @spmedia] (Closes: #1261)
+  * Add wandamary.online [by @ericguirbal, @spmedia] (Closes: #1262)
+  * Add eets.net [by @ericguirbal, @spmedia] (Closes: #1263)
+  * write multi dim array to valid ini [by @typomedia, @diosmosis]
+    (Closes: #16)
+  * apply more encoding w/ tests [by @diosmosis, @sgiehl] (Closes: #17)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 01:04:31 +0100
+
 matomo (4.2.1-2) stable; urgency=high
 
   * Add this to override linitan warning about typo in changelog 

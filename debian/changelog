@@ -1,3 +1,122 @@
+matomo (4.5.0-1) stable; urgency=high
+
+  * Releasing Matomo 4.5.0
+  * Improve I/O performance by not writing placeholder files when they
+    already exist [by @justinvelluppillai] (Closes: #17870)
+  * Users can get logged out when many notifications are pending [by
+    @diosmosis] (Closes: #17732)
+  * Clicking through the following pages in the transition overlay for
+    page titles does not work (Closes: #17853)
+  * If the period is not enabled in config "The period is not supported"
+    message is shown in cron archiving [by @diosmosis] (Closes: #17872)
+  * Console error "There was an error setting cookie
+    `mtm_cookie_consent`. Please check domain and path." when calling
+    'rememberCookieConsentGiven' [by @justinvelluppillai] (Closes:
+    #17926)
+  * In Acquisition > Overview report, the Row selector is missing [by
+    @geekdenz] (Closes: #17965)
+  * Warning DataCollection.php(381): Notice - Undefined index: 2021-04-
+    26,2021-05-02 (Closes: #17966)
+  * Failing SMTP connection might result in information disclosure in
+    password recovery [by @geekdenz] (Closes: #17091)
+  * Matomo should be setting content security policy to prevent some XSS
+    [by @justinvelluppillai] (Closes: #17773)
+  * Remove fallback to mt_rand and always use random_int for secure
+    randomness [by @Findus23, @tsteur] (Closes: #18030)
+  * New INI config setting for Custom image to replace default 1x1 GIF
+    image [by @bx80, @sgiehl] (Closes: #2672)
+  * New console command config:delete to delete a key (Closes: #16576)
+  * Add JS tracker methods setPagePerformanceTiming and
+    getCustomPagePerformanceTiming to set specific values for
+    performance metrics [by @geekdenz] (Closes: #16859)
+  * Don't log an error when not supported browser is used (Closes:
+    #17738)
+  * Run OPTIMIZE TABLE on each table in a separate SQL query to work
+    better with replication [by @bx80] (Closes: #14719)
+  * Removed misleading help text from segment dimensions tooltip [by
+    @geekdenz] (Closes: #15322)
+  * 'Acquistion/Overview/Evolution over the period' graph fails when
+    adding more channels [by @geekdenz] (Closes: #15892)
+  * Old data in log tables without idvisit column are not purged
+    (affects plugins) [by @geekdenz] (Closes: #16529)
+  * Hide "AND segmented reports are pre-processed (faster, requires
+    cron)" from the UI when enable_create_realtime_segments = 0 [by
+    @geekdenz] (Closes: #15036)
+  * Link to a helpful FAQ in the error message "Oops, there was a
+    problem during the request." [by @geekdenz] (Closes: #15135)
+  * When configuring an e-mail report, the selected segment is not saved
+    [by @sgiehl] (Closes: #15335)
+  * Update RegEx extractions help text to show slashes don't need
+    escaping [by @peterhashair] (Closes: #16604)
+  * Split private directories system check into "Required" and
+    "Recommended" [by @geekdenz] (Closes: #17577)
+  * Use row_format=dynamic by default when creating a table [by
+    @peterhashair] (Closes: #16834)
+  * Add warning about dropping support for IE11 in Matomo user interface
+    [by @diosmosis] (Closes: #18012)
+  * Remove not used DB adapters [by @peterhashair] (Closes: #18039)
+  * Heartbeat timer ping request is not always sent (focusing away from
+    the tab should trigger the ping request) [by @peterhashair] (Closes:
+    #16459)
+  * Page Overlay ignores token_auth in URL when opened from a Widget [by
+    @flamisz, @justinvelluppillai, @geekdenz] (Closes: #17640)
+  * Automatically delete plugin specific/report specific invalidations
+    that do not need to run [by @justinvelluppillai] (Closes: #17752)
+  * Javascript console error when clicking Install routine: Download
+    System Check button [by @geekdenz] (Closes: #17787)
+  * Limiting ecommerce product reports to 10,000 to avoid memory issues
+    with new INI config setting to customise (Closes: #17816)
+  * Added info message that INI setting
+    archiving_query_max_execution_time may not work for MySQLI [by
+    @bx80] (Closes: #17871)
+  * Possible warning notices during log archive (Closes: #17883)
+  * The selected [Allow multiple conversions per visit] option is not
+    displayed when editing a goal [by @sgiehl] (Closes: #17925)
+  * For login allow list add support for IPv6 [by @tsteur] (Closes:
+    #18046)
+  * When aggregating reports, inflate one expanded datatable at a time
+    [by @diosmosis] (Closes: #17817)
+  * get rid of stashed datatables before going into safe mode to free up
+    memory [by @diosmosis] (Closes: #17818)
+  * Remove checking for /proc existence [by @avkarenow, @diosmosis]
+    (Closes: #17846)
+  * Scheduled tasks: Always read timetable from the database and not
+    from memory [by @tsteur] (Closes: #17849)
+  * Use Monolog:SyslogHandler syslog default facility [by @mwithheld,
+    @diosmosis] (Closes: #17855)
+  * Do not log a failed login if a valid app token_auth is sent [by
+    @sgiehl] (Closes: #17867)
+  * Fix a couple a possible warnings in PHP 8.1 [by @sgiehl, @diosmosis]
+    (Closes: #17869)
+  * Only set requests in tracking request set when correct value is
+    given [by @tsteur] (Closes: #17877)
+  * Ignore overwrite subtable warning for summary rows for old data to
+    avoid re-archiving for a single row [by @diosmosis] (Closes: #17891)
+  * Update cache component [by @tsteur, @sgiehl] (Closes: #17905)
+  * Expose methods to disable content security policy or loosen it for
+    embedded iframes [by @justinvelluppillai, @tsteur] (Closes: #17910)
+  * Load sparkline images only once they are near view port [by @tsteur,
+    @justinvelluppillai] (Closes: #17937)
+  * When processing a dependent archive for a range, then only process
+    the requested plugin, not all plugins [by @tsteur] (Closes: #17943)
+  * try and reconnect database after running each scheduled task (at
+    most once per two hours) during core:archive [by @diosmosis,
+    @tsteur] (Closes: #17949)
+  * Update doctrine cache to the right version [by @tsteur, @sgiehl]
+    (Closes: #17992)
+  * Allow social & search definitions to be sourced locally [by @samjf,
+    @tsteur] (Closes: #18023)
+  * Check config file was written correctly [by @JasonMortonNZ, @tsteur]
+    (Closes: #18024)
+  * Allow scheduled report emails to be differentiated from other emails
+    [by @JasonMortonNZ, @tsteur] (Closes: #18033)
+  * removed files related to unsupported databases [by @peterhashair,
+    @tsteur] (Closes: #18042)
+  * Update container factory to allow for sorting plugins [by
+    @JasonMortonNZ, @tsteur] (Closes: #18074)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 10:40:09 +0100
+
 matomo (4.4.1-1) stable; urgency=high
 
   * Releasing Matomo 4.4.1

@@ -9,6 +9,7 @@
 #
 # Options are:
 # * RELEASE_VERSION=x.y.z Specify which package version you want to build
+# * RELEASE_CHANGELOG=x.y.z Specify which package version you want to get changelog from
 
 URL		= https://builds.matomo.org
 FINGERPRINT	= 814E346FA01A20DBB04B6807B5DBD5925590A237
@@ -26,6 +27,10 @@ endif
 
 ifndef RELEASE_VERSION
 RELEASE_VERSION	:= $(shell wget --no-cache -qO - $(URL)/LATEST)
+endif
+
+ifndef RELEASE_CHANGELOG
+RELEASE_CHANGELOG	:= $(RELEASE_VERSION)
 endif
 
 RELEASE_VERSION_GREATER = $(shell ./debian/scripts/vercomp.sh $(RELEASE_VERSION) $(CURRENT_VERSION))
@@ -179,12 +184,11 @@ fixperms:
 		@find $(DESTDIR) -type f -not -path "$(DESTDIR)/DEBIAN/*" -exec chmod 0644 {} \;
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/misc/cron/archive.sh
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/console
-		@chmod 0755 $(DESTDIR)/usr/share/matomo/misc/composer/build-xhprof.sh
-		@chmod 0755 $(DESTDIR)/usr/share/matomo/misc/composer/clean-xhprof.sh
+		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/lox/xhprof/scripts/xhprofile.php
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/pear/archive_tar/sync-php4
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/matomo/matomo-php-tracker/run_tests.sh
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/szymach/c-pchart/coverage.sh
-		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/twig/twig/drupal_test.sh
+#		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/twig/twig/drupal_test.sh
 #		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/wikimedia/less.php/bin/lessc
 
 		@echo "done."
@@ -297,7 +301,7 @@ changelog:
 
 # fetch the history and add it to the debian/changelog
 history:
-		@bash debian/scripts/history.sh $(RELEASE_VERSION)
+		@bash debian/scripts/history.sh $(RELEASE_VERSION) $(RELEASE_CHANGELOG)
 
 # clean for any previous / unwanted files from previous build
 clean:

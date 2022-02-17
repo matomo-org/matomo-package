@@ -21,7 +21,6 @@ matomo/matomo.php				usr/share/matomo/
 matomo/misc					usr/share/matomo/
 matomo/node_modules				usr/share/matomo/
 matomo/offline-service-worker.js		usr/share/matomo/
-matomo/phpcs.xml				usr/share/matomo/
 matomo/piwik.js					usr/share/matomo/
 matomo/piwik.php				usr/share/matomo/
 matomo/plugins					usr/share/matomo/

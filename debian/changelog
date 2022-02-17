@@ -1,3 +1,22 @@
+matomo (4.6.2-2) stable; urgency=high
+
+  * Take account of changes in the xhprof library (again) 
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 11:19:56 +0100
+
+matomo (4.6.2-1) stable; urgency=high
+
+  * Releasing Matomo 4.6.2
+  * Ensure UTF8mb4 conversion command always enables tracking again [by
+    @sgiehl] (Closes: #18444)
+  * Ignore segment errors in update script [by @sgiehl] (Closes: #18455)
+  * Ensure update to 4.6.2 removes deleted files  [by @sgiehl] (Closes:
+    #18473)
+  * Remove unneeded plugin.json from CoreVue plugin [by @diosmosis]
+    (Closes: #18421)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 11:12:36 +0100
+
 matomo (4.6.1-2) stable; urgency=high
 
   * Take account of changes in the xhprof library

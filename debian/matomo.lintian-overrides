@@ -47,7 +47,6 @@ matomo: extra-license-file usr/share/matomo/vendor/composer/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/composer/ca-bundle/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/composer/semver/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/davaxi/sparkline/LICENSE
-matomo: extra-license-file usr/share/matomo/vendor/doctrine/cache/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/geoip2/geoip2/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/matomo/cache/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/matomo/decompress/LICENSE
@@ -83,6 +82,8 @@ matomo: extra-license-file usr/share/matomo/vendor/symfony/monolog-bridge/Symfon
 matomo: extra-license-file usr/share/matomo/vendor/tecnickcom/tcpdf/LICENSE.TXT
 matomo: extra-license-file usr/share/matomo/vendor/twig/twig/LICENSE
 matomo: extra-license-file usr/share/matomo/vendor/wikimedia/less.php/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/matomo/doctrine-cache-fork/LICENSE
+matomo: extra-license-file usr/share/matomo/vendor/symfony/polyfill-iconv/LICENSE
 
 # That is the aim of Matomo to provide an opensource tracker alternative to Google or others
 matomo: privacy-breach-piwik usr/share/matomo/js/piwik.js (choke on: 'settrackerurl')

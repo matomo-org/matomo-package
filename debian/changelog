@@ -1,3 +1,35 @@
+matomo (4.3.1-1) stable; urgency=high
+
+  * Releasing Matomo 4.3.1
+  * Banner to ask to refer users can be annoying [by @flamisz] (Closes:
+    #17571)
+  * Uploading logo logs out users [by @flamisz] (Closes: #17586)
+  * Creating/updating segments w/ values w/ encoded chars does not auto
+    schedule rearchiving (Closes: #17583)
+  * Rename dimension called "Measurable" to "Website name"  [by
+    @flamisz] (Closes: #17107)
+  * report information: "Report generated" without time unit (seconds?)
+    [by @flamisz] (Closes: #17567)
+  * Alexa.php(40): Warning - DOMDocument::loadHTML(): Unexpected end tag
+    [by @sgiehl] (Closes: #17578)
+  * Visitor Map shows no visits for all regions of Greece (matomo
+    4.2.1/geoip2 lite) [by @sgiehl] (Closes: #17590)
+  * Improves Geolocation diagnostics [by @sgiehl] (Closes: #17573)
+  * Ignore performance metrics that are obviously too high [by @sgiehl,
+    @tsteur] (Closes: #17574)
+  * HeatmapSessionRecording.addHeatmap failed (Closes: #17580)
+  * Improve required private directories check [by @tsteur] (Closes:
+    #17606)
+  * Licence Mismatch (Closes: #93)
+  * Improves detection for LinkedIn app  [by @sanchezzzhak, @sgiehl]
+    (Closes: #6749)
+  * New device for existing brands: Vivo, Huawei, Oppo [by @Wujiao233,
+    @sanchezzzhak] (Closes: #6750)
+  * New device for existing brands: Realme, Vivo, OPPO, Huawei, Xiaomi,
+    Xiaolajiao, Smartisan [by @Wujiao233, @sanchezzzhak] (Closes: #6751)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 01:16:19 +0100
+
 matomo (4.3.0-2) stable; urgency=high
 
   * Removal of phpcs.xml in install dir 

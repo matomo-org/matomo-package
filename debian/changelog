@@ -1,3 +1,24 @@
+matomo (4.4.1-1) stable; urgency=high
+
+  * Releasing Matomo 4.4.1
+  * Testcookie causes warning in browser console [by @sgiehl] (Closes:
+    #17829)
+  * Fix sorting of Geolocation providers [by @sgiehl, @diosmosis]
+    (Closes: #17835)
+  * More warnings about missing shell_exec() since Matomo 4.4.0 [by
+    @diosmosis] (Closes: #17838)
+  * make sure summary rows are serialized with their in-db subtable ID
+    and not in memory one [by @diosmosis, @tsteur] (Closes: #17831)
+  * Add command to generate a system check [by @tsteur, @diosmosis]
+    (Closes: #17832)
+  * Revert "more private Referrer-Policy: use strict-origin-when-cross-
+    origin " [by @tsteur, @justinvelluppillai] (Closes: #17842)
+  * Detect devices for existing brands: Lenovo, Xiaomi, Samsung, Asus,
+    ZTE, Vivo, Hyundai, Motorola, NYX Mobile, OPPO, LG, Sharp, Realme
+    [by @sanchezzzhak, @sgiehl] (Closes: #6811)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 10:35:48 +0100
+
 matomo (4.4.0-2) stable; urgency=high
 
   * Change of license file in used libraries

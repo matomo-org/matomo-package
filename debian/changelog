@@ -1,3 +1,274 @@
+matomo (4.6.1-2) stable; urgency=high
+
+  * Take account of changes in the xhprof library
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 11:07:05 +0100
+
+matomo (4.6.1-1) stable; urgency=high
+
+  * Releasing Matomo 4.6.1
+  * Dashboard shows proportional evolution comparison for incomplete
+    periods (rather than absolute values) [by @peterhashair, @bx80]
+    (Closes: #6784)
+  * Row Evolution, Support Per-Goals and Ecommerce metrics: conversions,
+    conversion rate, revenue and total revenue [by @sgiehl] (Closes:
+    #3883)
+  * Transitions reports: export full data as XML/JSON [by @bx80]
+    (Closes: #6032)
+  * Show difference in graphs for data of "unfinished periods" and
+    "complete periods" [by @bx80] (Closes: #10291)
+  * Remember "Rows to display" user preference for Evolution graphs [by
+    @sgiehl] (Closes: #14370)
+  * Scheduled tasks should not launch archiving [by @peterhashair]
+    (Closes: #17976)
+  * Ensure that the archive algorithm cannot be triggered multiple times
+    for a same site/period/segment (Closes: #8444)
+  * JavaScript Tracker: Add possibility to set URL parameters to ignore
+    [by @bx80] (Closes: #11627)
+  * Improve in-app feedback mechanism to gain insight from users about
+    pain points [by @bx80] (Closes: #18186)
+  * Optimise ecommerce life time metric query [by @samjf] (Closes:
+    #18036)
+  * Make error messages not leak potentially sensitive information when
+    tracker db connection fails  [by @peterhashair] (Closes: #18079)
+  * Ensure DNS records are only requested for IP allowlist when needed
+    [by @sgiehl] (Closes: #18244)
+  * Remove "refer us" feature [by @peterhashair] (Closes: #18232)
+  * Remove review popup [by @peterhashair] (Closes: #18250)
+  * Collect feedback about what features people are using? [by
+    @peterhashair] (Closes: #18251)
+  * Column names could stick to the top of screen when scrolling down
+    report tables [by @peterhashair] (Closes: #3513)
+  * More verbose error message when login nonce check fails [by
+    @peterhashair] (Closes: #16607)
+  * Install routine: Fix text contrast for accessibility [by
+    @donovanglover, @sgiehl] (Closes: #18164)
+  * Add config option to disable http requests in System Checks to
+    prevent server crashes with mod_security [by @geekdenz,
+    @justinvelluppillai] (Closes: #17589)
+  * [database_tests] section no longer generated when executing php
+    tests [by @peterhashair] (Closes: #17856)
+  * JSONp API request (with callback) strips first and last character
+    from result [by @justinvelluppillai] (Closes: #18133)
+  * Fix segment creation fails when enable_create_realtime_segments = 0
+    [by @sgiehl] (Closes: #18178)
+  * Newsletter Signup in personal settings, mention Matomo privacy
+    policy applies [by @bx80] (Closes: #18313)
+  * Improve UI of report info icon to show report generation time and
+    help message [by @peterhashair] (Closes: #17815)
+  * Add system check for 32 bit PHP / OS [by @peterhashair] (Closes:
+    #18058)
+  * New console command "marketplace:add-license-key" which adds a
+    marketplace license key [by @ziegenberg] (Closes: #18070)
+  * Add more granular access control for segment creation [by
+    @peterhashair] (Closes: #18107)
+  * Close Tooltip when redirecting to another page [by @jonathannoel]
+    (Closes: #18162)
+  * Improve performance of Process::isSupported by caching it [by
+    @tsteur, @sgiehl] (Closes: #18152)
+  * Make cli archiving faster if only one concurrent request per website
+    is configured [by @tsteur] (Closes: #18157)
+  * Fix initial export option values so checkbox shows correct value [by
+    @sgiehl] (Closes: #18172)
+  * Updates davaxi/sparkline to 2.0 to PHP8.1 compatible version [by
+    @sgiehl, @tsteur] (Closes: #18211)
+  * Fix CSP issue when viewing marketplace plugin details [by @sgiehl,
+    @tsteur] (Closes: #18215)
+  * Mention guides for Wix, WordPress, SquareSpace, Sharepoint in the
+    "No data" email and in the "Tracking code" page [by @bx80] (Closes:
+    #15429)
+  * Fix 2-lines label overflows the input [by @peterhashair] (Closes:
+    #17602)
+  * Install routine: language changer line height improvements (Closes:
+    #17786)
+  * Improve help text on 'Users' report when no data [by @peterhashair]
+    (Closes: #11175)
+  * When "average generation time" is zero, hide the sparkline and "Avg
+    generation time" graphs metric from picker  [by @peterhashair]
+    (Closes: #17010)
+  * Remove "add new segment" selector in segment editor  [by
+    @peterhashair] (Closes: #17890)
+  * Manage Users: When user is admin, mention other users might exist
+    [by @peterhashair] (Closes: #17996)
+  * Remove Provider and CustomVariables plugin from our core release [by
+    @peterhashair] (Closes: #17973)
+  * Update list of no longer supported browsers (IE11) [by @tsteur]
+    (Closes: #18011)
+  * Make SecurityPolicy methods a public API and fully enable the CSP
+    [by @justinvelluppillai] (Closes: #17923)
+  * Tracking request may trigger a warning when providing an invalid
+    regex [by @diosmosis, @peterhashair] (Closes: #16153)
+  * Special character apostrophe is not getting printed properly in
+    visits log (campaign url) [by @diosmosis, @bx80] (Closes: #14695)
+  * Fix dashboard showing incorrect percentage on increases bigger than
+    1000% (Closes: #16067)
+  * Include lox/xhprof in the Matomo build release so Profiling works
+    [by @tsteur] (Closes: #17939)
+  * Make the opt out work when a PHP 32 bit is used [by @peterhashair]
+    (Closes: #18019)
+  * Fixed in place sorting order bug for PHP8+ (Closes: #18130)
+  * Fix annotations for "Behaviour > Performance" StackedBarEvolution
+    charts [by @sgiehl] (Closes: #18231)
+  * Decode goal top dimension values [by @sgiehl] (Closes: #18267)
+  * Add field lastSeen in the API for the UsersManager [by
+    @peterhashair] (Closes: #10550)
+  * Introduce new config setting to set a contact email address [by
+    @sgiehl] (Closes: #17916)
+  * [Vue] Introduce Vue + Workflow commands [by @diosmosis, @sgiehl]
+    (Closes: #17940)
+  * Provide console command for adding a marketplace license key
+    (#18070) [by @ziegenberg, @tsteur] (Closes: #18071)
+  * Update container factory to allow for sorting plugins [by
+    @JasonMortonNZ, @tsteur] (Closes: #18074)
+  * Use detachEvent when removeEventListener isn't available [by
+    @peterhashair, @justinvelluppillai] (Closes: #18110)
+  * Don't browser archive when segment is set to be pre-processed [by
+    @tsteur] (Closes: #18123)
+  * Make the Twig cache template path more configurable with a DI entry
+    [by @samjf, @tsteur] (Closes: #18137)
+  * Fix error cannot read property "replace" of undefined in quick
+    search [by @tsteur, @justinvelluppillai] (Closes: #18149)
+  * Small optimisations to Archiving performance [by @samjf, @tsteur]
+    (Closes: #18156)
+  * [Vue] Migrate content-block, enriched-headline, rate-feature +
+    related [by @diosmosis, @sgiehl] (Closes: #18166)
+  * Fix possible problem with CSP in overlay feature [by @sgiehl]
+    (Closes: #18187)
+  * [Vue] migrate comparisons service + component [by @diosmosis]
+    (Closes: #18193)
+  * Always remove hash part from URL when detecting the script name [by
+    @sgiehl] (Closes: #18204)
+  * [Vue] migrate date-picker and other period-selector related
+    components [by @diosmosis] (Closes: #18213)
+  * [Vue] migrate dropdown and related directives [by @diosmosis,
+    @sgiehl] (Closes: #18214)
+  * [Vue] migrate notifications directive & service + UI.Notifications
+    [by @diosmosis, @sgiehl] (Closes: #18225)
+  * Changes to keep sorting order consistent across all PHP versions for
+    Live.getLastVisitsDetails API [by @AltamashShaikh,
+    @justinvelluppillai] (Closes: #18235)
+  * Take archive TTL time into consideration for today when browser
+    archiving is enabled [by @tsteur, @sgiehl] (Closes: #18241)
+  * Fix archiving too many segments that aren't needed and showing 0
+    conversions for new visits/returning visitors [by @tsteur] (Closes:
+    #18255)
+  * Support downloading system tests from plugins [by @tsteur] (Closes:
+    #18263)
+  * Remove cache clearing from forget invalidations loop. [by @samjf,
+    @tsteur] (Closes: #18278)
+  * Corrected paths mentioning "piwik/" to "/path/to/matomo/". [by
+    @cherouvim, @sgiehl] (Closes: #18300)
+  * Couple of fixes in QuickForm2 for PHP8.1 compatibility [by @sgiehl,
+    @tsteur] (Closes: #18309)
+  * Enable Debugging mode without URL parameter [by @AltamashShaikh]
+    (Closes: #217)
+  * Right clicks trigger twice for "All Links Click" and "All Elements
+    Click" in Firefox (Closes: #375)
+  * Fix deprecation warning on PHP 8.1 [by @sgiehl, @tsteur] (Closes:
+    #378)
+  * Add detection for Google Podcasts (Closes: #5773)
+  * Improvements for the OS parser a second level of regular expressions
+    has been added [by @sanchezzzhak] (Closes: #6793)
+  * Detect devices for existing brands: Xiaomi, Samsung, Realme, Tecno
+    Mobile, Mobicel, Vivo, Lenovo, ZTE, OPPO, Oukitel, CUBOT, UMIDIGI,
+    OnePlus, Ulefone, Doogee, TCL, Vivo, Vertex, Infinix, Kr"uger&Matz,
+    Wiko, DEXP, BQ [by @sanchezzzhak, @sgiehl] (Closes: #6870)
+  * Detect new brand Nubia [by @sanchezzzhak, @sgiehl] (Closes: #6872)
+  * Detect new brands: Bluebird, Mara and Detect devices for existing
+    brands: Kr"uger&Matz, iHunt, Sony, Teclast, Tanix, Logicom, Nubia,
+    Xiaomi, QMobile, DIXON, Zuum, Vodacom, Mobicel, Oukitel, Motorola,
+    Stylo, Tecno Mobile, Chuwi, OnePlus, Vivo, iTel, Doogee, Cat,
+    Homtom, CUBOT, MLS, Blu, Casper, Unonu [by @sanchezzzhak, @sgiehl]
+    (Closes: #6873)
+  * Detect new brands: BMAX, Geotex and Detect devices for existing
+    brands: Telefunken, Asus, Huawei, Lenovo, Tecno Mobile, Nomi,
+    Coolpad, Blu, Navitel, Winnovo, Digiland, DEXP, Sony, Inoi, OPPO,
+    Samsung, Xiaomi, LG, Vivo, UMIDIGI, Mobicel, Teclast, Zuum [by
+    @sanchezzzhak, @sgiehl] (Closes: #6874)
+  * Detect new brand: Rakuten and Detect devices for existing brands:
+    Beelink, Sony, Blackview, Samsung, NUU Mobile, Oukitel, Coolpad, LG,
+    DEXP, Acer, ZTE, TCL, Mobicel, Contixo, BQ, ONYX BOOX, Mecer, Digma,
+    Lenovo, RCA Tablets, Intex, Huawei, Santin, Vivo, NOA, iTel, Sharp,
+    Prestigio, HTC, OnePlus, Wiko, Fly, Meizu, Lava, Gionee  [by
+    @sanchezzzhak, @sgiehl] (Closes: #6877)
+  * detect the device type for other browsers (Huawei, Quark,
+    MQQBrowser) (Closes: #6878)
+  * Detect devices for existing brands: Vivo, Huawei, ZTE, Smartisan,
+    Samsung, OPPO, HTC, Xiaolajiao, POCO, Xiaomi, Blu [by @sanchezzzhak,
+    @sgiehl] (Closes: #6879)
+  * Adds detection for Apple iPhone 13 models [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6880)
+  * Detect device type for chrome forks [by @sanchezzzhak, @sgiehl]
+    (Closes: #6881)
+  * Detect devices for existing brands: Vivo, HTC, Hisense, Gionee,
+    Huawei, Samsung, Realme, Blu, NOA [by @sanchezzzhak, @sgiehl]
+    (Closes: #6883)
+  * Detect oss: Java ME, REX [by @sanchezzzhak, @sgiehl] (Closes: #6885)
+  * Detect new brand: DING DING and Detect devices for existing brands:
+    Zopo, F2 Mobile, iBall, Kr"uger&Matz, Hotwav, Orange, Tecno Mobile,
+    Runbo, Vonino, M4tel, Kempler & Strauss, Rokit, Stylo, DEXP,
+    Prestigio, Mobicel, Santin [by @sanchezzzhak, @sgiehl] (Closes:
+    #6886)
+  * Detect devices for existing brands: X-TIGI, Prestigio, Micromax, LG,
+    DEXP, Oukitel, Hurricane, Alcatel, M4tel, Blackview, S-TELL,
+    Coolpad, HTC, Teclast, Mecer, Huawei, Reeder, Orange, Mobicel,
+    Realme, NUU Mobile, Xiaomi, Huawei, Hisense, Zuum, Kr"uger&Matz,
+    Motorola [by @sanchezzzhak, @sgiehl] (Closes: #6888)
+  * Adds detection for GitHub Desktop and Logi Options+ apps [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #6889)
+  * Adds detection for Bonsai, Peeps dBrowser, Flash, Harman, Lagatos,
+    LT, PSI, Spectre and Sushi Browsers [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6890)
+  * Adds detection for Roku OS [by @liviuconcioiu, @sgiehl] (Closes:
+    #6891)
+  * Adds detection for OpenWrt OS and uclient-fetch library [by
+    @liviuconcioiu, @sgiehl] (Closes: #6892)
+  * Adds detection for multiples apps and improves iOS, Windows, iPhone,
+    iPod detection [by @liviuconcioiu, @sanchezzzhak] (Closes: #6894)
+  * Detect devices for existing brands: Nubia, F150, Vivo, Huawei,
+    Realme, Google, Oukitel, TCL, Packard Bell, Xiaomi, Cube, Lenovo,
+    OnePlus, iHunt, Proline, Reeder, Stylo, Hurricane, OPPO, Mobicel,
+    Ugoos, Beeline, 4Good, Teclast, K-Touch, Prestigio, Tecno Mobile,
+    AllDocube, Ravoz, T-Mobile, DIXON, Motorola, Asus [by @sanchezzzhak,
+    @sgiehl] (Closes: #6895)
+  * Detect new brands: Trident, SUNWIND, OKSI, Taiga System and Detect
+    devices for existing brands: TechPad, Santin, Realme, Meizu,
+    Alcatel, Xiaomi, ONN, UMIDIGI, DEXP, Premio, Oukitel, Coolpad, Sky,
+    Huawei, Stylo, Mobicel, Casper, Infinix, TCL, Qumo [by
+    @sanchezzzhak, @sgiehl] (Closes: #6897)
+  * Adds detection for Apple Watch Series 7 [by @liviuconcioiu, @sgiehl]
+    (Closes: #6899)
+  * Improves detection for Apple devices [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6900)
+  * Improves detection for Hisense, Samsung and TCL devices [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #6901)
+  * Improves Android, iPadOS, iOS, macOS version detection [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #6902)
+  * Improves detection for iOS, iPadOS, macOS, Android, Windows, Apple,
+    Motorola, Samsung and Sony brands, and adds detection for Telco
+    brand and various apps [by @liviuconcioiu, @sanchezzzhak] (Closes:
+    #6903)
+  * Adds detection for Cellution, Juniper Systems, Kazuna, Oculus,
+    STRONG, Topelotek brands and improves detection for Alcatel, Amazon,
+    ANS, Kocaso, LG, Motorola, Sony, UMIDIGI brands [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #6904)
+  * Adds detection for various apps [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #6905)
+  * Detect new brands: Glofiish, Polar, MyGica and Detect devices for
+    existing brands: Cavion, Stylo, Mobicel, Hurricane, Proline, bq,
+    Hisense, Archos, NOA, GOCLEVER, Blackview, Blu [by @sanchezzzhak,
+    @sgiehl] (Closes: #6906)
+  * Adds detection for KRIP brand, improves detection for Alcatel, Blu,
+    BMobile, Epik One, Gateway, Huawei, Hyundai, IKU Mobile, MobiWire,
+    MicroMax, Positivo, Safaricom, TCL, UMIDIGI, Vivo brands and
+    improves detection for Opera GX, Windows, x86, x64 platforms [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #6907)
+  * Fix for double newline issue when a redirect is used [by
+    @JasonMortonNZ, @tsteur] (Closes: #97)
+  * Couple of fixes for PHP 8.1 [by @sgiehl, @tsteur] (Closes: #98)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 17 Feb 2022 10:53:34 +0100
+
 matomo (4.5.0-1) stable; urgency=high
 
   * Releasing Matomo 4.5.0

@@ -2,8 +2,8 @@ matomo/config/global.php			etc/matomo/
 matomo/config/global.ini.php			etc/matomo/
 matomo/config/manifest.inc.php			etc/matomo/
 matomo/config/environment/dev.php		etc/matomo/environment/
-matomo/config/environment/test.php		etc/matomo/environment/
-matomo/config/environment/ui-test.php		etc/matomo/environment/
+#matomo/config/environment/test.php		etc/matomo/environment/
+#matomo/config/environment/ui-test.php		etc/matomo/environment/
 matomo/CHANGELOG.md				usr/share/doc/matomo/
 matomo/console					usr/share/matomo/
 matomo/CONTRIBUTING.md				usr/share/doc/matomo/

@@ -187,7 +187,7 @@ fixperms:
 #		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/lox/xhprof/scripts/xhprofile.php
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/pear/archive_tar/sync-php4
 		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/matomo/matomo-php-tracker/run_tests.sh
-		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/szymach/c-pchart/coverage.sh
+#		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/szymach/c-pchart/coverage.sh
 #		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/twig/twig/drupal_test.sh
 #		@chmod 0755 $(DESTDIR)/usr/share/matomo/vendor/wikimedia/less.php/bin/lessc
 

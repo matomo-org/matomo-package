@@ -35,7 +35,6 @@ matomo: extra-license-file usr/share/matomo/node_modules/jquery-ui-dist/LICENSE.
 matomo: extra-license-file usr/share/matomo/node_modules/jquery.dotdotdot/LICENSE.txt
 matomo: extra-license-file usr/share/matomo/node_modules/jquery.scrollto/LICENSE
 matomo: extra-license-file usr/share/matomo/node_modules/jquery/LICENSE.txt
-matomo: extra-license-file usr/share/matomo/node_modules/jquery/external/sizzle/LICENSE.txt
 matomo: extra-license-file usr/share/matomo/node_modules/materialize-css/LICENSE
 matomo: extra-license-file usr/share/matomo/node_modules/mousetrap/LICENSE
 matomo: extra-license-file usr/share/matomo/node_modules/qrcodejs2/LICENSE

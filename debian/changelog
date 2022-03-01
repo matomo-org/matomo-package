@@ -1,3 +1,9 @@
+matomo (4.7.1-3) stable; urgency=high
+
+  * Get better help message in case of new intallation 
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Tue, 01 Mar 2022 12:02:11 +0100
+
 matomo (4.7.1-2) stable; urgency=high
 
   * Removal of sizzle license 

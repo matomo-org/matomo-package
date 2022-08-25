@@ -1,3 +1,102 @@
+matomo (4.11.0-1) stable; urgency=high
+
+  * Releasing Matomo 4.11.0
+  * Invite new users in Matomo, rather than creating them directly [by
+    @diosmosis, @peterhashair] (Closes: #13321)
+  * Notify that requests to matomo.org will soon use HTTPS by default
+    [by @peterhashair] (Closes: #19081)
+  * Goal tracking: New Report "Top Landing Pages URLs/Titles"  for each
+    goal (and also "Pages where goals are triggered") [by @bx80]
+    (Closes: #2030)
+  * Add Goals visualisation for Pages reports in behaviour category [by
+    @bx80] (Closes: #14974)
+  * Sparklines show correct data in all goals reports [by @sgiehl]
+    (Closes: #19206)
+  * Show sparkline evolution figures for visits, goals and ecommerce
+    overviews [by @bx80] (Closes: #10716)
+  * Add refresh / reload keyboard shortcut for visualizations (eg
+    tables, pie, bar chart) [by @korve] (Closes: #11047)
+  * Fix referrer attribution cookie not set if no tracking request is
+    sent, resulting in wrong attribution [by @sgiehl] (Closes: #18809)
+  * Fix error in php8.1 running console config:get command [by @sgiehl]
+    (Closes: #19225)
+  * Show a notification if PHP version is end of life [by @sgiehl]
+    (Closes: #19421)
+  * Ensure Safari browser shows the information notice [by
+    @peterhashair] (Closes: #19244)
+  * Fix anchor links issue within Matomo [by @sgiehl] (Closes: #19252)
+  * Fix for undefined array index error when rendering sparklines [by
+    @bx80] (Closes: #19275)
+  * Fixes problem where dashboards can't be copied to users in certain
+    circumstances [by @peterhashair, @sgiehl] (Closes: #18692)
+  * When a segment is shown, and no data is there, then show accurate
+    error message when segment won't be archived  [by @peterhashair]
+    (Closes: #19011)
+  * Preserve rows to display on Visits overview (with graph) (Closes:
+    #11046)
+  * Improve memory management in DataTable/CSV [by @sgiehl] (Closes:
+    #19158)
+  * Take care to always 'return request' in
+    appendAvailablePerformanceMetrics [by @danielpunkass, @sgiehl]
+    (Closes: #19232)
+  * Add utility function for pattern that issues a single AJAX request
+    at a time [by @diosmosis, @peterhashair] (Closes: #19239)
+  * Add 429 (rate limited) response code [by @JasonMortonNZ,
+    @justinvelluppillai] (Closes: #19245)
+  * Composer: Revise project type from "application" to "project" [by
+    @pixelbrackets, @sgiehl] (Closes: #19268)
+  * Use correct async init method to detect when tracker is loaded [by
+    @AltamashShaikh] (Closes: #484)
+  * Allow dynamic height on Tag manager preview [by @korve,
+    @AltamashShaikh] (Closes: #477)
+  * "Observe DOM changes" in Visibility Trigger causes JS error on load
+    [by @AltamashShaikh] (Closes: #481)
+  * Add current PHP versions to Travis CI tests [by @pixelbrackets,
+    @sgiehl] (Closes: #70)
+  * Fix build badge and remove failing images in Travis CI tests [by
+    @pixelbrackets, @sgiehl] (Closes: #71)
+  * Import fails when Referrer field is not present using Regex format
+    [by @kuzi-moto] (Closes: #335)
+  * Set referrer to empty string if it doesn't exist [by @kuzi-moto,
+    @sgiehl] (Closes: #336)
+  * More virtualization of MatomoTracker class  [by @Demichev] (Closes:
+    #103)
+  * Add katrd.xyz [by @ericguirbal, @spmedia] (Closes: #1322)
+  * Detect new brands: Sylvania, Future Mobile Technology, MBI, OUJIA,
+    Qware  and Detect devices for several existing brands  [by
+    @sanchezzzhak, @sgiehl] (Closes: #7111)
+  * Detect httplib2 [by @sanchezzzhak, @sgiehl] (Closes: #7112)
+  * Adds detection for Tesla Browser [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #7117)
+  * Adds detection for Patchwatch, WhereGoes [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7118)
+  * Adds detection for various apps and improves version detection for
+    Windows [by @liviuconcioiu, @sanchezzzhak] (Closes: #7119)
+  * Improves detection for Tesla, Xiaomi devices [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7120)
+  * Improvement of condition for detection the platform when using
+    clienthints [by @sanchezzzhak, @sgiehl] (Closes: #7121)
+  * Detect devices for existing brands  [by @sanchezzzhak] (Closes:
+    #7122)
+  * Adds detection for InternetMeasurement, masscan-ng bots [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #7123)
+  * Adds detection for Sidekick and Wave Browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7124)
+  * Improves version detection for iOS and improves detection for Opera
+    GX [by @liviuconcioiu, @sanchezzzhak] (Closes: #7125)
+  * Adds detection for various bots [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #7126)
+  * Detect new brands: AFFIX, Listo, Aquarius and Detect devices for
+    several existing brands  [by @sanchezzzhak] (Closes: #7128)
+  * Detect devices for existing brands [by @sanchezzzhak, @sgiehl]
+    (Closes: #7130)
+  * Detect devices for existing brands and Detect Pi Browser [by
+    @sanchezzzhak, @sgiehl] (Closes: #7131)
+  * Detect devices for existing brands [by @sanchezzzhak, @sgiehl]
+    (Closes: #7133)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 25 Aug 2022 10:52:46 +0200
+
 matomo (4.10.1-1) stable; urgency=high
 
   * Releasing Matomo 4.10.1

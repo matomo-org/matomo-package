@@ -1,3 +1,144 @@
+matomo (4.9.0-1) stable; urgency=high
+
+  * Releasing Matomo 4.9.0
+  * New segments for 'Ecommerce Order Revenue' and 'Revenue left in
+    cart' [by @peterhashair] (Closes: #15985)
+  * Detect when the website is a Single Page App (SPA) or a Progressive
+    Web App (PWA) and link to the relevant guide [by @peterhashair]
+    (Closes: #18066)
+  * Matomo knowledgebase discoverability improvements [by
+    @justinvelluppillai] (Closes: #18934)
+  * Improve performance in deleteLogDataForDeletedSites when deleting
+    data for more than one site (Closes: #18618)
+  * Clarify the Newsletter Opt-in message during installation  [by
+    @peterhashair] (Closes: #18787)
+  * Handle case only file name updates on case insensitive file systems
+    [by @bx80, @justinvelluppillai] (Closes: #18865)
+  * Fix Sarawak and Terengganu on Visitors Interactive Map Widget [by
+    @sgiehl] (Closes: #19006)
+  * Inline Help - show report generation date on "Overview" reports with
+    Evolution Graphs [by @peterhashair] (Closes: #18806)
+  * Don't log an error when not supported browser is used [by @bx80]
+    (Closes: #17738)
+  * Don't create test cookies when cookies are disabled [by
+    @justinvelluppillai] (Closes: #17892)
+  * Set the _pk_id in the past when deleting cookie.  [by
+    @aleksijohansson] (Closes: #18902)
+  * Remove subtable tooltip if rows are displayed expanded upon search
+    [by @sgiehl] (Closes: #18873)
+  * Minor performance improvement for archive invalidator [by @tsteur]
+    (Closes: #18990)
+  * Multi server environment in maintenance mode shouldn't result in 503
+    response [by @peterhashair] (Closes: #18054)
+  * Prevent archiving of data for time periods that start in the future
+    [by @bx80] (Closes: #18790)
+  * Apply max execution query time to Live.getCounters API and
+    queryAdjacentVisitorId method [by @tsteur] (Closes: #18852)
+  * Migrate Dashboard directive/model to VueJS [by @diosmosis] (Closes:
+    #18883)
+  * Fix PHP8 Trim Error [by @deybhayden, @sgiehl] (Closes: #18903)
+  * Migrate custom dimension management [by @diosmosis, @sgiehl]
+    (Closes: #18926)
+  * Migrate LanguagesManager to VueJS [by @diosmosis] (Closes: #18931)
+  * Migrate live widget refresh to VueJS [by @diosmosis, @sgiehl]
+    (Closes: #18932)
+  * Migrate multisites plugin components to VueJS [by @diosmosis]
+    (Closes: #18939)
+  * Rename dimensions and segments with Server time to Site Time/Time in
+    UTC [by @AltamashShaikh, @sgiehl] (Closes: #18956)
+  * Migrate AnonymizeIpController to VueJS [by @diosmosis, @sgiehl]
+    (Closes: #18975)
+  * Migrate DoNotTrackPreferenceController to VueJS [by @diosmosis,
+    @sgiehl] (Closes: #18989)
+  * Fix issue where date ranges might include too many subperiods  [by
+    @sgiehl] (Closes: #18995)
+  * Add new option to Matomo Variable to disable browser feature
+    detection in Matomo Tag (Closes: #443)
+  * Improve tracking capabilities of visibility events [by @tomper00,
+    @AltamashShaikh] (Closes: #321)
+  * Fix bug preventing "0" value for trigger condition [by @sgiehl]
+    (Closes: #450)
+  * Migrate version management to VueJS [by @diosmosis] (Closes: #423)
+  * Migrate container management to VueJS [by @diosmosis] (Closes: #424)
+  * Add detection for new device type wearables  (Closes: #5316)
+  * Introduce browser client hint detection [by @sgiehl] (Closes: #6989)
+  * Detect devices for brands: Teclast, Readboy, Vivo, Xiaomi, Conquest,
+    Huawei, AllDocube, OPPO, Meizu, Newman, Lava, Hisense [by
+    @sanchezzzhak, @sgiehl] (Closes: #7018)
+  * Detect new brands Angelcare, Hamlet, Vorcom and Detect devices for
+    several existing brands  [by @sanchezzzhak, @sgiehl] (Closes: #7021)
+  * Add engine for CCleaner and ToGate [by @liviuconcioiu, @sgiehl]
+    (Closes: #7022)
+  * Improve version detection for Chrome OS [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7023)
+  * Adds detection for ClearPHONE, Doppio, Jio, Point Mobile, Schok,
+    Vios devices, improves detection for Alcatel, Allview, AT&T, Blu,
+    Crosscall, Digicel, Hipstreet, Hisense, HTC, Huawei, Hurricane,
+    Hyundai, iHunt, Kalley, Kodak, KRIP, LG, Logic, Mione, Motorola,
+    OnePlus, OpelMobile, Pantech, Positivo, Quantum, Realme, Sky, TCL,
+    Techwood, Tecno Mobile, Tigers, Vivo, Wiko, Wolki, Xiaomi, Yes,
+    Yezz, ZTE devices, adds detection for ClearOS Mobile [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #7025)
+  * Adds detection for CyBrowser, Hi Browser, Navegador, improves
+    detection for Opera, UC Browser, UC Browser Mini [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7027)
+  * Adds detection for AdBlock Browser and YouCare [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7028)
+  * Adds detection for Decentr browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7029)
+  * Improve detection of Chromium GOST (Closes: #7030)
+  * Adds detection for China OS, PocketBook Browser, improves detection
+    for Linux, Android Browser, Tizen Browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7032)
+  * Adds detection for various bots and libraries [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7033)
+  * Detect new brands: Autan, UNNO, VDVD, Shanling, ecom and Detect
+    devices for several existing brands [by @sanchezzzhak, @sgiehl]
+    (Closes: #7035)
+  * Add Detection for Samsung Watch [by @sanchezzzhak, @sgiehl] (Closes:
+    #7036)
+  * Add client hints fixture for Whale Browser [by @liviuconcioiu,
+    @sgiehl] (Closes: #7040)
+  * Improves detection for CentOS, GNU/Linux, PCLinuxOS, Red Hat, adds
+    detection for Amazon Linux, TencentOS, adds detection for cPanel
+    HTTP Client, ALittle Client, PHP cURL Class, SafeIP, NAVER Mail and
+    adds detection for various bots [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #7045)
+  * Add client hints fixture for Opera GX [by @liviuconcioiu, @sgiehl]
+    (Closes: #7046)
+  * Detect new brands LOKMAT, Joy, iWaylink and Detect devices for
+    several existing brands  [by @sanchezzzhak, @sgiehl] (Closes: #7051)
+  * Adds detection for Bittium, EGL, Logic Instrument brands, improves
+    detection for AllDocube, Brondi, Hi, Hot Pepper, Energizer, Huawei,
+    iPro, Sky, X-View brands, adds detection for Bliss OS [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #7052)
+  * Adds detection for GeoIP Update [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #7055)
+  * Adds detection for Dolphin Zero, Dolphin, OH Private Browser, Atlas,
+    Jelly browsers  [by @sanchezzzhak, @sgiehl] (Closes: #7056)
+  * Detect Flow Browser [by @sanchezzzhak, @sgiehl] (Closes: #7057)
+  * Detect browsers: UC Browser Mini, Soul Browser, Indian UC Mini
+    Browser, Opera, Opera Mini, Fast Explorer, Comfort Browser, CM Mini,
+    SilverMob US [by @sanchezzzhak] (Closes: #7061)
+  * Improves detection for Delta Browser, Monument Browser, Super Fast
+    Browser and adds detection for APUS Browser, Ask.com, Ayoba,
+    Savannah Browser, SavySoda, SnapU2B, Surf Browser, Ui Browser Mini
+    [by @liviuconcioiu, @sanchezzzhak] (Closes: #7062)
+  * Implement Blink version detection via Chrome/ token. [by @JBYoshi,
+    @sanchezzzhak] (Closes: #7063)
+  * Improves detection for generic bots [by @liviuconcioiu, @sgiehl]
+    (Closes: #7064)
+  * TVs detected as smartphone (Closes: #7066)
+  * Improves detection for EKO, Kogan, Sharp, Sony, Vodafone devices [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #7067)
+  * Detect new brands: YU Fly, VOGA, Haipai, Huagan, TD Tech and Detect
+    devices for several existing brands [by @sanchezzzhak, @sgiehl]
+    (Closes: #7069)
+  * Adds detection for CentOS Stream, improves detection for CentOS,
+    Roku OS [by @liviuconcioiu, @sanchezzzhak] (Closes: #7070)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 25 Aug 2022 10:36:19 +0200
+
 matomo (4.8.0-1) stable; urgency=high
 
   * Releasing Matomo 4.8.0

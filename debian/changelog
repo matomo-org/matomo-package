@@ -1,3 +1,130 @@
+matomo (4.8.0-1) stable; urgency=high
+
+  * Releasing Matomo 4.8.0
+  * Add an option to disable fingerprinting / config_id entirely [by
+    @peterhashair] (Closes: #18448)
+  * Make Matomo compatible with PHP8.1 [by @justinvelluppillai,
+    @geekdenz, @sgiehl] (Closes: #17686)
+  * Label shortened when opening multiple subtables [by @peterhashair]
+    (Closes: #18699)
+  * Fix issues with anonymous user language change not persisting due to
+    incorrect setting of cookies with session lifetime [by @sgiehl]
+    (Closes: #18819)
+  * Cache whether a DB supports transaction level or not for slight
+    performance improvement [by @peterhashair] (Closes: #18138)
+  * Comparing two segments in goals, sets the graph to all zeros for the
+    first segment (Closes: #18783)
+  * Update JQuery UI to 1.13.0 [by @sgiehl] (Closes: #18718)
+  * Fixes incorrect headline when adding a goal [by @AltamashShaikh,
+    @sgiehl] (Closes: #18758)
+  * Minor marketplace tweaks to mention premium features free trial [by
+    @peterhashair] (Closes: #18479)
+  * Fix page overlay sidebar authentication failure [by @sgiehl]
+    (Closes: #18538)
+  * Ensure Google SEO metrics are returned with correct type [by
+    @sgiehl] (Closes: #18702)
+  * Fix handling of invalid limit values for Live.getVisitorProfile [by
+    @sgiehl] (Closes: #18711)
+  * Fix invalid parameter handling for PHP 8 in API.getBulkRequest [by
+    @sgiehl] (Closes: #18720)
+  * Check folder & permission before downloading a GeoIP database [by
+    @sgiehl] (Closes: #18785)
+  * Validate minTimestamp parameter for Live.getLastVisitsDetails [by
+    @sgiehl] (Closes: #18788)
+  * Ensure Dashboard API methods can't be performed by or for anonymous
+    user [by @sgiehl, @peterhashair] (Closes: #18798)
+  * Update orange brand color less variable in morpheus theme [by
+    @sgiehl] (Closes: #18709)
+  * Fix possible dashboard warning [by @sgiehl] (Closes: #18829)
+  * Migrate sitesmanager controller and twig templates to Vue components
+    [by @diosmosis, @sgiehl] (Closes: #18564)
+  * Migrate capabilities edit component to Vue [by @diosmosis, @sgiehl]
+    (Closes: #18566)
+  * Migrate user-permissions-edit component to vue [by @diosmosis,
+    @sgiehl] (Closes: #18572)
+  * Migrate user edit form directive to Vue component [by @diosmosis]
+    (Closes: #18576)
+  * Migrate paged users list component to vue [by @diosmosis] (Closes:
+    #18582)
+  * Migrate usersmanager root component to Vue [by @diosmosis] (Closes:
+    #18583)
+  * add dummy sitesManagerAPI service back in since it is referenced
+    (but not used) by a premium feature [by @diosmosis] (Closes: #18834)
+  * Segmented visits log might show incorrect title [by @sgiehl]
+    (Closes: #18775)
+  * Improve performance of some archiving queries [by @tsteur] (Closes:
+    #18797)
+  * Add mechanism to initialize vue components outside of angularjs [by
+    @diosmosis, @peterhashair] (Closes: #18804)
+  * Improves many detections, adds detection for various apps and adds
+    detection for various bots [by @liviuconcioiu, @sgiehl] (Closes:
+    #6986)
+  * Detect new brands Horizont and Detect devices for several existing
+    brands [by @sanchezzzhak, @sgiehl] (Closes: #6987)
+  * Fixed minor syntax errors in some of the regular expressions
+    (Closes: #6990)
+  * Detect new brands iSafe Mobile, Redfox, Tigers, Vinabox, Beista,
+    YOTOPT and Detect devices for several existing brands [by
+    @sanchezzzhak] (Closes: #6993)
+  * Detect new brand TOSCIDO and Detect devices for several existing
+    brands [by @sanchezzzhak, @sgiehl] (Closes: #6994)
+  * Detect new brands: OMIX, Technopc and Detect devices for several
+    existing brands [by @sanchezzzhak, @sgiehl] (Closes: #6995)
+  * Detect new brands: b2m, Koslam, Orion, Massgo, S2Tel and Detect
+    devices for several existing brands [by @sanchezzzhak, @sgiehl]
+    (Closes: #6998)
+  * Detect new brand Jedi and improve detection of Remix OS [by
+    @sanchezzzhak, @sgiehl] (Closes: #6999)
+  * Adds detection for various apps [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #7001)
+  * Librem phone is counted as an iOS device (Closes: #7003)
+  * Adds detection for Purism brand and fix iOS detection [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #7004)
+  * Adds detection for Plasma Mobile operating system [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #7005)
+  * Detect Fuchsia OS [by @sanchezzzhak, @sgiehl] (Closes: #7006)
+  * Detect new brands: iPEGTOP, Nexa, Hi Nova and Detect devices for
+    several existing brands [by @sanchezzzhak, @sgiehl] (Closes: #7007)
+  * Adds detection for Noontec brand, improves detection for Google,
+    PocketBook, Samsung, Sony devices, Android, FreeBSD, Android
+    Browser, Tizen Browser [by @liviuconcioiu, @sanchezzzhak] (Closes:
+    #7010)
+  * Adds detection for Android TV, Foresight Linux, Kanotix, LindowsOS,
+    Linspire, moonOS, Pardus, Zenwalk operating systems [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #7011)
+  * Detect new brands China Telecom, Royole, U-Magic, DORLAND and Detect
+    devices for several existing brands [by @sanchezzzhak, @sgiehl]
+    (Closes: #7012)
+  * Improves detection for Samsung devices [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7014)
+  * Improves detection for iOS and Apple iPhone [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7015)
+  * Improves detection for Samsung devices [by @liviuconcioiu, @sgiehl]
+    (Closes: #7017)
+  * Add option to filter events in Preview mode [by @AltamashShaikh]
+    (Closes: #340)
+  * Trim whitespace from matomoUrl,idSite,cookieDomain and cookiePath
+    fields [by @AltamashShaikh] (Closes: #421)
+  * If xdebug is enabled then change limit to prevent self-referencing
+    variable loop [by @AltamashShaikh] (Closes: #337)
+  * Added changes for tawktotag to work with new widgetID changes [by
+    @AltamashShaikh] (Closes: #426)
+  * TagManager (variable) values are not reset for tracking, even if
+    they are set to "" or null. [by @AltamashShaikh] (Closes: #440)
+  * Migrate field templates to field vue components [by @diosmosis]
+    (Closes: #408)
+  * Migrate variable management to Vue JS [by @diosmosis] (Closes: #418)
+  * Migrate trigger management to Vue JS [by @diosmosis] (Closes: #419)
+  * Migrate tag management to Vue JS [by @diosmosis] (Closes: #422)
+  * Applies some wording improvements suggested for translations [by
+    @sgiehl] (Closes: #438)
+  * Added code to update dimension even when value is empty or null [by
+    @AltamashShaikh, @tsteur] (Closes: #441)
+  * Add essaytags.com [by @ericguirbal, @spmedia] (Closes: #1310)
+  * Add lsitenonrepeat.com [by @skylarmt, @spmedia] (Closes: #1311)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 25 Aug 2022 10:33:51 +0200
+
 matomo (4.7.1-3) stable; urgency=high
 
   * Get better help message in case of new intallation 

@@ -16,7 +16,7 @@ then
 	exit 1
 fi
 
-if [ ! -z "$2" ] && [ "$2" = "--test" ]
+if [ ! -z "$3" ] && [ "$3" = "--test" ]
 then
 	echo "Test mode enabled, not adding entries to debian/changelog"
 	TEST_MODE=1
@@ -30,7 +30,9 @@ then
 	exit 1
 fi
 
-CHANGELOG_URL=$(wget -O - -q 'https://matomo.org/changelog/' | grep "Matomo $1" | sed 's/.*href=\([^>]*\).*/\1/' | sed -e 's/"//g' -e "s/'//g" | grep ^http | grep "$1/")
+#EG Remove last control on version to be more permisive 
+#CHANGELOG_URL=$(wget -O - -q 'https://matomo.org/changelog/' | grep "Matomo $1" | sed 's/.*href=\([^>]*\).*/\1/' | sed -e 's/"//g' -e "s/'//g" | grep ^http | grep "$1/")
+CHANGELOG_URL=$(wget -O - -q 'https://matomo.org/changelog/' | grep "Matomo.* $1" | sed 's/.*href=\([^>]*\).*/\1/' | sed -e 's/"//g' -e "s/'//g" | grep ^http)
 
 if ! echo "$CHANGELOG_URL" | grep --quiet --ignore-case http
 then
@@ -41,7 +43,7 @@ fi
 echo "Changelog url found at $CHANGELOG_URL"
 
 wget -O - -q "$CHANGELOG_URL" | \
-	sed -n "/List of.*in Matomo $1.*>$/,/<\/ul>/p;" | \
+	sed -n "/List of.*in Matomo $2.*>$/,/<\/ul>/p;" | \
 	grep -e 'dev.matomo.org/trac/ticket' -e 'github.com/matomo-org' | \
 	sed -e :a -e 's/<[^>]*>//g;/</N;//ba' | \
 	sed '/^$/d' | \

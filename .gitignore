@@ -20,3 +20,4 @@ piwik
 piwik-*.tar.gz
 piwik-*.zip
 piwik-*.asc
+pubkey.asc

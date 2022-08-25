@@ -26,6 +26,8 @@ install: build
 	@$(MAKE) checkfetch DESTDIR=$(CURDIR)/$d
 	@$(MAKE) cleanup DESTDIR=$(CURDIR)/$d
 	@$(MAKE) checkconfig DESTDIR=$(CURDIR)/$d
+	@$(MAKE) checkmatomoinstall DESTDIR=$(CURDIR)/$d
+	@$(MAKE) checkmatomorootdir DESTDIR=$(CURDIR)/$d
 	@dh_install
 	@dh_lintian
 	@dh_link

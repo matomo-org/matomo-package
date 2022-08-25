@@ -11,10 +11,10 @@ _Description: Enable automatic database upgrade for your Piwik installation?
  have proper backup in place and keep in mind that major Piwik version
  updates may come with many DB updates that can take a long time.
  .
- If you select "yes", the database update will be executed and it remains as
+ If enable, the database update will be executed and it remains as
  such for all future package upgrades when required.
  .
- If you select "no", you will need to take care of database updates yourself
+ If disable, you will need to take care of database updates yourself
  after a package upgrade. In such a case, Piwik will show the list of
  database queries that need to be executed in the UI.
  .
@@ -33,10 +33,10 @@ _Description: Enable automatic database upgrade for your Matomo (Piwik) installa
  have proper backup in place and keep in mind that major Matomo (Piwik) version
  updates may come with many DB updates that can take a long time.
  .
- If you select "yes", the database update will be executed and it remains as
+ If enable, the database update will be executed and it remains as
  such for all future package upgrades when required.
  .
- If you select "no", you will need to take care of database updates yourself
+ If disable, you will need to take care of database updates yourself
  after a package upgrade. In such a case, Piwik will show the list of
  database queries that need to be executed in the UI.
  .

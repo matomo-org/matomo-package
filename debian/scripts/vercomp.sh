@@ -8,6 +8,7 @@ if [[ -z "$1" ]] || [[ -z "$2" ]]; then
 fi
 if [[ "$1" == "$2" ]]; then
 	echo 0
+	exit 0
 fi
 
 if [[ "$(echo -e "$1\n$2" | sort --version-sort | head -n1)" == "$1" ]]; then

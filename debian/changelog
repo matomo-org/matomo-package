@@ -1,3 +1,19 @@
+matomo (4.10.1-1) stable; urgency=high
+
+  * Releasing Matomo 4.10.1
+  * Show spark lines correctly in KPI widget when using segments [by
+    @diosmosis] (Closes: #19209)
+  * Fix manifest.json sending HTTP-Status 403 [by @sgiehl] (Closes:
+    #19251)
+  * Set default hasExtraPlugin in campaign builder component to true [by
+    @diosmosis] (Closes: #19241)
+  * Make CustomDimensions available in Segment Editor [by @diosmosis]
+    (Closes: #19237)
+  * Set default null/falsey value in FieldNumber to 0 to match previous
+    behavior [by @diosmosis] (Closes: #19262)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 25 Aug 2022 10:48:12 +0200
+
 matomo (4.10.0-1) stable; urgency=high
 
   * Releasing Matomo 4.10.0

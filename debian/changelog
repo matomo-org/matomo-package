@@ -1,3 +1,68 @@
+matomo (4.10.0-1) stable; urgency=high
+
+  * Releasing Matomo 4.10.0
+  * Data protection: Hide visitor id in visits log if profile is
+    disabled [by @sgiehl] (Closes: #18884)
+  * Make Widgetize page translatable [by @korve, @sgiehl] (Closes:
+    #19157)
+  * Fix console command to disable 2FA for a user [by @sgiehl] (Closes:
+    #18947)
+  * Fix display issue with z-index for widgets that use tables with
+    embedded dashboards [by @sgiehl] (Closes: #19125)
+  * Ensure JS tracker unload event is triggered in edge cases to make
+    sure tracking requests are sent [by @peterhashair] (Closes: #18810)
+  * Make JSON config / package static files unreachable via a GET
+    request [by @sgiehl] (Closes: #18128)
+  * System check - don't request private directories when disabled [by
+    @bx80] (Closes: #18967)
+  * Fix error when setting license key from command line [by @bx80,
+    @justinvelluppillai] (Closes: #19118)
+  * Fix error when adding new goals if no previous goals exist for
+    website/measurable [by @MichaelRoosz] (Closes: #19124)
+  * PHP8.1 compatibility fixes in referrers plugin [by @MichaelRoosz]
+    (Closes: #19127)
+  * Create assets folder if it is missing when writing Report [by
+    @samjf, @sgiehl] (Closes: #19088)
+  * Ensure required translations are loaded for Goal management [by
+    @sgiehl, @justinvelluppillai] (Closes: #19102)
+  * Add languageName property to PiwikGlobal type [by @diosmosis]
+    (Closes: #19113)
+  * Rename MenuDropdown component to avoid any case mismatches [by
+    @sgiehl, @justinvelluppillai] (Closes: #19156)
+  * Tag Manager: Change the location of Preview window [by
+    @AltamashShaikh] (Closes: #271)
+  * Fix typo in getAvailableContainerVariables [by @comradekingu,
+    @AltamashShaikh] (Closes: #473)
+  * Updated MatomoTagDescription to remove piwik [by @AltamashShaikh,
+    @tsteur] (Closes: #474)
+  * Use TemplateParameters instead of raw window in PageHostname var [by
+    @ulcuber, @AltamashShaikh] (Closes: #475)
+  * Improves detection for generic bots [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7089)
+  * Adds detection for Amazon ELB bot [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #7091)
+  * Detect new brands: X-AGE, QLink and devices for several existing
+    brands [by @sanchezzzhak, @sgiehl] (Closes: #7093)
+  * Detect Open Browser [by @sanchezzzhak, @sgiehl] (Closes: #7095)
+  * Detect browsers: BrowseHere, Midori Lite, Pure Lite Browser, Berry
+    Browser, Fulldive, Hi Browser,  SuperFast Browser. Amaze Browser,
+    Smart Search & Web Browser, Aloha Browser Lite  [by @sanchezzzhak,
+    @sgiehl] (Closes: #7097)
+  * Detect new brands: Aoro, EBEN, VUCATIMES and Detect devices for
+    several existing brands  [by @sanchezzzhak, @sgiehl] (Closes: #7098)
+  * Detect new brands: Zonko, Zeeker, TJC, HOTREALS and Detect devices
+    for several existing brands [by @sanchezzzhak] (Closes: #7100)
+  * Add socialine.net [by @ericguirbal, @spmedia] (Closes: #1313)
+  * Add glktfw.net [by @ericguirbal, @spmedia] (Closes: #1314)
+  * Add advertisefree.co.uk [by @metmarkosaric, @spmedia] (Closes:
+    #1315)
+  * Add hilaryblog.top [by @ericguirbal, @spmedia] (Closes: #1316)
+  * Add goodcoffeepremium.com [by @ericguirbal, @spmedia] (Closes:
+    #1317)
+  * Add kimblog.top [by @ericguirbal, @spmedia] (Closes: #1319)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 25 Aug 2022 10:44:08 +0200
+
 matomo (4.9.1-1) stable; urgency=high
 
   * Releasing Matomo 4.9.1

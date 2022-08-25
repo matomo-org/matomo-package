@@ -1,3 +1,18 @@
+matomo (4.9.1-1) stable; urgency=high
+
+  * Releasing Matomo 4.9.1
+  * Perform adblock test after page has finished loading, not
+    immediately [by @diosmosis] (Closes: #19106)
+  * Fix PHP 8.1 deprecation warning [by @sgiehl] (Closes: #19103)
+  * [Vue] add polyfill for String.replaceAll [by @diosmosis] (Closes:
+    #19110)
+  * Ensure required translations are loaded for Goal management [by
+    @sgiehl] (Closes: #19102)
+  * Fix the saving of setting "Also use the Anonymized IP addresses when
+    enriching visits." [by @diosmosis] (Closes: #19094)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 25 Aug 2022 10:40:02 +0200
+
 matomo (4.9.0-1) stable; urgency=high
 
   * Releasing Matomo 4.9.0

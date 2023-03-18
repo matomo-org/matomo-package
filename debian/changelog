@@ -1,3 +1,472 @@
+matomo (4.11.0-1) stable; urgency=high
+
+  * Releasing Matomo 4.11.0
+  * Invite new users in Matomo, rather than creating them directly [by
+    @diosmosis, @peterhashair] (Closes: #13321)
+  * Notify that requests to matomo.org will soon use HTTPS by default
+    [by @peterhashair] (Closes: #19081)
+  * Goal tracking: New Report "Top Landing Pages URLs/Titles"  for each
+    goal (and also "Pages where goals are triggered") [by @bx80]
+    (Closes: #2030)
+  * Add Goals visualisation for Pages reports in behaviour category [by
+    @bx80] (Closes: #14974)
+  * Sparklines show correct data in all goals reports [by @sgiehl]
+    (Closes: #19206)
+  * Show sparkline evolution figures for visits, goals and ecommerce
+    overviews [by @bx80] (Closes: #10716)
+  * Add refresh / reload keyboard shortcut for visualizations (eg
+    tables, pie, bar chart) [by @korve] (Closes: #11047)
+  * Fix referrer attribution cookie not set if no tracking request is
+    sent, resulting in wrong attribution [by @sgiehl] (Closes: #18809)
+  * Fix error in php8.1 running console config:get command [by @sgiehl]
+    (Closes: #19225)
+  * Show a notification if PHP version is end of life [by @sgiehl]
+    (Closes: #19421)
+  * Ensure Safari browser shows the information notice [by
+    @peterhashair] (Closes: #19244)
+  * Fix anchor links issue within Matomo [by @sgiehl] (Closes: #19252)
+  * Fix for undefined array index error when rendering sparklines [by
+    @bx80] (Closes: #19275)
+  * Fixes problem where dashboards can't be copied to users in certain
+    circumstances [by @peterhashair, @sgiehl] (Closes: #18692)
+  * When a segment is shown, and no data is there, then show accurate
+    error message when segment won't be archived  [by @peterhashair]
+    (Closes: #19011)
+  * Preserve rows to display on Visits overview (with graph) (Closes:
+    #11046)
+  * Improve memory management in DataTable/CSV [by @sgiehl] (Closes:
+    #19158)
+  * Take care to always 'return request' in
+    appendAvailablePerformanceMetrics [by @danielpunkass, @sgiehl]
+    (Closes: #19232)
+  * Add utility function for pattern that issues a single AJAX request
+    at a time [by @diosmosis, @peterhashair] (Closes: #19239)
+  * Add 429 (rate limited) response code [by @JasonMortonNZ,
+    @justinvelluppillai] (Closes: #19245)
+  * Composer: Revise project type from "application" to "project" [by
+    @pixelbrackets, @sgiehl] (Closes: #19268)
+  * Use correct async init method to detect when tracker is loaded [by
+    @AltamashShaikh] (Closes: #484)
+  * Allow dynamic height on Tag manager preview [by @korve,
+    @AltamashShaikh] (Closes: #477)
+  * "Observe DOM changes" in Visibility Trigger causes JS error on load
+    [by @AltamashShaikh] (Closes: #481)
+  * Add current PHP versions to Travis CI tests [by @pixelbrackets,
+    @sgiehl] (Closes: #70)
+  * Fix build badge and remove failing images in Travis CI tests [by
+    @pixelbrackets, @sgiehl] (Closes: #71)
+  * Import fails when Referrer field is not present using Regex format
+    [by @kuzi-moto] (Closes: #335)
+  * Set referrer to empty string if it doesn't exist [by @kuzi-moto,
+    @sgiehl] (Closes: #336)
+  * More virtualization of MatomoTracker class  [by @Demichev] (Closes:
+    #103)
+  * Add katrd.xyz [by @ericguirbal, @spmedia] (Closes: #1322)
+  * Detect new brands: Sylvania, Future Mobile Technology, MBI, OUJIA,
+    Qware  and Detect devices for several existing brands  [by
+    @sanchezzzhak, @sgiehl] (Closes: #7111)
+  * Detect httplib2 [by @sanchezzzhak, @sgiehl] (Closes: #7112)
+  * Adds detection for Tesla Browser [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #7117)
+  * Adds detection for Patchwatch, WhereGoes [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7118)
+  * Adds detection for various apps and improves version detection for
+    Windows [by @liviuconcioiu, @sanchezzzhak] (Closes: #7119)
+  * Improves detection for Tesla, Xiaomi devices [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7120)
+  * Improvement of condition for detection the platform when using
+    clienthints [by @sanchezzzhak, @sgiehl] (Closes: #7121)
+  * Detect devices for existing brands  [by @sanchezzzhak] (Closes:
+    #7122)
+  * Adds detection for InternetMeasurement, masscan-ng bots [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #7123)
+  * Adds detection for Sidekick and Wave Browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7124)
+  * Improves version detection for iOS and improves detection for Opera
+    GX [by @liviuconcioiu, @sanchezzzhak] (Closes: #7125)
+  * Adds detection for various bots [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #7126)
+  * Detect new brands: AFFIX, Listo, Aquarius and Detect devices for
+    several existing brands  [by @sanchezzzhak] (Closes: #7128)
+  * Detect devices for existing brands [by @sanchezzzhak, @sgiehl]
+    (Closes: #7130)
+  * Detect devices for existing brands and Detect Pi Browser [by
+    @sanchezzzhak, @sgiehl] (Closes: #7131)
+  * Detect devices for existing brands [by @sanchezzzhak, @sgiehl]
+    (Closes: #7133)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 25 Aug 2022 10:52:46 +0200
+
+matomo (4.10.1-1) stable; urgency=high
+
+  * Releasing Matomo 4.10.1
+  * Show spark lines correctly in KPI widget when using segments [by
+    @diosmosis] (Closes: #19209)
+  * Fix manifest.json sending HTTP-Status 403 [by @sgiehl] (Closes:
+    #19251)
+  * Set default hasExtraPlugin in campaign builder component to true [by
+    @diosmosis] (Closes: #19241)
+  * Make CustomDimensions available in Segment Editor [by @diosmosis]
+    (Closes: #19237)
+  * Set default null/falsey value in FieldNumber to 0 to match previous
+    behavior [by @diosmosis] (Closes: #19262)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 25 Aug 2022 10:48:12 +0200
+
+matomo (4.10.0-1) stable; urgency=high
+
+  * Releasing Matomo 4.10.0
+  * Data protection: Hide visitor id in visits log if profile is
+    disabled [by @sgiehl] (Closes: #18884)
+  * Make Widgetize page translatable [by @korve, @sgiehl] (Closes:
+    #19157)
+  * Fix console command to disable 2FA for a user [by @sgiehl] (Closes:
+    #18947)
+  * Fix display issue with z-index for widgets that use tables with
+    embedded dashboards [by @sgiehl] (Closes: #19125)
+  * Ensure JS tracker unload event is triggered in edge cases to make
+    sure tracking requests are sent [by @peterhashair] (Closes: #18810)
+  * Make JSON config / package static files unreachable via a GET
+    request [by @sgiehl] (Closes: #18128)
+  * System check - don't request private directories when disabled [by
+    @bx80] (Closes: #18967)
+  * Fix error when setting license key from command line [by @bx80,
+    @justinvelluppillai] (Closes: #19118)
+  * Fix error when adding new goals if no previous goals exist for
+    website/measurable [by @MichaelRoosz] (Closes: #19124)
+  * PHP8.1 compatibility fixes in referrers plugin [by @MichaelRoosz]
+    (Closes: #19127)
+  * Create assets folder if it is missing when writing Report [by
+    @samjf, @sgiehl] (Closes: #19088)
+  * Ensure required translations are loaded for Goal management [by
+    @sgiehl, @justinvelluppillai] (Closes: #19102)
+  * Add languageName property to PiwikGlobal type [by @diosmosis]
+    (Closes: #19113)
+  * Rename MenuDropdown component to avoid any case mismatches [by
+    @sgiehl, @justinvelluppillai] (Closes: #19156)
+  * Tag Manager: Change the location of Preview window [by
+    @AltamashShaikh] (Closes: #271)
+  * Fix typo in getAvailableContainerVariables [by @comradekingu,
+    @AltamashShaikh] (Closes: #473)
+  * Updated MatomoTagDescription to remove piwik [by @AltamashShaikh,
+    @tsteur] (Closes: #474)
+  * Use TemplateParameters instead of raw window in PageHostname var [by
+    @ulcuber, @AltamashShaikh] (Closes: #475)
+  * Improves detection for generic bots [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7089)
+  * Adds detection for Amazon ELB bot [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #7091)
+  * Detect new brands: X-AGE, QLink and devices for several existing
+    brands [by @sanchezzzhak, @sgiehl] (Closes: #7093)
+  * Detect Open Browser [by @sanchezzzhak, @sgiehl] (Closes: #7095)
+  * Detect browsers: BrowseHere, Midori Lite, Pure Lite Browser, Berry
+    Browser, Fulldive, Hi Browser,  SuperFast Browser. Amaze Browser,
+    Smart Search & Web Browser, Aloha Browser Lite  [by @sanchezzzhak,
+    @sgiehl] (Closes: #7097)
+  * Detect new brands: Aoro, EBEN, VUCATIMES and Detect devices for
+    several existing brands  [by @sanchezzzhak, @sgiehl] (Closes: #7098)
+  * Detect new brands: Zonko, Zeeker, TJC, HOTREALS and Detect devices
+    for several existing brands [by @sanchezzzhak] (Closes: #7100)
+  * Add socialine.net [by @ericguirbal, @spmedia] (Closes: #1313)
+  * Add glktfw.net [by @ericguirbal, @spmedia] (Closes: #1314)
+  * Add advertisefree.co.uk [by @metmarkosaric, @spmedia] (Closes:
+    #1315)
+  * Add hilaryblog.top [by @ericguirbal, @spmedia] (Closes: #1316)
+  * Add goodcoffeepremium.com [by @ericguirbal, @spmedia] (Closes:
+    #1317)
+  * Add kimblog.top [by @ericguirbal, @spmedia] (Closes: #1319)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 25 Aug 2022 10:44:08 +0200
+
+matomo (4.9.1-1) stable; urgency=high
+
+  * Releasing Matomo 4.9.1
+  * Perform adblock test after page has finished loading, not
+    immediately [by @diosmosis] (Closes: #19106)
+  * Fix PHP 8.1 deprecation warning [by @sgiehl] (Closes: #19103)
+  * [Vue] add polyfill for String.replaceAll [by @diosmosis] (Closes:
+    #19110)
+  * Ensure required translations are loaded for Goal management [by
+    @sgiehl] (Closes: #19102)
+  * Fix the saving of setting "Also use the Anonymized IP addresses when
+    enriching visits." [by @diosmosis] (Closes: #19094)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 25 Aug 2022 10:40:02 +0200
+
+matomo (4.9.0-1) stable; urgency=high
+
+  * Releasing Matomo 4.9.0
+  * New segments for 'Ecommerce Order Revenue' and 'Revenue left in
+    cart' [by @peterhashair] (Closes: #15985)
+  * Detect when the website is a Single Page App (SPA) or a Progressive
+    Web App (PWA) and link to the relevant guide [by @peterhashair]
+    (Closes: #18066)
+  * Matomo knowledgebase discoverability improvements [by
+    @justinvelluppillai] (Closes: #18934)
+  * Improve performance in deleteLogDataForDeletedSites when deleting
+    data for more than one site (Closes: #18618)
+  * Clarify the Newsletter Opt-in message during installation  [by
+    @peterhashair] (Closes: #18787)
+  * Handle case only file name updates on case insensitive file systems
+    [by @bx80, @justinvelluppillai] (Closes: #18865)
+  * Fix Sarawak and Terengganu on Visitors Interactive Map Widget [by
+    @sgiehl] (Closes: #19006)
+  * Inline Help - show report generation date on "Overview" reports with
+    Evolution Graphs [by @peterhashair] (Closes: #18806)
+  * Don't log an error when not supported browser is used [by @bx80]
+    (Closes: #17738)
+  * Don't create test cookies when cookies are disabled [by
+    @justinvelluppillai] (Closes: #17892)
+  * Set the _pk_id in the past when deleting cookie.  [by
+    @aleksijohansson] (Closes: #18902)
+  * Remove subtable tooltip if rows are displayed expanded upon search
+    [by @sgiehl] (Closes: #18873)
+  * Minor performance improvement for archive invalidator [by @tsteur]
+    (Closes: #18990)
+  * Multi server environment in maintenance mode shouldn't result in 503
+    response [by @peterhashair] (Closes: #18054)
+  * Prevent archiving of data for time periods that start in the future
+    [by @bx80] (Closes: #18790)
+  * Apply max execution query time to Live.getCounters API and
+    queryAdjacentVisitorId method [by @tsteur] (Closes: #18852)
+  * Migrate Dashboard directive/model to VueJS [by @diosmosis] (Closes:
+    #18883)
+  * Fix PHP8 Trim Error [by @deybhayden, @sgiehl] (Closes: #18903)
+  * Migrate custom dimension management [by @diosmosis, @sgiehl]
+    (Closes: #18926)
+  * Migrate LanguagesManager to VueJS [by @diosmosis] (Closes: #18931)
+  * Migrate live widget refresh to VueJS [by @diosmosis, @sgiehl]
+    (Closes: #18932)
+  * Migrate multisites plugin components to VueJS [by @diosmosis]
+    (Closes: #18939)
+  * Rename dimensions and segments with Server time to Site Time/Time in
+    UTC [by @AltamashShaikh, @sgiehl] (Closes: #18956)
+  * Migrate AnonymizeIpController to VueJS [by @diosmosis, @sgiehl]
+    (Closes: #18975)
+  * Migrate DoNotTrackPreferenceController to VueJS [by @diosmosis,
+    @sgiehl] (Closes: #18989)
+  * Fix issue where date ranges might include too many subperiods  [by
+    @sgiehl] (Closes: #18995)
+  * Add new option to Matomo Variable to disable browser feature
+    detection in Matomo Tag (Closes: #443)
+  * Improve tracking capabilities of visibility events [by @tomper00,
+    @AltamashShaikh] (Closes: #321)
+  * Fix bug preventing "0" value for trigger condition [by @sgiehl]
+    (Closes: #450)
+  * Migrate version management to VueJS [by @diosmosis] (Closes: #423)
+  * Migrate container management to VueJS [by @diosmosis] (Closes: #424)
+  * Add detection for new device type wearables  (Closes: #5316)
+  * Introduce browser client hint detection [by @sgiehl] (Closes: #6989)
+  * Detect devices for brands: Teclast, Readboy, Vivo, Xiaomi, Conquest,
+    Huawei, AllDocube, OPPO, Meizu, Newman, Lava, Hisense [by
+    @sanchezzzhak, @sgiehl] (Closes: #7018)
+  * Detect new brands Angelcare, Hamlet, Vorcom and Detect devices for
+    several existing brands  [by @sanchezzzhak, @sgiehl] (Closes: #7021)
+  * Add engine for CCleaner and ToGate [by @liviuconcioiu, @sgiehl]
+    (Closes: #7022)
+  * Improve version detection for Chrome OS [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7023)
+  * Adds detection for ClearPHONE, Doppio, Jio, Point Mobile, Schok,
+    Vios devices, improves detection for Alcatel, Allview, AT&T, Blu,
+    Crosscall, Digicel, Hipstreet, Hisense, HTC, Huawei, Hurricane,
+    Hyundai, iHunt, Kalley, Kodak, KRIP, LG, Logic, Mione, Motorola,
+    OnePlus, OpelMobile, Pantech, Positivo, Quantum, Realme, Sky, TCL,
+    Techwood, Tecno Mobile, Tigers, Vivo, Wiko, Wolki, Xiaomi, Yes,
+    Yezz, ZTE devices, adds detection for ClearOS Mobile [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #7025)
+  * Adds detection for CyBrowser, Hi Browser, Navegador, improves
+    detection for Opera, UC Browser, UC Browser Mini [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7027)
+  * Adds detection for AdBlock Browser and YouCare [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7028)
+  * Adds detection for Decentr browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7029)
+  * Improve detection of Chromium GOST (Closes: #7030)
+  * Adds detection for China OS, PocketBook Browser, improves detection
+    for Linux, Android Browser, Tizen Browser [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7032)
+  * Adds detection for various bots and libraries [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7033)
+  * Detect new brands: Autan, UNNO, VDVD, Shanling, ecom and Detect
+    devices for several existing brands [by @sanchezzzhak, @sgiehl]
+    (Closes: #7035)
+  * Add Detection for Samsung Watch [by @sanchezzzhak, @sgiehl] (Closes:
+    #7036)
+  * Add client hints fixture for Whale Browser [by @liviuconcioiu,
+    @sgiehl] (Closes: #7040)
+  * Improves detection for CentOS, GNU/Linux, PCLinuxOS, Red Hat, adds
+    detection for Amazon Linux, TencentOS, adds detection for cPanel
+    HTTP Client, ALittle Client, PHP cURL Class, SafeIP, NAVER Mail and
+    adds detection for various bots [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #7045)
+  * Add client hints fixture for Opera GX [by @liviuconcioiu, @sgiehl]
+    (Closes: #7046)
+  * Detect new brands LOKMAT, Joy, iWaylink and Detect devices for
+    several existing brands  [by @sanchezzzhak, @sgiehl] (Closes: #7051)
+  * Adds detection for Bittium, EGL, Logic Instrument brands, improves
+    detection for AllDocube, Brondi, Hi, Hot Pepper, Energizer, Huawei,
+    iPro, Sky, X-View brands, adds detection for Bliss OS [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #7052)
+  * Adds detection for GeoIP Update [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #7055)
+  * Adds detection for Dolphin Zero, Dolphin, OH Private Browser, Atlas,
+    Jelly browsers  [by @sanchezzzhak, @sgiehl] (Closes: #7056)
+  * Detect Flow Browser [by @sanchezzzhak, @sgiehl] (Closes: #7057)
+  * Detect browsers: UC Browser Mini, Soul Browser, Indian UC Mini
+    Browser, Opera, Opera Mini, Fast Explorer, Comfort Browser, CM Mini,
+    SilverMob US [by @sanchezzzhak] (Closes: #7061)
+  * Improves detection for Delta Browser, Monument Browser, Super Fast
+    Browser and adds detection for APUS Browser, Ask.com, Ayoba,
+    Savannah Browser, SavySoda, SnapU2B, Surf Browser, Ui Browser Mini
+    [by @liviuconcioiu, @sanchezzzhak] (Closes: #7062)
+  * Implement Blink version detection via Chrome/ token. [by @JBYoshi,
+    @sanchezzzhak] (Closes: #7063)
+  * Improves detection for generic bots [by @liviuconcioiu, @sgiehl]
+    (Closes: #7064)
+  * TVs detected as smartphone (Closes: #7066)
+  * Improves detection for EKO, Kogan, Sharp, Sony, Vodafone devices [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #7067)
+  * Detect new brands: YU Fly, VOGA, Haipai, Huagan, TD Tech and Detect
+    devices for several existing brands [by @sanchezzzhak, @sgiehl]
+    (Closes: #7069)
+  * Adds detection for CentOS Stream, improves detection for CentOS,
+    Roku OS [by @liviuconcioiu, @sanchezzzhak] (Closes: #7070)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 25 Aug 2022 10:36:19 +0200
+
+matomo (4.8.0-1) stable; urgency=high
+
+  * Releasing Matomo 4.8.0
+  * Add an option to disable fingerprinting / config_id entirely [by
+    @peterhashair] (Closes: #18448)
+  * Make Matomo compatible with PHP8.1 [by @justinvelluppillai,
+    @geekdenz, @sgiehl] (Closes: #17686)
+  * Label shortened when opening multiple subtables [by @peterhashair]
+    (Closes: #18699)
+  * Fix issues with anonymous user language change not persisting due to
+    incorrect setting of cookies with session lifetime [by @sgiehl]
+    (Closes: #18819)
+  * Cache whether a DB supports transaction level or not for slight
+    performance improvement [by @peterhashair] (Closes: #18138)
+  * Comparing two segments in goals, sets the graph to all zeros for the
+    first segment (Closes: #18783)
+  * Update JQuery UI to 1.13.0 [by @sgiehl] (Closes: #18718)
+  * Fixes incorrect headline when adding a goal [by @AltamashShaikh,
+    @sgiehl] (Closes: #18758)
+  * Minor marketplace tweaks to mention premium features free trial [by
+    @peterhashair] (Closes: #18479)
+  * Fix page overlay sidebar authentication failure [by @sgiehl]
+    (Closes: #18538)
+  * Ensure Google SEO metrics are returned with correct type [by
+    @sgiehl] (Closes: #18702)
+  * Fix handling of invalid limit values for Live.getVisitorProfile [by
+    @sgiehl] (Closes: #18711)
+  * Fix invalid parameter handling for PHP 8 in API.getBulkRequest [by
+    @sgiehl] (Closes: #18720)
+  * Check folder & permission before downloading a GeoIP database [by
+    @sgiehl] (Closes: #18785)
+  * Validate minTimestamp parameter for Live.getLastVisitsDetails [by
+    @sgiehl] (Closes: #18788)
+  * Ensure Dashboard API methods can't be performed by or for anonymous
+    user [by @sgiehl, @peterhashair] (Closes: #18798)
+  * Update orange brand color less variable in morpheus theme [by
+    @sgiehl] (Closes: #18709)
+  * Fix possible dashboard warning [by @sgiehl] (Closes: #18829)
+  * Migrate sitesmanager controller and twig templates to Vue components
+    [by @diosmosis, @sgiehl] (Closes: #18564)
+  * Migrate capabilities edit component to Vue [by @diosmosis, @sgiehl]
+    (Closes: #18566)
+  * Migrate user-permissions-edit component to vue [by @diosmosis,
+    @sgiehl] (Closes: #18572)
+  * Migrate user edit form directive to Vue component [by @diosmosis]
+    (Closes: #18576)
+  * Migrate paged users list component to vue [by @diosmosis] (Closes:
+    #18582)
+  * Migrate usersmanager root component to Vue [by @diosmosis] (Closes:
+    #18583)
+  * add dummy sitesManagerAPI service back in since it is referenced
+    (but not used) by a premium feature [by @diosmosis] (Closes: #18834)
+  * Segmented visits log might show incorrect title [by @sgiehl]
+    (Closes: #18775)
+  * Improve performance of some archiving queries [by @tsteur] (Closes:
+    #18797)
+  * Add mechanism to initialize vue components outside of angularjs [by
+    @diosmosis, @peterhashair] (Closes: #18804)
+  * Improves many detections, adds detection for various apps and adds
+    detection for various bots [by @liviuconcioiu, @sgiehl] (Closes:
+    #6986)
+  * Detect new brands Horizont and Detect devices for several existing
+    brands [by @sanchezzzhak, @sgiehl] (Closes: #6987)
+  * Fixed minor syntax errors in some of the regular expressions
+    (Closes: #6990)
+  * Detect new brands iSafe Mobile, Redfox, Tigers, Vinabox, Beista,
+    YOTOPT and Detect devices for several existing brands [by
+    @sanchezzzhak] (Closes: #6993)
+  * Detect new brand TOSCIDO and Detect devices for several existing
+    brands [by @sanchezzzhak, @sgiehl] (Closes: #6994)
+  * Detect new brands: OMIX, Technopc and Detect devices for several
+    existing brands [by @sanchezzzhak, @sgiehl] (Closes: #6995)
+  * Detect new brands: b2m, Koslam, Orion, Massgo, S2Tel and Detect
+    devices for several existing brands [by @sanchezzzhak, @sgiehl]
+    (Closes: #6998)
+  * Detect new brand Jedi and improve detection of Remix OS [by
+    @sanchezzzhak, @sgiehl] (Closes: #6999)
+  * Adds detection for various apps [by @liviuconcioiu, @sanchezzzhak]
+    (Closes: #7001)
+  * Librem phone is counted as an iOS device (Closes: #7003)
+  * Adds detection for Purism brand and fix iOS detection [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #7004)
+  * Adds detection for Plasma Mobile operating system [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #7005)
+  * Detect Fuchsia OS [by @sanchezzzhak, @sgiehl] (Closes: #7006)
+  * Detect new brands: iPEGTOP, Nexa, Hi Nova and Detect devices for
+    several existing brands [by @sanchezzzhak, @sgiehl] (Closes: #7007)
+  * Adds detection for Noontec brand, improves detection for Google,
+    PocketBook, Samsung, Sony devices, Android, FreeBSD, Android
+    Browser, Tizen Browser [by @liviuconcioiu, @sanchezzzhak] (Closes:
+    #7010)
+  * Adds detection for Android TV, Foresight Linux, Kanotix, LindowsOS,
+    Linspire, moonOS, Pardus, Zenwalk operating systems [by
+    @liviuconcioiu, @sanchezzzhak] (Closes: #7011)
+  * Detect new brands China Telecom, Royole, U-Magic, DORLAND and Detect
+    devices for several existing brands [by @sanchezzzhak, @sgiehl]
+    (Closes: #7012)
+  * Improves detection for Samsung devices [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7014)
+  * Improves detection for iOS and Apple iPhone [by @liviuconcioiu,
+    @sanchezzzhak] (Closes: #7015)
+  * Improves detection for Samsung devices [by @liviuconcioiu, @sgiehl]
+    (Closes: #7017)
+  * Add option to filter events in Preview mode [by @AltamashShaikh]
+    (Closes: #340)
+  * Trim whitespace from matomoUrl,idSite,cookieDomain and cookiePath
+    fields [by @AltamashShaikh] (Closes: #421)
+  * If xdebug is enabled then change limit to prevent self-referencing
+    variable loop [by @AltamashShaikh] (Closes: #337)
+  * Added changes for tawktotag to work with new widgetID changes [by
+    @AltamashShaikh] (Closes: #426)
+  * TagManager (variable) values are not reset for tracking, even if
+    they are set to "" or null. [by @AltamashShaikh] (Closes: #440)
+  * Migrate field templates to field vue components [by @diosmosis]
+    (Closes: #408)
+  * Migrate variable management to Vue JS [by @diosmosis] (Closes: #418)
+  * Migrate trigger management to Vue JS [by @diosmosis] (Closes: #419)
+  * Migrate tag management to Vue JS [by @diosmosis] (Closes: #422)
+  * Applies some wording improvements suggested for translations [by
+    @sgiehl] (Closes: #438)
+  * Added code to update dimension even when value is empty or null [by
+    @AltamashShaikh, @tsteur] (Closes: #441)
+  * Add essaytags.com [by @ericguirbal, @spmedia] (Closes: #1310)
+  * Add lsitenonrepeat.com [by @skylarmt, @spmedia] (Closes: #1311)
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Thu, 25 Aug 2022 10:33:51 +0200
+
+matomo (4.7.1-3) stable; urgency=high
+
+  * Get better help message in case of new intallation 
+
+ -- Edouard Gaulué <edouard@e-gaulue.com>  Tue, 01 Mar 2022 12:02:11 +0100
+
 matomo (4.7.1-2) stable; urgency=high
 
   * Removal of sizzle license 

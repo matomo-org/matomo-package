@@ -88,10 +88,12 @@ echo "  * Matomo main configuration files are stored in /etc/matomo/"
 echo "  * Matomo crontab file is stored in /etc/cron.d/matomo-archive"
 echo "  * When installing/using matomo, make sure you disable any ads blocker"
 
-# Regenerating .htaccess files reflecting last Matomo version will (shouldn't hurt nginx as stated in the documentation)
-echo "  * Please wait while Matomo is upgrading web server configuration files..."
-echo "    (cf. https://matomo.org/faq/troubleshooting/how-do-i-fix-the-error-private-directories-are-accessible/)"
-php /usr/share/matomo/console core:create-security-files
+if [ -e "/usr/share/matomo/config/config.ini.php" ]; then
+	# Regenerating .htaccess files reflecting last Matomo version will (shouldn't hurt nginx as stated in the documentation)
+	echo "  * Please wait while Matomo is upgrading web server configuration files..."
+	echo "    (cf. https://matomo.org/faq/troubleshooting/how-do-i-fix-the-error-private-directories-are-accessible/)"
+	php /usr/share/matomo/console core:create-security-files
+fi
 
 db_get matomo/automatic-upgrade || true
 if [ "$RET" = "true" ]; then
@@ -110,6 +112,11 @@ fi
 
 if [ -e "/usr/share/matomo/config/config.ini.php" ]; then
 	echo "  * If upgrading, visit index.php?module=Installation&action=systemCheckPage to check and manage your plugins."
+fi
+
+if [ ! -e "/usr/share/matomo/config/config.ini.php" ]; then
+	echo "  * Go to /etc/matomo and finish Apache or NGINX configuration."
+	echo "    Then visit this matomo site you have just set to finish the installation."
 fi
 
 #DEBHELPER#
